@@ -1,0 +1,53 @@
+﻿<?xml version="1.0"?>
+<menu>
+<bar id="bar">
+	<item popup="Connect" onclick="">接続</item>
+	<item popup="Request" onclick="">リクエスト</item>
+	<item popup="Sort" onclick="">ソート</item>
+	<item popup="Help" onclick="">ヘルプ</item>
+</bar>
+<popup id="Connect">
+	<item onclick="top.connectDialog();">接続</item>
+	<hr />
+	<item onclick="top.disconnect();">切断</item>
+	<hr />
+	<item onclick="top.window.close();">アプリケーションの終了</item>
+</popup>
+<popup id="Request">
+	<item onclick="top.importText();">テキストの取り込み</item>
+	<item onclick="top.importMylist();">マイリストの取り込み</item>
+	<hr />
+	<item onclick="top.exportIDs('PlayLog');">再生履歴の出力</item>
+	<item onclick="top.exportIDs('__VideoInformation__PlayLog');">視聴履歴の出力</item>
+</popup>
+<popup id="Sort">
+	<item onclick="top.RequestManager.sort('shuffle');">シャッフル</item>
+	<hr />
+	<item onclick="top.RequestManager.sort('id',  1);">動画ID順(↑)</item>
+	<item onclick="top.RequestManager.sort('id', -1);">動画ID順(↓)</item>
+	<hr />
+	<item onclick="top.RequestManager.sort('view',  1);">再生数順(↑)</item>
+	<item onclick="top.RequestManager.sort('view', -1);">再生数順(↓)</item>
+	<hr />
+	<item onclick="top.RequestManager.sort('comm',  1);">コメント数順(↑)</item>
+	<item onclick="top.RequestManager.sort('comm', -1);">コメント数順(↓)</item>
+	<hr />
+	<item onclick="top.RequestManager.sort('list',  1);">マイリスト数順(↑)</item>
+	<item onclick="top.RequestManager.sort('list', -1);">マイリスト数順(↓)</item>
+	<hr />
+	<item onclick="top.RequestManager.sort('request',  1);">リクエストナンバー順(↑)</item>
+	<item onclick="top.RequestManager.sort('request', -1);">リクエストナンバー順(↓)</item>
+	<hr />
+	<item onclick="top.RequestManager.sort('kiki', 1);">聴き入り度順(↑)</item>
+	<item onclick="top.RequestManager.sort('kiki', -1);">聴き入り度順(↓)</item>
+	<hr />
+	<item onclick="top.RequestManager.sort('myri', 1);">マイリスト率順(↑)</item>
+	<item onclick="top.RequestManager.sort('myri', -1);">マイリスト率順(↓)</item>
+	<hr />
+	<item onclick="top.RequestManager.sort('hiky', 1);">正義値順(↑)</item>
+	<item onclick="top.RequestManager.sort('hiky', -1);">正義値順(↓)</item>
+</popup>
+<popup id="Help">
+	<item onclick="top.alert(top.HTA.ApplicationName+' '+top.HTA.Version);">バージョン情報</item>
+</popup>
+</menu>

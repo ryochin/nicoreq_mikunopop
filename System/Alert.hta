@@ -1,0 +1,43 @@
+<!--NR232にはこのファイルはなかったので、旧verから引っ張ってきましたｗ-->
+<html>
+<head>
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<title>動画情報詳細</title>
+<script type="text/javascript" src="./Utils.js"></script>
+<script type="text/javascript">
+
+//setDialogSize(500, 300);
+
+window.onload = function(){
+	divMSG.innerHTML+=window.dialogArguments;
+}
+
+</script>
+<style type="text/css">
+*{
+	font-size: 12;
+	font-family: "MS UI Gothic";
+}
+body{
+	margin: 12px;
+}
+button{
+	width: 88px;
+}
+#btn{
+	position: absolute;
+	left: 12px;
+	width: 100%;
+	text-align: right;
+}
+</style>
+</head>
+<body bgcolor="buttonface">
+<div id="divMSG">
+</div>
+<div id="btn">
+	<hr>
+	<button onclick="window.close()">OK</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<html>
+<head>
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<title>履歴</title>
+<!--add start-->
+<script type="text/javascript" src="../settings.js"></script>
+<!--add end-->
+<script type="text/javascript" src="./Utils.js"></script>
+<script type="text/javascript">
+
+setDialogSize(400, 200);
+
+window.onload = function(){
+	document.getElementById("export").value = window.dialogArguments;
+//add start
+	if(!settings["Enable2PostHistory"]) document.getElementById("btn2").style.display = "none";
+//add end
+}
+
+//add start
+function postHistory(){
+	var NAME="";
+	if(settings["PlayListSiteName"]==""){
+		NAME = prompt('掲示板に投稿する際に使用する名前を入力してください。\n空白なら名無しでの投稿となります。',settings["PlayListSiteName"]);
+	}else{
+		NAME = settings["PlayListSiteName"];
+	}
+	var xmlhttp = createXMLHttpRequest();
+	var DIR = "internet";
+	var BBS = "2353";
+	var KEY = document.getElementById("atesaki").value;
+	xmlhttp.open("GET","http://jbbs.livedoor.jp/bbs/read.cgi/"+DIR+"/"+BBS+"/"+KEY,false);
+	xmlhttp.send();
+	xmlhttp.responseText.match(/<input type="hidden" name="TIME" value="(.+?)">/)
+	var TIME = RegExp.$1;
+	xmlhttp.open("POST","http://jbbs.livedoor.jp/bbs/write.cgi/"+DIR+"/"+BBS+"/"+KEY,false);
+	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	var postData = "";
+	var data = {
+		"BBS": BBS,
+		"KEY": KEY,
+		"DIR": DIR,
+		"TIME": TIME,
+		"NAME": NAME,
+		"MAIL": settings["PlayListSiteMail"],
+		"MESSAGE": document.getElementById("export").value
+	};
+	for(name in data){
+		postData += name+"="+encodeURIComponent(data[name])+"&";
+	}
+	postData = postData.substring(0, postData.length-1);// 最後の&を消す
+	xmlhttp.send(postData);
+	if(settings["PlayListSiteName"]==""){
+		if(confirm('settings.jsに次の項目を書き加えますか？\nsettings["PlayListSiteName"]="'+NAME+'";\n\n了承した場合、次回から名前を訊かれなくなります。')){
+			try{
+				var fso = new ActiveXObject("Scripting.FileSystemObject");
+				var orgsettings = fso.GetParentFolderName(location.pathname)+"\\settings.js";
+				var settingstmp = fso.GetParentFolderName(location.pathname)+"\\settings.tmp";
+				var readsettings = fso.OpenTextFile(orgsettings);
+				var writesettingstmp = fso.CreateTextFile(settingstmp,true);
+				while(!readsettings.AtEndOfStream){
+					var line = readsettings.ReadLine();
+					if(line.match(/settings\[\"PlayListSiteName\"\]/)){
+						writesettingstmp.WriteLine('settings["PlayListSiteName"] = "' + NAME + '";');
+					}else{
+						writesettingstmp.WriteLine(line);
+					}
+				}
+				readsettings.Close();
+				writesettingstmp.Close();
+				fso.CopyFile(settingstmp, orgsettings, true);
+				fso.DeleteFile(settingstmp);
+			}catch(e){
+				alert("失敗");
+			}
+		}
+	}
+}
+
+//add end
+function OK(){
+	window.returnValue = document.getElementById("export").value;
+	window.close();
+}
+</script>
+<style type="text/css">
+*{
+	font-size: 12;
+	font-family: "MS UI Gothic";
+}
+body{
+	margin: 12px;
+}
+button{
+	width: 88px;
+}
+#export{
+	width: 100%;
+	height: expression(
+		document.body.clientHeight - 
+		document.getElementById("text").clientHeight - 
+		document.getElementById("btn").clientHeight  - 
+		54
+	);
+}
+#btn{
+	position: absolute;
+	top: expression(document.body.clientHeight-this.clientHeight-12);
+	left: 12px;
+	width: 100%;
+	text-align: right;
+}
+</style>
+</head>
+<body bgcolor="buttonface" scroll="No">
+<div id="text">
+	テキストエリアにあるのが今回の履歴です。<br>
+	<hr>
+</div>
+<textarea id="export" rows="5" cols="70"></textarea>
+<div id="btn">
+	<hr>
+<!--add start-->
+	<span id="btn2">
+	履歴を<select id="atesaki">
+		<option value="1231411454">初音ミクのライブのプレイリスト</option>
+		<option value="1235282075">VOCALOID生放送のプレイリスト</option>
+	</select>に<button id="POST" onclick="postHistory()">投稿する</button><br /></span>
+<!--add end-->
+	<button id="OK" onclick="OK()">OK</button>　
+	<button onclick="window.returnValue=window.dialogArguments;window.close()">キャンセル</button>
+</div>
+</body>
+</html>

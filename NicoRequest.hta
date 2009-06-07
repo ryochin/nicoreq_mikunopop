@@ -1,0 +1,192 @@
+<html xmlns:HTC>
+<head>
+<meta http-equiv="MSThemeCompatible" content="Yes">
+<!--del <title>NicoRequest</title>-->
+<!--add start-->
+<title>NicoRequest_VocaloidArrange</title>
+<!--add end-->
+<?import namespace="HTC" implementation="./System/Menu.htc" />
+<?import namespace="HTC" implementation="./System/Tab.htc" />
+<script type="text/javascript" src="./settings.js"></script>
+<script type="text/javascript" src="./System/Utils.js"></script>
+<script type="text/javascript" src="./System/NicoLive.js"></script>
+<script type="text/javascript" src="./System/PlayerStatus.js"></script>
+<script type="text/javascript" src="./System/Request.js"></script>
+<script type="text/javascript" src="./System/RequestManager.js"></script>
+<script type="text/javascript" src="./System/Chat.js"></script>
+<script type="text/javascript" src="./System/SocketManager.js"></script>
+<script type="text/javascript" src="./System/Tab.js"></script>
+<script type="text/javascript" src="./System/SofTalk.js"></script>
+<script type="text/javascript" src="./System/Comment.js"></script>
+<script type="text/javascript" src="./System/VideoInformation.js"></script>
+<script type="text/javascript" src="./System/Menu.js"></script>
+<script type="text/javascript" src="./System/Main.js"></script>
+<style type="text/css">
+*{
+	font-size: 12;
+	font-family: "MS UI Gothic";
+}
+body{
+	margin:0px;
+	background-color:ThreeDFace;
+	color:WindowText;
+	cursor:default;
+}
+fieldset{
+	padding: 4px;
+}
+#Menu{
+	width:100%;
+}
+#divState{
+	position:absolute;
+	width:180px;
+	left:expression(document.body.clientWidth-this.clientWidth-3);
+	top:4px;
+}
+#Tab{
+	width:100%;
+}
+#TabContents{
+	padding:4px 2px 2px 2px;
+	overflow:auto;
+	width:100%;
+	height:expression(document.body.clientHeight-Menu.clientHeight-Tab.clientHeight);
+}
+#RequestHTML{
+	overflow:auto;
+	width:100%;
+	height:expression(TabContents.clientHeight-RequestForm.clientHeight);
+}
+</style>
+<!--del <hta:application id="HTA" ApplicationName="NicoRequest" Version="2.3.2" InnerBorder="No" SingleInstance="Yes" Navigable="no" icon="./System/Nico.ico"/>-->
+<!--add start-->
+<hta:application id="HTA" ApplicationName="NicoRequest ｗ２ｋ式VocaloidArrange" Version="2.3.2.3" InnerBorder="No" SingleInstance="Yes" Navigable="no" icon="./System/Nico.ico" contextmenu="no"/>
+<!--add end-->
+</head>
+<body scroll="no">
+<HTC:Menu id="Menu" xml="./System/Menu.xml" />
+<div id="divState" align="right">
+	<span id="playState"></span>　
+	<span id="timeleft"></span>
+</div>
+<HTC:Tab id="Tab" selectedIndex="1">
+	<span>リクエスト</span>
+	<span>コメント</span>
+	<span>動画情報</span>
+	<span>連続コメント</span>
+	<span>オプション</span>
+</HTC:Tab>
+<div id="TabContents">
+	<div id="RequestForm">
+<!--add start-->
+	<div id="PlayJingleForm"></div>
+		 <script>
+			if(settings["jingles"]){
+				document.getElementById("PlayJingleForm").innerHTML = "ジングル ";
+				var sel = document.createElement("select");
+				sel.setAttribute("id", "jingle");
+				for(var i=0,l=settings["jingles"].length;i<l;i++){
+					if(settings["jingles"][i]!=""){
+						var opt = document.createElement("option");
+						opt.appendChild(document.createTextNode(settings["jingles"][i]));
+						opt.setAttribute("value", settings["jingles"][i]);
+						sel.appendChild(opt);
+					}
+				}
+				document.getElementById("PlayJingleForm").appendChild(sel);
+				document.getElementById("PlayJingleForm").innerHTML += " を <input type=\"button\" value=\"流す\" onclick=\"NicoLive.postComment(document.getElementById('jingle').value)\" /><br />";
+			}
+		 </script>
+<!--add end-->
+		<input id="btnPF" type="button" value="4" onclick="playFirst()" title="一番上を再生" style="font-family:marlett;">
+<!--add start-->
+		<input type="button" value="g" onclick="NicoLive.postComment('/stop')" title="停止" style="font-family:marlett;">
+		<input type="button" value="7" onclick="NicoLive.postComment('/soundonly on')" title="音のみに切り替える" style="font-family:marlett;">
+<!--add end-->
+		<input type="button" value="r" onclick="delFirst()" title="一番上を削除" style="font-family:marlett;">
+		<input id="btnPR" type="button" value="s" onclick="playRandom()" title="ランダム再生" style="font-family:marlett;">
+		　<input type="checkbox" id="playSound"><label for="playSound">音のみ</label>
+		<span id="divPlaySub"><input type="checkbox" id="playSub"><label for="playSub">小画面</label></span>
+		　<input id="btnCR" type="button" value="募集" onclick="changeRequest()">
+		<input type="checkbox" id="extraComment"><label for="extraComment">募集/締切の告知</label><br>
+<!--add start-->
+		<input type="button" value="１枠延長" onclick="extend()" />　
+		<input type="button" onclick="LimitTimeReset()" value="リセット" />
+<!--add end-->
+		<hr>
+	</div>
+	<div id="RequestHTML"></div>
+</div>
+<div id="TabContents">
+<!--add start-->
+	<input type="text" id="sendCmt_mail" size="10" />
+	<input type="text" id="sendCmt_text" size="50" />
+	<input type="button" value="主コメする" onclick="NicoLive.postComment(document.getElementById('sendCmt_text').value, document.getElementById('sendCmt_mail').value);document.getElementById('sendCmt_text').value='';document.getElementById('sendCmt_mail').value='';" />
+	<hr />
+<!--add end-->
+	<div id="CommentHTML"></div>
+</div>
+<div id="TabContents">
+	<div id="VideoInformation">
+	</div>
+</div>
+<!--add start-->
+<div id="TabContents">
+	<div id="AutoComment">
+		<div id="divAutoPlay">
+			<fieldset>
+				<legend>主コメント</legend>
+				<input id="AutoCmtBtn" type="button" value="1行出力" onclick="AutoCmtOnePut()"><br><br>
+				<input id="AutoCmAlltBtn" type="button" value="連続出力" onclick="AutoCmtAllPut()">
+				コメント間隔:<input id="AutoCmtInterval" type="text" size="3" value="5">秒<br><br>
+				内容：<br><textarea name="AutoCmtText" rows="10" cols="50"></textarea>
+			</fieldset>
+		</div>
+	</div>
+</div>
+<!--add end-->
+<div id="TabContents">
+	<div id="OptionForm">
+		<div id="divAutoPlay">
+		<fieldset>
+			<legend>自動再生</legend>
+			<input type="checkbox" id="autoPlay" onclick="checkAutoPlay(this.checked)"><label for="autoPlay">自動再生</label>/再生間隔:<input id="autoPlayInterval" type="text" size="3" value="60000">秒/<input type="checkbox" id="autoPlayRandom"><label for="autoPlayRandom">ランダム再生</label><br>
+			<input type="checkbox" id="autoPlayStanby"><label for="autoPlayStanby">ストック数0の場合は待機する</label>
+		</fieldset>
+		</div>
+		<div id="divSofTalk">
+		<fieldset>
+			<legend>SofTalk</legend>
+			<input type="checkbox" id="softalk"><label for="softalk">コメント読み上げ</label>
+		</fieldset>
+		</div>
+		<div id="divLoginCheck">
+		<fieldset>
+			<legend>接続/切断</legend>
+			<input type="checkbox" id="loginCheck" onclick="checkloginCheck()"><label for="loginCheck">ログオフ時強制ログイン</label>
+<!--del			<input type="checkbox" id="logoffCheck" checked=true onclick="checklogoffCheck()"><label for="logoffCheck">30分強制ログアウト</label>-->
+<!--add start-->
+			<input type="checkbox" id="logoffCheck" checked=false onclick="checklogoffCheck()"><label for="logoffCheck">30分強制ログアウト</label>
+<!--add end-->
+		</fieldset>
+		</div>
+<!--add start-->
+		<div id="dummyAdmin">
+		<fieldset>
+			<legend>副管理者</legend>
+			<input type="checkbox" id="dummyAdminCmtCheck" onclick="dummyAdminCmtChg()"><label for="dummyAdminCmtCheck">コメントを受け付ける</label>
+			<input id="dummyAdminID" type="text" size="32" value=""
+			 onchange="var e=document.getElementById;if(this.value==''){e('dummyAdminCmtCheck').checked=false;e('dummyAdminCmdCheck').checked=false;}"><br>
+			<input type="checkbox" id="dummyAdminCmdCheck" onclick="dummyAdminCmdChg()"><label for="dummyAdminCmdCheck">コマンドを受け付ける</label>
+		</fieldset>
+		</div>
+<!--add end-->
+	</div>
+</div>
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="Socket" style="width:0px;height:0px;">
+	<param name="movie" value="./System/Socket.swf">
+	<param name="allowScriptAccess" value="sameDomain">
+</object>
+</body>
+</html>

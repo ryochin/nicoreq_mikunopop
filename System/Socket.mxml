@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" creationComplete="init();">
+<mx:Script>
+<![CDATA[
+
+import flash.net.XMLSocket;
+import flash.external.ExternalInterface;
+
+private var ADDR:String;
+private var PORT:int;
+private var THREAD:String;
+
+private var Socket:XMLSocket;
+
+private function init():void{
+	ExternalInterface.addCallback("setServer", setServer);
+	ExternalInterface.addCallback("close", close);
+}
+
+public function setServer(addr:String, port:int, thread:String):void{
+	ADDR = addr;
+	PORT = port;
+	THREAD = thread;
+	connect();
+}
+
+public function close():void{
+	Socket.close();
+}
+
+private function connect():void{
+	Socket = new XMLSocket();
+	Socket.addEventListener(Event.CONNECT, Socket_onConnect);
+	Socket.connect(ADDR, PORT);
+	Socket.send("<thread thread=\""+THREAD+"\" res_from=\"1000\" version=\"20061206\" />");
+}
+
+public function Socket_onConnect(e:Event):void{
+	Socket.addEventListener(DataEvent.DATA, Socket_recvData);
+}
+
+public function Socket_recvData(e:DataEvent):void{
+	ExternalInterface.call("receiveComment", e.data);
+}
+
+]]>
+</mx:Script>
+</mx:Application>

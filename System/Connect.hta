@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<title>接続</title>
+<script type="text/javascript" src="../settings.js"></script>
+<script type="text/javascript" src="./Utils.js"></script>
+<script type="text/javascript" src="./PlayerStatus.js"></script>
+<script type="text/javascript" src="./NicoLive.js"></script>
+<script type="text/javascript">
+if(settings["UseIE"]){
+	setDialogSize(400, 130);
+}else{
+	setDialogSize(400, 200);
+}
+
+var PS;
+
+window.onload = function(){
+	if(settings["UseIE"]){
+		document.getElementById("btnPS").style.display = "none";
+		document.getElementById("OK").onclick = function(){getPlayerStatus();};
+		document.getElementById("divMSG").style.display = "none";
+	}
+
+}
+
+// 番組情報を取得
+function getPlayerStatus(){
+	if(settings["EnforceLogin"]){
+		NicoLive.login(settings["Login_Mail"], settings["Login_Pass"]);
+	}
+	var lv = document.getElementById("lv").value = document.getElementById("lv").value.match(/\d+/);
+	NicoLive.getPlayerStatus(lv, function(PS){
+		if(PS){
+			document.getElementById("server").value = PS.server;
+			document.getElementById("port").value = PS.port;
+			document.getElementById("thread").value = PS.thread;
+			document.getElementById("baseTime").value = PS.baseTime;
+			setTimeout(OK, 0);
+		}
+	});
+}
+
+function OK(){
+	if(!PS){
+		var lv       = document.getElementById("lv").value = document.getElementById("lv").value.match(/\d+/);
+		var server   = document.getElementById("server").value;
+		var port     = document.getElementById("port").value;
+		var thread   = document.getElementById("thread").value;
+		var baseTime = document.getElementById("baseTime").value;
+		PS = new PlayerStatus(lv, server, port, thread, baseTime);
+	}
+	window.returnValue = PS;
+	window.close();
+}
+</script>
+<style type="text/css">
+*{
+	font-size: 12;
+	font-family: "MS UI Gothic";
+}
+body{
+	margin: 12px;
+}
+button{
+	width: 88px;
+}
+#btn{
+	position: absolute;
+	top: expression(document.body.clientHeight-this.clientHeight-12);
+	left: 12px;
+	width: 100%;
+	text-align: right;
+}
+</style>
+</head>
+<body bgcolor="buttonface" scroll="No">
+ニコニコ生放送に接続するための各種情報を入力します。<br>
+<hr>
+ニコ生ID:lv<input id="lv" type="text" value="" onkeypress="if(event.keyCode==13){getPlayerStatus()}">
+<input id="btnPS" type="button" value="取得" onclick="getPlayerStatus()">
+<div id="divMSG">
+	<hr>
+	メッセージサーバー:
+	<input id="server" type="text" value="">
+	<input id="port" type="text" value="" size="4">
+	<input id="thread" type="text" value="" size="12"><br>
+	開始時間:
+	<input id="baseTime" type="text" value="" size="12"><br>
+</div>
+<div id="btn">
+	<hr>
+	<button id="OK" onclick="OK()">OK</button>　
+	<button onclick="window.close()">キャンセル</button>
+</div>
+</body>
+</html>

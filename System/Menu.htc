@@ -1,0 +1,176 @@
+<html>
+<head>
+<public:component tagName="Menu">
+<public:defaults viewLinkContent="true" tabStop="true" />
+<public:attach event="oncontentready" handler="initialize" />
+<public:property name="xml" />
+</public:component>
+<style type="text/css">
+body{
+	border: none;
+	margin: 0px;
+	background: buttonface;
+	font-size:12px;
+	font-family:"MS UI Gothic";
+}
+div{
+	border-bottom-style:groove;
+	border-bottom-width:2px;
+}
+.menu{
+	height:18px;
+	cursor:default;
+	border:buttonface 1px solid;
+	padding:0px 2px 0px 2px;
+	text-align:center;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.hr{
+	border-style:inset;
+	border-width:1px;
+	height:2px;
+	margin:4px 0px 4px 1px;
+	width:100%;
+	overflow:hidden;
+}
+.item{
+	height:16px;
+	margin:0px;
+	padding:0px 15px;
+	width:100%;
+	overflow:hidden;
+	cursor:default;	
+}
+</style>
+<script type="text/javascript">
+function initialize(){
+	var XML = new ActiveXObject("Microsoft.XMLDOM");
+	XML.async = false;
+	var Path = element.xml;
+	if(!XML.load(Path)){
+		var err = XML.parseError;
+		alert(""+
+		"ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩ :" + err.reason + "\n"+
+		"URL :"+ err.reason + "\n"+
+		"çs :"+ err.line +", óÒ :"+ err.linepos + "\n"+
+		"");
+		return false;
+	}
+	var node = XML.documentElement.firstChild; 
+	while(node){
+		if(node.nodeName=="bar"){setBar(node);}
+		if(node.nodeName=="popup"){setPopup(node);}
+		node = node.nextSibling;
+	}
+}
+function setBar(XML){
+	if(! (attribute = XML.getAttributeNode("id")) ){ return false; }
+	var _str = "";
+	var _id = attribute.value;
+	var node = XML.firstChild;
+	while(node){
+		if(node.nodeName=="item"){
+			_str = "<button onfocus=\"this.blur();\" class=\"menu\" onmouseout=\"event_onmouseout(this);\" onmousedown=\"event_onmousedown(this);\" onmouseover=\"event_onmouseover(this);\" onclick=\""+
+			node.getAttributeNode("onclick").value+" ; Popup_"+
+			node.getAttributeNode("popup").value+".show(0,18,0,0,this);"+
+			"\">"+node.text+"</button>" ;
+		}
+		node = node.nextSibling;
+		document.getElementById(_id).insertAdjacentHTML("BeforeEnd",_str);
+	}
+}
+function setPopup(XML){
+	if(! (attribute = XML.getAttributeNode("id")) ){ return false; }
+	var _str = "";
+	var _id = attribute.value;
+	var node = XML.firstChild;
+	while(node){
+		if(node.nodeName == "hr"){
+			_str += "<div class=\"hr\"></div>" ;
+		}else if( node.nodeName == "item"){
+			_str += "<div class=\"item\" "+
+					"onclick=\""+node.getAttributeNode("onclick").value+";this.onmouseout();top['Popup_"+_id+"'].hide();\" "+
+					"onmouseover=\"this.style.backgroundColor='highlight';this.style.color='highlighttext';\" "+
+					"onmouseout=\"this.style.backgroundColor='';this.style.color='';\" "+
+					"><span></span><span>"+node.text+"</span><span></span></div>" ;
+		}
+		node = node.nextSibling;
+	}
+	window["Popup_"+_id] = new Popup();
+	document.body.insertAdjacentHTML("BeforeEnd","<table style=\"visibility:hidden;\" oncontextmenu='return false;' onselectstart='return false;'><tr><td></td></tr></table>");
+	var t=document.getElementsByTagName("table");
+
+	table=t[t.length-1]
+	table.getElementsByTagName("td")[0].insertAdjacentHTML("AfterBegin",_str);
+	table.style.margin			= "1px";
+    table.style.overflow		= "hidden";
+    table.style.fontSize		= "13px";
+    table.style.backgroundColor	= "menu";
+    table.style.color			= "menutext";
+    table.style.borderStyle		= "outset";
+    table.style.borderWidth		= "2px";
+	window["Popup_"+_id].width = table.clientWidth;
+	window["Popup_"+_id].height = table.clientHeight;
+	window["Popup_"+_id].body.insertAdjacentHTML("AfterBegin",_str);
+    document.body.removeChild(table);
+}
+function event_onmouseover(_obj){
+	_obj.style.padding = "";
+	_obj.style.backgroundColor = "buttonshadow";
+}
+function event_onmouseout(_obj) {
+	_obj.style.padding = "";
+	_obj.style.backgroundColor = "";
+}
+function event_onmousedown(_obj) {
+}
+function Popup() {
+	this._oPopup = window.createPopup();
+	this._oPopup.document.write(
+		"<html>						"+
+		"<head>						"+
+		"<style>					"+
+		"body.{						"+
+		"	font-size:12px;			"+
+		"	font-family:'MS UI Gothic';"+
+		"}							"+
+		".hr{						"+
+		"	border-style:inset;		"+
+		"	border-width:1px;		"+
+		"	height:2px;				"+
+		"	margin:4px 0px 4px 1px;	"+
+		"	width:100%;				"+
+		"	overflow:hidden;		"+
+		"}							"+
+		".item{						"+
+		"	height:16px;			"+
+		"	margin:0px;				"+
+		"	padding:0px 15px;		"+
+		"	width:100%;				"+
+		"	overflow:hidden;		"+
+		"	cursor:default;			"+
+		"}							"+
+		"</style>					"+
+		"</head>					"+
+		"<body contextmenu='return false;' onselectstart='return false;'>"+
+		"</body>					"+
+		"</html>					");
+	this.body = this._oPopup.document.body;
+    this.body.style.margin			= "1px";
+    this.body.style.overflow		= "hidden";
+    this.body.style.fontSize		= "13px";
+    this.body.style.backgroundColor	= "menu";
+    this.body.style.color			= "menutext";
+    this.body.style.borderStyle		= "outset";
+    this.body.style.borderWidth		= "2px";
+
+	this.show = function(x,y,w,h,o){ this._oPopup.show(x,y,this.width,this.height,o); }
+	this.hide = this._oPopup.hide;
+}
+</script>
+</head>
+<body scroll="no">
+<div id="bar"></div>
+</body>
+</html>

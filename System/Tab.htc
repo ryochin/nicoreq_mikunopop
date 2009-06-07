@@ -1,0 +1,115 @@
+<html>
+<head>
+<public:component tagName="Tab">
+<public:defaults viewLinkContent="true" tabStop="true"/>
+<public:attach event="oncontentready" handler="initialize" />
+<public:property name="selectedIndex" get="get_selectedIndex" put="put_selectedIndex"/>
+<public:event name="onchange" id="change" />
+</public:component>
+<style type="text/css">
+body{
+	line-height:100%;
+	border: none;
+	margin: 0px;
+	background: buttonface;
+	font-size:12px;
+	font-family:"MS UI Gothic";
+}
+.active{
+	font-size:12px;
+	width:auto;
+	height:16px;
+	background-color:buttonface;
+	color:menutext;
+	border-style:outset;
+	border-bottom-style:none;
+	border-width:2px;
+	border-bottom-width:1px;
+	padding:3px 4px 5px 4px;
+	margin-bottom:0px;
+	cursor:default;
+}
+.inactive{
+	font-size:12px;
+	width:auto;
+	height:16px;
+	background-color:buttonface;
+	color:menutext;
+	border-style:outset;
+	border-bottom-style:outset;
+	border-width:2px;
+	border-bottom-width:2px;
+	padding:2px 4px 2px 4px;
+	margin-bottom:0px;
+	cursor:default;
+}
+</style>
+<script type="text/Javascript">
+function Property(){
+	this.Index = -1;
+	this.SPAN = null;
+}
+var Prop = new Property;
+
+function initialize(){
+	fnConvert();
+	if(Prop.SPAN){
+		Prop.SPAN[0].className = "active";
+		Prop.Index = 0;
+	}
+}
+
+function get_selectedIndex(){
+	return Prop.Index;
+}
+
+function put_selectedIndex(val){
+	if(isNaN(val)){return;}
+	val = parseInt(val);
+	if((val < 0)||(Prop.SPAN == null)||(Prop.SPAN.length <= val)){return;}
+	fnTabChange(val);
+}
+
+function fnTabChange(val){
+	if(Prop.Index == val){return;}
+	if((0 <= Prop.Index)&&(Prop.Index < Prop.SPAN.length)){
+		Prop.SPAN[Prop.Index].className = "inactive";
+	}
+	Prop.Index = val;
+	if((0 <= Prop.Index)&&(Prop.Index < Prop.SPAN.length)){
+		Prop.SPAN[Prop.Index].className = "active";
+	}
+	var Event = createEventObject();
+	change.fire(Event);
+}
+
+function fnTabFocus(){
+	for(var i=0,l=Prop.SPAN.length; i<l; i++){
+		if (Prop.SPAN[i] == this){
+			fnTabChange(i);
+			break;
+		}
+	}
+}
+
+function fnConvert(){
+	var Child = element.children;
+	if(Child.length == 0){return;}
+	var sTags  = "";
+	for(var i=0,l=Child.length; i<l; i++){
+		var SPAN = document.createElement("span");
+		SPAN.id = "tab_" + element.uniqueID;
+		SPAN.tabIndex = i + 1;
+		SPAN.onfocus = fnTabFocus;
+		SPAN.innerText = Child[i].innerText;
+		SPAN.className = "inactive";
+
+		document.body.appendChild(SPAN);
+	}
+
+	Prop.SPAN = eval("tab_" + element.uniqueID);
+}
+</script>
+</head>
+<body contextmenu="return false;" onselectstart="return false;"></body>
+</html>

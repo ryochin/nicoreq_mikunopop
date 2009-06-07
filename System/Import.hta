@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<title>取り込み</title>
+<script type="text/javascript" src="./Utils.js"></script>
+<script type="text/javascript">
+
+setDialogSize(400, 200);
+
+window.onload = function(){
+}
+
+function OK(){
+	window.returnValue = document.getElementById("import").value;
+	window.close();
+}
+</script>
+<style type="text/css">
+*{
+	font-size: 12;
+	font-family: "MS UI Gothic";
+}
+body{
+	margin: 12px;
+}
+button{
+	width: 88px;
+}
+#import{
+	width: 100%;
+	height: expression(
+		document.body.clientHeight - 
+		document.getElementById("text").clientHeight - 
+		document.getElementById("btn").clientHeight  - 
+		54
+	);
+}
+#btn{
+	position: absolute;
+	top: expression(document.body.clientHeight-this.clientHeight-12);
+	left: 12px;
+	width: 100%;
+	text-align: right;
+}
+</style>
+</head>
+<body bgcolor="buttonface" scroll="No">
+<div id="text">
+	リクエストリストに取り込む動画IDを入力します。<br>
+	<hr>
+</div>
+<textarea id="import"></textarea>
+<div id="btn">
+	<hr>
+	<button id="OK" onclick="OK()">OK</button>　
+	<button onclick="window.returnValue='';window.close()">キャンセル</button>
+</div>
+</body>
+</html>
