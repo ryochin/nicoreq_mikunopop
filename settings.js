@@ -24,8 +24,8 @@ settings["WindowHeight"] = 731;
 // ウィンドウの位置
 // 起動時のウィンドウの位置を設定します
 // -1を指定した場合デスクトップの中央になります
-settings["WindowX"] = 5;
-settings["WindowY"] = 23;
+settings["WindowX"] = 9;
+settings["WindowY"] = 46;
 
 // ウィンドウを常に最前面に表示する
 // ウィンドウを常に最前面に表示します
