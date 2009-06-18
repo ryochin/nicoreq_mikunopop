@@ -18,14 +18,14 @@ settings["UseIE"] = true;
 // ウィンドウのサイズ
 // 起動時のウィンドウのサイズを設定します
 // 俺設定そのままのため、数値がおかしなことに・・・不安なら数値変更を推奨ｗ
-settings["WindowWidth"] = 375;
-settings["WindowHeight"] = 670;
+settings["WindowWidth"] = 371;
+settings["WindowHeight"] = 731;
 
 // ウィンドウの位置
 // 起動時のウィンドウの位置を設定します
 // -1を指定した場合デスクトップの中央になります
-settings["WindowX"] = 11;
-settings["WindowY"] = 54;
+settings["WindowX"] = 5;
+settings["WindowY"] = 23;
 
 // ウィンドウを常に最前面に表示する
 // ウィンドウを常に最前面に表示します
@@ -59,7 +59,14 @@ settings["PlayMode"] = 0;
 //add start
 // {#PName}:Pネーム, {#JASCode}:JASコード, {#Type}:タイプ判定, {#Kiki}:聞き入り度, {#Myri}:マイリス率, {#Hiky}:正義度（ぼからん補正）
 //settings["ItemHTML"] = "{#Type}{#Title}<br><b>P名/</b>{#PName} <b>JAS-C/</b>{#JASCode}<br><b>再/</b>{#View} <b>コ/</b>{#Comm} <b>マ/</b>{#List} <b>時/</b>{#Time} <b>累/</b>{#CTime}<br><b>投稿日/</b>{#Date}<br><b>聴き入り度/</b>{#Kiki} <b>マイリスト率/</b>{#Myri}%";
-settings["ItemHTML"] = "{#Type}{#Title}<br><b>P名/</b>{#PName} <b>JAS-C/</b>{#JASCode}<br><b>再/</b>{#View} <b>コ/</b>{#Comm} <b>マ/</b>{#List} <b>時/</b>{#Time} <b>累/</b>{#CTime}<br><b>投稿日/</b>{#Date}<br><b>聴き入り度/</b>{#Kiki} <b>マイリスト率/</b>{#Myri}% <b>正義値/</b>{#Hiky}";
+//settings["ItemHTML"] = "{#Type}{#Title}<br><b>P名/</b>{#PName} <b>JAS-C/</b>{#JASCode}<br><b>再/</b>{#View} <b>コ/</b>{#Comm} <b>マ/</b>{#List} <b>時/</b>{#Time} <b>累/</b>{#CTime}<br><b>投稿日/</b>{#Date}<br><b>聴き入り度/</b>{#Kiki} <b>マイリスト率/</b>{#Myri}% <b>正義値/</b>{#Hiky}";
+//settings["ItemHTML"] = "{#Type}{#Title}<br><b>P名/</b>{#PName} {#Date}<br><b>再/</b>{#View} <b>コ/</b>{#Comm} <b>マ/</b>{#List} <b>時/</b>{#Time} <b>累/</b>{#CTime}";
+settings["ItemHTML"] = "{#Type}{#Title}<br>"
+	+ "<img src=\"http://tn-skr4.smilevideo.jp/smile?i={#IDNO}\" width=65 height=50 align=left>"
+	+ "<b>Ｐ/</b>{#PName}<br>"
+	+ "<b>投/</b>{#Date}<br>"
+	+ "<b>再/</b>{#View} <b>コ/</b>{#Comm} <b>マ/</b>{#List}<br>"
+	+ "<b>時/</b>{#Time} <b>計/</b>{#CTime}";
 //settings["ItemHTMLDate"] = "yyyy年mm月dd日 hh時nn分ss秒";
 settings["ItemHTMLDate"] = "yyyy年mm月dd日";
 //add end
@@ -222,13 +229,16 @@ settings["jingles"] = ["",
 //"sm6504748",//企画用
 // ミクノポップ用
 
- "sm6789292",
- "sm6789315",
- "sm6939234",
- "sm6981084",
- "sm7007629",
- "sm7033805",
- "sm7075450",
+// "sm6789292",
+// "sm6789315",
+ ["sm6939234","ミクノポップクエスト"],
+ ["sm6981084","近未来ラジオ"],
+ ["sm7007629","音楽が降りてくる"],
+ ["sm7033805","ミクノポップをきかないか？"],
+ ["sm7075450","円の中の世界"],
+ ["sm7341325","大賞告知・悶さん"],
+ ["sm7343558","大賞告知・きぬこもちさん"],
+ ["sm7346152","大賞１５秒ＣＭ"],
  ""];
 
 // 以下NicoCookieImporter関連

@@ -83,19 +83,25 @@ fieldset{
 	<div id="PlayJingleForm"></div>
 		 <script>
 			if(settings["jingles"]){
-				document.getElementById("PlayJingleForm").innerHTML = "ジングル ";
+//				document.getElementById("PlayJingleForm").innerHTML = "ジングル ";
 				var sel = document.createElement("select");
 				sel.setAttribute("id", "jingle");
 				for(var i=0,l=settings["jingles"].length;i<l;i++){
 					if(settings["jingles"][i]!=""){
 						var opt = document.createElement("option");
-						opt.appendChild(document.createTextNode(settings["jingles"][i]));
-						opt.setAttribute("value", settings["jingles"][i]);
+						if( typeof(settings["jingles"][i]) == 'object' ){
+							opt.appendChild(document.createTextNode(settings["jingles"][i][1]));
+							opt.setAttribute("value", settings["jingles"][i][0]);
+						}
+						else{
+							opt.appendChild(document.createTextNode(settings["jingles"][i]));
+							opt.setAttribute("value", settings["jingles"][i]);
+						}
 						sel.appendChild(opt);
 					}
 				}
 				document.getElementById("PlayJingleForm").appendChild(sel);
-				document.getElementById("PlayJingleForm").innerHTML += " を <input type=\"button\" value=\"流す\" onclick=\"NicoLive.postComment(document.getElementById('jingle').value)\" /><br />";
+				document.getElementById("PlayJingleForm").innerHTML += " <input type=\"button\" value=\"流す\" onclick=\"NicoLive.postComment(document.getElementById('jingle').value)\" /><br />";
 			}
 		 </script>
 <!--add end-->
@@ -108,11 +114,11 @@ fieldset{
 		<input id="btnPR" type="button" value="s" onclick="playRandom()" title="ランダム再生" style="font-family:marlett;">
 		　<input type="checkbox" id="playSound"><label for="playSound">音のみ</label>
 		<span id="divPlaySub"><input type="checkbox" id="playSub"><label for="playSub">小画面</label></span>
-		　<input id="btnCR" type="button" value="募集" onclick="changeRequest()">
-		<input type="checkbox" id="extraComment"><label for="extraComment">募集/締切の告知</label><br>
+		　<input id="btnCR" type="button" value="募集" onclick="changeRequest()" style="display: none">
+		<input type="checkbox" id="extraComment" style="display: none">
 <!--add start-->
-		<input type="button" value="１枠延長" onclick="extend()" />　
-		<input type="button" onclick="LimitTimeReset()" value="リセット" />
+		<input type="button" value="１枠延長" onclick="extend()" style="display: none" />　
+		<input type="button" onclick="LimitTimeReset()" value="リセット" style="display: none" />
 <!--add end-->
 		<hr>
 	</div>

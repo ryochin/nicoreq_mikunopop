@@ -119,8 +119,10 @@ RequestManager.prototype = {
 //add start JASÉRÅ[ÉhÇ»ÇµÇÃèÍçá
 		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
 //add end
+		var idno = R.id.replace(/^(sm|nm)/, "");
 		return str
 				.replace(/{#ID}/g,    R.id)
+				.replace(/{#IDNO}/g,    idno)
 				.replace(/{#Title}/g, "<label ondblclick=\"RequestManager.Events['Edit'](this, 'title','"+R.id+"')\">"+R.title+"</label>")
 				.replace(/{([^}]*?)#PName([^{]*?)}/g, function(match,$1,$2){return $1+"<label ondblclick=\"RequestManager.Events['Edit'](this, 'name','"+R.id+"')\">"+R.name+"</label>"+$2;})
 				.replace(/{#View}/g,  R.view)
@@ -151,11 +153,11 @@ RequestManager.prototype = {
 		var objIndex = "TYP"+id;
 		if(document.getElementById(objIndex)){
 			if(R.type=="plural"){
-				document.getElementById(objIndex).innerHTML += "ï°êîäYìñ";
+//				document.getElementById(objIndex).innerHTML += "ï°êîäYìñ";
 				document.getElementById(objIndex).style.backgroundColor="yellow";
 				document.getElementById(objIndex).style.color="#000000";
 			} else if(R.type==""){
-				document.getElementById(objIndex).innerHTML += "äYìññ≥Çµ";
+//				document.getElementById(objIndex).innerHTML += "äYìññ≥Çµ";
 				document.getElementById(objIndex).style.backgroundColor="gray";
 				document.getElementById(objIndex).style.color="#ffffff";
 			} else {
