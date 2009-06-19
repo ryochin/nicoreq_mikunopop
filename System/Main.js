@@ -320,7 +320,8 @@ function getTimeLeft(){
 		tagF="<font color=red>";
 		tagT="</font>";
 	}
-	document.getElementById("timeleft").innerHTML = "Žc‚èŽžŠÔ/" + tagF + convertTimeString(timeLeft) + tagT;
+//	document.getElementById("timeleft").innerHTML = "Žc‚èŽžŠÔ/" + tagF + convertTimeString(timeLeft) + tagT;
+	document.getElementById("timeleft").innerHTML = "Žc " + tagF + convertTimeString(timeLeft) + tagT;
 	if(timeLeft<=0){
 		if(timeLeftTimer!=0){
 			clearInterval(timeLeftTimer);

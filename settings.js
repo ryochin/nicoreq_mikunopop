@@ -18,14 +18,14 @@ settings["UseIE"] = true;
 // ウィンドウのサイズ
 // 起動時のウィンドウのサイズを設定します
 // 俺設定そのままのため、数値がおかしなことに・・・不安なら数値変更を推奨ｗ
-settings["WindowWidth"] = 371;
-settings["WindowHeight"] = 731;
+settings["WindowWidth"] = 340;
+settings["WindowHeight"] = 720;
 
 // ウィンドウの位置
 // 起動時のウィンドウの位置を設定します
 // -1を指定した場合デスクトップの中央になります
-settings["WindowX"] = 9;
-settings["WindowY"] = 46;
+settings["WindowX"] = 0;
+settings["WindowY"] = 0;
 
 // ウィンドウを常に最前面に表示する
 // ウィンドウを常に最前面に表示します
@@ -84,15 +84,13 @@ settings["ItemHTMLDate"] = "yyyy年mm月dd日";
 //settings["InfoComment"] = "再生/{#View} ｺﾒﾝﾄ/{#Comm} ﾏｲﾘｽﾄ/{#List} 時間/{#Time}　<br>聴き入り度/{#Kiki} ﾏｲﾘｽﾄ率/{#Myri}% 正義値/{#Hiky}";
 //settings["InfoComment2"] = "{#Title}　<br>JASｺｰﾄﾞ/{#JASCode}　P名/{#PName}　投稿日時/{#Date}";
 //settings["InfoComment"] = "■{#Title}　(by {#PName})";
-settings["InfoComment"] = "■{#Title} ■{#PName}";
+settings["InfoComment"] = "■{#Title} ■{#PName}<br>";
 //settings["InfoComment2"] = "■{#Time} 再:{#View} コ:{#Comm} マ:{#List} ({#Myri}%) {#Date}";
 //settings["InfoComment2"] = "■{#Time} 再/{#View} コ/{#Comm} マ/{#List} ({#Myri}%) @{#Date}";
 //settings["InfoComment2"] = "■投/{#Date} 時/{#Time} 再/{#View} コ/{#Comm} マ/{#List} ({#Myri}%)";
 settings["InfoComment2"] = "■{#Date} 時/{#Time} 再/{#View} コ/{#Comm} マ/{#List} ({#Myri}%)";
-settings["InfoCommentTimer"] = 3000;// ミリ秒
+settings["InfoCommentTimer"] = 2000;// ミリ秒
 //settings["InfoCommentDate"] = "yy年mm月dd日 hh時nn分ss秒";
-//settings["InfoCommentDate"] = "20yy年mm月dd日";
-//settings["InfoCommentDate"] = "20yy/mm/dd";
 settings["InfoCommentDate"] = "20yy.mm.dd";
 //add end
 
@@ -187,7 +185,7 @@ settings["DeleteLogWhenOpen"] = false;
 // 放送履歴を直接投稿可能にするかどうか
 // trueに設定した場合、リクエスト→再生（視聴）履歴の出力で出るウィンドウから
 // 直接プレイリストに投稿できるようになります。
-settings["Enable2PostHistory"] = true;
+settings["Enable2PostHistory"] = false;
 
 // プレイリスト投稿時の名前欄、メルアド欄に入力する文字を設定します。
 settings["PlayListSiteName"] = "";
@@ -202,7 +200,7 @@ settings["AutoSaveStock"] = true;
 
 // ウィンドウの位置・サイズをsettings.jsに反映させるかどうか
 // うちのvistaではなぜか少しズレるorz
-settings["AutoSaveWindowParams"] = true;
+settings["AutoSaveWindowParams"] = false;
 
 // 放送時間の設定
 settings["LimitTime"] = 1800;
