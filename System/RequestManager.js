@@ -125,9 +125,9 @@ RequestManager.prototype = {
 				.replace(/{#IDNO}/g,    idno)
 				.replace(/{#Title}/g, "<label ondblclick=\"RequestManager.Events['Edit'](this, 'title','"+R.id+"')\">"+R.title+"</label>")
 				.replace(/{([^}]*?)#PName([^{]*?)}/g, function(match,$1,$2){return $1+"<label ondblclick=\"RequestManager.Events['Edit'](this, 'name','"+R.id+"')\">"+R.name+"</label>"+$2;})
-				.replace(/{#View}/g,  R.view)
-				.replace(/{#Comm}/g,  R.comm)
-				.replace(/{#List}/g,  R.list)
+				.replace(/{#View}/g,  comma(R.view))
+				.replace(/{#Comm}/g,  comma(R.comm))
+				.replace(/{#List}/g,  comma(R.list))
 //add start
 				.replace(/{#Kiki}/g,  R.kiki)
 				.replace(/{#Myri}/g,  R.myri)
@@ -524,4 +524,12 @@ function __RequestManager__showPopup(x, y, VideoID){
 function OpenVideo(id){
 	var WshShell = new ActiveXObject("WScript.Shell");
 	WshShell.run("http://www.nicovideo.jp/watch/"+id,1,false);
+}
+function comma ( from ){
+	var to = String( from );
+	var tmp = "";
+	while (to != (tmp = to.replace(/^([+-]?\d+)(\d\d\d)/,"$1,$2"))){
+		to = tmp;
+	}
+	return to;
 }
