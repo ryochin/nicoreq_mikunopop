@@ -128,6 +128,7 @@ RequestManager.prototype = {
 				.replace(/{#View}/g,  comma(R.view))
 				.replace(/{#Comm}/g,  comma(R.comm))
 				.replace(/{#List}/g,  comma(R.list))
+				.replace(/{#Count}/g,  comma(R.count))
 //add start
 				.replace(/{#Kiki}/g,  R.kiki)
 				.replace(/{#Myri}/g,  R.myri)
@@ -189,6 +190,8 @@ RequestManager.prototype = {
 					// タイムアウトした場合はタスクに優先的に追加
 					RequestManager.doThumbInfoTask(RQ, "unshift");
 				}else{
+					// ミクノポップ再生回数の取得を試みる
+					R.count = getMikunopopCount( R.id );
 					// 動画情報を格納してHTMLを整形
 					RequestManager.Requests[RQ.id] = R;
 					RequestManager.replaceHTML(R);
@@ -270,6 +273,7 @@ RequestManager.prototype = {
 					.replace(/{#View}/g,  comma(R.view))
 					.replace(/{#Comm}/g,  comma(R.comm))
 					.replace(/{#List}/g,  comma(R.list))
+					.replace(/{#Count}/g,  comma(R.count))
 //add start
 					.replace(/{#Kiki}/g,  R.kiki)
 					.replace(/{#Myri}/g,  R.myri)
@@ -297,6 +301,7 @@ RequestManager.prototype = {
 					.replace(/{#View}/g,  comma(R.view))
 					.replace(/{#Comm}/g,  comma(R.comm))
 					.replace(/{#List}/g,  comma(R.list))
+					.replace(/{#Count}/g,  comma(R.count))
 //add start
 					.replace(/{#Kiki}/g,  R.kiki)
 					.replace(/{#Myri}/g,  R.myri)
@@ -320,9 +325,10 @@ RequestManager.prototype = {
 					.replace(/{#ID}/g, id)
 					.replace(/{#Title}/g, R.title)
 					.replace(/{#PName}/g, R.name)
-					.replace(/{#View}/g,  R.view)
-					.replace(/{#Comm}/g,  R.comm)
-					.replace(/{#List}/g,  R.list)
+					.replace(/{#View}/g,  comma(R.view))
+					.replace(/{#Comm}/g,  comma(R.comm))
+					.replace(/{#List}/g,  comma(R.list))
+					.replace(/{#Count}/g,  comma(R.count))
 //add start
 					.replace(/{#Kiki}/g,  R.kiki)
 					.replace(/{#Myri}/g,  R.myri)
@@ -532,4 +538,24 @@ function comma ( from ){
 		to = tmp;
 	}
 	return to;
+}
+function getMikunopopCount (vid) {
+	var count;
+	$.ajax( {
+		url: "http://mikunopop.info/count/" + vid,
+		async: 0,
+		dataType: "json",
+		success: function (result, status) {
+			if( result.count && result.count.match(/^[0-9]+$/) ){
+				count = parseInt( result.count, 10 );
+			}
+			else{
+				count = '?';
+			}
+		},
+		error: function (req, status, error) {
+			count = '?';
+		}
+	} );
+	return count;
 }

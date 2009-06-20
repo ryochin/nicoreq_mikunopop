@@ -66,7 +66,7 @@ settings["ItemHTML"] = "{#Type}{#Title}<br>"
 	+ "<b>Ｐ/</b>{#PName}<br>"
 	+ "<b>投/</b>{#Date}<br>"
 	+ "<b>再/</b>{#View} <b>コ/</b>{#Comm} <b>マ/</b>{#List}<br>"
-	+ "<b>時/</b>{#Time} <b>計/</b>{#CTime}";
+	+ "<b>ラ/</b>{#Count} <b>時/</b>{#Time} <b>計/</b>{#CTime}";
 //settings["ItemHTMLDate"] = "yyyy年mm月dd日 hh時nn分ss秒";
 settings["ItemHTMLDate"] = "yyyy年mm月dd日";
 //add end
@@ -88,7 +88,7 @@ settings["InfoComment"] = "■{#Title} ■{#PName}<br>";
 //settings["InfoComment2"] = "■{#Time} 再:{#View} コ:{#Comm} マ:{#List} ({#Myri}%) {#Date}";
 //settings["InfoComment2"] = "■{#Time} 再/{#View} コ/{#Comm} マ/{#List} ({#Myri}%) @{#Date}";
 //settings["InfoComment2"] = "■投/{#Date} 時/{#Time} 再/{#View} コ/{#Comm} マ/{#List} ({#Myri}%)";
-settings["InfoComment2"] = "■{#Date} 時/{#Time} 再/{#View} コ/{#Comm} マ/{#List} ({#Myri}%)";
+settings["InfoComment2"] = "■{#Date} 時/{#Time} ラ/{#Count} ◆再/{#View} コ/{#Comm} マ/{#List} ({#Myri}%)";
 settings["InfoCommentTimer"] = 2000;// ミリ秒
 //settings["InfoCommentDate"] = "yy年mm月dd日 hh時nn分ss秒";
 settings["InfoCommentDate"] = "20yy.mm.dd";
