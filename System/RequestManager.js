@@ -550,7 +550,7 @@ function getMikunopopCount (vid) {
 				count = parseInt( result.count, 10 );
 			}
 			else{
-				count = '?';
+				count = '0';
 			}
 		},
 		error: function (req, status, error) {

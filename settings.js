@@ -58,15 +58,13 @@ settings["PlayMode"] = 0;
 //del settings["ItemHTMLDate"] = "yy/mm/dd hh:nn:ss";
 //add start
 // {#PName}:Pƒl[ƒ€, {#JASCode}:JASƒR[ƒh, {#Type}:ƒ^ƒCƒv”»’è, {#Kiki}:•·‚«“ü‚è“x, {#Myri}:ƒ}ƒCƒŠƒX—¦, {#Hiky}:³‹`“xi‚Ú‚©‚ç‚ñ•â³j
-//settings["ItemHTML"] = "{#Type}{#Title}<br><b>P–¼/</b>{#PName} <b>JAS-C/</b>{#JASCode}<br><b>Ä/</b>{#View} <b>ƒR/</b>{#Comm} <b>ƒ}/</b>{#List} <b>/</b>{#Time} <b>—İ/</b>{#CTime}<br><b>“Še“ú/</b>{#Date}<br><b>’®‚«“ü‚è“x/</b>{#Kiki} <b>ƒ}ƒCƒŠƒXƒg—¦/</b>{#Myri}%";
 //settings["ItemHTML"] = "{#Type}{#Title}<br><b>P–¼/</b>{#PName} <b>JAS-C/</b>{#JASCode}<br><b>Ä/</b>{#View} <b>ƒR/</b>{#Comm} <b>ƒ}/</b>{#List} <b>/</b>{#Time} <b>—İ/</b>{#CTime}<br><b>“Še“ú/</b>{#Date}<br><b>’®‚«“ü‚è“x/</b>{#Kiki} <b>ƒ}ƒCƒŠƒXƒg—¦/</b>{#Myri}% <b>³‹`’l/</b>{#Hiky}";
-//settings["ItemHTML"] = "{#Type}{#Title}<br><b>P–¼/</b>{#PName} {#Date}<br><b>Ä/</b>{#View} <b>ƒR/</b>{#Comm} <b>ƒ}/</b>{#List} <b>/</b>{#Time} <b>—İ/</b>{#CTime}";
 settings["ItemHTML"] = "{#Type}{#Title}<br>"
 	+ "<img src=\"http://tn-skr4.smilevideo.jp/smile?i={#IDNO}\" width=65 height=50 align=left>"
 	+ "<b>‚o/</b>{#PName}<br>"
 	+ "<b>“Š/</b>{#Date}<br>"
 	+ "<b>Ä/</b>{#View} <b>ƒR/</b>{#Comm} <b>ƒ}/</b>{#List}<br>"
-	+ "<b>ƒ‰/</b>{#Count} <b>/</b>{#Time} <b>Œv/</b>{#CTime}";
+	+ "<b>ƒ~/</b>{#Count} <b>/</b>{#Time} <b>Œv/</b>{#CTime}";
 //settings["ItemHTMLDate"] = "yyyy”NmmŒdd“ú hhnn•ªss•b";
 settings["ItemHTMLDate"] = "yyyy”NmmŒdd“ú";
 //add end
@@ -82,14 +80,10 @@ settings["ItemHTMLDate"] = "yyyy”NmmŒdd“ú";
 //del settings["InfoCommentDate"] = "yy/mm/dd hh:nn:ss";
 //add start
 //settings["InfoComment"] = "Ä¶/{#View} ºÒİÄ/{#Comm} Ï²Ø½Ä/{#List} ŠÔ/{#Time}@<br>’®‚«“ü‚è“x/{#Kiki} Ï²Ø½Ä—¦/{#Myri}% ³‹`’l/{#Hiky}";
-//settings["InfoComment2"] = "{#Title}@<br>JASº°ÄŞ/{#JASCode}@P–¼/{#PName}@“Še“ú/{#Date}";
-//settings["InfoComment"] = "¡{#Title}@(by {#PName})";
 settings["InfoComment"] = "¡{#Title} ¡{#PName}<br>";
-//settings["InfoComment2"] = "¡{#Time} Ä:{#View} ƒR:{#Comm} ƒ}:{#List} ({#Myri}%) {#Date}";
-//settings["InfoComment2"] = "¡{#Time} Ä/{#View} ƒR/{#Comm} ƒ}/{#List} ({#Myri}%) @{#Date}";
-//settings["InfoComment2"] = "¡“Š/{#Date} /{#Time} Ä/{#View} ƒR/{#Comm} ƒ}/{#List} ({#Myri}%)";
-settings["InfoComment2"] = "¡{#Date} /{#Time} ƒ‰/{#Count} ŸÄ/{#View} ƒR/{#Comm} ƒ}/{#List} ({#Myri}%)";
-settings["InfoCommentTimer"] = 2000;// ƒ~ƒŠ•b
+//settings["InfoComment2"] = "{#Title}@<br>JASº°ÄŞ/{#JASCode}@P–¼/{#PName}@“Še“ú/{#Date}";
+settings["InfoComment2"] = "¡{#Date} /{#Time} ƒ~/{#Count} ŸÄ/{#View} ƒR/{#Comm} ƒ}/{#List} ({#Myri}%)";
+settings["InfoCommentTimer"] =3000;// ƒ~ƒŠ•b
 //settings["InfoCommentDate"] = "yy”NmmŒdd“ú hhnn•ªss•b";
 settings["InfoCommentDate"] = "20yy.mm.dd";
 //add end
@@ -209,24 +203,6 @@ settings["LimitTime"] = 1800;
 // ƒWƒ“ƒOƒ‹“®‰æIDˆê——
 //•K—v‚È•”•ªˆÈŠO‚ÍƒRƒƒ“ƒgƒAƒEƒg‚µ‚Ä‚­‚¾‚³‚¢B
 settings["jingles"] = ["",
-// ƒ~ƒNƒ‰ƒCƒu—p
-/*
- "nm6567011",
- "nm6598915",
- "nm6640362",
- "nm6640570",
- "nm6640715",
- "nm6703844",
- "sm6730579",
- "nm6750396",
-*/
-// ‚Ú‚©¶—p
-// "sm6379368",
-// "sm6434653",
-// "sm6612081",
-//"sm6504748",//Šé‰æ—p
-// ƒ~ƒNƒmƒ|ƒbƒv—p
-
  ["sm6789292","ƒWƒ“ƒOƒ‹FFreestyle"],
  ["sm6789315","ƒWƒ“ƒOƒ‹F‹ß–¢—ˆƒ‰ƒWƒI"],
  ["sm6939234","ƒWƒ“ƒOƒ‹Fƒ~ƒNƒmƒ|ƒbƒvƒNƒGƒXƒg"],
@@ -338,7 +314,7 @@ settings["TitleDeleteTargets"] = [/^ƒAƒCƒhƒ‹ƒ}ƒXƒ^[[\s@]+/, /((‚ğ|‚Å)?(‰‰¹ƒ~ƒ
 // Å‰‚ÆÅŒã‚Íƒ_ƒ~[‚Æ‚µ‚Ä‹ó”’("")‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢
 settings["exceptionPTagsIM"] = ["", "‚ª‚Ô“Û‚İ", "ayakanP(‰¼–¼)", "GazL", "hbrk", "7ƒCƒ“ƒ`", "“`à‚Ì‚à‚â‚µ‚à‚ñ", "‚Æ‚©‚¿–¢—ˆ”h", "––ŠúPi‰¼j", "ƒ‚ƒ•ºPi‰¼j", "‚¤‚»‘¾˜Y", ""];
 //settings["exceptionPTagsVO"] = ["", "OSTER_project", "ika", "kz", "ryo", "KEI", "masquer", "ƒ{ƒJƒŒİ•‰ï", "AEGIS", "andromeca", "awk", "Azell", "cokesi", "DARS", "DixieFlatline", "GonGoss", "G-Fac.", "halyosy", "haruna808", "HMO‚Æ‚©‚Ì’†‚Ìl", "IGASIO", "inokix", "iroha(sasaki)", "Karimono", "kashiwagi", "kotaro", "kous", "KuKuDoDo", "LOLI.COM", "MAX_VEGETABLE", "Masuda_K", "MineK", "No.D", "OPA", "otetsu", "Otomania", "AETA(ƒC[ƒ^)", "cosMo(–\‘–P)", "doriko", "PENGUINS_PROJECT", "Re:nG", "ShakeSphere", "samfree", "Shibayan", "SHIKI", "snowy*", "takotakoagareŒğ‹¿Šy’c", "Tatsh", "Treow(‹tÕ“®P)", "Tripshots", "TuKuRu", "UPNUSY", "VIVO", "wintermute", "X-Plorez", "YAMADA-SUN", "yukiwo", "ƒJƒŠƒXƒ}ƒuƒŒƒCƒN‚É’è•]‚Ì‚ ‚é‚¤På", "[TEST]", "ˆÇ‚ ‚ß", "Dog tails", "‰Ì˜aƒTƒNƒ‰", "—‡", "ç®ç‚Ì’†‚Ìl", "Šì•º‰q", "ƒ³‹øƒ³", "‚±‚Ì‚è", "¬—ÑƒIƒjƒLƒX", "“c’†˜a•v", "‚¿‚á‚Ÿ", "ƒ`ƒ‡ƒRƒpŒ¶’®P(ƒpƒeƒBƒVƒG)", "ƒeƒBƒbƒVƒ…•P", "ƒeƒ“ƒlƒ“", "‚Æ‚¨‚­‚Å‚«‚±‚¦‚éƒfƒ“ƒVƒIƒ“", "ƒgƒ}“¤•…", "ƒiƒcƒJƒ[P(Tastle)", "“÷Š[œ", "”º’·", "XˆäƒPƒ“ƒVƒƒE", "R–{—”V", "R–{ƒjƒ…[", "—ÑŒç", "ƒŒƒCƒ“ƒ[ƒh", "164", "Ístudio", "uunnie", "‚¨‚¢‚à", "madamxx", "mijinko3", "DECO*27", "‚³‚©‚«‚å", "‚¿[‚Şàt‚èƒgƒ˜¥", "GlassOnion", "bothneco", "yu", "m@rk", "shin", "kame", "‚½‚·‚Ç‚ë", "nof", "YYMIKUYY", "Zekky", "HironoLin", "ƒXƒ^ƒWƒI‚¢‚é‚©‚Ì‚ä", "PEG", "meam", "‚w‚f‚—‚‚’‚‹‚“", "‚Ü‚Í‚¢", "nankyoku", "ƒiƒdƒL", "Nen-Sho-K", "Sat4", "suzy", "‚Û‚Ò[", "–¼“S2000Œn", "Noya", "‚³‚Ë", "‚«‚ç‚ç", "‚²‚ñ‚Ï‚¿", "‚¦‚Ç‚İ‚Í‚é", "analgesic_agents", "•sŠm’è–¼Fproduceri1j", "takuyabrian", "kuma", "tomo", "nabe_nabe", "“‰Öq", "river", "‚ê‚¢E‚Ú[‚ñ", "ƒNƒŠƒAP(YS)", "usuki", "OperaGhost", "instinctive", "‹âF‚Ìl", "pan", "—´“O", "AVTechNO", "œƒeƒ‰ƒsƒRƒX", "‚Ñ‚ñ‚²", "shin", "‚ä‚æ‚ä‚Á‚Ø", "‚­‚Á‚¶[", "ƒ~ƒiƒO", "LIQ", "‚Ü‚ä‚½‚Ü", "ƒ`[ƒ€‚Ù‚µ‚­‚¸", "WEB-MIX", "ukey", "Phantasma", "Kossy", "mintiack", "Yoshihi", "‚Ï‚«‚ç", "‚·‚½‚¶‚¨EKO•GP1", "Neri_McMinn", "‚Ú‚©å", "Harmonia", "Rock", "TACHE", "cmmz", "BIRUGE", "m_yus", "‚½‚¯chan", "CleanTears", "Lue", "FuMay", "SHUN", "ŠÖ¼ˆğ‚Ï‚ñ“`", "Ã–ì", "‚Ç‚ÔƒEƒTƒM", "bestgt", "IGASI›", "ƒƒƒl[ƒh(‰¼)", "ICEproject", "‚Ï‚ñ‚Â‚Ì‚¤‚½»ìˆÏˆõ‰ï", "‚³‚¢‚Í‚Ë", "MikSolodyne-ts", "Yossy", "‚ ‚Â‚¼‚¤‚­‚ñ", "ƒ^ƒCƒXƒP", ""];
-settings["exceptionPTagsVO"] = ["","OSTER_project","ika","kz","ryo","KEI","masquer","ƒ{ƒJƒŒİ•‰ï","AEGIS","andromeca","awk","Azell","cokesi","DARS","DixieFlatline","GonGoss","G-Fac.","halyosy","haruna808","HMO‚Æ‚©‚Ì’†‚Ìl","IGASIO","inokix","iroha(sasaki)","Karimono","kashiwagi","kotaro","kous","KuKuDoDo","LOLI.COM","MAX_VEGETABLE","Masuda_K","MineK","No.D","OPA","otetsu","Otomania","AETA(ƒC[ƒ^)","cosMo(–\‘–P)","doriko","PENGUINS_PROJECT","Re:nG","ShakeSphere","samfree","Shibayan","SHIKI","snowy*","takotakoagareŒğ‹¿Šy’c","Tatsh","Treow(‹tÕ“®P)","Tripshots","TuKuRu","UPNUSY","VIVO","wintermute","X-Plorez","YAMADA-SUN","yukiwo","ƒJƒŠƒXƒ}ƒuƒŒƒCƒN‚É’è•]‚Ì‚ ‚é‚¤På","[TEST]","ˆÇ‚ ‚ß","Dog tails","‰Ì˜aƒTƒNƒ‰","—‡","ç®ç‚Ì’†‚Ìl","Šì•º‰q","ƒ³‹øƒ³","‚±‚Ì‚è","¬—ÑƒIƒjƒLƒX","“c’†˜a•v","‚¿‚á‚Ÿ","ƒ`ƒ‡ƒRƒpŒ¶’®P(ƒpƒeƒBƒVƒG)","ƒeƒBƒbƒVƒ…•P","ƒeƒ“ƒlƒ“","‚Æ‚¨‚­‚Å‚«‚±‚¦‚éƒfƒ“ƒVƒIƒ“","ƒgƒ}“¤•…","ƒiƒcƒJƒ[P(Tastle)","“÷Š[œ","”º’·","XˆäƒPƒ“ƒVƒƒE","R–{—”V","R–{ƒjƒ…[","—ÑŒç","ƒŒƒCƒ“ƒ[ƒh","164","Ístudio","uunnie","‚¨‚¢‚à","madamxx","mijinko3","DECO*27","‚³‚©‚«‚å","‚¿[‚Şàt‚èƒgƒ˜¥","GlassOnion","bothneco","yu","m@rk","shin","kame","‚½‚·‚Ç‚ë","nof","YYMIKUYY","Zekky","HironoLin","ƒXƒ^ƒWƒI‚¢‚é‚©‚Ì‚ä","PEG","meam","‚w‚f‚—‚‚’‚‹‚“","‚Ü‚Í‚¢","nankyoku","ƒiƒdƒL","Nen-Sho-K","Sat4","suzy","‚Û‚Ò[","–¼“S2000Œn","Noya","‚³‚Ë","‚«‚ç‚ç","‚²‚ñ‚Ï‚¿","‚¦‚Ç‚İ‚Í‚é","analgesic_agents","takuyabrian","kuma","tomo","nabe_nabe","“‰Öq","river","‚ê‚¢E‚Ú[‚ñ","ƒNƒŠƒAP(YS)","usuki","OperaGhost","instinctive","‹âF‚Ìl","pan","—´“O","AVTechNO","œƒeƒ‰ƒsƒRƒX","‚Ñ‚ñ‚²","shin","‚ä‚æ‚ä‚Á‚Ø","‚­‚Á‚¶[","ƒ~ƒiƒO","LIQ","‚Ü‚ä‚½‚Ü","ƒ`[ƒ€‚Ù‚µ‚­‚¸","WEB-MIX","ukey","Phantasma","Kossy","mintiack","Yoshihi","‚Ï‚«‚ç","‚·‚½‚¶‚¨EKO•GP1","Neri_McMinn","‚Ú‚©å","Harmonia","Rock","TACHE","cmmz","BIRUGE","m_yus","‚½‚¯chan","CleanTears","Lue","FuMay","SHUN","ŠÖ¼ˆğ‚Ï‚ñ“`","Ã–ì","‚Ç‚ÔƒEƒTƒM","bestgt","IGASI›","ƒƒƒl[ƒh(‰¼)","ICEproject","‚Ï‚ñ‚Â‚Ì‚¤‚½»ìˆÏˆõ‰ï","‚³‚¢‚Í‚Ë","MikSolodyne-ts","Yossy","‚ ‚Â‚¼‚¤‚­‚ñ","ƒ^ƒCƒXƒP","PˆRhythmatiq","Aether_Eru",""];
+settings["exceptionPTagsVO"] = ["","OSTER_project","ika","kz","ryo","KEI","masquer","ƒ{ƒJƒŒİ•‰ï","AEGIS","andromeca","awk","Azell","cokesi","DARS","DixieFlatline","GonGoss","G-Fac.","halyosy","haruna808","HMO‚Æ‚©‚Ì’†‚Ìl","IGASIO","inokix","iroha(sasaki)","Karimono","kashiwagi","kotaro","kous","KuKuDoDo","LOLI.COM","MAX_VEGETABLE","Masuda_K","MineK","No.D","OPA","otetsu","Otomania","AETA(ƒC[ƒ^)","cosMo(–\‘–P)","doriko","PENGUINS_PROJECT","Re:nG","ShakeSphere","samfree","Shibayan","SHIKI","snowy*","takotakoagareŒğ‹¿Šy’c","Tatsh","Treow(‹tÕ“®P)","Tripshots","TuKuRu","UPNUSY","VIVO","wintermute","X-Plorez","YAMADA-SUN","yukiwo","ƒJƒŠƒXƒ}ƒuƒŒƒCƒN‚É’è•]‚Ì‚ ‚é‚¤På","[TEST]","ˆÇ‚ ‚ß","Dog tails","‰Ì˜aƒTƒNƒ‰","—‡","ç®ç‚Ì’†‚Ìl","Šì•º‰q","ƒ³‹øƒ³","‚±‚Ì‚è","¬—ÑƒIƒjƒLƒX","“c’†˜a•v","‚¿‚á‚Ÿ","ƒ`ƒ‡ƒRƒpŒ¶’®P(ƒpƒeƒBƒVƒG)","ƒeƒBƒbƒVƒ…•P","ƒeƒ“ƒlƒ“","‚Æ‚¨‚­‚Å‚«‚±‚¦‚éƒfƒ“ƒVƒIƒ“","ƒgƒ}“¤•…","ƒiƒcƒJƒ[P(Tastle)","“÷Š[œ","”º’·","XˆäƒPƒ“ƒVƒƒE","R–{—”V","R–{ƒjƒ…[","—ÑŒç","ƒŒƒCƒ“ƒ[ƒh","164","Ístudio","uunnie","‚¨‚¢‚à","madamxx","mijinko3","DECO*27","‚³‚©‚«‚å","‚¿[‚Şàt‚èƒgƒ˜¥","GlassOnion","bothneco","yu","m@rk","shin","kame","‚½‚·‚Ç‚ë","nof","YYMIKUYY","Zekky","HironoLin","ƒXƒ^ƒWƒI‚¢‚é‚©‚Ì‚ä","PEG","meam","‚w‚f‚—‚‚’‚‹‚“","‚Ü‚Í‚¢","nankyoku","ƒiƒdƒL","Nen-Sho-K","Sat4","suzy","‚Û‚Ò[","–¼“S2000Œn","Noya","‚³‚Ë","‚«‚ç‚ç","‚²‚ñ‚Ï‚¿","‚¦‚Ç‚İ‚Í‚é","analgesic_agents","takuyabrian","kuma","tomo","nabe_nabe","“‰Öq","river","‚ê‚¢E‚Ú[‚ñ","ƒNƒŠƒAP(YS)","usuki","OperaGhost","instinctive","‹âF‚Ìl","pan","—´“O","AVTechNO","œƒeƒ‰ƒsƒRƒX","‚Ñ‚ñ‚²","shin","‚ä‚æ‚ä‚Á‚Ø","‚­‚Á‚¶[","ƒ~ƒiƒO","LIQ","‚Ü‚ä‚½‚Ü","ƒ`[ƒ€‚Ù‚µ‚­‚¸","WEB-MIX","ukey","Phantasma","Kossy","mintiack","Yoshihi","‚Ï‚«‚ç","‚·‚½‚¶‚¨EKO•GP1","Neri_McMinn","‚Ú‚©å","Harmonia","Rock","TACHE","cmmz","BIRUGE","m_yus","‚½‚¯chan","CleanTears","Lue","FuMay","SHUN","ŠÖ¼ˆğ‚Ï‚ñ“`","Ã–ì","‚Ç‚ÔƒEƒTƒM","bestgt","IGASI›","ƒƒƒl[ƒh(‰¼)","ICEproject","‚Ï‚ñ‚Â‚Ì‚¤‚½»ìˆÏˆõ‰ï","‚³‚¢‚Í‚Ë","MikSolodyne-ts","Yossy","‚ ‚Â‚¼‚¤‚­‚ñ","ƒ^ƒCƒXƒP","PˆRhythmatiq","Aether_Eru","‚¬‚ñ",""];
 
 // ƒjƒRƒ}ƒXEƒ{ƒJƒŒü‚¯—áŠOPƒl[ƒ€
 // ƒjƒRƒ}ƒXEƒ{ƒJƒŒü‚¯œŠOPƒl[ƒ€
