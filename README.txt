@@ -77,7 +77,9 @@ git clone git@github.com:ryochin/nicoreq_mikunopop.git
 
 ■更新履歴
 
-0.01　最初のリリース
+2009.06.21 1.00 最初のリリース
+
+　NicoRequest ｗ２ｋ式VocaloidArrange 2.3.2.3 をベースに改変。
 
 ■再配布・改変について
 
