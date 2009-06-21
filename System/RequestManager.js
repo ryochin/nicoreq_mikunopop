@@ -544,6 +544,7 @@ function getMikunopopCount (vid) {
 	$.ajax( {
 		url: "http://mikunopop.info/count/" + vid,
 		async: 0,
+		timeout: 3000,
 		dataType: "json",
 		success: function (result, status) {
 			if( result.count && result.count.match(/^[0-9]+$/) ){
