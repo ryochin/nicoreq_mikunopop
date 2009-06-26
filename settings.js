@@ -65,7 +65,7 @@ settings["PlayMode"] = 0;
 // オフにしたほうがよさそうです。
 // 1: ダミーのサムネイル画像を表示して負荷を下げる
 // 2: サムネイル画像をネットから取得して表示する（デフォルト）
-settings["ShowThumbnailType"] = 1;
+settings["ShowThumbnailType"] = 2;
 settings["ThumbnailDummyImagePath"] = 'System/nico_dummy.png';    // NicoRequest.hta からの相対URL
 
 // =====================================================================================================================
@@ -77,7 +77,7 @@ settings["ThumbnailDummyImagePath"] = 'System/nico_dummy.png';    // NicoRequest
 // オフにしたほうがよさそうです。
 // 0: 取得しない（常に「-」になる）
 // 1: 取得する（成功すれば数字、失敗すれば「?」が入る）
-settings["GetMikunopopCount"] = 0;
+settings["GetMikunopopCount"] = 1;
 
 // =====================================================================================================================
 // 動画リストHTML
