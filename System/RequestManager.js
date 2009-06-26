@@ -119,10 +119,23 @@ RequestManager.prototype = {
 //add start JASコードなしの場合
 		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
 //add end
+		// sm|nm を除いた動画番号を得る
 		var idno = R.id.replace(/^(sm|nm)/, "");
+
+		// サムネイル画像の種類を分ける
+		var thumb_url;
+		if( settings["ShowThumbnailType"] == 1 ){
+			var thumb_dummy_path = location.href.toString().replace(/NicoRequest\.hta$/,"")
+				+ settings["ThumbnailDummyImagePath"];
+			thumb_url = "<img src=\"" + thumb_dummy_path + "\" width=65 height=50 align=left>";
+		}
+		else if( settings["ShowThumbnailType"] == 2 ){
+			thumb_url = "<img src=\"http://tn-skr4.smilevideo.jp/smile?i=" + idno + "\" width=65 height=50 align=left>";
+		}
 		return str
 				.replace(/{#ID}/g,    R.id)
 				.replace(/{#IDNO}/g,    idno)
+				.replace(/{#ThumbURL}/g,    thumb_url)
 				.replace(/{#Title}/g, "<label ondblclick=\"RequestManager.Events['Edit'](this, 'title','"+R.id+"')\">"+R.title+"</label>")
 				.replace(/{([^}]*?)#PName([^{]*?)}/g, function(match,$1,$2){return $1+"<label ondblclick=\"RequestManager.Events['Edit'](this, 'name','"+R.id+"')\">"+R.name+"</label>"+$2;})
 				.replace(/{#View}/g,  comma(R.view))
@@ -191,7 +204,9 @@ RequestManager.prototype = {
 					RequestManager.doThumbInfoTask(RQ, "unshift");
 				}else{
 					// ミクノポップ再生回数の取得を試みる
-					R.count = getMikunopopCount( R.id );
+					R.count = settings["GetMikunopopCount"]
+						? getMikunopopCount( R.id )
+						: "-";
 					// 動画情報を格納してHTMLを整形
 					RequestManager.Requests[RQ.id] = R;
 					RequestManager.replaceHTML(R);
