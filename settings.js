@@ -118,10 +118,22 @@ settings["ItemHTMLDate"] = "yyyy年mm月dd日";
 //del settings["InfoCommentDate"] = "yy/mm/dd hh:nn:ss";
 //add start
 //settings["InfoComment"] = "再生/{#View} ｺﾒﾝﾄ/{#Comm} ﾏｲﾘｽﾄ/{#List} 時間/{#Time}　<br>聴き入り度/{#Kiki} ﾏｲﾘｽﾄ率/{#Myri}% 正義値/{#Hiky}";
-settings["InfoComment"] = "■{#Title} ■{#PName}<br>";
 //settings["InfoComment2"] = "{#Title}　<br>JASｺｰﾄﾞ/{#JASCode}　P名/{#PName}　投稿日時/{#Date}";
-settings["InfoComment2"] = "■{#Date} 時/{#Time} 彡/{#Count} ◆再/{#View} コ/{#Comm} マ/{#List} ({#Myri}%)";
-settings["InfoCommentTimer"] =3000;// ミリ秒
+settings["InfoComment"] = 
+	  '<font color="#000000">■</font>'
+	+ '<font color="#acacec">{#Title}</font> <br>'
+	+ '<font color="#000000">■</font>'
+	+ '<font color="#ecccac">{#PName}</font>';
+settings["InfoComment2"] = 
+	  '<font color="#000000">■</font>'
+	+ '<font color="#b9f6b9">{#Date}</font> '
+	+ '<font color="#999999">時/</font><font color="#b9f6b9">{#Time}</font> '
+	+ '<font color="#999999">彡/</font><font color="#f3aaaa">{#Count}</font> '
+	+ '<font color="#000000">◆</font>'
+	+ '<font color="#999999">再/</font><font color="#b9f6b9">{#View}</font> '
+	+ '<font color="#999999">コ/</font><font color="#b9f6b9">{#Comm}</font> '
+	+ '<font color="#999999">マ/</font><font color="#b9f6b9">{#List} ({#Myri}%)</font> ';
+settings["InfoCommentTimer"] = 6000;// ミリ秒
 //settings["InfoCommentDate"] = "yy年mm月dd日 hh時nn分ss秒";
 settings["InfoCommentDate"] = "20yy.mm.dd";
 //add end
