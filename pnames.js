@@ -199,5 +199,7 @@ settings["exceptionPTagsVO"] = ["",
 	"ƒmƒGƒ‹",
 	"‚·‚¯",
 	"chickenthe",
+	"‚©‚Æ‚¿‚á",
+	"BiRD(s)",
 ""];
 

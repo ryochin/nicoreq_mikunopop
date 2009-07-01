@@ -148,7 +148,7 @@ settings["InfoComment2"] =
 	  '<font color="#000000">¡</font>'
 	+ '<font color="#b9f6b9">{#Date}</font> '
 	+ '<font color="#999999">/</font><font color="#b9f6b9">{#Time}</font> '
-	+ '<font color="#999999">œc/</font><font color="#f3aaaa">{#Count}</font> '
+	+ '<font color="#ecccac">œc/</font><font color="#f3aaaa">{#Count}</font> '
 	+ '<font color="#000000">Ÿ</font>'
 	+ '<font color="#999999">Ä/</font><font color="#b9f6b9">{#View}</font> '
 	+ '<font color="#999999">ƒR/</font><font color="#b9f6b9">{#Comm}</font> '
