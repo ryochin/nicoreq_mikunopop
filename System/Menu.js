@@ -27,7 +27,7 @@ function importText(){
 	if(!sms) return;
 	for(var i=0,l=sms.length; i<l; i++){
 		ImportNumber++;
-		RequestManager.addRequestQueue(new RequestQueue(sms[i], "I", ImportNumber));
+		RequestManager.addRequestQueue(new RequestQueue(sms[i], "I", ImportNumber, 'admin'));
 	}
 }
 
@@ -49,7 +49,7 @@ function importMylist(){
 				continue;
 			}else{
 				MylistImportNumber++;
-				RequestManager.addRequestQueue(new RequestQueue(sms[0], title, MylistImportNumber));
+				RequestManager.addRequestQueue(new RequestQueue(sms[0], title, MylistImportNumber, 'admin'));
 			}
 		}
 	});

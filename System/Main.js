@@ -151,13 +151,13 @@ function receiveComment_Request(Chat){
 					if(today-uploadedDay<8) {
 						NicoLive.postComment(">>"+Chat.no+"Ç≥ÇÒÅAÇªÇÃìÆâÊÇÕ<br>êVíÖÇ»ÇÃÇ≈ó¨ÇπÇ»Ç¢ÇÒÇ≈Ç∑ÅAÇ≤ÇﬂÇÒÇ»Ç≥Ç¢", "big");
 					} else {
-						RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no));
+						RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no, 'listener'));
 					}
 				}
 			});
 		}else{
 //add end
-		RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no));
+		RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no, 'listener'));
 //add start
 		}
 //add end
@@ -470,7 +470,7 @@ function loadStockList(){
 			var line = file.ReadLine();
 			if(line.match(/([sn]m\d+)/)){
 				line.match(/([sn]m\d+)/);
-				RequestManager.addRequestQueue(new RequestQueue(RegExp.$1, "L", count++));
+				RequestManager.addRequestQueue(new RequestQueue(RegExp.$1, "L", count++, 'stock'));
 			}
 		}
 		file.Close();

@@ -169,12 +169,14 @@ function RequestQueue(){
 	this.id  = "";
 	this.key = "";
 	this.number = 0;
+	this.requester = "";    // listener | admin | stock
 	this.initialize.apply(this, arguments);
 }
 RequestQueue.prototype = {
-	initialize: function(id, key, number){
+	initialize: function(id, key, number, requester){
 		this.id  = id;
 		this.key = key;
 		this.number = number;
+		this.requester = requester;
 	}
 }

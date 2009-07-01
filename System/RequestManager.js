@@ -37,7 +37,7 @@ RequestManager.prototype = {
 	},
 	addRequestQueue: function(RQ){
 		if(!(RQ instanceof RequestQueue) || arguments.length==3){
-			RQ = new RequestQueue(arguments[0], arguments[1], arguments[2]);
+			RQ = new RequestQueue(arguments[0], arguments[1], arguments[2], 'listener');
 		}
 		// キャッシュが存在してそのIDが無効だった場合はスルー
 		var R = this.Requests[RQ.id];
@@ -237,7 +237,19 @@ RequestManager.prototype = {
 				var RequestID = RQ.key+"-"+("0000"+RQ.number).slice(-4);
 				document.getElementById("RID"+RQ.id).innerText += ", " + RequestID;
 			}else{
-				document.getElementById("RequestHTML").insertAdjacentHTML("BeforeEnd", RequestManager.getItemHTML(RQ));
+				// 	リストに追加する位置を決める
+				var pos = 'BeforeEnd';
+				if( RQ.requester == 'admin' && settings["RequestListOrderAdmin"] == 'top' ){
+					pos = 'AfterBegin';
+				}
+				if( RQ.requester == 'stock' && settings["RequestListOrderStock"] == 'top' ){
+					pos = 'AfterBegin';
+				}
+				if( RQ.requester == 'listener' && settings["RequestListOrderListener"] == 'top' ){
+					pos = 'AfterBegin';
+				}
+				// 	追加
+				document.getElementById("RequestHTML").insertAdjacentHTML(pos, RequestManager.getItemHTML(RQ));
 //add start	タイプ判定
 				RequestManager.typeHTML(RQ.id);
 //add end
