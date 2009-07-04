@@ -123,7 +123,8 @@ settings["ItemHTML"] = "{#Type}{#Title}<br>"
 	+ "<b>Ｐ/</b>{#PName}<br>"
 	+ "<b>投/</b>{#Date}<br>"
 	+ "<b>再/</b>{#View} <b>コ/</b>{#Comm} <b>マ/</b>{#List}<br>"
-	+ "<b>彡/</b>{#Count} <b>時/</b>{#Time} <b>計/</b>{#CTime}";
+	+ "<b>彡/</b>{#Count} <b>時/</b>{#Time} <b>計/</b>{#CTime}<br>"
+	+ "<b>ジ/</b>{#Genre}";
 //settings["ItemHTMLDate"] = "yyyy年mm月dd日 hh時nn分ss秒";
 settings["ItemHTMLDate"] = "yyyy年mm月dd日";
 //add end

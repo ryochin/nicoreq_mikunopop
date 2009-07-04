@@ -155,6 +155,7 @@ RequestManager.prototype = {
 				.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+"<label ondblclick=\"RequestManager.Events['Edit'](this, 'JASCode','"+R.id+"')\">"+JASCodes[R.id]+"</label>"+RegExp.$2)
 //add end
 				.replace(/{#Tags}/g, "<div title=\""+R.tags+"\">[tag]</div>")
+				.replace(/{#Genre}/g, R.genre.join(" "))
 //add start タイプ表示箇所を追加
 				.replace(/{#Type}/g, "<span id=\"TYP"+R.id+"\" onclick=\"RequestManager.setAlert('"+R.id+"')\" title=\"クリックで詳細情報を表示\"></span>")
 //add end

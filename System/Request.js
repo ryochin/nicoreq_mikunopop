@@ -43,8 +43,13 @@ Request.prototype = {
 		this.length = xmldom.getElementsByTagName("length")[0].text;
 		this.date   = new Date(xmldom.getElementsByTagName("first_retrieve")[0].text.replace("-","/").replace("T"," ").replace("+09:00",""));
 		var xmltags = xmldom.getElementsByTagName("tags")[0].getElementsByTagName("tag");
+		var genreTagWhiteList = Zen2Han(settings["genreTagWhiteList"].join(","));    // cached
+		this.genre = [];
 		for(var i=0,l=xmltags.length; i<l; i++){
-			this.tags.push(xmltags[i].text);
+			// tags.js に載っているものだけを抽出したい
+			if( genreTagWhiteList.indexOf(","+Zen2Han(xmltags[i].text)+",") > -1 ){
+				this.genre.push(xmltags[i].text);
+			}
 		}
 		this.name  = this.getPName(this.tags, this.title);
 //add start タイプ判定用プロパティ
