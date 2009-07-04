@@ -57,7 +57,7 @@ settings["logoffCheck"] = false;
 settings["PlayMode"] = 0;
 
 // =====================================================================================================================
-// サムネイル画像表示
+// サムネイル画像表示 by saihane
 
 // サムネイル画像を表示する方法を設定します
 // 具体的には、{#ThumbURL} にURLをセットするかどうかを指定します。
@@ -69,7 +69,7 @@ settings["ShowThumbnailType"] = 2;
 settings["ThumbnailDummyImagePath"] = 'System/nico_dummy.png';    // NicoRequest.hta からの相対URL
 
 // =====================================================================================================================
-// ミクノ度
+// ミクノ度 by saihane
 
 // ミクノ度をサーバに問い合わせるかどうかを設定します
 // 具体的には、{#Count} に値を入れるかどうかを決めます。
@@ -80,13 +80,16 @@ settings["ThumbnailDummyImagePath"] = 'System/nico_dummy.png';    // NicoRequest
 settings["GetMikunopopCount"] = 1;
 
 // =====================================================================================================================
-// リクエスト追加順
+// リクエスト追加順（実験的隠し機能） by saihane
 
+// 実験的機能です。必ずテストして納得の上で使用してください。
+// いろいろな問題点をクリアするだけの時間が取れないので、このまま放置される可能性が高いです。
+// 
 // 動画リクエストや放送主による動画の追加の際に、リストの最初に加えるか最後に加えるかを選びます。
 // これは、リスナーからのリクエストがリストの末尾にくるとわかりにくいため、
 // リストの頭に現れるようにしたら楽じゃないか、という発想による実験的機能です。
 // ただし、一番上の動画を再生しようとした瞬間にリクがあった場合の誤操作にご注意を。
-// ※わりと適当に実装されています。並び順の数字などはきっと正確ではなくなります。
+// 使用するなら、リスナーからのリクエストの場合のみtopを指定するのをおすすめします。
 // bottom: リクエストリストの末尾に追加されます（従来通り）
 // top   : リクエストリストの先頭に追加されます
 
@@ -97,7 +100,7 @@ settings["RequestListOrderAdmin"] = 'bottom';    // 従来通り
 settings["RequestListOrderStock"] = 'bottom';    // 従来通り
 
 // リスナーからのリクエストの場合
-settings["RequestListOrderListener"] = 'top';    // 従来の動作から変更されています
+settings["RequestListOrderListener"] = 'top';    //  従来通り
 
 // =====================================================================================================================
 // 動画リストHTML
@@ -147,13 +150,13 @@ settings["InfoComment"] =
 settings["InfoComment2"] = 
 	  '<font color="#000000">■</font>'
 	+ '<font color="#b9f6b9">{#Date}</font> '
-	+ '<font color="#999999">時/</font><font color="#b9f6b9">{#Time}</font> '
-	+ '<font color="#ecccac">彡/</font><font color="#f3aaaa">{#Count}</font> '
+	+ '<font color="#aaaaaa">時/</font><font color="#b9f6b9">{#Time}</font> '
+	+ '<font color="#ecccac">彡</font><font color="#aaaaaa">/</font><font color="#f3aaaa">{#Count}</font> '
 	+ '<font color="#000000">◆</font>'
-	+ '<font color="#999999">再/</font><font color="#b9f6b9">{#View}</font> '
-	+ '<font color="#999999">コ/</font><font color="#b9f6b9">{#Comm}</font> '
-	+ '<font color="#999999">マ/</font><font color="#b9f6b9">{#List} ({#Myri}%)</font> ';
-settings["InfoCommentTimer"] = 6000;// ミリ秒
+	+ '<font color="#aaaaaa">再/</font><font color="#b9f6b9">{#View}</font> '
+	+ '<font color="#aaaaaa">コ/</font><font color="#b9f6b9">{#Comm}</font> '
+	+ '<font color="#aaaaaa">マ/</font><font color="#b9f6b9">{#List} ({#Myri}%)</font> ';
+settings["InfoCommentTimer"] = 6000;// ミリ秒 短くしすぎると、自分のコメントが連投規制される可能性があるので注意
 //settings["InfoCommentDate"] = "yy年mm月dd日 hh時nn分ss秒";
 settings["InfoCommentDate"] = "20yy.mm.dd";
 //add end
