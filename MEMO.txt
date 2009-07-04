@@ -1,0 +1,16 @@
+﻿■リリース手順
+
+・settings.js の top の箇所があれば bottom に戻しておく
+・nicoreq.iss のバージョン番号を書き直す
+・追加や削除されたファイルがあれば nicoreq.iss に反映しておく
+・NicoRequest.hta 内のバージョン番号を書き直す
+・README に追記する
+・バイナリを作成してテスト
+・ZIP を作成
+・ウイルスチェック
+・サーバに転送
+・html にリリースノートを追記する
+・git commit と git push してタグを打っておく
+
+以上
+
