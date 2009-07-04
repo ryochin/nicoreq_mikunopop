@@ -112,7 +112,7 @@ function receiveComment_Request(Chat){
 				|| (/^\s+\/(swap|soundonly|stop)/.test(text))
 			)
 		){
-			NicoLive.postComment(Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail);
+			NicoLive.postComment(Chat.text.replace(/&lt;/g,"ÅÉ").replace(/&gt;/g,"ÅÑ").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail);
 			return;
 		}else if (
 			   document.getElementById("dummyAdminCmtCheck").checked
@@ -123,7 +123,7 @@ function receiveComment_Request(Chat){
 				|| (/^\s+(sm|nm)\d+$/.test(text))
 			)
 		){
-			NicoLive.postComment(Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\n/g,"<br>"), (Chat.mail!=undefined?Chat.mail.replace("184",""):""));
+			NicoLive.postComment(Chat.text.replace(/&lt;/g,"ÅÉ").replace(/&gt;/g,"ÅÑ").replace(/\n/g,"<br>"), (Chat.mail!=undefined?Chat.mail.replace("184",""):""));
 			return;
 		}
 	}

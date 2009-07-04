@@ -380,7 +380,7 @@ RequestManager.prototype = {
 			ItemHTML += "<b>動画タイトル</b><br>"+this.replaceSettings(R.oTitle)+"<br><hr>";
 		}
 		if (settings["typeDESCRIPTION"]) {
-			ItemHTML += "<b>動画コメント</b><br>"+this.replaceSettings(R.description).replace(/&lt;/g,"<").replace(/&gt;/g,">")+"<br><hr>";
+			ItemHTML += "<b>動画コメント</b><br>"+this.replaceSettings(R.description).replace(/&lt;/g,"＜").replace(/&gt;/g,"＞")+"<br><hr>";
 		}
 		if (settings["typeTAG"]) {
 			ItemHTML += "<b>動画タグ一覧</b><br>"+this.replaceSettings(R.tags.join("<br>"))+"<br>";

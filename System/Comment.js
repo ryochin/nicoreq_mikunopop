@@ -47,7 +47,7 @@ function __Comment__receiveComment(Chat){
 				.replace(/{#Vpos}/g,     Chat.vpos)
 //del 				.replace(/{#Text}/g,     Chat.text)
 //add start
-				.replace(/{#Text}/g,     Chat.text.replace(/\n/g,"<br>").replace(/&lt;/g,"<").replace(/&gt;/g,">"))
+				.replace(/{#Text}/g,     Chat.text.replace(/\n/g,"<br>").replace(/&lt;/g,"ÅÉ").replace(/&gt;/g,"ÅÑ"))
 //add end
 	;
 	document.getElementById("CommentHTML").insertAdjacentHTML("AfterBegin", HTML);
@@ -101,7 +101,7 @@ function __Comment__showPopup(x, y, UserID){
 				.replace(/{#Vpos}/g,     Chat.vpos)
 //del 				.replace(/{#Text}/g,     Chat.text)
 //add start
-				.replace(/{#Text}/g,     Chat.text.replace(/\n/g,"<br>").replace(/&lt;/g,"<").replace(/&gt;/g,">"))
+				.replace(/{#Text}/g,     Chat.text.replace(/\n/g,"<br>").replace(/&lt;/g,"ÅÉ").replace(/&gt;/g,"ÅÑ"))
 			;
 //add end
 			body.insertAdjacentHTML("AfterBegin", HTML);
