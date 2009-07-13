@@ -362,13 +362,25 @@ function showPlayState(startTime, PlayTime, id){
 	if(id.match("sm")){
 		min += settings["AutoPlayMargin"];
 	}
-	if(id.match("nm")){
+	else if(id.match("nm")){
 		min += settings["AutoPlayMargin_nm"];
 	}
 //add end
 	// 再生中
 	if(min-timeLeft>0){
-		document.getElementById("playState").innerHTML = tagF+convertTimeString(timeLeft)+"/"+convertTimeString(PlayTime)+tagT;
+		var residue;
+		if( settings["TimeLeftCountdown"] == 1 ){
+			// カウントダウン
+			residue = PlayTime - timeLeft;
+			if( residue < 0 ){
+				residue = 0;
+			}
+		}
+		else{
+			// カウントアップ（デフォルト）
+			residue = timeLeft;
+		}
+		document.getElementById("playState").innerHTML = tagF+convertTimeString(residue)+"/"+convertTimeString(PlayTime)+tagT;
 	// 再生終了
 	}else{
 		// 自動再生がONでありリクエストキューが0の場合は
