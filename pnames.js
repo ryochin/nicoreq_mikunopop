@@ -238,5 +238,7 @@ settings["exceptionPTagsVO"] = ["",
 	"Runo",
 	"en",
 	"ノーベル",
+	"Momotalow",
+	"電PアルPカ",
 ""];
 

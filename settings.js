@@ -100,7 +100,7 @@ settings["RequestListOrderAdmin"] = 'bottom';    // 従来通り
 settings["RequestListOrderStock"] = 'bottom';    // 従来通り
 
 // リスナーからのリクエストの場合
-settings["RequestListOrderListener"] = 'top';    //  従来通り
+settings["RequestListOrderListener"] = 'bottom';    //  従来通り
 
 // =====================================================================================================================
 // 再生時間の表示タイプ by saihane
