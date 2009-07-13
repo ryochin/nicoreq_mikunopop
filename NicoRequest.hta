@@ -82,8 +82,36 @@ fieldset{
 </HTC:Tab>
 <div id="TabContents">
 	<div id="RequestForm">
+		&nbsp;
+		<!-- buttons -->
+		<input id="btnPF" type="button" value="4" onclick="playFirst()" title="一番上を再生" style="font-family:marlett;">
 <!--add start-->
-	<div id="PlayJingleForm"></div>
+		<input type="button" value="g" onclick="NicoLive.postComment('/stop')" title="停止" style="font-family:marlett;">
+		<input type="button" value="7" onclick="NicoLive.postComment('/soundonly on')" title="音のみに切り替える" style="font-family:marlett;">
+<!--add end-->
+		<input type="button" value="r" onclick="delFirst()" title="一番上を削除" style="font-family:marlett;">
+		<input id="btnPR" type="button" value="s" onclick="playRandom()" title="ランダム再生" style="font-family:marlett;">
+
+		<!-- extras -->
+<!--
+		<input type="checkbox" id="playSound" style="display: none"><label for="playSound" style="display: none">音のみ</label>
+		<span id="divPlaySub"><input type="checkbox" id="playSub" style="display: none"><label for="playSub" style="display: none">小画面</label></span>
+		<input id="btnCR" type="button" value="募集" onclick="changeRequest()" style="display: none">
+		<input type="checkbox" id="extraComment" style="display: none">
+-->
+		<input type="hidden" id="playSound">
+		<span id="divPlaySub"></span>
+		<input type="hidden" id="playSub">
+		<input type="hidden" id="btnCR">
+		<input type="hidden" id="extraComment">
+<!--add start-->
+<!--
+		<input type="button" value="１枠延長" onclick="extend()" style="display: none" />
+		<input type="button" onclick="LimitTimeReset()" value="リセット" style="display: none" />
+-->
+<!--add end-->
+<!--add start-->
+	<span id="PlayJingleForm"></span>
 		 <script>
 			if(settings["jingles"]){
 //				document.getElementById("PlayJingleForm").innerHTML = "ジングル ";
@@ -104,24 +132,9 @@ fieldset{
 					}
 				}
 				document.getElementById("PlayJingleForm").appendChild(sel);
-				document.getElementById("PlayJingleForm").innerHTML += " <input type=\"button\" value=\"流す\" onclick=\"NicoLive.postComment(document.getElementById('jingle').value)\" /><br />";
+				document.getElementById("PlayJingleForm").innerHTML += " <input type=\"button\" value=\"流す\" onclick=\"NicoLive.postComment(document.getElementById('jingle').value)\" />";
 			}
 		 </script>
-<!--add end-->
-		<input id="btnPF" type="button" value="4" onclick="playFirst()" title="一番上を再生" style="font-family:marlett;">
-<!--add start-->
-		<input type="button" value="g" onclick="NicoLive.postComment('/stop')" title="停止" style="font-family:marlett;">
-		<input type="button" value="7" onclick="NicoLive.postComment('/soundonly on')" title="音のみに切り替える" style="font-family:marlett;">
-<!--add end-->
-		<input type="button" value="r" onclick="delFirst()" title="一番上を削除" style="font-family:marlett;">
-		<input id="btnPR" type="button" value="s" onclick="playRandom()" title="ランダム再生" style="font-family:marlett;">
-		　<input type="checkbox" id="playSound"><label for="playSound">音のみ</label>
-		<span id="divPlaySub"><input type="checkbox" id="playSub"><label for="playSub">小画面</label></span>
-		　<input id="btnCR" type="button" value="募集" onclick="changeRequest()" style="display: none">
-		<input type="checkbox" id="extraComment" style="display: none">
-<!--add start-->
-		<input type="button" value="１枠延長" onclick="extend()" style="display: none" />　
-		<input type="button" onclick="LimitTimeReset()" value="リセット" style="display: none" />
 <!--add end-->
 		<hr>
 	</div>
