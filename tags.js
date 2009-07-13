@@ -1,5 +1,8 @@
 // ジャンルに関係あるタグのホワイトリスト
 settings["genreTagWhiteList"] = ["",
+	// 一般
+	"テクノ",
+
 	// 大百科より
 	// http://dic.nicovideo.jp/a/vocaloid%E9%96%A2%E9%80%A3%E3%81%AE%E3%82%BF%E3%82%B0%E4%B8%80%E8%A6%A7
 	"アングーグラウンドボカロジャパン",
@@ -117,4 +120,7 @@ settings["genreTagWhiteList"] = ["",
 	// GUMI
 	"かわいいGUMIうた",
 	"ききいるGUMIうた",
+
+	// 特別
+	"時田トリビュート",
 ""];
