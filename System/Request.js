@@ -50,7 +50,9 @@ Request.prototype = {
 			if( genreTagWhiteList.indexOf(","+Zen2Han(xmltags[i].text)+",") > -1 ){
 				this.genre.push(xmltags[i].text);
 			}
+			this.tags.push(xmltags[i].text);
 		}
+		this.genre.sort( function(a,b){ return ( a.length > b.length ) ? 1 : -1 } );    // 短いほうがきっと本質的だろう
 		this.name  = this.getPName(this.tags, this.title);
 //add start タイプ判定用プロパティ
 		this.oTitle  = xmldom.getElementsByTagName("title")[0].text;
