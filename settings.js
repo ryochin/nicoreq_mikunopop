@@ -198,7 +198,7 @@ settings["PlayLog"] = "{#ID}　{#Title}";
 //del settings["CommentLogHTML"] = "<b>{#No}</b> :{#Text}<br>[{#ID}]<hr>";
 //add start
 settings["CommentLogHTML"] = "<b>{#No}</b> ({#Date})<br>[{#Mail}]{#Text}<br>[{#ID}]<hr>";
-settings["CommentLogDate"] = "yyyy年mm月dd日　dy曜日　hh時mm分ss秒";
+settings["CommentLogDate"] = "yyyy年mm月dd日　dy曜日　hh時nn分ss秒";
 //add end
 
 // =====================================================================================================================

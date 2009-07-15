@@ -27,7 +27,7 @@ function __Comment__receiveComment(Chat){
 												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getHours())
 												:(new Date(new Date().setTime(Chat.date*1000))).getHours()
 											)
-											.replace("mm",  (new Date(new Date().setTime(Chat.date*1000))).getMinutes()<10
+											.replace("nn",  (new Date(new Date().setTime(Chat.date*1000))).getMinutes()<10
 												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getMinutes())
 												:(new Date(new Date().setTime(Chat.date*1000))).getMinutes()
 											)
@@ -86,7 +86,7 @@ function __Comment__showPopup(x, y, UserID){
 											.replace("hh",  (new Date(new Date().setTime(Chat.date*1000))).getHours()<10
 												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getHours())
 												:(new Date(new Date().setTime(Chat.date*1000))).getHours())
-											.replace("mm",  (new Date(new Date().setTime(Chat.date*1000))).getMinutes()<10
+											.replace("nn",  (new Date(new Date().setTime(Chat.date*1000))).getMinutes()<10
 												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getMinutes())
 												:(new Date(new Date().setTime(Chat.date*1000))).getMinutes())
 											.replace("ss",  (new Date(new Date().setTime(Chat.date*1000))).getSeconds()<10
