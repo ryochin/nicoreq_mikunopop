@@ -239,6 +239,7 @@ settings["exceptionPTagsVO"] = ["",
 	"en",
 	"ノーベル",
 	"Momotalow",
-	"電PアルPカ",
+	"電PアルPカ",    // デンパアルパカ
+	"tms",
 ""];
 
