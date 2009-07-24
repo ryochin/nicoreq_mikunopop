@@ -241,5 +241,14 @@ settings["exceptionPTagsVO"] = ["",
 	"Momotalow",
 	"電PアルPカ",    // デンパアルパカ
 	"tms",
+	"すえぞぉ",
+	"ヒゲドライバー",
+	"k2",
+	"チータン",
+	"わたしょ",
+	"36g",
+	"salome",
+	"ぱたや",
+	"P*Light",
 ""];
 
