@@ -11,7 +11,7 @@ if( settings["GetMikunopopCount"] == 1 ){
 	// get via net
 	if( checkMikunopopCountFileDateLastModified() ){
 		retrieveMikunopopCountFile();
-		alert("最新のミクノ度情報をネットから取得しました。");
+//		alert("最新のミクノ度情報をネットから取得しました。");
 	}
 	
 	// load
