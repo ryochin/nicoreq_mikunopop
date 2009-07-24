@@ -567,24 +567,3 @@ function comma ( from ){
 	}
 	return to;
 }
-function getMikunopopCount (vid) {
-	var count;
-	$.ajax( {
-		url: "http://mikunopop.info/count/" + vid,
-		async: 0,
-		timeout: 3000,
-		dataType: "json",
-		success: function (result, status) {
-			if( result.count && result.count.match(/^[0-9]+$/) ){
-				count = parseInt( result.count, 10 );
-			}
-			else{
-				count = '0';
-			}
-		},
-		error: function (req, status, error) {
-			count = '?';
-		}
-	} );
-	return count;
-}
