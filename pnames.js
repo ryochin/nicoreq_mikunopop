@@ -250,5 +250,13 @@ settings["exceptionPTagsVO"] = ["",
 	"salome",
 	"‚Ï‚½‚â",
 	"P*Light",
+	"•ú”Cå‹`",
+	"21¢‹IŠjí‘ˆ",
+	"Stremanic",
+	"HIDAKA",
+	"KAZU-k",
+	"effe",
+	"TEMB",
+	"“C¹–ë",
 ""];
 
