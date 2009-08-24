@@ -38,7 +38,7 @@ Request.prototype = {
 //		this.hiky = Math.round(100*(this.list+this.view)/(this.list+this.view+this.comm))/100;
 		this.kiki = (this.list/this.comm).toFixed(2);
 		this.myri = (100*this.list/this.view).toFixed(2);
-		this.hiky = ((this.list+this.view)/(this.list+this.view+this.comm)).toFixed(2);
+		this.hiky = ((this.list+this.view)/(this.list+this.view+this.comm)).toFixed(1);
 //add end
 		this.length = xmldom.getElementsByTagName("length")[0].text;
 		this.date   = new Date(xmldom.getElementsByTagName("first_retrieve")[0].text.replace("-","/").replace("T"," ").replace("+09:00",""));
