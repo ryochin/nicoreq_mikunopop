@@ -270,5 +270,6 @@ settings["exceptionPTagsVO"] = ["",
 	"salome",
 	"おなつ",
 	"サイコパズル",
+	"nyan_nyan",
 ""];
 
