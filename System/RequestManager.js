@@ -57,7 +57,8 @@ RequestManager.prototype = {
 	getItemHTML: function(RQ){
 		var RequestID = RQ.key+"-"+("0000"+RQ.number).slice(-4);
 		var ItemHTML = "<div id=\"{#ID}\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">"
-		ItemHTML += "<tr><td width=\"100%\"><u ondblclick=\"RequestManager.Events['Play']('{#ID}')\" onclick=\"__RequestManager__showPopup(event.clientX, event.clientY, '{#ID}')\" oncontextmenu=\"OpenVideo('{#ID}')\" title=\"クリックで動画情報表示\">";
+//		ItemHTML += "<tr><td width=\"100%\"><u ondblclick=\"RequestManager.Events['Play']('{#ID}')\" onclick=\"__RequestManager__showPopup(event.clientX, event.clientY, '{#ID}')\" oncontextmenu=\"OpenVideo('{#ID}')\" title=\"クリックで動画情報表示\">";
+		ItemHTML += "<tr><td width=\"100%\"><u ondblclick=\"RequestManager.Events['Play']('{#ID}')\" onclick=\"showVideoInfo('{#ID}')\" oncontextmenu=\"OpenVideo('{#ID}')\" title=\"クリックで動画情報表示\">";
 		ItemHTML += "[<span id=\"RNO{#ID}\">"+(this.Indexes[RQ.id]+1)+"/"+this.RequestQueues.length+"</span>]&nbsp;";
 		ItemHTML += "<b>{#ID}</b>&nbsp;"
 		ItemHTML += "<span id=\"RID{#ID}\">"+RequestID+"</span></u><br>";
@@ -93,7 +94,11 @@ RequestManager.prototype = {
 		ItemHTML += "<br> ";
 //add end
 		ItemHTML += "<br><input type=\"button\" onclick=\"RequestManager.downRequest('{#ID}')\" oncontextmenu=\"RequestManager.downRequestLast('{#ID}');return false;\" value=\"↓\" title=\"右クリックで一番下に移動\">";
-		ItemHTML += "</td></tr></table><hr></div>";
+		ItemHTML += "</td></tr></table>";
+		ItemHTML += "<div id=\"info-{#ID}\" style=\"display: none\"></div>";
+		ItemHTML += "<input type=hidden id=\"info-status-{#ID}\" value=0 />";
+		ItemHTML += "<input type=hidden id=\"info-flag-{#ID}\" value=0 />";
+		ItemHTML += "<hr></div>";
 		if(this.Requests[RQ.id]){
 			return this._replaceHTML(ItemHTML, this.Requests[RQ.id]);
 		}else{
@@ -548,12 +553,12 @@ var RequestManager = new RequestManager();
 
 
 // 情報ポップアップ
-var __RequestManager__Popup = window.createPopup();
-function __RequestManager__showPopup(x, y, VideoID){ 
-	var body  = __RequestManager__Popup.document.body;
-	body.innerHTML = "<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+"\" width=\"314\" height=\"178\" onclick=\"top.__RequestManager__Popup.hide();\" onmousewheel=\"top.__RequestManager__Popup.hide();\">";
-	__RequestManager__Popup.show(x, y, 314, 178, document.body);
-}
+//var __RequestManager__Popup = window.createPopup();
+//function __RequestManager__showPopup(x, y, VideoID){ 
+//	var body  = __RequestManager__Popup.document.body;
+//	body.innerHTML = "<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+"\" width=\"314\" height=\"178\" onclick=\"top.__RequestManager__Popup.hide();\" onmousewheel=\"top.__RequestManager__Popup.hide();\">";
+//	__RequestManager__Popup.show(x, y, 314, 178, document.body);
+//}
 
 function OpenVideo(id){
 	var WshShell = new ActiveXObject("WScript.Shell");
@@ -567,3 +572,53 @@ function comma ( from ){
 	}
 	return to;
 }
+
+// 情報表示
+function showVideoInfo (id) { 
+	var ic = '#info-' + id;
+
+	// 状態を見る
+	var status_id = '#info-status-' + id;
+	if( $(status_id).val() == 1 ){
+		// 開いているので閉じる
+		_closeInfo(id);
+		
+		$(status_id).val(0);
+	}
+	else{
+		// 中身が用意されてなかったら用意する
+		var flag_id = '#info-flag-' + id;
+		if( $(flag_id).val() != 1 ){
+			_createInfo(id);
+			$(flag_id).val(1);
+		}
+		
+		// 開く
+		$(ic).slideDown();
+		
+		$(status_id).val(1);
+	}
+}
+
+function _createInfo (id) {
+	var ic = '#info-' + id;
+
+	// 画像
+	$("<img />")
+		.appendTo(ic)
+		.attr( { src: "http://niconail.info/" + id } )
+		.attr( { alt: id } );
+
+	// 閉じる準備
+	$(ic).click( function () {
+		_closeInfo(id);
+	} );
+}
+
+function _closeInfo (id) {
+	var ic = '#info-' + id;
+
+	$(ic).slideUp();
+//	$(ic).css( { display: 'none' } );
+}
+
