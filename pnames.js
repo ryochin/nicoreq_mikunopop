@@ -271,5 +271,8 @@ settings["exceptionPTagsVO"] = ["",
 	"おなつ",
 	"サイコパズル",
 	"nyan_nyan",
+	"hiropon_5th",
+	"stereoberry",
+	"Seventh_Heaven",
 ""];
 
