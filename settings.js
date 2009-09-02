@@ -129,14 +129,15 @@ settings["TimeLeftCountdown"] = 1;
 //add start
 // {#PName}:Pネーム, {#JASCode}:JASコード, {#Type}:タイプ判定, {#Kiki}:聞き入り度, {#Myri}:マイリス率, {#Hiky}:正義度（ぼからん補正）
 //settings["ItemHTML"] = "{#Type}{#Title}<br><b>P名/</b>{#PName} <b>JAS-C/</b>{#JASCode}<br><b>再/</b>{#View} <b>コ/</b>{#Comm} <b>マ/</b>{#List} <b>時/</b>{#Time} <b>累/</b>{#CTime}<br><b>投稿日/</b>{#Date}<br><b>聴き入り度/</b>{#Kiki} <b>マイリスト率/</b>{#Myri}% <b>正義値/</b>{#Hiky}";
-settings["ItemHTML"] = "{#Type}{#Title}<br>"
+//settings["ItemHTML"] = "{#Type}{#Title}<br>"
+settings["ItemHTML"] = ""
 //	+ "<img src=\"http://tn-skr4.smilevideo.jp/smile?i={#IDNO}\" width=65 height=50 align=left>"
 	+ "{#ThumbURL}"
-	+ "<b>Ｐ/</b>{#PName}<br>"
-	+ "<b>投/</b>{#Date}<br>"
-	+ "<b>再/</b>{#View} <b>コ/</b>{#Comm} <b>マ/</b>{#List}<br>"
-	+ "<b>彡/</b>{#Count} <b>時/</b>{#Time} <b>計/</b>{#CTime}<br>"
-	+ "<b>ジ/</b><span style=\"color: #66c\">{#Genre}</span>";
+	+ '<span class="subtitle">Ｐ </span>{#PName}<br>'
+	+ '<span class="subtitle">投 </span>{#Date}<br>'
+	+ '<span class="subtitle">再 </span>{#View} <span class="subtitle">コ </span>{#Comm} <span class="subtitle">マ </span>{#List}<br>'
+	+ '<span class="subtitle">彡 </span><span class="count">{#Count}</span>&nbsp; <span class="subtitle">時 </span>{#Time}&nbsp; <span class="subtitle">計 </span>{#CTime}<br>'
+	+ '<span class="genre">{#Genre}</span>';
 //settings["ItemHTMLDate"] = "yyyy年mm月dd日 hh時nn分ss秒";
 settings["ItemHTMLDate"] = "yyyy年mm月dd日";
 //add end
@@ -162,7 +163,7 @@ settings["InfoComment"] =
 	+ '<font color="#ecccac">{#PName}</font>';
 settings["InfoComment2"] = 
 	  '<font color="#000000">■</font>'
-	+ '<font color="#b9f6b9">{#Date}</font> '
+	+ '<font color="#acacec">{#Date}</font> '
 	+ '<font color="#aaaaaa">時/</font><font color="#b9f6b9">{#Time}</font> '
 	+ '<font color="#ecccac">彡</font><font color="#aaaaaa">/</font><font color="#f3aaaa">{#Count}</font> '
 	+ '<font color="#000000">◆</font>'
@@ -452,7 +453,7 @@ settings["exceptionPTagsIM"] = ["", ""];
 // ニコマス・ボカロ向け除外Pネーム
 // タグ名の末尾がPでもP名として取得しない場合はここに記述します
 settings["NotPTagsIM"] = ["", "iM@SHUP", "アイドルマスターSP", "PSP", ""];
-settings["NotPTagsVO"] = ["", "MikuPOP", "RinPOP", "アニメOP", "ゲームOP", "エロゲOP", "偽OP", "J-POP", ""];
+settings["NotPTagsVO"] = ["", "MikuPOP", "RinPOP", "アニメOP", "ゲームOP", "エロゲOP", "偽OP", "J-POP", "これからもずっとbakerの嫁P", ""];
 
 // Pネーム取得失敗時の名前
 // タグからPネームを取得できなかった際に用いられる文字列を指定します

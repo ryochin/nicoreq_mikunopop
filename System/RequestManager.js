@@ -57,11 +57,17 @@ RequestManager.prototype = {
 	getItemHTML: function(RQ){
 		var RequestID = RQ.key+"-"+("0000"+RQ.number).slice(-4);
 		var ItemHTML = "<div id=\"{#ID}\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">"
-//		ItemHTML += "<tr><td width=\"100%\"><u ondblclick=\"RequestManager.Events['Play']('{#ID}')\" onclick=\"__RequestManager__showPopup(event.clientX, event.clientY, '{#ID}')\" oncontextmenu=\"OpenVideo('{#ID}')\" title=\"クリックで動画情報表示\">";
-		ItemHTML += "<tr><td width=\"100%\"><u ondblclick=\"RequestManager.Events['Play']('{#ID}')\" onclick=\"showVideoInfo('{#ID}')\" oncontextmenu=\"OpenVideo('{#ID}')\" title=\"クリックで動画情報表示\">";
-		ItemHTML += "[<span id=\"RNO{#ID}\">"+(this.Indexes[RQ.id]+1)+"/"+this.RequestQueues.length+"</span>]&nbsp;";
-		ItemHTML += "<b>{#ID}</b>&nbsp;"
-		ItemHTML += "<span id=\"RID{#ID}\">"+RequestID+"</span></u><br>";
+
+		// [1/1] nm7804321 L-0001
+		ItemHTML += "<tr><td colspan=4>[ <span id=\"RNO{#ID}\">"+(this.Indexes[RQ.id]+1)+"/"+this.RequestQueues.length+"</span>]&nbsp;";
+		ItemHTML += "<u class=\"vid\" ondblclick=\"RequestManager.Events['Play']('{#ID}')\" onclick=\"showVideoInfo('{#ID}')\" oncontextmenu=\"OpenVideo('{#ID}')\" title=\"クリックで動画情報表示\"><b>{#ID}</b>&nbsp;";
+		ItemHTML += "<span id=\"RID{#ID}\">"+RequestID+"</span></u></td>";
+
+		// title
+		ItemHTML += "<tr><td colspan=4 class=\"title-container\">&nbsp;";
+		ItemHTML += "<span id=\"TITLE{#ID}\" class=\"title\"></span></td>";    // あとでセットするためのコンテナ
+
+		ItemHTML += "<tr><td width=\"100%\">";
 		ItemHTML += "<div id=\"INF{#ID}\">";
 		// 動画情報が取得済みなら情報を出力する
 		if(this.Requests[RQ.id]){
@@ -135,8 +141,14 @@ RequestManager.prototype = {
 			thumb_url = "<img src=\"" + thumb_dummy_path + "\" width=65 height=50 align=left>";
 		}
 		else if( settings["ShowThumbnailType"] == 2 ){
-			thumb_url = "<img src=\"http://tn-skr4.smilevideo.jp/smile?i=" + idno + "\" width=65 height=50 align=left>";
+			var thumb_image = "<img src=\"http://tn-skr4.smilevideo.jp/smile?i="
+				+ idno + "\" width=65 height=50 align=left class=\"thumb\">";
+			thumb_url = '<a href="http://www.nicovideo.jp/watch/' + R.id + '">' + thumb_image + '</a>';
 		}
+
+		// title を強引に書き換える
+		$('#TITLE' + R.id).html( R.title );    // dirty hack :(
+
 		return str
 				.replace(/{#ID}/g,    R.id)
 				.replace(/{#IDNO}/g,    idno)
