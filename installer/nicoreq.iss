@@ -7,7 +7,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{D2DE523D-77A0-459C-9F2A-0EF93B58FF43}
 AppName=NicoRequest Mikunopop Edition
-AppVerName=NicoRequest Mikunopop Edition 1.13
+AppVerName=NicoRequest Mikunopop Edition 1.14
 AppPublisher=saihane
 AppPublisherURL=http://mikunopop.info/
 AppSupportURL=http://mikunopop.info/
@@ -17,11 +17,11 @@ DefaultGroupName=NicoRequest Mikunopop Edition
 AllowNoIcons=yes
 LicenseFile=C:\Mikunopop\nicoreq\EULA.txt
 InfoBeforeFile=C:\Mikunopop\nicoreq\README.txt
-OutputBaseFilename=NicoReqMikunopopEdition_113
+OutputBaseFilename=NicoReqMikunopopEdition_114
 Compression=lzma
 SolidCompression=yes
 SetupIconFile=C:\Mikunopop\nicoreq\installer\app.ico
-VersionInfoVersion=1.1.3.0
+VersionInfoVersion=1.1.4.0
 VersionInfoDescription=NicoRequest for Mikunopop community
 AppCopyright=saihane, w2k, ExceptionError
 WizardImageFile=C:\Mikunopop\nicoreq\installer\wizard.bmp
@@ -47,6 +47,7 @@ Source: "C:\Mikunopop\nicoreq\settings.js"; DestDir: "{app}"; Flags: confirmover
 Source: "C:\Mikunopop\nicoreq\pnames.js"; DestDir: "{app}";
 Source: "C:\Mikunopop\nicoreq\tags.js"; DestDir: "{app}";
 Source: "C:\Mikunopop\nicoreq\System\*"; DestDir: "{app}\System\";
+Source: "C:\Mikunopop\nicoreq\System\assets\*"; DestDir: "{app}\System\assets\";
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
