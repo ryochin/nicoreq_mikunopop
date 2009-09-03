@@ -76,30 +76,24 @@ RequestManager.prototype = {
 			ItemHTML += "動画情報取得中...";
 		}
 		ItemHTML += "</div></td><td align=\"right\">";
-		ItemHTML += "<input type=\"button\" onclick=\"RequestManager.setClipboard('ID', '{#ID}')\" value=\"動\">";
-//add start
-		//近いと押し間違えやすいらしいので1行挿入
-		ItemHTML += "<br> ";
-//add end
-		ItemHTML += "<br><input type=\"button\" onclick=\"RequestManager.setClipboard('IF', '{#ID}')\" value=\"情\" title=\"右クリックで動画情報2をコピー\" oncontextmenu=\"RequestManager.setClipboard('IF2', '{#ID}');return false;\">";
+//		ItemHTML += "<input type=\"button\" onclick=\"RequestManager.setClipboard('ID', '{#ID}')\" value=\"動\">";
+//		ItemHTML += "<br> ";
+//		ItemHTML += "<br><input type=\"button\" onclick=\"RequestManager.setClipboard('IF', '{#ID}')\" value=\"情\" title=\"右クリックで動画情報2をコピー\" oncontextmenu=\"RequestManager.setClipboard('IF2', '{#ID}');return false;\">";
+//		ItemHTML += "</td><td>";
+		var buttonName = settings["UseIE"]
+			? '再生'
+			: '履歴';
+//		ItemHTML += "<input type=\"button\" id=\"PLY{#ID}\" onclick=\"RequestManager.Events['Play']('{#ID}')\" value=\"" + buttonName + "\">";
+		ItemHTML += "<input type=\"image\" src=\"./System/assets/play.png\" id=\"PLY{#ID}\" class=\"control-button-up\" onclick=\"RequestManager.Events['Play']('{#ID}')\" value=\"" + buttonName + "\">";
+//		ItemHTML += "<br> ";
+//		ItemHTML += "<br><input type=\"button\" onclick=\"RequestManager.deleteRequestQueueById('{#ID}')\" value=\"削除\"></td>";
+		ItemHTML += "<br><input type=\"image\" src=\"./System/assets/remove.png\" class=\"control-button-down\" onclick=\"RequestManager.deleteRequestQueueById('{#ID}')\" value=\"削除\"></td>";
 		ItemHTML += "</td><td>";
-		if(settings["UseIE"]){
-			ItemHTML += "<input type=\"button\" id=\"PLY{#ID}\" onclick=\"RequestManager.Events['Play']('{#ID}')\" value=\"再生\">";
-		}else{
-			ItemHTML += "<input type=\"button\" id=\"PLY{#ID}\" onclick=\"RequestManager.Events['Play']('{#ID}')\" value=\"履歴\">";
-		}
-//add start
-		//近いと押し間違えやすいらしいので1行挿入
-		ItemHTML += "<br> ";
-//add end
-		ItemHTML += "<br><input type=\"button\" onclick=\"RequestManager.deleteRequestQueueById('{#ID}')\" value=\"削除\"></td>";
-		ItemHTML += "</td><td>";
-		ItemHTML += "<input type=\"button\" onclick=\"RequestManager.upRequest('{#ID}')\" oncontextmenu=\"RequestManager.upRequestFirst('{#ID}');return false;\" value=\"↑\" title=\"右クリックで一番上に移動\">";
-//add start
-		//近いと押し間違えやすいらしいので1行挿入
-		ItemHTML += "<br> ";
-//add end
-		ItemHTML += "<br><input type=\"button\" onclick=\"RequestManager.downRequest('{#ID}')\" oncontextmenu=\"RequestManager.downRequestLast('{#ID}');return false;\" value=\"↓\" title=\"右クリックで一番下に移動\">";
+//		ItemHTML += "<input type=\"button\" onclick=\"RequestManager.upRequest('{#ID}')\" oncontextmenu=\"RequestManager.upRequestFirst('{#ID}');return false;\" value=\"↑\" title=\"右クリックで一番上に移動\">";
+		ItemHTML += "<input type=\"image\" src=\"./System/assets/up.png\" class=\"control-button-up\" onclick=\"RequestManager.upRequest('{#ID}')\" oncontextmenu=\"RequestManager.upRequestFirst('{#ID}');return false;\" value=\"↑\" title=\"右クリックで一番上に移動\">";
+//		ItemHTML += "<br> ";
+//		ItemHTML += "<br><input type=\"button\" onclick=\"RequestManager.downRequest('{#ID}')\" oncontextmenu=\"RequestManager.downRequestLast('{#ID}');return false;\" value=\"↓\" title=\"右クリックで一番下に移動\">";
+		ItemHTML += "<br><input type=\"image\" src=\"./System/assets/down.png\" class=\"control-button-down\" onclick=\"RequestManager.downRequest('{#ID}')\" oncontextmenu=\"RequestManager.downRequestLast('{#ID}');return false;\" value=\"↓\" title=\"右クリックで一番下に移動\">";
 		ItemHTML += "</td></tr></table>";
 		ItemHTML += "<div id=\"info-{#ID}\" style=\"display: none\"></div>";
 		ItemHTML += "<input type=hidden id=\"info-status-{#ID}\" value=0 />";

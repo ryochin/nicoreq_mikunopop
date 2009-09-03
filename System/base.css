@@ -1,8 +1,17 @@
 /* base css */
 
+input.head-control-image {
+	margin: 1px 1px 0px 1px;
+	vertical-align: bottom;
+}
+
+select {
+	margin-top: 2px;
+}
+
 /* id info */
 u.vid {
-	color: #999;
+	color: #666;
 }
 
 /* title */
@@ -28,6 +37,14 @@ span.count {
 img.thumb {
 	margin: 2px 4px 8px 2px;
 	border: 1px solid #aaa;
+}
+
+input.control-button-up {
+	margin: 8px 4px 4px 4px;
+}
+
+input.control-button-down {
+	margin: 2px 4px;
 }
 
 

@@ -86,13 +86,13 @@ fieldset{
 	<div id="RequestForm">
 		&nbsp;
 		<!-- buttons -->
-		<input id="btnPF" type="button" value="4" onclick="playFirst()" title="ˆê”Ôã‚ðÄ¶" style="font-family:marlett;">
+		<input id="btnPF" type="image" src="./System/assets/play_s.png" value="4" class="head-control-image" onclick="playFirst()" title="ˆê”Ôã‚ðÄ¶">
 <!--add start-->
-		<input type="button" value="g" onclick="NicoLive.postComment('/stop')" title="’âŽ~" style="font-family:marlett;">
-		<input type="button" value="7" onclick="NicoLive.postComment('/soundonly on')" title="‰¹‚Ì‚Ý‚ÉØ‚è‘Ö‚¦‚é" style="font-family:marlett;">
+		<input type="image" src="./System/assets/stop_s.png" value="g" class="head-control-image" onclick="NicoLive.postComment('/stop')" title="’âŽ~">
+		<input type="image" src="./System/assets/soundonly_s.png" value="7" class="head-control-image" onclick="NicoLive.postComment('/soundonly on')" title="‰¹‚Ì‚Ý‚ÉØ‚è‘Ö‚¦‚é">
 <!--add end-->
-		<input type="button" value="r" onclick="delFirst()" title="ˆê”Ôã‚ðíœ" style="font-family:marlett;">
-		<input id="btnPR" type="button" value="s" onclick="playRandom()" title="ƒ‰ƒ“ƒ_ƒ€Ä¶" style="font-family:marlett;">
+		<input type="image" src="./System/assets/close_s.png" value="r" class="head-control-image" onclick="delFirst()" title="ˆê”Ôã‚ðíœ">
+		<input id="btnPR" type="image" src="./System/assets/random_s.png" value="s" class="head-control-image" onclick="playRandom()" title="ƒ‰ƒ“ƒ_ƒ€Ä¶">
 
 		<!-- extras -->
 <!--
@@ -134,7 +134,7 @@ fieldset{
 					}
 				}
 				document.getElementById("PlayJingleForm").appendChild(sel);
-				document.getElementById("PlayJingleForm").innerHTML += " <input type=\"button\" value=\"—¬‚·\" onclick=\"NicoLive.postComment(document.getElementById('jingle').value)\" />";
+				document.getElementById("PlayJingleForm").innerHTML += " <input type=\"image\" src=\"./System/assets/play_jingle_s.png\" class=\"head-control-image\" onclick=\"NicoLive.postComment(document.getElementById('jingle').value)\" title=\"ƒWƒ“ƒOƒ‹‚ðÄ¶\" />";
 			}
 		 </script>
 <!--add end-->
