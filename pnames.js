@@ -274,5 +274,11 @@ settings["exceptionPTagsVO"] = ["",
 	"hiropon_5th",
 	"stereoberry",
 	"Seventh_Heaven",
+	"sh_m",
+	"ut21",
+	"ziki_7",
+	"‚Å‚Á‚¿",
+	"—§H",
+	"‚Æ‚ñ‚©‚Â",
 ""];
 

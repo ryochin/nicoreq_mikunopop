@@ -65,6 +65,9 @@ settings["genreTagWhiteList"] = ["",
 	"ミックンベース",
 	"MEIKO無双",
 	
+	// etc
+	"VOCALOID和風曲",
+	
 	// ミク
 	"みんなのミクうた",
 	"初音ミク処女作",
