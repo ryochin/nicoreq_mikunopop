@@ -137,20 +137,30 @@ function receiveComment_Request(Chat){
 		}else if(NGIDs[sms[0]]) {
 			NicoLive.postComment(">>"+Chat.no+"さん、その動画は主のNG動画リストに<br />登録済みなので流せないんです、ごめんなさい", "big");
 		}else if(settings["AddPlayedVideoId2NGIDs"]&&PlayedVideoIds[sms[0]]) {
-			NicoLive.postComment(">>"+Chat.no+"さん、その動画は流したばかりなので・・・ｻｰｾﾝ", "");
+			NicoLive.postComment(">>"+Chat.no+"さん、その動画は流したばかりなので・・・すみません。", "");
 		}else if(settings["CheckNew"]){
 			// 新着かどうか確認し、新着だった場合は運営コメで通達
 			NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + sms[0], function(xmldom){
 				if(!xmldom.getElementsByTagName("first_retrieve")[0]) {
 					NicoLive.postComment(">>"+Chat.no+"さん　<br />その動画は物理的理由で放送できません。", "big");
 				}else{
-					var first_retrieve = xmldom.getElementsByTagName("first_retrieve")[0].text.replace(/T.+/," ").replace(/-/g,"/");
-					// 現在および投稿された日時をそれぞれGMT時刻に合わせて1970/1/1を起点とした日数に置換
-					var today = Math.floor(new Date(new Date().getTime()+new Date().getTimezoneOffset()*1000*60)/(24*60*60*1000));
-					var uploadedDay = Math.floor(new Date((new Date(first_retrieve)-9*60*60*1000)/(24*60*60*1000)));
-					if(today-uploadedDay<8) {
-						NicoLive.postComment(">>"+Chat.no+"さん、その動画は<br>新着なので流せないんです、ごめんなさい", "big");
-					} else {
+					// 現在
+					var today = Math.floor(new Date(new Date().getTime())/1000);
+					
+					// アップ時刻 e.g. 2009-09-03T23:45:56+09:00
+					var first_retrieve = xmldom.getElementsByTagName("first_retrieve")[0].text
+						.replace(/T/," ").replace(/\+.+$/,"").replace(/-/g,"/");
+					var uploadedDay = Math.floor(new Date(new Date(first_retrieve)/1000));
+					
+					// １６８時間以内なら弾く
+					var limit = ( 7 * 24 * 60 * 60 ) - ( today - uploadedDay );
+					if( limit > 0 ){
+						// 残り時間を表示する
+						var msg = getTimeLeftMessage( limit );
+						
+						NicoLive.postComment("＞"+Chat.no+"さん、その曲はあと"+ msg + "経たないと<br>流せないのです m(_ _)m", "big");
+					}
+					else{
 						RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no, 'listener'));
 					}
 				}
@@ -731,3 +741,47 @@ function myDispCmt(id){
 	}
 }
 //add end
+
+function getTimeLeftMessage (sec) {
+	var msg;
+	if( sec > 2 * 24 * 60 * 60 ){
+		// ２日以上
+		var day = parseInt( sec / ( 24 * 60 * 60 ) );
+		msg = day + "日";
+	}
+	else if( sec > 24 * 60 * 60 ){
+		// ２日以下
+		var day = parseInt( sec / ( 24 * 60 * 60 ) );
+		var hour = parseInt( ( sec - ( day * 24 * 60 * 60 ) ) / ( 60 * 60 ) );
+		if( hour == 0 ){
+			msg = day + "日";
+		}
+		else{
+			msg = day + "日" + hour + "時間";
+		}
+	}
+	else if( sec > 60 * 60 ){
+		// １日以下
+		var hour = parseInt( sec / ( 60 * 60 ) );
+		var min = parseInt( ( sec - ( hour * 60 * 60 ) ) / 60 );
+		
+		if( hour < 12 && min != 0 ){
+			msg = hour + "時間" + min + "分";
+		}
+		else{
+			msg = hour + "時間";
+		}
+	}
+	else if( sec > 60 ){
+		// １時間以下
+		var min = parseInt( sec / 60 );
+		msg = min + "分";
+	}
+	else{
+		// １分以内
+		msg = sec + "秒";
+	}
+	
+	return msg;
+}
+
