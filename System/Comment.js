@@ -109,3 +109,15 @@ function __Comment__showPopup(x, y, UserID){
 	}
 	__Comment__Popup.show(x, y, 314, 178, document.body);
 }
+
+//ƒRƒƒ“ƒgNo‚©‚çIDŒŸõ
+function findNotoID(findNo){
+	for(var i=__Comment__CommentLog.length-1;i>=0;i--){
+		if(__Comment__CommentLog[i].no==findNo){
+			var userID=__Comment__CommentLog[i].user_id;
+			if(userID!=undefined) return userID;
+		}
+	}
+
+	return "";
+}

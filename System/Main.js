@@ -100,31 +100,40 @@ function receiveComment_Request(Chat){
 	var sms  = text.match(/(sm|nm)\d+/g);
 //add start
 	//ïõä«óùé“ã@î\
-	if (Chat.user_id == document.getElementById("dummyAdminID").value){
-		if (
-			   document.getElementById("dummyAdminCmdCheck").checked
-			&& (
-				   (/^\/(play|playsound|swapandplay) (sm|nm)\d+$/.test(text))
-				|| (/^\s+\/(play|playsound|swapandplay) (sm|nm)\d+$/.test(text))
-				|| (/^(sm|nm)\d+$/.test(text))
-				|| (/^\s+(sm|nm)\d+$/.test(text))
-				|| (/^\/(swap|soundonly (on|off))/.test(text))
-				|| (/^\s+\/(swap|soundonly|stop)/.test(text))
-			)
-		){
-			NicoLive.postComment(Chat.text.replace(/&lt;/g,"ÅÉ").replace(/&gt;/g,"ÅÑ").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail);
-			return;
-		}else if (
-			   document.getElementById("dummyAdminCmtCheck").checked
-			&& !(
-				   (/^\/.+$/.test(text))
-				|| (/^\s+\/.+$/.test(text))
-				|| (/^(sm|nm)\d+$/.test(text))
-				|| (/^\s+(sm|nm)\d+$/.test(text))
-			)
-		){
-			NicoLive.postComment(Chat.text.replace(/&lt;/g,"ÅÉ").replace(/&gt;/g,"ÅÑ").replace(/\n/g,"<br>"), (Chat.mail!=undefined?Chat.mail.replace("184",""):""));
-			return;
+	if (DummyAdminManager.Indexes[Chat.user_id] != undefined){
+		var dummyAdminID = DummyAdminManager.DummyAdminQueues[DummyAdminManager.Indexes[Chat.user_id]].UserID;
+		var dummyAdminName = DummyAdminManager.DummyAdminQueues[DummyAdminManager.Indexes[Chat.user_id]].Name;
+		var dummyAdminCmdCheck = DummyAdminManager.DummyAdminQueues[DummyAdminManager.Indexes[Chat.user_id]].CmdFlag;
+		var dummyAdminCmtCheck = DummyAdminManager.DummyAdminQueues[DummyAdminManager.Indexes[Chat.user_id]].CmtFlag;
+		var dummyAdminNameCheck = DummyAdminManager.DummyAdminQueues[DummyAdminManager.Indexes[Chat.user_id]].NameFlag;
+
+		if (Chat.user_id == dummyAdminID){
+			if ((/^\s*\/(play|playsound|soundonly|stop|swap)(.*| sub$)/.test(Chat.text))
+			 || (/^\s*\/swapand(play|playsound|stop)/.test(Chat.text))
+			 || (/^\s*\/soundonly (on|off)(.*| sub$)/.test(Chat.text))
+			 || (/^\s*\/(play|playsound)( (sm|nm|so|am|fz|ut|ax|ca|cd|cw|fx|ig|na|nl|om|sd|sk|yk|yo|za|zb|zc|zd|ze)\d+| \d{10})(.*| sub$)/.test(Chat.text))
+			 || (/^\s*\/swapand(play|playsound)( (sm|nm|so|am|fz|ut|ax|ca|cd|cw|fx|ig|na|nl|om|sd|sk|yk|yo|za|zb|zc|zd|ze)\d+| \d{10})/.test(Chat.text))
+			 || (/^\s*((sm|nm|so|am|fz|ut|ax|ca|cd|cw|fx|ig|na|nl|om|sd|sk|yk|yo|za|zb|zc|zd|ze)\d+|\d{10})($| sub$)/.test(Chat.text))
+			   )
+			{
+				if (dummyAdminCmdCheck){
+					NicoLive.postComment(Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail);
+					return;
+				}
+			}else{
+				if (dummyAdminCmtCheck){
+					if (dummyAdminNameCheck){
+						if (dummyAdminName != ""){
+							NicoLive.postComment("<font size=\"-8\">Åö"+dummyAdminName+"Ç≥ÇÒÅö</font><br />"+Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail,"big");
+						}else{
+							NicoLive.postComment(Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail);
+						}
+					}else{
+						NicoLive.postComment(Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail);
+					}
+					return;
+				}
+			}
 		}
 	}
 //add end

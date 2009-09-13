@@ -23,6 +23,7 @@
 <script type="text/javascript" src="./System/SofTalk.js"></script>
 <script type="text/javascript" src="./System/Comment.js"></script>
 <script type="text/javascript" src="./System/VideoInformation.js"></script>
+<script type="text/javascript" src="./System/DummyAdmin.js"></script>
 <script type="text/javascript" src="./System/Menu.js"></script>
 <script type="text/javascript" src="./System/Main.js"></script>
 <script type="text/javascript" src="./System/Mikunopop.js"></script>
@@ -80,6 +81,7 @@ fieldset{
 	<span>コメント</span>
 	<span>動画情報</span>
 	<span>連続コメント</span>
+	<span>副管理者</span>
 	<span>オプション</span>
 </HTC:Tab>
 <div id="TabContents">
@@ -170,6 +172,27 @@ fieldset{
 	</div>
 </div>
 <!--add end-->
+<!--add start-->
+<div id="TabContents">
+	<div id="dummyAdmin">
+		<fieldset>
+			<legend>副管理者登録</legend>
+			<input type="checkbox" id="dummyAdminAddMsgCheck" checked><label for="dummyAdminAddMsgCheck">登録時に告知表示</label>
+			<input type="checkbox" id="dummyAdminChgMsgCheck" checked><label for="dummyAdminChgMsgCheck"> 変更時に告知表示</label>
+			<input type="checkbox" id="dummyAdminDelMsgCheck" checked><label for="dummyAdminDelMsgCheck"> 削除時に告知表示</label>
+			<br><br>
+			<input type="checkbox" id="dummyAdminCmdCheck"><label for="dummyAdminCmdCheck">コマンド </label>
+			<input type="checkbox" id="dummyAdminCmtCheck"><label for="dummyAdminCmtCheck">コメント </label>
+			<input type="checkbox" id="dummyAdminNGCheck" checked><label for="dummyAdminNGCheck">NGリストに追加</label>
+			<input type="checkbox" id="dummyAdminNameCheck" checked><label for="dummyAdminNameCheck">名前の表示</label><br>
+			<label>名前：</label><input id="dummyAdminName" type="text" size="6" value=""><label> ID：</label><input id="dummyAdminID" type="text" size="32" value=""><label> ←コメ番</label><input id="dummyAdminNo" type="text" size="4" value=""><input type="button" value="取得" onclick="GetNotoID()"><br>
+			<input type="button" value="↓追加↓" onclick="dummyAdminAdd()">
+		</fieldset>
+	</div>
+	<hr>
+	<div id="dumyAdminHTML"></div>
+</div>
+<!--add end-->
 <div id="TabContents">
 	<div id="OptionForm">
 		<div id="divAutoPlay">
@@ -195,17 +218,7 @@ fieldset{
 <!--add end-->
 		</fieldset>
 		</div>
-<!--add start-->
-		<div id="dummyAdmin">
-		<fieldset>
-			<legend>副管理者</legend>
-			<input type="checkbox" id="dummyAdminCmtCheck" onclick="dummyAdminCmtChg()"><label for="dummyAdminCmtCheck">コメントを受け付ける</label>
-			<input id="dummyAdminID" type="text" size="32" value=""
-			 onchange="var e=document.getElementById;if(this.value==''){e('dummyAdminCmtCheck').checked=false;e('dummyAdminCmdCheck').checked=false;}"><br>
-			<input type="checkbox" id="dummyAdminCmdCheck" onclick="dummyAdminCmdChg()"><label for="dummyAdminCmdCheck">コマンドを受け付ける</label>
-		</fieldset>
-		</div>
-<!--add end-->
+
 	</div>
 </div>
 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="Socket" style="width:0px;height:0px;">
