@@ -14,9 +14,8 @@ function Request(){
 	this.thumbnail_url = "";	// サムネイルURL
 	this.description   = "";	// 動画説明
 	this.type          = "";	// タイプ(typeX("typeX")／複数("plural")／不明(""))
-	this.kiki = 0; //聴き入り度（マイリスト/コメント）
-	this.myri = 0; //マイリスト率（マイリスト/再生）
-	this.hiky = 0; //正義度（ボカランコメント補正・卑怯度）
+	this.myri          =  0;	//マイリスト率（マイリスト/再生）
+	this.count         =  0;	//ミクノ度
 //サムネ = 
 //add end
 	this.initialize.apply(this, arguments);
@@ -33,12 +32,7 @@ Request.prototype = {
 		this.comm   = Number(xmldom.getElementsByTagName("comment_num")[0].text);
 		this.list   = Number(xmldom.getElementsByTagName("mylist_counter")[0].text);
 //add start
-//		this.kiki = Math.round(100*this.list/this.comm)/100;
-//		this.myri = Math.round(10000*this.list/this.view)/100;
-//		this.hiky = Math.round(100*(this.list+this.view)/(this.list+this.view+this.comm))/100;
-		this.kiki = (this.list/this.comm).toFixed(1);
 		this.myri = (100*this.list/this.view).toFixed(1);
-		this.hiky = ((this.list+this.view)/(this.list+this.view+this.comm)).toFixed(1);
 //add end
 		this.length = xmldom.getElementsByTagName("length")[0].text;
 		this.date   = new Date(xmldom.getElementsByTagName("first_retrieve")[0].text.replace("-","/").replace("T"," ").replace("+09:00",""));
@@ -54,6 +48,10 @@ Request.prototype = {
 		}
 		this.genre.sort( function(a,b){ return ( a.length > b.length ) ? 1 : -1 } );    // 短いほうがきっと本質的だろう
 		this.name  = this.getPName(this.tags, this.title);
+		this.count = settings["GetMikunopopCount"]
+						? getMikunopopCount( id )
+						: "-";
+
 //add start タイプ判定用プロパティ
 		this.oTitle  = xmldom.getElementsByTagName("title")[0].text;
 		this.thumbnail_url = xmldom.getElementsByTagName("thumbnail_url")[0].text;

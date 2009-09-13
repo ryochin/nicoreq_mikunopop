@@ -154,9 +154,7 @@ RequestManager.prototype = {
 				.replace(/{#List}/g,  comma(R.list))
 				.replace(/{#Count}/g,  comma(R.count))
 //add start
-				.replace(/{#Kiki}/g,  R.kiki)
 				.replace(/{#Myri}/g,  R.myri)
-				.replace(/{#Hiky}/g,  R.hiky)
 //add end
 				.replace(/{#Time}/g,  R.length)
 				.replace(/{#CTime}/g, "<label id=\"CT"+R.id+"\">"+this.getCumulativeTime(R.id)+"</label>")
@@ -215,10 +213,6 @@ RequestManager.prototype = {
 					// タイムアウトした場合はタスクに優先的に追加
 					RequestManager.doThumbInfoTask(RQ, "unshift");
 				}else{
-					// ミクノポップ再生回数の取得を試みる
-					R.count = settings["GetMikunopopCount"]
-						? getMikunopopCount( R.id )
-						: "-";
 					// 動画情報を格納してHTMLを整形
 					RequestManager.Requests[RQ.id] = R;
 					RequestManager.replaceHTML(R);
@@ -314,9 +308,7 @@ RequestManager.prototype = {
 					.replace(/{#List}/g,  comma(R.list))
 					.replace(/{#Count}/g,  comma(R.count))
 //add start
-					.replace(/{#Kiki}/g,  R.kiki)
 					.replace(/{#Myri}/g,  R.myri)
-					.replace(/{#Hiky}/g,  R.hiky)
 //add end
 					.replace(/{#Time}/g,  R.length)
 					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))
@@ -342,9 +334,7 @@ RequestManager.prototype = {
 					.replace(/{#List}/g,  comma(R.list))
 					.replace(/{#Count}/g,  comma(R.count))
 //add start
-					.replace(/{#Kiki}/g,  R.kiki)
 					.replace(/{#Myri}/g,  R.myri)
-					.replace(/{#Hiky}/g,  R.hiky)
 //add end
 					.replace(/{#Time}/g,  R.length)
 					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))
@@ -369,9 +359,7 @@ RequestManager.prototype = {
 					.replace(/{#List}/g,  comma(R.list))
 					.replace(/{#Count}/g,  comma(R.count))
 //add start
-					.replace(/{#Kiki}/g,  R.kiki)
 					.replace(/{#Myri}/g,  R.myri)
-					.replace(/{#Hiky}/g,  R.hiky)
 //add end
 					.replace(/{#Time}/g,  R.length)
 					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))

@@ -39,14 +39,11 @@
 	<item onclick="top.RequestManager.sort('request',  1);">リクエストナンバー順(↑)</item>
 	<item onclick="top.RequestManager.sort('request', -1);">リクエストナンバー順(↓)</item>
 	<hr />
-	<item onclick="top.RequestManager.sort('kiki', 1);">聴き入り度順(↑)</item>
-	<item onclick="top.RequestManager.sort('kiki', -1);">聴き入り度順(↓)</item>
-	<hr />
 	<item onclick="top.RequestManager.sort('myri', 1);">マイリスト率順(↑)</item>
 	<item onclick="top.RequestManager.sort('myri', -1);">マイリスト率順(↓)</item>
 	<hr />
-	<item onclick="top.RequestManager.sort('hiky', 1);">正義値順(↑)</item>
-	<item onclick="top.RequestManager.sort('hiky', -1);">正義値順(↓)</item>
+	<item onclick="top.RequestManager.sort('count', 1);">ミクノ度順(↑)</item>
+	<item onclick="top.RequestManager.sort('count', -1);">ミクノ度順(↓)</item>
 </popup>
 <popup id="Help">
 	<item onclick="top.alert(top.HTA.ApplicationName+' '+top.HTA.Version);">バージョン情報</item>
