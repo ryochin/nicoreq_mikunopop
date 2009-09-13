@@ -1,3 +1,11 @@
+commit 1f8c0024044e0475d4c875938bf9e53b14dc00da
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 14 02:53:28 2009 +0900
+
+    added Changes.txt.
+
+A	Changes.txt
+
 commit 3c0caa47ba94ce326be9eae97e6f9534a0320a5e
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Mon Sep 14 02:50:55 2009 +0900

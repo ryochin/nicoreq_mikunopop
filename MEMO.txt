@@ -6,6 +6,7 @@
 ・追加や削除されたファイルがあれば nicoreq.iss に反映しておく
 ・NicoRequest.hta 内のバージョン番号を書き直す（１カ所）
 ・README に追記する
+・git log --name-status > Changes.txt
 ・バイナリを作成してテスト
 ・ZIP を作成
 　nicoreq をコピー

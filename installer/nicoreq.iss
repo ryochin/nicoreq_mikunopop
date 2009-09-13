@@ -7,7 +7,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{D2DE523D-77A0-459C-9F2A-0EF93B58FF43}
 AppName=NicoRequest Mikunopop Edition
-AppVerName=NicoRequest Mikunopop Edition 1.15
+AppVerName=NicoRequest Mikunopop Edition 1.16
 AppPublisher=saihane
 AppPublisherURL=http://mikunopop.info/
 AppSupportURL=http://mikunopop.info/
@@ -17,11 +17,11 @@ DefaultGroupName=NicoRequest Mikunopop Edition
 AllowNoIcons=yes
 LicenseFile=C:\Mikunopop\nicoreq\EULA.txt
 InfoBeforeFile=C:\Mikunopop\nicoreq\README.txt
-OutputBaseFilename=NicoReqMikunopopEdition_115
+OutputBaseFilename=NicoReqMikunopopEdition_116
 Compression=lzma
 SolidCompression=yes
 SetupIconFile=C:\Mikunopop\nicoreq\installer\app.ico
-VersionInfoVersion=1.1.5.0
+VersionInfoVersion=1.1.6.0
 VersionInfoDescription=NicoRequest for Mikunopop community
 AppCopyright=saihane, w2k, ExceptionError
 WizardImageFile=C:\Mikunopop\nicoreq\installer\wizard.bmp
@@ -42,6 +42,7 @@ Source: "C:\Mikunopop\nicoreq\NicoRequest.hta"; DestDir: "{app}"; Flags: ignorev
 Source: "C:\Mikunopop\nicoreq\README.txt"; DestDir: "{app}";
 ; Source: "C:\Mikunopop\nicoreq\README.txt"; DestDir: "{app}"; Flags: isreadme
 Source: "C:\Mikunopop\nicoreq\EULA.txt"; DestDir: "{app}";
+Source: "C:\Mikunopop\nicoreq\Changes.txt"; DestDir: "{app}";
 Source: "C:\Mikunopop\nicoreq\NGIDList.txt"; DestDir: "{app}";
 Source: "C:\Mikunopop\nicoreq\settings.js"; DestDir: "{app}"; Flags: confirmoverwrite uninsneveruninstall
 Source: "C:\Mikunopop\nicoreq\pnames.js"; DestDir: "{app}";
