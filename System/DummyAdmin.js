@@ -51,9 +51,11 @@ DummyAdminManager.prototype = {
 			if (DA.CmtFlag){DummyAdminMsg+="ON"}else{DummyAdminMsg+="OFF"}
 
 			if (DA.Name != ""){
-				NicoLive.postComment(DA.Name + "さんに副管理者機能を設定しました<br>"+DummyAdminMsg, "");
+//				NicoLive.postComment(DA.Name + "さんに副管理者機能を設定しました　<br>"+DummyAdminMsg, "");
+				NicoLive.postComment(DA.Name + "さん、よろしくお願いしますね　<br>"+DummyAdminMsg, "");
 			}else{
-				NicoLive.postComment("ID:" + DA.UserID + "<br>に副管理者機能を設定しました "+DummyAdminMsg, "");
+//				NicoLive.postComment("ID:" + DA.UserID + "<br>に副管理者機能を設定しました　"+DummyAdminMsg, "");
+				NicoLive.postComment("ID:" + DA.UserID + "<br>さん、よろしくお願いしますね　"+DummyAdminMsg, "");
 			}
 			if(DA.NGFlag) NicoLive.postComment("/ngadd ID " + DA.UserID + " 0 0", "");
 		}
@@ -91,15 +93,20 @@ DummyAdminManager.prototype = {
 			if (document.getElementById("dummyAdminChgMsgCheck").checked){
 				if (checked){
 					if (DA.Name != ""){
-						NicoLive.postComment(DA.Name + "さん<br>にコメント権限を付加しました", "");
+//						NicoLive.postComment(DA.Name + "さん<br>にコメント権限を付加しました", "");
+						NicoLive.postComment(DA.Name + "さん<br>よろしくお願いします", "");
+
 					}else{
-						NicoLive.postComment("ID:" + DA.UserID + "<br>にコメント権限を付加しました ", "");
+//						NicoLive.postComment("ID:" + DA.UserID + "<br>にコメント権限を付加しました ", "");
+						NicoLive.postComment("ID:" + DA.UserID + "<br>さん、よろしくお願いします ", "");
 					}
 				}else{
 					if (DA.Name != ""){
-						NicoLive.postComment(DA.Name + "さん<br>のコメント権限を解除しました", "");
+//						NicoLive.postComment(DA.Name + "さん<br>のコメント権限を解除しました", "");
+						NicoLive.postComment(DA.Name + "さん<br>ありがとうございました", "");
 					}else{
-						NicoLive.postComment("ID:" + DA.UserID + "<br>のコメント権限を解除しました ", "");
+//						NicoLive.postComment("ID:" + DA.UserID + "<br>のコメント権限を解除しました ", "");
+						NicoLive.postComment("ID:" + DA.UserID + "<br>さん、ありがとうございました ", "");
 					}
 				}
 			}
@@ -125,9 +132,11 @@ DummyAdminManager.prototype = {
 		var DA = this.DummyAdminQueues[this.Indexes[id]];
 		if (document.getElementById("dummyAdminDelMsgCheck").checked){
 			if (DA.Name != ""){
-				NicoLive.postComment(DA.Name + "さんの副管理者機能を解除しました", "");
+//				NicoLive.postComment(DA.Name + "さんの副管理者機能を解除しました", "");
+				NicoLive.postComment(DA.Name + "さん、ありがとうございました", "");
 			}else{
-				NicoLive.postComment("ID:" + DA.UserID + "<br>の副管理者機能を解除しました ", "");
+//				NicoLive.postComment("ID:" + DA.UserID + "<br>の副管理者機能を解除しました", "");
+				NicoLive.postComment("ID:" + DA.UserID + "<br>さん、ありがとうございました", "");
 			}
 		}
 		if(DA.NGFlag) NicoLive.postComment("/ngdel ID " + DA.UserID, "");

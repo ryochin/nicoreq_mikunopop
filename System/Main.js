@@ -554,36 +554,6 @@ function LimitTimeReset(){
 	settings["LimitTime"] = 1800;
 }
 
-// 副管理者機能変更(コメント)
-function dummyAdminCmtChg(){
-	if(document.getElementById("dummyAdminID").value==""){
-		document.getElementById("dummyAdminCmtCheck").checked=false;
-		document.getElementById("dummyAdminCmdCheck").checked=false;
-		document.getElementById("dummyAdminID").focus();
-		return;
-	}
-	if(document.getElementById("dummyAdminCmtCheck").checked){
-		NicoLive.postComment("ID:" + document.getElementById("dummyAdminID").value + "<br>にコメント権限を付加しました", "big red");
-	}else{
-		NicoLive.postComment("ID:" + document.getElementById("dummyAdminID").value + "<br>からコメント権限を剥奪しました", "big red");
-	}
-}
-
-// 副管理者機能変更(コマンド)
-function dummyAdminCmdChg(){
-	if(document.getElementById("dummyAdminID").value==""){
-		document.getElementById("dummyAdminCmtCheck").checked=false;
-		document.getElementById("dummyAdminCmdCheck").checked=false;
-		document.getElementById("dummyAdminID").focus();
-		return;
-	}
-	if(document.getElementById("dummyAdminCmdCheck").checked){
-		NicoLive.postComment("ID:" + document.getElementById("dummyAdminID").value + "<br>にコマンド権限を付加しました", "big red");
-	}else{
-		NicoLive.postComment("ID:" + document.getElementById("dummyAdminID").value + "<br>からコマンド権限を剥奪しました", "big red");
-	}
-} 
-
 function setSelectedUseridToDummyAdmin(UserId){
 	document.getElementById("Tab").selectedIndex = 4;
 	document.getElementById("dummyAdminID").value = UserId;
