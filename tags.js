@@ -67,6 +67,7 @@ settings["genreTagWhiteList"] = ["",
 	
 	// etc
 	"VOCALOID和風曲",
+	"ミクウェーブ",
 	
 	// ミク
 	"みんなのミクうた",
