@@ -1,0 +1,472 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<title>マイリストから検索</title>
+<script type="text/javascript" src="../settings.js"  charset="Shift_JIS"></script>
+<script type="text/javascript" src="./NicoLive.js"      charset="Shift_JIS"></script>
+<script type="text/javascript" src="./Utils.js"      charset="Shift_JIS"></script>
+<script type="text/javascript" src="./jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./Mikunopop.js"  charset="Shift_JIS"></script>
+<script type="text/javascript">
+
+var MyListNum = 0;
+var MyListName = [];
+var MyListID = [];
+
+setDialogSize(400, 650);
+
+function OK(){
+	var ReturnValue = "";
+
+	//チェックした動画を抽出
+	var element = document.getElementById("MovieHTML");
+	var childs = element.childNodes;
+
+	for(var i=0,l=childs.length/3; i<l; i++){
+		pnt = i*3;
+		if (childs[pnt].checked){
+			var getMovieNo = childs[pnt+1].innerHTML.match(/^(.+?)　(.+?)/i);
+			if (getMovieNo){
+				ReturnValue += RegExp.$1+"\n";
+			}
+		}
+	}
+	window.returnValue = ReturnValue;
+	window.close();
+}
+
+window.attachEvent("onload", function(){
+
+	document.getElementById("MyListHTML").value = "";
+
+	// マイページからマイリストのIDと名前を抽出
+	var xmlhttp = createXMLHttpRequest();
+	xmlhttp.open("GET", "http://www.nicovideo.jp/mylistgroup_edit", false);
+	try{
+		xmlhttp.send();
+	}catch(e){
+		if(settings["EnforceLogin"]){
+			NicoLive.login(settings["Login_Mail"], settings["Login_Pass"]);
+			try{
+				xmlhttp.send();
+			}catch(e){
+				alert("ニコニコ動画にログインできていないようなので、この機能は使えません。\nログインした状態で実行してください。");
+				window.close();
+				return;
+			}
+		}else{
+			alert("ニコニコ動画にログインできていないようなので、この機能は使えません。\nログインした状態で実行してください。");
+			window.close();
+			return;
+		}
+	}
+	var Options = xmlhttp.responseText.match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong>/ig);
+	if(!Options){
+		document.getElementById("MyListHTML").value = "マイリストが見つかりません";
+	}else{
+		for(var i=0,l=Options.length-1; i<l; i++){
+			Options[i].match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong>/ig);
+
+			var id = Number(RegExp.$1);
+			var title = RegExp.$2;
+			
+			MyListNum += 1;
+			MyListName[MyListNum-1] = title;
+			MyListID[MyListNum-1] = id;
+
+			var HTML = "<input type=\"checkbox\" id=\"MyList"+(i+1)+"\" /><label for=\"MyList"+(i+1)+"\">"+title+"</label><br>";
+			document.getElementById("MyListHTML").insertAdjacentHTML("BeforeEnd", HTML);
+		}
+	}
+});
+
+function MyListmanAdd(){
+	var id = document.getElementById("MyListManAddID").value;
+	var title = document.getElementById("MyListManAddTitle").value;
+
+	if (id=="") return;
+
+	MyListNum += 1;
+	MyListName[MyListNum-1] = title;
+	MyListID[MyListNum-1] = id;
+
+	var HTML = "<input type=\"checkbox\" id=\"MyList"+MyListNum+"\" /><label for=\"MyList"+MyListNum+"\">"+title+"</label><br>";
+	document.getElementById("MyListHTML").insertAdjacentHTML("BeforeEnd", HTML);
+
+	document.getElementById("MyListManAddID").value = "";
+	document.getElementById("MyListManAddTitle").value = "";
+}
+
+function findMyList(){
+	var xmlhttp = createXMLHttpRequest();
+
+	var MovieID = [];
+	var MovieTitle = [];
+	var MoviePlay = [];
+	var MovieCmt = [];
+	var MovieMyList = [];
+	var MovieMyListRate = [];
+	var MovieDateStr = "";
+	var MovieDate = [];
+	var MovieTimeStr = "";
+	var MovieTime = [];
+	var MovieHitNum = 0;
+
+	ReturnValue = "";
+	document.getElementById("MovieHTML").innerHTML = "";
+	document.getElementById("LimitBtn").disabled = true;
+
+	for(var i=0,l=MyListNum; i<l; i++){
+		if(document.getElementById("MyList"+(i+1)).checked) {
+			xmlhttp.open("GET","http://www.nicovideo.jp/mylist/"+MyListID[i],false);
+			xmlhttp.send();
+			var Options1 = xmlhttp.responseText.match(/<strong>(.+?)<\/strong> (投稿|時点)/ig);
+			var Options2 = xmlhttp.responseText.match(/再生：<strong>(.+?)<\/strong>　コメント：<strong>(.+?)<\/strong>　マイリスト：<a href="openlist\/(.+?)"><strong>(.+?)<\/strong><\/a><\/p>/ig);
+			var Options3 = xmlhttp.responseText.match(/<h3><a class="video" href="watch\/(.+?)">(.+?)<\/a><\/h3>/ig);
+			var Options4 = xmlhttp.responseText.match(/<p class="TXT12" style="margin-top:2px;"><strong>(.+?)<\/strong><\/p>/ig);
+			if(Options3) {
+				for(var j=0,k=Options3.length; j<k; j++){
+					Options1[j].match(/<strong>(.+?)<\/strong> (投稿|時点)/ig);
+					MovieDateStr = RegExp.$1;
+					MovieDate[j] = new Date(RegExp.$1.replace("年","/").replace("月","/").replace("日",""));
+
+					Options2[j].match(/再生：<strong>(.+?)<\/strong>　コメント：<strong>(.+?)<\/strong>　マイリスト：<a href="openlist\/(.+?)"><strong>(.+?)<\/strong><\/a><\/p>/ig);
+					MoviePlay[j] = Number(RegExp.$1.replace(",","").replace(",",""))
+					MovieCmt[j] = Number(RegExp.$2.replace(",","").replace(",",""));
+					MovieMyList[j] = Number(RegExp.$4.replace(",","").replace(",",""));
+					MovieMyListRate[j] = 100*MovieMyList[j]/MoviePlay[j];
+
+					Options3[j].match(/<h3><a class="video" href="watch\/(.+?)">(.+?)<\/a><\/h3>/ig);
+					MovieID[j] = RegExp.$1;
+					MovieTitle[j] = RegExp.$2;
+
+					Options4[j].match(/<p class="TXT12" style="margin-top:2px;"><strong>(.+?)<\/strong><\/p>/ig);
+					MovieTimeStr = RegExp.$1;
+					MovieTime[j] = GetLengthNumber(RegExp.$1);
+
+					//動画種別チェック
+					if(!document.getElementById("LimitSmCheck").checked && !document.getElementById("LimitNmCheck").checked) {
+						if(/[0-9]{10}/.test(MovieID[j])) continue;
+					}
+					if(/sm/.test(MovieID[j]) && !document.getElementById("LimitSmCheck").checked) continue;
+					if(/nm/.test(MovieID[j]) && !document.getElementById("LimitNmCheck").checked) continue;
+					//タイトルチェック
+					if(document.getElementById("LimitTitleCheck").checked) {
+						var FindStr = document.getElementById("LimitTitleText").value;
+						if (FindStr=="") continue;
+
+						rep = new RegExp(FindStr,"i");
+						if (!rep.test(MovieTitle[j])) continue;
+					}
+					//再生数チェック
+					if(document.getElementById("LimitPlayCheck").checked) {
+						var LimitUp = document.getElementById("LimitPlayUpText").value;
+						if (LimitUp=="") LimitUp = 99999999;
+						var LimitDown = document.getElementById("LimitPlayDownText").value;
+						if (LimitDown=="") LimitDown = 0;
+
+						if (MoviePlay[j] > LimitUp || MoviePlay[j] < LimitDown) continue;
+					}
+					//コメント数チェック
+					if(document.getElementById("LimitCmtCheck").checked) {
+						var LimitUp = document.getElementById("LimitCmtUpText").value;
+						if (LimitUp=="") LimitUp = 99999999;
+						var LimitDown = document.getElementById("LimitCmtDownText").value;
+						if (LimitDown=="") LimitDown = 0;
+
+						if (MovieCmt[j] > LimitUp || MovieCmt[j] < LimitDown) continue;
+					}
+					//マイリスト数チェック
+					if(document.getElementById("LimitMyListCheck").checked) {
+						var LimitUp = document.getElementById("LimitMyListUpText").value;
+						if (LimitUp=="") LimitUp = 99999999;
+						var LimitDown = document.getElementById("LimitMyListDownText").value;
+						if (LimitDown=="") LimitDown = 0;
+
+						if (MovieMyList[j] > LimitUp || MovieMyList[j] < LimitDown) continue;
+					}
+					//マイリスト率チェック
+					if(document.getElementById("LimitMyListRateCheck").checked) {
+						var LimitUp = document.getElementById("LimitMyListRateUpText").value;
+						if (LimitUp=="") LimitUp = 100;
+						var LimitDown = document.getElementById("LimitMyListRateDownText").value;
+						if (LimitDown=="") LimitDown = 0;
+
+						if (MovieMyListRate[j] > LimitUp || MovieMyListRate[j] < LimitDown) continue;
+					}
+					//投稿日チェック
+					if(document.getElementById("LimitDateCheck").checked) {
+						if (document.getElementById("LimitDateFromText").value.length < 12) document.getElementById("LimitDateFromText").value += " 00:00:00";
+						if (document.getElementById("LimitDateFromText").value.substring(2,3) == "/"){
+							var LimitFrom = new Date("20"+document.getElementById("LimitDateFromText").value);
+						}else{
+							var LimitFrom = new Date(document.getElementById("LimitDateFromText").value);
+						}
+						if (LimitFrom=="NaN") LimitFrom = new Date("1970/01/01 00:00:00");
+						if (document.getElementById("LimitDateToText").value.length < 12) document.getElementById("LimitDateToText").value += " 23:59:59";
+						if (document.getElementById("LimitDateToText").value.substring(2,3) == "/"){
+							var LimitTo = new Date("20"+document.getElementById("LimitDateToText").value);
+						}else{
+							var LimitTo = new Date(document.getElementById("LimitDateToText").value);
+						}
+						if (LimitTo=="NaN") LimitTo = new Date("2099/12/31 23:59:59");
+
+						if (MovieDate[j] < LimitFrom || MovieDate[j] > LimitTo) continue;
+					}
+					//動画時間チェック
+					if(document.getElementById("LimitTimeCheck").checked) {
+						var LimitUp = document.getElementById("LimitTimeUpText").value;
+						if (LimitUp==""){
+							LimitUp = GetLengthNumber("999:59");
+						}else{
+							LimitUp = GetLengthNumber(LimitUp);
+						}
+						var LimitDown = document.getElementById("LimitTimeDownText").value;
+						if (LimitDown==""){
+							LimitDown = GetLengthNumber("0:0");
+						}else{
+							LimitDown = GetLengthNumber(LimitDown);
+						}
+
+						if (MovieTime[j] > LimitUp || MovieTime[j] < LimitDown) continue;
+					}
+
+					// ミクノ度チェック
+					if(document.getElementById("LimitMikunopopCountCheck").checked) {
+						var LimitUp = document.getElementById("LimitMikunopopCountUpText").value;
+						if (LimitUp=="") LimitUp = 9999999;
+						var LimitDown = document.getElementById("LimitMikunopopCountDownText").value;
+						if (LimitDown=="") LimitDown = 0;
+
+						var count = getMikunopopCount(MovieID[j]);
+						if (count > LimitUp || count < LimitDown) continue;
+					}
+
+					MovieHitNum += 1;
+					var helpHTML = MovieID[j]+"\n"+MovieTitle[j]+"\n再生:"+MoviePlay[j]+"　コメント:"+MovieCmt[j]+"　マイリスト:"+MovieMyList[j]+"\n投稿日:"+MovieDateStr+"\n時間:"+MovieTimeStr;
+					var HTML = "<input type=\"checkbox\" id=\"MyList"+MovieID[j]+"\" checked /><label for=\"MyList"+MovieID[j]+"\" title=\""+helpHTML+"\">"+MovieID[j]+"　"+MovieTitle[j]+"</label><br>";
+					document.getElementById("MovieHTML").insertAdjacentHTML("BeforeEnd", HTML);
+				}
+			}
+		}
+	}
+	document.getElementById("MyListNumHTML").innerHTML = "全部で " + MovieHitNum + " 件見つかりました。";
+	document.getElementById("LimitBtn").disabled = false;
+}
+
+function GetLengthNumber(time){
+	var temp = time.split(":");
+	var length = Number(temp[0]) * 60 + Number(temp[1]);
+	if(isNaN(length)) length = 0;
+	return length;
+}
+
+// auto-check feature by saihane
+$(document).ready(function() {
+	// setAutoCheck
+	function setAutoCheck (text1, text2, check) {
+		var text1_id = '#' + text1;
+		var text2_id = '#' + text2;
+		var check_id = '#' + check;
+
+		if( text2 ){
+			// 2
+			var func = function () {
+				if( $(text1_id).val() != "" || $(text2_id).val() != "" ){
+					if( ! $(check_id).attr('checked') ){
+						$(check_id).attr( { checked: 1 });
+					}
+				}
+				else{
+					$(check_id).attr( { checked: 0 });
+				}
+			}
+
+			$(text1_id).keyup( func );
+			$(text2_id).keyup( func );
+		}
+		else{
+			// 1
+			$(text1_id).keyup( function () {
+				if( $(this).val() != "" ){
+					if( ! $(check_id).attr('checked') ){
+						$(check_id).attr( { checked: 1 });
+					}
+				}
+				else{
+					$(check_id).attr( { checked: 0 });
+				}
+			} );
+		}
+	}
+
+	// set
+	var list = [
+		['LimitTitleText', "", 'LimitTitleCheck'],
+		['LimitPlayDownText', 'LimitPlayUpText', 'LimitPlayCheck'],
+		['LimitCmtDownText', 'LimitCmtUpText', 'LimitCmtCheck'],
+		['LimitMyListDownText', 'LimitMyListUpText', 'LimitMyListCheck'],
+		['LimitMyListRateDownText', 'LimitMyListRateUpText', 'LimitMyListRateCheck'],
+		['LimitDateFromText', 'LimitDateToText', 'LimitDateCheck'],
+		['LimitTimeDownText', 'LimitTimeUpText', 'LimitTimeCheck'],
+		['LimitMikunopopCountDownText', 'LimitMikunopopCountUpText', 'LimitMikunopopCountCheck'],
+	];
+	$.each( list, function() {
+		setAutoCheck( this[0], this[1], this[2] );
+	} );
+} );
+
+</script>
+<style type="text/css">
+*{
+	font-size: 12;
+	font-family: "MS UI Gothic";
+}
+body{
+	margin: 12px;
+}
+button{
+	width: 88px;
+}
+#import{
+	width: 100%;
+	height: expression(
+		document.body.clientHeight - 
+		document.getElementById("text").clientHeight - 
+		document.getElementById("btn").clientHeight  - 
+		54
+	);
+}
+#btn{
+	position: absolute;
+	top: expression(document.body.clientHeight-this.clientHeight-12);
+	left: 12px;
+	width: 100%;
+	text-align: right;
+}
+</style>
+</head>
+<body bgcolor="buttonface" scroll="Yes">
+(1)検索対象のマイリストを選択します<br>
+手動追加 ID:<input id="MyListManAddID" type="text" size="10" /> タイトル:<input id="MyListManAddTitle" type="text" size="24" /><input type="button" value="追加" onclick="MyListmanAdd()">
+<hr>
+<div id="MyListHTML" style="height:100px;overflow-y:scroll;"></div>
+<br>
+(2)検索条件を選択します<br>
+<hr>
+<div id="IfHTML">
+	<table summary="search criteria" style="margin-bottom: 4px">
+		<tr>
+			<td>
+				動画の種類
+			</td>
+			<td>
+				<input type="checkbox" id="LimitSmCheck" checked /><label for="LimitSmCheck">sm動画</label> &nbsp; 
+				<input type="checkbox" id="LimitNmCheck" checked /><label for="LimitNmCheck">nm動画</label>
+			</td>
+		</tr>
+		<!-- タイトル -->
+		<tr>
+			<td>
+				<input type="checkbox" id="LimitTitleCheck" /><label for="LimitTitleCheck">タイトル</label>
+			</td>
+			<td>
+				<input id="LimitTitleText" type="text" size="32" /> を含む
+			</td>
+		</tr>
+		<!-- 再生数 -->
+		<tr>
+			<td>
+				<input type="checkbox" id="LimitPlayCheck" /><label for="LimitPlayCheck">再生数</label>
+			</td>
+			<td>
+				<input id="LimitPlayDownText" type="text" size="8" style="text-align: right; padding-right: 4px" /> 以上　
+				<input id="LimitPlayUpText" type="text" size="8" style="text-align: right; padding-right: 4px" /> 以下
+			</td>
+		</tr>
+		<!-- コメント数 -->
+		<tr>
+			<td>
+				<input type="checkbox" id="LimitCmtCheck" /><label for="LimitCmtCheck">コメント数</label>
+			</td>
+			<td>
+				<input id="LimitCmtDownText" type="text" size="8" style="text-align: right; padding-right: 4px" /> 以上　
+				<input id="LimitCmtUpText" type="text" size="8" style="text-align: right; padding-right: 4px" /> 以下
+			</td>
+		</tr>
+		<!-- マイリスト数 -->
+		<tr>
+			<td>
+				<input type="checkbox" id="LimitMyListCheck" /><label for="LimitMyListCheck">マイリスト数</label>
+			</td>
+			<td>
+				<input id="LimitMyListDownText" type="text" size="8" style="text-align: right; padding-right: 4px" /> 以上　
+				<input id="LimitMyListUpText" type="text" size="8" style="text-align: right; padding-right: 4px" /> 以下
+			</td>
+		</tr>
+		<!-- マイリスト率 -->
+		<tr>
+			<td nowrap="nowrap">
+				<input type="checkbox" id="LimitMyListRateCheck" /><label for="LimitMyListRateCheck" title="マイリスト/再生">マイリスト率</label>
+			</td>
+			<td>
+				<input id="LimitMyListRateDownText" type="text" size="6" style="text-align: right; padding-right: 4px" /> %以上　
+				<input id="LimitMyListRateUpText" type="text" size="6" style="text-align: right; padding-right: 4px" /> %以下
+			</td>
+		</tr>
+		<!-- 投稿日 -->
+		<tr>
+			<td>
+				<input type="checkbox" id="LimitDateCheck" /><label for="LimitDateCheck">投稿日</label>
+			</td>
+			<td>
+				<input id="LimitDateFromText" type="text" size="16" /> から　
+				<input id="LimitDateToText" type="text" size="16" /> まで
+			</td>
+		</tr>
+		<tr>
+			<td>
+				&nbsp;
+			</td>
+			<td>
+				<span title="年は2桁でも可">書式: YYYY/MM/DD, YYYY/MM/DD HH:MM:SS</span>
+			</td>
+		</tr>
+		<!-- 動画時間 -->
+		<tr>
+			<td>
+				<input type="checkbox" id="LimitTimeCheck" /><label for="LimitTimeCheck">動画時間</label>
+			</td>
+			<td>
+				<input id="LimitTimeDownText" type="text" size="6" /> 以上　
+				<input id="LimitTimeUpText" type="text" size="6" /> 以下
+				&nbsp; (MM:SS)
+			</td>
+		</tr>
+		<!-- ミクノ度 -->
+		<tr>
+			<td>
+				<span id="LimitMikunopopCountCheckForm"><input type="checkbox" id="LimitMikunopopCountCheck" /><label for="LimitMikunopopCountCheck">ミクノ度</label>
+			</td>
+			<td>
+				<input id="LimitMikunopopCountDownText" type="text" size="6" style="text-align: right; padding-right: 4px" /> 以上　
+				<input id="LimitMikunopopCountUpText" type="text" size="6" style="text-align: right; padding-right: 4px" /> 以下
+			</td>
+		</tr>
+	</table>
+
+	<center><input type="button" id="LimitBtn" value="　　↓　検索　↓　　" onclick="findMyList()"></center>
+</div>
+<br>
+(3)検索結果からリクエストに追加する動画を選択します<br>
+<hr>
+<div id="MyListNumHTML"></div>
+<div id="MovieHTML" style="height:80px;overflow-y:auto;"></div>
+<div id="btn">
+	<hr>
+	<button id="OK" onclick="OK()">取り込む</button>　
+	<button onclick="window.returnValue='';window.close()">閉じる</button>
+</div>
+</body>
+</html>

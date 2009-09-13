@@ -55,6 +55,31 @@ function importMylist(){
 	});
 }
 
+// ƒ}ƒCƒŠƒXƒg‚ÌŒŸõ
+function findMylist(){
+	var text = window.showModalDialog("./System/find.hta","","status:no;help:no;resizable:yes");
+	if(!text || text=="") return;
+	text = text.split("\n");
+	for(var i=0;i<text.length;i++){
+		var sms = text[i].match(/((sm|nm|so|am|fz|ut|ax|ca|cd|cw|fx|ig|na|nl|om|sd|sk|yk|yo|za|zb|zc|zd|ze)[0-9]+|[0-9]{10})/ig);
+		if(sms) {
+			for(var j=0,l=sms.length; j<l; j++){
+				// NG“o˜^Ï‚İ‚Ì“®‰æ‚Í“o˜^‚µ‚È‚¢
+				var errFlg=false;
+				for(var k=0;k<NGIDs.length;k++){
+					if(sms[j]==NGIDs[k].id&&(NGIDs[k].targetCommID==document.getElementById("autoConnectComm").value||NGIDs[k].targetCommID=="")){
+						errFlg=true;
+					}
+				}
+				if(!errFlg){
+					ImportNumber++;
+					RequestManager.addRequestQueue(new RequestQueue(sms[j], "F", ImportNumber));
+				}
+			}
+		}
+	}
+}
+
 // —š—ğ‚ğo—Í
 function exportIDs(logName){
 	var text = window.showModalDialog("./System/Export.hta",window[logName],"status:no;help:no;resizable:yes;");

@@ -16,6 +16,7 @@
 <popup id="Request">
 	<item onclick="top.importText();">テキストの取り込み</item>
 	<item onclick="top.importMylist();">マイリストの取り込み</item>
+	<item onclick="top.findMylist();">マイリストから検索</item>
 	<hr />
 	<item onclick="top.exportIDs('PlayLog');">再生履歴の出力</item>
 	<item onclick="top.exportIDs('__VideoInformation__PlayLog');">視聴履歴の出力</item>
