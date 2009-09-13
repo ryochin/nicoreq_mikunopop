@@ -8,10 +8,10 @@
 <script type="text/javascript" src="./Utils.js"></script>
 <script type="text/javascript">
 
-setDialogSize(400, 200);
+setDialogSize(440, 400);
 
 window.onload = function(){
-	document.getElementById("export").value = window.dialogArguments;
+	document.getElementById("export").value = window.dialogArguments.replace(/\n$/,"");
 //add start
 	if(!settings["Enable2PostHistory"]) document.getElementById("btn2").style.display = "none";
 //add end
@@ -114,7 +114,7 @@ button{
 </head>
 <body bgcolor="buttonface" scroll="No">
 <div id="text">
-	テキストエリアにあるのが今回の履歴です。<br>
+	今回の履歴です。<br>
 	<hr>
 </div>
 <textarea id="export" rows="5" cols="70"></textarea>
@@ -128,7 +128,7 @@ button{
 	</select>に<button id="POST" onclick="postHistory()">投稿する</button><br /></span>
 <!--add end-->
 	<button id="OK" onclick="OK()">OK</button>　
-	<button onclick="window.returnValue=window.dialogArguments;window.close()">キャンセル</button>
+<!--	<button onclick="window.returnValue=window.dialogArguments;window.close()">キャンセル</button> -->
 </div>
 </body>
 </html>

@@ -77,7 +77,7 @@ button{
 <body bgcolor="buttonface" scroll="No">
 ニコニコ生放送に接続するための各種情報を入力します。<br>
 <hr>
-ニコ生ID:lv<input id="lv" type="text" value="" onkeypress="if(event.keyCode==13){getPlayerStatus()}">
+放送IDまたはURL: <input id="lv" type="text" value="" size="48" onkeypress="if(event.keyCode==13){getPlayerStatus()}">
 <input id="btnPS" type="button" value="取得" onclick="getPlayerStatus()">
 <div id="divMSG">
 	<hr>
@@ -90,7 +90,7 @@ button{
 </div>
 <div id="btn">
 	<hr>
-	<button id="OK" onclick="OK()">OK</button>　
+	<button id="OK" onclick="OK()">接続</button>　
 	<button onclick="window.close()">キャンセル</button>
 </div>
 </body>

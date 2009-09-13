@@ -111,11 +111,8 @@ function __VideoInformation__receiveComment(Chat){
 //del					"<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\"><br><br>" +
 //add start
 					"<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\"><br>" +
-// テスト中
-//					"<input type=\"button\" value=\"テスト\" onclick=\"getComment('"+VideoID+"')\">" +
-					"<b>聴き入り度/</b>"    + (Math.round(100*(Number(mylist_counter)/Number(comment_num)))/100) +
-					" <b>マイリスト率/</b>" + (Math.round(10000*(Number(mylist_counter)/Number(view_counter)))/100) +"%" +
-					" <b>正義値/</b>"       + (Math.round(100*((Number(mylist_counter)+Number(view_counter))/(Number(mylist_counter)+Number(view_counter)+Number(comment_num))))/100)+"<br><br>" +
+					"<span class=\"subtitle\">彡 </span><span class=\"count\">"+(settings["GetMikunopopCount"]?getMikunopopCount(VideoID):"-")+"</span>" +
+					" <span class=\"subtitle\">マイリスト率 </span>" + (Math.round(10000*(Number(mylist_counter)/Number(view_counter)))/100) +"%<br><br>" +
 //add end
 					"<div id=\"addMylistResult\"></div>"
 				);
