@@ -1,0 +1,770 @@
+commit 3c0caa47ba94ce326be9eae97e6f9534a0320a5e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 14 02:50:55 2009 +0900
+
+    tweaked a couple of minor points mainly for usability.
+
+M	System/Connect.hta
+M	System/Export.hta
+M	System/Import.hta
+M	System/VideoInformation.js
+
+commit c725c855953bc1c2ad17aea98154d931a4d9f620
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 14 01:42:15 2009 +0900
+
+    merged sort-by-mikunopop-count feature on the request tab, thanks to w2k.
+    
+    merged some optimization and reorganization around sort and count.
+
+M	System/Menu.xml
+M	System/Request.js
+M	System/RequestManager.js
+
+commit 55c3a7490d0fcdb03626821d8e103b0f5c7e7538
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 14 01:40:07 2009 +0900
+
+    merged 'search video by mylist' feature, thanks to w2k.
+
+M	System/Menu.js
+M	System/Menu.xml
+A	System/find.hta
+
+commit 81c08178bac3630fe5c3d3a53d7f5613e24ea56f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Sep 13 22:07:27 2009 +0900
+
+    updated pnames.js, thanks to higumon.
+
+M	pnames.js
+
+commit 4dde8dcce0b7e67e6202db33d2901c45bbbbfc1e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Sep 13 20:36:10 2009 +0900
+
+    updated dummy-admin feature.
+
+M	System/DummyAdmin.js
+M	System/Main.js
+
+commit 32d05b367773660ee1ca81076af20eaeffc9e629
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Sep 13 16:01:31 2009 +0900
+
+    merged dummy-admin feature via w2k version, thanks to higumon.
+
+M	NicoRequest.hta
+M	System/Comment.js
+A	System/DummyAdmin.js
+M	System/Main.js
+
+commit e8fee786a6189d1b6c1af4af368f2ebaadc5a0a7
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Sep 13 15:28:50 2009 +0900
+
+    tweaked some files.
+
+M	settings.js
+M	tags.js
+
+commit b30d7740147e9257175e99aea1ec31cf251f95d7
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 10 18:51:16 2009 +0900
+
+    released 1.15.
+
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+M	pnames.js
+M	settings.js
+M	tags.js
+
+commit 4752a458a97fa3d2fc69f31c837346c56f53f722
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 10 18:36:36 2009 +0900
+
+    changed time-restriction rule of new-comers to more strict 7 days (means 168min0sec).
+
+M	System/Main.js
+
+commit 4a314d62cec4283af1ab401d259d018a0ccc6c93
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 3 19:48:19 2009 +0900
+
+    released 1.14.
+
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+M	settings.js
+M	tags.js
+
+commit 1f8d2cca8139f8deeb8a26b01490bdacb8b19a0e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 3 13:50:38 2009 +0900
+
+    added icon image files.
+
+A	System/assets/close_s.png
+A	System/assets/down.png
+A	System/assets/play.png
+A	System/assets/play_jingle_s.png
+A	System/assets/play_s.png
+A	System/assets/random_s.png
+A	System/assets/remove.png
+A	System/assets/soundonly_s.png
+A	System/assets/stop_s.png
+A	System/assets/up.png
+
+commit 835332fe426397bfd831cde9c2b14c4b118b31eb
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 3 13:47:26 2009 +0900
+
+    changed design of request tab.
+    
+    replaced default input buttons to image ones.
+
+M	NicoRequest.hta
+M	System/RequestManager.js
+M	System/base.css
+
+commit b17100519b67eb576497b2897be75f93edc62bfb
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Sep 2 21:08:34 2009 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+
+commit 12a986e00fcfbbd434f6276a49b48b3236d7bda0
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Sep 2 18:45:14 2009 +0900
+
+    reorganized request tab design with css.
+
+M	NicoRequest.hta
+M	System/RequestManager.js
+A	System/base.css
+M	settings.js
+
+commit 2e90d81c9f2b99772a106eb5feeb44c6aaa0cb0b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Sep 1 20:13:53 2009 +0900
+
+    released 1.13.
+
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+M	pnames.js
+M	settings.js
+
+commit f3bcc13b9b92b099e310db828156ca1506c83c16
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Sep 1 20:12:08 2009 +0900
+
+    changed how niconail info image is shown, now displayed on the request tab.
+
+M	System/RequestManager.js
+
+commit 4bd713d0e85020bfaaa0c42eef1cb091e97370d1
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Sep 1 20:10:43 2009 +0900
+
+    changed .toFixed(2) to .toFixed(1) for mylist percent.
+
+M	System/Request.js
+
+commit 2038e27c659ea23c617337df0bc85e5b3aec828f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Aug 28 15:01:22 2009 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+
+commit d59de3a543ba20e2316573224c5d06a91688172d
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 25 01:11:17 2009 +0900
+
+    released 1.12.
+
+M	MEMO.txt
+M	NGIDList.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	System/Request.js
+M	installer/nicoreq.iss
+M	pnames.js
+M	settings.js
+
+commit 5f4cf37d0465d0af19d30dd7ea47fd88dad0b065
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Aug 8 20:42:29 2009 +0900
+
+    released 1.11.
+
+M	NicoRequest.hta
+M	README.txt
+M	installer/nicoreq.iss
+M	pnames.js
+M	settings.js
+
+commit 278c3cd6a13579367f5695938414fd658933e514
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jul 24 23:27:42 2009 +0900
+
+    released 1.10.
+
+M	NicoRequest.hta
+M	README.txt
+M	installer/nicoreq.iss
+
+commit 453410378ed4153e0c1b511f2d98749a0ac79f1d
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jul 24 23:27:09 2009 +0900
+
+    tweaked System/Mikunopop.js.
+
+M	System/Mikunopop.js
+
+commit a8b20541fcf610ab31bb1c84d345b23b86cc7e6a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jul 24 23:02:17 2009 +0900
+
+    added mikunopop count caching feature.
+    
+    now count.json created automatically and periodically, so
+    network access will be dynamically reduced for not retrieving
+    every time when users add new songs to video list.
+
+M	NicoRequest.hta
+A	System/Mikunopop.js
+M	System/RequestManager.js
+
+commit 3faca153ef2bf793c794ab665ea363177b5e796f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jul 24 22:27:12 2009 +0900
+
+    updated README.txt.
+
+M	README.txt
+
+commit 0eb0f96dc01da5dc11347b073d4a878ae28a48e6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jul 24 22:26:43 2009 +0900
+
+    updated tags.js.
+
+M	tags.js
+
+commit 8d7a351daeaaf845f28184486eb8b777acecde33
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jul 24 22:26:04 2009 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+
+commit 8dc616f3d2fa0c9eb476cd4048bcb04533ae6ce1
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jul 24 22:25:32 2009 +0900
+
+    updated NGIDList.txt.
+
+M	NGIDList.txt
+
+commit b8a1c626e1212503f8a4ccce0daccc1c3007657c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Jul 15 17:18:21 2009 +0900
+
+    released 1.06.
+
+M	NicoRequest.hta
+M	README.txt
+M	installer/nicoreq.iss
+
+commit 19ba2b5290719fb9b4c713c43f31d3a08f65c021
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Jul 15 17:05:29 2009 +0900
+
+    tweaked jingle info.
+
+M	settings.js
+
+commit b55c0a1198e804c2121ae71a12defc252fc1e6fa
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Jul 15 17:04:52 2009 +0900
+
+    added pnames.
+
+M	pnames.js
+
+commit 573ddb15417043654882fd77a7a6d06c5aa4dfdf
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Jul 15 17:00:33 2009 +0900
+
+    fixed a date format bug on comment log reported by w2k.
+
+M	System/Comment.js
+M	settings.js
+
+commit 5a3e6abae8195d1efab91a522c581d84f65ca0b7
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jul 13 22:07:51 2009 +0900
+
+    released 1.05.
+
+M	NicoRequest.hta
+M	README.txt
+M	installer/nicoreq.iss
+M	pnames.js
+M	settings.js
+
+commit a54139a061f5471a97abe1a1678cd691422bd8b9
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jul 13 15:43:05 2009 +0900
+
+    updated .gitignore.
+
+M	.gitignore
+
+commit a146897dd219966ae1368362cbdd459d6e0316e1
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jul 13 15:42:15 2009 +0900
+
+    tweaked setting.js.
+
+M	settings.js
+
+commit de837775f813e5fd9bb1384d283cbc405bc9a48a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jul 13 15:41:20 2009 +0900
+
+    added 'time-left countdown format' feature.
+
+M	System/Main.js
+M	settings.js
+
+commit 7a6c993945a9f7eba7ceaad21b9648e17f6e9b24
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jul 13 15:39:35 2009 +0900
+
+    updated for compacting the window view by shrinking unused widgets and more.
+
+M	NicoRequest.hta
+M	settings.js
+
+commit e0e3c26d930daec53ed699239b5b7e6b66523cb0
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jul 13 15:36:29 2009 +0900
+
+    separated & added jquery.min.js to local.
+
+M	NicoRequest.hta
+A	System/jquery.min.js
+
+commit 2a592b25ff1ac080afbaee26185fe81c884f6a69
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jul 13 15:35:40 2009 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+
+commit f402013357ec1fd4387a6ba6081a35bdae694993
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jul 13 15:35:22 2009 +0900
+
+    updated tags.js.
+
+M	tags.js
+
+commit 6b0e128a1b632e178c621be2e521776cd2f4f311
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jul 13 15:34:55 2009 +0900
+
+    released 1.04.
+
+M	MEMO.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Request.js
+M	installer/nicoreq.iss
+
+commit c7d7208991caeb2a41d414c9bdb53c61d3a98316
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jul 4 19:48:42 2009 +0900
+
+    added genre whitelist for tags feature.
+
+M	NicoRequest.hta
+M	System/Request.js
+M	System/RequestManager.js
+M	installer/nicoreq.iss
+M	settings.js
+A	tags.js
+
+commit f0e727757dab0bf83df4810913fe39519764630f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jul 4 19:47:45 2009 +0900
+
+    added MEMO.txt.
+
+A	MEMO.txt
+
+commit 093bde6f670ab6ec8b44ab3788cb1940ece92ab3
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jul 4 19:23:39 2009 +0900
+
+    revised & re-released 1.03.
+
+M	README.txt
+M	pnames.js
+M	settings.js
+
+commit 4c87782999f8aba076bf0e08bb1bcc75201520d2
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jul 4 16:12:40 2009 +0900
+
+    fixed a vulnerabolity for html escaping with low-level workaround in the meantime (reported by w2k)
+
+M	System/Comment.js
+M	System/Main.js
+M	System/RequestManager.js
+
+commit a3fce0326305ec32b746a2c54f3c39221c69d81b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Jul 1 23:56:10 2009 +0900
+
+    released 1.03.
+
+M	NicoRequest.hta
+M	README.txt
+M	installer/nicoreq.iss
+
+commit 643639076a2077198d1673500535f18347a1fd05
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Jul 1 23:54:10 2009 +0900
+
+    tweaked & updated some files.
+
+M	NGIDList.txt
+M	pnames.js
+M	settings.js
+
+commit 88635d55a2e7091b9a54f3d386f790df165d6083
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Jul 1 23:11:07 2009 +0900
+
+    added a new experimental feature for the order of request appended to video list.
+
+M	System/Main.js
+M	System/Menu.js
+M	System/Request.js
+M	System/RequestManager.js
+M	settings.js
+
+commit ef4ad2a4d5fed0b6f8172028222bd1f761ba18a0
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Jun 30 17:32:33 2009 +0900
+
+    colorized admin comment on Nicoreq.
+
+M	settings.js
+
+commit 26a213afbe5f2148836f5b94d4523bdafd310968
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Jun 30 16:47:57 2009 +0900
+
+    separated p names db to pnames.js.
+    
+    added pnames.js.
+    removed script/create_pname_array.pl.
+    removed pname.txt.
+
+M	NicoRequest.hta
+D	pname.txt
+A	pnames.js
+D	script/create_pname_array.pl
+M	settings.js
+
+commit 4d1c6bc87078eef339ec310ccd13b42f69eeef4b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jun 27 04:08:05 2009 +0900
+
+    released 1.02.
+    
+    updated README.txt for adjustment for width of installer window.
+
+M	NicoRequest.hta
+M	README.txt
+M	installer/nicoreq.iss
+M	settings.js
+
+commit 8b5704e3c8a1a7c91e544b97fc46a456ba737a07
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jun 27 03:47:43 2009 +0900
+
+    added a new P name.
+
+M	pname.txt
+
+commit f60dfc359d4e12819d77f348a6ebfb7bdc13c4f2
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jun 27 03:37:57 2009 +0900
+
+    added a couple of optimizations/reorganizations.
+    
+    added an option to specify whether the program retrieves thumbnail images to nico server or shows a dummy image.
+    added an option to specify whether the program gets mikunopop-count to mikunopop server or not.
+    added a dummy thumbnail image.
+    updated settings.js, now a bit more human-readable.
+    updated README.txt for revision history & faq (is stall a joke ...).
+
+M	README.txt
+M	System/RequestManager.js
+A	System/nico_dummy.png
+M	settings.js
+
+commit 3f02eda918587b5e7ce420d4841b890bdd91b938
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jun 22 22:32:21 2009 +0900
+
+    added installer, EULA and prepared for new release.
+
+A	EULA.txt
+M	NicoRequest.hta
+M	README.txt
+A	installer/app.ico
+A	installer/nicoreq.iss
+A	installer/wizard.bmp
+A	installer/wizard_small.bmp
+
+commit 23ef1e0fdc5c7ddc039dc90bcd42f35d9d6b655e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jun 22 22:14:13 2009 +0900
+
+    added P names.
+
+M	pname.txt
+M	settings.js
+
+commit 0942aee7f3182a52f08f2a22e5dd1ba369ff65bb
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Jun 21 20:50:23 2009 +0900
+
+    replaced System/Nico.ico to the community icon.
+
+M	System/Nico.ico
+
+commit 0c867c2253ae28c2c3bb23fbc7cb897ae0202653
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Jun 21 17:47:52 2009 +0900
+
+    added P names.
+
+D	System/premium.gif
+M	pname.txt
+M	settings.js
+
+commit 769c49418c5040a71861146b74951e416f17d078
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Jun 21 17:46:25 2009 +0900
+
+    added timeout param for ajax() in RequestManager.js.
+
+M	System/RequestManager.js
+
+commit 278ecb4d07caba0cf2511e069ca63c954c76997e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Jun 21 13:30:25 2009 +0900
+
+    released 1.00.
+
+M	NicoRequest.hta
+M	README.txt
+
+commit d4f7d48603ab90de6dd1f7616dabd7929fae106f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Jun 21 13:21:32 2009 +0900
+
+    prepared for initial release.
+
+M	NicoRequest.hta
+M	README.txt
+M	System/RequestManager.js
+M	settings.js
+
+commit a949f5203740ca3de9534416d3107b9d778047fa
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jun 20 16:42:03 2009 +0900
+
+    added play count display feature with server suppoort.
+
+M	NicoRequest.hta
+M	System/RequestManager.js
+M	settings.js
+
+commit 68cf276973a0c809a8d82277e5693b65753f60ba
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jun 20 15:29:31 2009 +0900
+
+    added comma in RequestManager.js.
+
+M	System/RequestManager.js
+
+commit 2849c8562f80d8fb8223a5fa04690b786918b919
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jun 20 15:28:45 2009 +0900
+
+    added P names.
+
+M	pname.txt
+
+commit 6bd8df160a19e44d2af0f78274abb0f805281fe6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jun 20 12:06:49 2009 +0900
+
+    added pname auto generation feature.
+    
+    added pname.txt.
+    added script/create_pname_array.pl.
+    updated setting.js.
+
+A	pname.txt
+A	script/create_pname_array.pl
+M	settings.js
+
+commit 25e19fad58632598131093159f22b89b255fdf02
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jun 20 12:06:27 2009 +0900
+
+    added README.txt (in progress).
+
+A	README.txt
+
+commit 521cfbe512c2e1f0bc39b3e5da0f28f983af00fa
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 19 19:39:32 2009 +0900
+
+    added comma() for RequestManager.js.
+
+M	.gitignore
+M	System/RequestManager.js
+
+commit dbf27fcde0a31d426ff64c7ab5782f399e3a28f5
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 19 16:42:01 2009 +0900
+
+    updated.
+
+M	NGIDList.txt
+M	NicoRequest.hta
+M	System/Main.js
+M	settings.js
+
+commit 58471ed9ce0275cf8c1ffb0f0abc73f2337712d9
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 19 01:22:07 2009 +0900
+
+    updated.
+
+A	.gitignore
+D	System/Main_orig.js
+
+commit 643910215e4753d338fd121c36d630aacab5eb45
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 19 00:54:07 2009 +0900
+
+    added NGIDList.txt.
+
+A	NGIDList.txt
+
+commit 6e63ea4d100650c1d33451b5d928f584dfd7597d
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 19 00:52:37 2009 +0900
+
+    moved to windows.
+
+M	NicoRequest.hta
+M	System/Alert.hta
+M	System/Chat.js
+M	System/Comment.js
+M	System/Connect.hta
+M	System/Export.hta
+M	System/Import.hta
+M	System/Main.js
+M	System/Main_orig.js
+M	System/Menu.htc
+M	System/Menu.js
+M	System/Menu.xml
+M	System/NicoLive.js
+M	System/PlayerStatus.js
+M	System/Request.js
+M	System/RequestManager.js
+M	System/Socket.mxml
+M	System/SocketManager.js
+M	System/SofTalk.js
+M	System/Tab.js
+M	System/Utils.js
+M	System/VideoInformation.js
+M	System/XMLHTTPTest.js
+M	System/jascode.csv
+M	settings.js
+
+commit 2f4ad290134854e3fc957cf713770653cdf80790
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 19 00:21:23 2009 +0900
+
+    updated.
+
+M	NicoRequest.hta
+M	System/Menu.xml
+M	System/RequestManager.js
+D	"System/\343\202\263\343\203\222\343\202\232\343\203\274 \357\275\236 Main.js"
+M	settings.js
+
+commit a487392d84d3ef32f0904c04d0bee389689d9b83
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Jun 8 06:51:54 2009 +0900
+
+    initial import.
+
+A	NicoRequest.hta
+A	System/Alert.hta
+A	System/Chat.js
+A	System/Comment.js
+A	System/Connect.hta
+A	System/Export.hta
+A	System/Import.hta
+A	System/Main.js
+A	System/Main_orig.js
+A	System/Menu.htc
+A	System/Menu.js
+A	System/Menu.xml
+A	System/Nico.ico
+A	System/NicoLive.js
+A	System/PlayerStatus.js
+A	System/Request.js
+A	System/RequestManager.js
+A	System/Socket.mxml
+A	System/Socket.swf
+A	System/SocketManager.js
+A	System/SofTalk.js
+A	System/Tab.htc
+A	System/Tab.js
+A	System/Utils.js
+A	System/VideoInformation.js
+A	System/XMLHTTPTest.js
+A	System/htaEx.exe
+A	System/jascode.csv
+A	System/premium.gif
+A	"System/\343\202\263\343\203\222\343\202\232\343\203\274 \357\275\236 Main.js"
+A	settings.js
