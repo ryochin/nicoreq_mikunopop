@@ -1,3 +1,41 @@
+commit 7a96cadbaa0e3275326e3e6da79c697b21daa7a4
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 14 17:34:10 2009 +0900
+
+    added tag tooltip on each video titles in the request tab.
+
+M	System/RequestManager.js
+
+commit 6e26ab97894c4694a05673e1b168af6a314d4dd7
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 14 17:17:25 2009 +0900
+
+    added a feature to copy video id to clipboard by right-clicking each thumbnail images on the request tab.
+
+M	System/RequestManager.js
+
+commit b132b90b858eb0c5d5c90eadb553be1a1fdd2a4f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 14 16:39:47 2009 +0900
+
+    moved (and added) copying video info feature into each order number (e.g. [ 1/3]) area.
+
+M	System/RequestManager.js
+
+commit 89edc8414e639bdbe8e6dbbe5f114a5f339cb9de
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 14 03:10:28 2009 +0900
+
+    released 1.16.
+
+M	Changes.txt
+M	MEMO.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+M	settings.js
+
 commit 1f8c0024044e0475d4c875938bf9e53b14dc00da
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Mon Sep 14 02:53:28 2009 +0900
