@@ -59,7 +59,8 @@ RequestManager.prototype = {
 		var ItemHTML = "<div id=\"{#ID}\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">"
 
 		// [1/1] nm7804321 L-0001
-		ItemHTML += "<tr><td colspan=4>[ <span id=\"RNO{#ID}\">"+(this.Indexes[RQ.id]+1)+"/"+this.RequestQueues.length+"</span>]&nbsp;";
+		ItemHTML += "<tr><td colspan=4>";
+		ItemHTML += "[ <span id=\"RNO{#ID}\" title=\"左クリックで動画情報１をコピー\n右クリックで動画情報２をコピー\" onclick=\"RequestManager.setClipboard('IF', '{#ID}')\" oncontextmenu=\"RequestManager.setClipboard('IF2', '{#ID}');return false;\">"+(this.Indexes[RQ.id]+1)+"/"+this.RequestQueues.length+"</span>]&nbsp;";
 		ItemHTML += "<u class=\"vid\" ondblclick=\"RequestManager.Events['Play']('{#ID}')\" onclick=\"showVideoInfo('{#ID}')\" oncontextmenu=\"OpenVideo('{#ID}')\" title=\"クリックで動画情報表示\"><b>{#ID}</b>&nbsp;";
 		ItemHTML += "<span id=\"RID{#ID}\">"+RequestID+"</span></u></td>";
 
