@@ -130,14 +130,18 @@ RequestManager.prototype = {
 
 		// サムネイル画像の種類を分ける
 		var thumb_url;
+		var thumb_title = "左クリックで動画をブラウザで開く\n右クリックで動画番号をコピー";
+		var oncontextmenu = "RequestManager.setClipboard('IDONLY','" + R.id + "')";
 		if( settings["ShowThumbnailType"] == 1 ){
+			// dummy
 			var thumb_dummy_path = location.href.toString().replace(/NicoRequest\.hta$/,"")
 				+ settings["ThumbnailDummyImagePath"];
-			thumb_url = "<img src=\"" + thumb_dummy_path + "\" width=65 height=50 align=left>";
+			thumb_url = "<img src=\"" + thumb_dummy_path + "\" width=65 height=50 align=left title=\"" + thumb_title + "\" oncontextmenu=\"" + oncontextmenu + "\" />";
 		}
 		else if( settings["ShowThumbnailType"] == 2 ){
+			// thumbnail
 			var thumb_image = "<img src=\"http://tn-skr4.smilevideo.jp/smile?i="
-				+ idno + "\" width=65 height=50 align=left class=\"thumb\">";
+				+ idno + "\" width=65 height=50 title=\"" + thumb_title + "\" align=left class=\"thumb\" oncontextmenu=\"" + oncontextmenu + "\" />";
 			thumb_url = '<a href="http://www.nicovideo.jp/watch/' + R.id + '">' + thumb_image + '</a>';
 		}
 
@@ -488,6 +492,10 @@ RequestManager.prototype = {
 			case "ID":
 				// GUIの設定を見に行ってるのは美しくない…
 				str = (document.getElementById("playSound").checked?"/playsound ":"/play ")+id+(document.getElementById("playSub").checked?" sub":"");
+			break;
+			case "IDONLY":
+				// GUIの設定を見に行ってるのは美しくない…
+				str = id;
 			break;
 			case "IF":
 				str = this.getInfoComment(id);
