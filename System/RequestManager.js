@@ -147,6 +147,7 @@ RequestManager.prototype = {
 
 		// title ‚ğ‹­ˆø‚É‘‚«Š·‚¦‚é
 		$('#TITLE' + R.id).html( R.title );    // dirty hack :(
+		$('#TITLE' + R.id).attr( { title: R.tags.join("@") } );    // ƒ^ƒO
 
 		return str
 				.replace(/{#ID}/g,    R.id)
