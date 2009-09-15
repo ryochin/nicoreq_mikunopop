@@ -160,7 +160,7 @@ settings["InfoComment"] =
 	  '<font color="#000000">■</font>'
 	+ '<font color="#acacec">{#Title}</font> <br>'
 	+ '<font color="#000000">■</font>'
-	+ '<font color="#ecccac">{#PName}</font>';
+	+ '<font color="#ecccac"> {#PName}</font>';
 settings["InfoComment2"] = 
 	  '<font color="#000000">■</font>'
 	+ '<font color="#acacec">{#Date}</font> '
@@ -455,7 +455,7 @@ settings["exceptionPTagsIM"] = ["", ""];
 // ニコマス・ボカロ向け除外Pネーム
 // タグ名の末尾がPでもP名として取得しない場合はここに記述します
 settings["NotPTagsIM"] = ["", "iM@SHUP", "アイドルマスターSP", "PSP", ""];
-settings["NotPTagsVO"] = ["", "MikuPOP", "RinPOP", "アニメOP", "ゲームOP", "エロゲOP", "偽OP", "J-POP", "これからもずっとbakerの嫁P", "2STEP", "ミーム第２期OP", "Human_Dump", ""];
+settings["NotPTagsVO"] = ["", "MikuPOP", "RinPOP", "アニメOP", "ゲームOP", "エロゲOP", "偽OP", "J-POP", "これからもずっとbakerの嫁P", "2STEP", "ミーム第２期OP", "Human_Dump", "お前はもう死んでいるP", ""];
 
 // Pネーム取得失敗時の名前
 // タグからPネームを取得できなかった際に用いられる文字列を指定します

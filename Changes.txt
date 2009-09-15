@@ -1,3 +1,23 @@
+commit 4901bb8655394ee60da978b92a0076dc9646db68
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Sep 15 22:06:35 2009 +0900
+
+    written back for an enbug in System/Export.hta.
+
+M	System/Export.hta
+
+commit d56a944bfa8d7874ce8a556d59e135af1a6d9a17
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Sep 15 00:39:29 2009 +0900
+
+    released 1.17.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 7a96cadbaa0e3275326e3e6da79c697b21daa7a4
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Mon Sep 14 17:34:10 2009 +0900

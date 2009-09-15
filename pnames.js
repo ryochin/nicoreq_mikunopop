@@ -305,5 +305,6 @@ settings["exceptionPTagsVO"] = ["",
 	"“c‘ºƒqƒ",
 	"Hal",
 	"’çˆ§Š",
+	"sampling_INO",
 ""];
 
