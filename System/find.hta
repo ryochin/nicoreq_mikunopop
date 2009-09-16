@@ -252,6 +252,10 @@ function findMyList(){
 		}
 	}
 	document.getElementById("MyListNumHTML").innerHTML = "全部で " + MovieHitNum + " 件見つかりました。";
+	// 取り込める動画がある時だけボタンを表示したい
+	MovieHitNum > 0
+		? $('#OK').css( { display: 'inline' } )
+		: $('#OK').css( { display: 'none'   } );
 	document.getElementById("LimitBtn").disabled = false;
 }
 
@@ -465,7 +469,7 @@ button{
 <div id="MovieHTML" style="height:80px;overflow-y:auto;"></div>
 <div id="btn">
 	<hr>
-	<button id="OK" onclick="OK()">取り込む</button>　
+	<button id="OK" onclick="OK()" style="display: none; font-weight: bold">取り込む</button>　
 	<button onclick="window.returnValue='';window.close()">閉じる</button>
 </div>
 </body>
