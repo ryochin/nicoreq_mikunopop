@@ -9,6 +9,8 @@
 <?import namespace="HTC" implementation="./System/Menu.htc" />
 <?import namespace="HTC" implementation="./System/Tab.htc" />
 <script type="text/javascript" src="./System/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="./System/jquery.dimensions.js"></script> -->
+<!-- <script type="text/javascript" src="./System/jquery.tooltip.js"></script> -->
 <script type="text/javascript" src="./settings.js"></script>
 <script type="text/javascript" src="./pnames.js"></script>
 <script type="text/javascript" src="./tags.js"></script>
@@ -103,11 +105,8 @@ fieldset{
 		<input id="btnCR" type="button" value="募集" onclick="changeRequest()" style="display: none">
 		<input type="checkbox" id="extraComment" style="display: none">
 -->
-		<input type="hidden" id="playSound">
-		<span id="divPlaySub"></span>
-		<input type="hidden" id="playSub">
-		<input type="hidden" id="btnCR">
-		<input type="hidden" id="extraComment">
+		<input type="hidden" id="playSound"><input type="hidden" id="divPlaySub"><input type="hidden" id="playSub">
+		<input type="hidden" id="btnCR"><input type="hidden" id="extraComment">
 <!--add start-->
 <!--
 		<input type="button" value="１枠延長" onclick="extend()" style="display: none" />
@@ -115,28 +114,32 @@ fieldset{
 -->
 <!--add end-->
 <!--add start-->
+	<img id="jingle-thumb" width="24" height="18" align="bottom" />
 	<span id="PlayJingleForm"></span>
 		 <script>
 			if(settings["jingles"]){
-//				document.getElementById("PlayJingleForm").innerHTML = "ジングル ";
-				var sel = document.createElement("select");
-				sel.setAttribute("id", "jingle");
+				var sel = $('<select />')
+					.attr( { id: "jingle" } );
 				for(var i=0,l=settings["jingles"].length;i<l;i++){
 					if(settings["jingles"][i]!=""){
-						var opt = document.createElement("option");
+						var opt = $('<option />');
 						if( typeof(settings["jingles"][i]) == 'object' ){
-							opt.appendChild(document.createTextNode(settings["jingles"][i][1]));
-							opt.setAttribute("value", settings["jingles"][i][0]);
+//							var id = settings["jingles"][i][0].replace(/^(sm|nm)/,"");
+//							var img = '<img src="http://tn-skr2.smilevideo.jp/smile?i=' + id + '" />';
+							opt.html( settings["jingles"][i][1] )
+								.attr( { value: settings["jingles"][i][0] } )
+//								.attr( { title: img } )
+								.addClass('jingles');
 						}
 						else{
 							opt.appendChild(document.createTextNode(settings["jingles"][i]));
 							opt.setAttribute("value", settings["jingles"][i]);
 						}
-						sel.appendChild(opt);
+						sel.append(opt);
 					}
 				}
-				document.getElementById("PlayJingleForm").appendChild(sel);
-				document.getElementById("PlayJingleForm").innerHTML += " <input type=\"image\" src=\"./System/assets/play_jingle_s.png\" class=\"head-control-image\" onclick=\"NicoLive.postComment(document.getElementById('jingle').value)\" title=\"ジングルを再生\" />";
+				$('#PlayJingleForm').append(sel)
+					.html( $('#PlayJingleForm').html() + " <input type=\"image\" src=\"./System/assets/play_jingle_s.png\" class=\"head-control-image\" onclick=\"NicoLive.postComment(document.getElementById('jingle').value)\" title=\"ジングルを再生\" />" );
 			}
 		 </script>
 <!--add end-->
@@ -144,6 +147,41 @@ fieldset{
 	</div>
 	<div id="RequestHTML"></div>
 </div>
+<script type="text/javascript">
+$(document).ready( function () {
+//	$('.jingles').tooltip({
+//		track: false,
+//		delay: 200, 
+//		showURL: false, 
+//		opacity: 0.9, 
+//		left: -120 
+//	});
+
+	$('#jingle-thumb').tooltip({
+		track: false,
+		delay: 200, 
+		showURL: false, 
+		opacity: 0.9, 
+		left: -120 
+	});
+
+	var loadJingleThumb = function () {
+		var val = $('#jingle').val();
+		if( val.match(/^(sm|nm)/) ){
+			var id = val.replace(/^(sm|nm)/,"");
+			var url = "http://tn-skr2.smilevideo.jp/smile?i=" + id;
+//			var image = '<img src="http://tn-skr2.smilevideo.jp/smile?i="' + id + '" />';
+			$('#jingle-thumb')
+				.attr( { src: url } )
+//				.attr( { title: image } );
+		}
+	};
+
+	$('#jingle').change( loadJingleThumb );
+	loadJingleThumb();
+} );
+
+</script>
 <div id="TabContents">
 <!--add start-->
 	<input type="text" id="sendCmt_mail" size="10" />
