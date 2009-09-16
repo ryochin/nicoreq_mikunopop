@@ -6,12 +6,89 @@ var __VideoInformation__MylistIDs = __VideoInformation__getMylistIDs();
 
 
 function __VideoInformation__getMylistIDs(){
+	var file = getMylistCacheFile();
+	if( checkMylistCacheFileDateLastModified( file ) ){
+		// キャッシュ無効、取得してローカルに保存
+//		alert("マイリストキャッシュをサーバから取得");
+		var content;
+		try {
+			content = __VideoInformation__getMylistIDs_via_net();
+			saveMylistCacheFile( file, content );
+			return eval('(' + content + ')');    // json to object
+		} catch (e) {
+			alert("マイリストが正常に取得できませんでした。");
+			return;
+		}
+	}
+	else{
+		// キャッシュを返す
+//		alert("キャッシュが見つかったのでそのまま返却");
+		return loadMylistCacheFile( file );
+	}
+}
+
+function saveMylistCacheFile (file, content) {
+	var fs = new ActiveXObject('Scripting.FileSystemObject');
+	// cache dir
+	var cacheDir = fs.GetParentFolderName( file );
+	if( ! fs.FolderExists( cacheDir ) ){
+		fs.CreateFolder( cacheDir );
+	}
+	
+	// file
+	var st = fs.OpenTextFile(file, 2, true, -2);
+	// simply write down all the content as-is :)
+	st.writeLine(content);
+	st.Close();
+}
+
+function loadMylistCacheFile (file) {
+	var fs = new ActiveXObject('Scripting.FileSystemObject');
+	try {
+		var st = fs.OpenTextFile(file, 1, false, -2);
+		var content = st.ReadAll();
+		st.Close();
+		
+		return eval("("+content+")");    // load as json
+	} catch(e) {
+		alert("マイリストキャッシュの読み込みに失敗しました orz");
+	}
+}
+
+function checkMylistCacheFileDateLastModified (file) {
+	var fs = new ActiveXObject('Scripting.FileSystemObject');
+	if( fs.FileExists(file) == true ){
+		// 最終更新時間を見る
+		var f = fs.GetFile(file);
+		var s = f.DateLastModified;
+		var epoch = parseInt( Date.parse(s), 10 ) / 1000;
+		var now = parseInt( (new Date).getTime() / 1000, 10 );
+		if( now - epoch < 24 * 60 * 60 ){
+			// キャッシュが生きている
+			return;
+		}
+	}
+
+	return 1;
+}
+
+function getMylistCacheFile () {
+	var fs = new ActiveXObject('Scripting.FileSystemObject');
+	var dirs = [ fs.GetParentFolderName(location.pathname), 'System', 'caches', 'mylist.json' ];
+	var path;
+	for( var i = 0; i < dirs.length; i++ ){
+		path = fs.BuildPath( path, dirs[i] );
+	}
+	return path;
+}
+
+function __VideoInformation__getMylistIDs_via_net(){
 	var xmlhttp = createXMLHttpRequest();
 	xmlhttp.open("GET", "http://www.nicovideo.jp/mylistgroup_edit", false);
 	xmlhttp.send();
 	// ついでにプレミアム判定しておく
 	__VideoInformation__Premium = (xmlhttp.responseText.indexOf("プレミアム") > -1);
-	var result = new Array();
+	var result = [];
 	// マイページからマイリストのIDと名前を抽出
 	var Options = xmlhttp.responseText.match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong>/ig);
 	if(!Options) return result;
@@ -23,17 +100,19 @@ function __VideoInformation__getMylistIDs(){
 			xmlhttp.open("GET","http://www.nicovideo.jp/mylist/" + id, false);
 			xmlhttp.send();
 			var Options2 = xmlhttp.responseText.match(/<h3><a class="video" href="watch\/(.+?)">(.+?)<\/a><\/h3>/ig);
-//del			if(!Options2||Options2.length<500) result.push({id: id, name: name});
-//add start
 			if(!Options2||Options2.length<500) {
-				result.push({id: id, name: name, flag: true});
+				result.push('{id: ' + id + ',name: "' + name + '",flag: true}');
 			}else{
-				result.push({id: id, name: name, flag: false});
+				result.push('{id: ' + id + ',name: "' + name + '",flag: false}');
 			}
-//add end
 		}
 	}
-	return result;
+	
+	// to json
+	var json = "[\n\t";
+	json += result.join(",\n\t");
+	json += "\n]";
+	return json;
 }
 
 function __VideoInformation__receiveComment(Chat){
