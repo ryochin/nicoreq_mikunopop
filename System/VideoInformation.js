@@ -96,6 +96,11 @@ function __VideoInformation__getMylistIDs_via_net(){
 		Options[i].match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong>/ig);
 		var id = Number(RegExp.$1);
 		var name = RegExp.$2;
+		
+		// ブラックリストに載っている名前を弾く
+		if(Zen2Han(settings["MylistBlackList"].join(",")).indexOf(","+Zen2Han(name)+",") > -1)
+			continue;
+		
 		if(!isNaN(id)){
 			xmlhttp.open("GET","http://www.nicovideo.jp/mylist/" + id, false);
 			xmlhttp.send();

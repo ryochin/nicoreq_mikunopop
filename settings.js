@@ -463,4 +463,7 @@ settings["NoJASCode"] = "コードなし";
 
 //add end
 
+// 取得するマイリストグループから除外する名前
+settings["MylistBlackList"] = ["", "アイマス", "MMD", "ぬこ", "good", "ミクゲー", "技術部", "萌え", "_name_", ""];
+
 // EOF
