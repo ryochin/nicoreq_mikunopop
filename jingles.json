@@ -1,0 +1,125 @@
+[null,
+	{
+		"no": 12,
+		"id": "sm8183423",
+		"shortname": "J12 Vacuons Dolls",
+		"longname": "【ジングル】ミクノポップをきかないか？【Vacuons Dolls ver.A】",
+		"author": "aoid",
+		"length": "2:48",
+		"memo": "ver.A"
+	},
+	{
+		"no": 11,
+		"id": "sm8032058",
+		"shortname": "J11 xxxxEMPTYxxxx",
+		"longname": "【ジングル】xxxxEMPTYxxxx",
+		"author": "きぬこもち",
+		"length": "2:05",
+		"memo": ""
+	},
+	{
+		"no": 10,
+		"id": "sm7891336",
+		"shortname": "J10 Heart-Beat",
+		"longname": "【ジングル】ミクノポップをきかないか？ジングル【Heart-Beat】",
+		"author": "k-sk",
+		"length": "2:17",
+		"memo": ""
+	},
+	{
+		"no": 9,
+		"id": "sm8031848",
+		"shortname": "J09 Freestyle ver.N",
+		"longname": "【ジングル】ミクノポップをきかないか？【Freestyle ver.N】",
+		"author": "きぬこもち",
+		"length": "1:56",
+		"memo": "再うｐのため動画番号は新しくなっている"
+	},
+	{
+		"no": 8,
+		"id": "sm7539326",
+		"shortname": "J08 Freestyle ver.K",
+		"longname": "【ジングル】ミクノポップをきかないか？ジングル【Freestyle ver.K】",
+		"author": "k-sk",
+		"length": "1:56",
+		"memo": ""
+	},
+	{
+		"no": 7,
+		"id": "sm7075450",
+		"shortname": "J07 円の中の世界",
+		"longname": "【ジングル】円の中の世界【EN】",
+		"author": "きぬこもち",
+		"length": "2:48",
+		"memo": ""
+	},
+	{
+		"no": 6,
+		"id": "sm7033805",
+		"shortname": "J06 Freestyle ver.A",
+		"longname": "【ジングル】ミクノポップをきかないか？【Freestyle ver.A】",
+		"author": "aoid",
+		"length": "1:56",
+		"memo": ""
+	},
+	{
+		"no": 5,
+		"id": "sm7007629",
+		"shortname": "J05 音楽が降りてくる",
+		"longname": "【ジングル】音楽が降りてくる【lysosome】",
+		"author": "きぬこもち",
+		"length": "2:08",
+		"memo": ""
+	},
+	{
+		"no": 4,
+		"id": "sm6981084",
+		"shortname": "J04 近未来ラジオ",
+		"longname": "【ジングル】ミクノポップをきかないか？ジングル【近未来ラジオver】",
+		"author": "k-sk",
+		"length": "1:47",
+		"memo": ""
+	},
+	{
+		"no": 3,
+		"id": "sm6939234",
+		"shortname": "J03 ミクノポップクエスト",
+		"longname": "【ジングル】ミクノポップクエスト【sunlight loops】",
+		"author": "きぬこもち",
+		"length": "2:22",
+		"memo": ""
+	},
+	{
+		"no": 2,
+		"id": "sm6789315",
+		"shortname": "J02 近未来ラジオ (G)",
+		"longname": "【初音ミク】近未来ラジオ【ジングル用】",
+		"author": "ぎん",
+		"length": "1:50",
+		"memo": ""
+	},
+	{
+		"no": 1,
+		"id": "sm6789292",
+		"shortname": "J01 Freestyle (G)",
+		"longname": "【初音ミク】Freestyle【ジングル用】",
+		"author": "ぎん",
+		"length": "1:55",
+		"memo": ""
+	},
+	{"id": "","shortname":"------------------"},    // separater
+	{
+		"no": "-",
+		"id": "sm8138979",
+		"shortname": "A01 32bit lovers",
+		"longname": "【ミクノポップをきかないか？】放送事故で３２ｂｉｔ　ｌｏｖｅｒｓ",
+		"author": "きぬこもち",
+		"length": "1:58",
+		"memo": "放送事故用"
+	},
+// ["sm7246105","1000回記念：ジングル：悶さん"],
+// ["sm7341325","第２回大賞：大賞告知：悶さん"],
+// ["sm7343558","第２回大賞：大賞告知：きぬこもちさん"],
+// ["sm7346152","第２回大賞：大賞ＣＭ：さいはねさん"],
+// ["sm7473981","第２回大賞：授賞式告知：きぬこもちさん"],
+null]

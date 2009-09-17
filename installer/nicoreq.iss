@@ -47,6 +47,7 @@ Source: "C:\Mikunopop\nicoreq\NGIDList.txt"; DestDir: "{app}";
 Source: "C:\Mikunopop\nicoreq\settings.js"; DestDir: "{app}"; Flags: confirmoverwrite uninsneveruninstall
 Source: "C:\Mikunopop\nicoreq\pnames.js"; DestDir: "{app}";
 Source: "C:\Mikunopop\nicoreq\tags.js"; DestDir: "{app}";
+Source: "C:\Mikunopop\nicoreq\jingles.js"; DestDir: "{app}";
 Source: "C:\Mikunopop\nicoreq\System\*"; DestDir: "{app}\System\";
 Source: "C:\Mikunopop\nicoreq\System\assets\*"; DestDir: "{app}\System\assets\";
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files

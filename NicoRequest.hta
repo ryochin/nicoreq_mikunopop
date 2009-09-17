@@ -117,29 +117,57 @@ fieldset{
 	<img id="jingle-thumb" width="24" height="18" align="bottom" />
 	<span id="PlayJingleForm"></span>
 		 <script>
+			// ジングル情報をファイルから読む
+			var fs = new ActiveXObject('Scripting.FileSystemObject');
+			var path = fs.BuildPath( fs.GetParentFolderName(location.pathname), 'jingles.json');
+			try {
+				var st = fs.OpenTextFile(path, 1, false, -2);
+				var content = st.ReadAll();
+				st.Close();
+				
+				settings["jingles"] = eval("("+content+")");    // load as json
+			} catch(e) {
+				alert("ジングル情報ファイルの読み込みに失敗しました orz");
+			}
+			
 			if(settings["jingles"]){
 				var sel = $('<select />')
 					.attr( { id: "jingle" } );
+				
+				var jinglelist = [];
 				for(var i=0,l=settings["jingles"].length;i<l;i++){
-					if(settings["jingles"][i]!=""){
-						var opt = $('<option />');
-						if( typeof(settings["jingles"][i]) == 'object' ){
-//							var id = settings["jingles"][i][0].replace(/^(sm|nm)/,"");
-//							var img = '<img src="http://tn-skr2.smilevideo.jp/smile?i=' + id + '" />';
-							opt.html( settings["jingles"][i][1] )
-								.attr( { value: settings["jingles"][i][0] } )
-//								.attr( { title: img } )
-								.addClass('jingles');
-						}
-						else{
-							opt.appendChild(document.createTextNode(settings["jingles"][i]));
-							opt.setAttribute("value", settings["jingles"][i]);
-						}
-						sel.append(opt);
+					var jingle = settings["jingles"][i];
+					if( jingle == null )
+						continue;
+					
+					var opt = $('<option />')
+						.html( jingle.shortname )
+						.attr( { value: jingle.id } )
+						.addClass('jingles');
+					
+					sel.append(opt);
+					
+					// set names
+					jinglelist[ jingle.id ] = jingle;
+				}
+				
+				function playJingle () {
+					var jingle = jinglelist[ $('#jingle').val() ];
+					if( jingle.id != "" ){
+						var comment = settings["JingleComment"]
+							.replace(/{#no}/g, jingle.no)
+							.replace(/{#id}/g, jingle.id)
+							.replace(/{#longname}/g, jingle.longname)
+							.replace(/{#author}/g, jingle.author)
+							.replace(/{#length}/g, jingle.length);
+						
+						NicoLive.postComment( "/play " + jingle.id );
+						setTimeout( function () { NicoLive.postComment( comment ) }, 3000 )
 					}
 				}
+				
 				$('#PlayJingleForm').append(sel)
-					.html( $('#PlayJingleForm').html() + " <input type=\"image\" src=\"./System/assets/play_jingle_s.png\" class=\"head-control-image\" onclick=\"NicoLive.postComment(document.getElementById('jingle').value)\" title=\"ジングルを再生\" />" );
+					.html( $('#PlayJingleForm').html() + " <input type=\"image\" src=\"./System/assets/play_jingle_s.png\" class=\"head-control-image\" onclick=\"playJingle()\" title=\"ジングルを再生\" />" );
 			}
 		 </script>
 <!--add end-->
@@ -157,13 +185,13 @@ $(document).ready( function () {
 //		left: -120 
 //	});
 
-	$('#jingle-thumb').tooltip({
-		track: false,
-		delay: 200, 
-		showURL: false, 
-		opacity: 0.9, 
-		left: -120 
-	});
+//	$('#jingle-thumb').tooltip({
+//		track: false,
+//		delay: 200, 
+//		showURL: false, 
+//		opacity: 0.9, 
+//		left: -120 
+//	});
 
 	var loadJingleThumb = function () {
 		var val = $('#jingle').val();
@@ -263,5 +291,21 @@ $(document).ready( function () {
 	<param name="movie" value="./System/Socket.swf">
 	<param name="allowScriptAccess" value="sameDomain">
 </object>
+</body>
+</html>
+
+ccess" value="sameDomain">
+</object>
+</body>
+</html>
+ody>
+</html>
+t:0px;">
+	<param name="movie" value="./System/Socket.swf">
+	<param name="allowScriptAccess" value="sameDomain">
+</object>
+</body>
+</html>
+>
 </body>
 </html>
