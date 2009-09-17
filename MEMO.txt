@@ -1,5 +1,6 @@
 ﻿■リリース手順
 
+・System/Caches/mylist.json を消すこと。
 ・Mikunopop.js 内のバージョン番号を書き直す（１カ所）
 ・settings.js の top の箇所があれば bottom に戻しておく
 ・nicoreq.iss のバージョン番号を書き直す（３カ所）

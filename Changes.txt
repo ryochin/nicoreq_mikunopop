@@ -1,3 +1,72 @@
+commit 96a7d24729a27441c80d52c3cff72b262166ce77
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 17 21:10:18 2009 +0900
+
+    added & updated pnames.js, thanks to kotac.
+
+M	pnames.js
+
+commit c0f603e75f070f888c975d9bc57370cb832abf48
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 17 19:10:39 2009 +0900
+
+    added a feature that displays jingle info as admin comment.
+    
+    separated jingle info to jingles.json.
+
+M	NicoRequest.hta
+M	installer/nicoreq.iss
+A	jingles.json
+M	settings.js
+
+commit 946b8f9c1e68bd20d63899e2d9bd49cd74b85fcb
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 17 08:57:45 2009 +0900
+
+    added caching mechanism of mylist retrieve by servers, for speed boost of launching the application.
+
+M	System/VideoInformation.js
+
+commit 82ef059ffb461bcd4aacefcefa2d9bc97dd73353
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 17 08:55:56 2009 +0900
+
+    added new jingle (for accident) and a separater to settings.js.
+
+M	settings.js
+
+commit fc5c54853188f507df42d141630e05fac558ac58
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 17 08:54:45 2009 +0900
+
+    added tiny jingle thumbnail images near selectbox.
+
+M	NicoRequest.hta
+M	System/base.css
+
+commit 37d72a1e33b6307a276d4ad68aab6098614346ee
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 17 08:34:17 2009 +0900
+
+    improved usability of submit button.
+
+M	System/find.hta
+
+commit 2f629894e11abbafdf9805240bf68649ae20cc71
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Sep 15 22:20:16 2009 +0900
+
+    released 1.18.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+M	pnames.js
+M	settings.js
+M	tags.js
+
 commit 4901bb8655394ee60da978b92a0076dc9646db68
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Tue Sep 15 22:06:35 2009 +0900
