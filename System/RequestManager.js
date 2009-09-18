@@ -146,8 +146,7 @@ RequestManager.prototype = {
 		}
 
 		// title を強引に書き換える
-		$('#TITLE' + R.id).html( R.title );    // dirty hack :(
-		$('#TITLE' + R.id).attr( { title: R.tags.join("　") } );    // タグ
+		rewriteTitle(R);
 
 		return str
 				.replace(/{#ID}/g,    R.id)
@@ -203,7 +202,10 @@ RequestManager.prototype = {
 		if(!method) method = "push";
 		this.ThumbInfoTasks[method](RQ);
 		// 動画情報を取得するタスクが動いてなかったら起動
-		if(!this.ThumbInfoTimer) this.ThumbInfoTimer = setInterval(this._doThumbInfoTask, settings["ThumbInfoTaskWait"]);
+		var wait = settings["UseVideInfoCache"]
+			? settings["ThumbInfoTaskWaitCached"]
+			: settings["ThumbInfoTaskWait"];
+		if(!this.ThumbInfoTimer) this.ThumbInfoTimer = setInterval(this._doThumbInfoTask, wait);
 	},
 	// setIntervalで起動しているのでthisが使えない
 	_doThumbInfoTask: function(){
@@ -262,6 +264,13 @@ RequestManager.prototype = {
 				}
 				// 	追加
 				document.getElementById("RequestHTML").insertAdjacentHTML(pos, RequestManager.getItemHTML(RQ));
+				
+				// -> sort 時
+				if( RequestManager.Requests[RQ.id] != null ){
+					// title を強引に書き換える
+					rewriteTitle( RequestManager.Requests[RQ.id] );
+				}
+				
 //add start	タイプ判定
 				RequestManager.typeHTML(RQ.id);
 //add end
@@ -626,3 +635,7 @@ function _closeInfo (id) {
 //	$(ic).css( { display: 'none' } );
 }
 
+function rewriteTitle (R) {
+	$('#TITLE' + R.id).html( R.title );    // dirty hack :(
+	$('#TITLE' + R.id).attr( { title: R.tags.join("　") } );    // タグ
+}
