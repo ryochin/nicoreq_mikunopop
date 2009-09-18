@@ -16,7 +16,7 @@ function __VideoInformation__getMylistIDs(){
 			saveMylistCacheFile( file, content );
 			return eval('(' + content + ')');    // json to object
 		} catch (e) {
-			alert("マイリストが正常に取得できませんでした。");
+			alert("マイリストの情報を正常に取得できませんでした orz\n（サーバが混雑していると起こりやすいようです）");
 			return;
 		}
 	}
@@ -32,14 +32,23 @@ function saveMylistCacheFile (file, content) {
 	// cache dir
 	var cacheDir = fs.GetParentFolderName( file );
 	if( ! fs.FolderExists( cacheDir ) ){
-		fs.CreateFolder( cacheDir );
+		try {
+			fs.CreateFolder( cacheDir );
+		} catch (e) {
+			alert("ディレクトリの作成に失敗しました orz");
+		}
 	}
 	
 	// file
 	var st = fs.OpenTextFile(file, 2, true, -2);
 	// simply write down all the content as-is :)
-	st.writeLine(content);
-	st.Close();
+	try {
+		st.writeLine(content);
+	} catch (e) {
+		alert("ファイルの書き込みに失敗しました orz");
+	} finally {
+		st.Close();
+	}
 }
 
 function loadMylistCacheFile (file) {
@@ -47,11 +56,12 @@ function loadMylistCacheFile (file) {
 	try {
 		var st = fs.OpenTextFile(file, 1, false, -2);
 		var content = st.ReadAll();
-		st.Close();
 		
 		return eval("("+content+")");    // load as json
 	} catch(e) {
 		alert("マイリストキャッシュの読み込みに失敗しました orz");
+	} finally {
+		st.Close();
 	}
 }
 
