@@ -1,3 +1,5 @@
+var cacheDir = 'caches';
+
 function NicoLive(){
 	this.initialize.apply(this, arguments);
 }
@@ -15,6 +17,134 @@ NicoLive.prototype = {
 		}
 	},
 	getXML: function(url, callback){
+		if( settings["UseVideInfoCache"] ){
+			// キャッシュ使用
+			if( this.checkVideoInfoCacheFileDateLastModified( url ) ){
+				// キャッシュが無効 -> ネットから取得して保存
+				this.retrieveVideoInfoCacheFile(url);
+			}
+			
+			// DOM オブジェクトを作る
+			var xmldom = new ActiveXObject("Microsoft.XMLDOM");
+			xmldom.async = false;
+			try {
+				xmldom.load( this.getCacheFileName(url) );
+				if( xmldom.parseError != 0 )
+					throw "parseError";
+				
+				// callback を呼ぶ
+				callback(xmldom);
+			} catch (e) {
+				// 失敗したら、通常方式に切り替える
+				if( settings["Debug"] )
+					alert("動画情報の解析に失敗しました orz: " + e);
+				
+				this.getXMLviaNet(url, callback);
+			}
+		}
+		else{
+			// キャッシュ使用しない
+			this.getXMLviaNet(url, callback);
+		}
+	},
+	retrieveVideoInfoCacheFile: function(url){
+		var file = this.getCacheFileName(url);
+		
+		$.ajax( {
+			url: url,
+			async: 0,
+			timeout: 5000,
+			dataType: "text",
+			success: function (result) {
+				// sjis で保存されるから charset を強引に変える
+				result = result.replace(/encoding="UTF-8"/ig, 'encoding="Shift_JIS"');
+				// 保存
+				NicoLive.saveVideoInfoCacheFile(file, result);
+			},
+			error: function (req, status, error) {
+//				alert("動画情報の取得に失敗しました orz");
+			}
+		} );
+	},
+	loadVideoInfoCacheFile: function( file ){
+		var fs = new ActiveXObject('Scripting.FileSystemObject');
+		var content;
+		try {
+			var st = fs.OpenTextFile(file, 1, false, -2);
+			content = st.ReadAll();
+		} catch (e) {
+//			alert("動画情報の読み込みに失敗しました orz");
+		} finally {
+			st.Close();
+		}
+		return content;
+	},
+	saveVideoInfoCacheFile: function( file, content ){
+		// 使わない海外タグを強引に削る
+		// http://ext.nicovideo.jp/api/getthumbinfo/nm6610413
+		var re = XRegExp("<tags domain=\"(es|de|tw)\">.+?<\/tags>\n?", "gs");
+		content = content.replace(re, "");
+		
+		// それでも保存できない場合があるから、それは無視する。原因不明、文字コードか？
+		
+		var fs = new ActiveXObject('Scripting.FileSystemObject');
+		try {
+			var st = fs.CreateTextFile(file, true, false);
+			// simply write down all the content as-is :)
+			st.writeLine(content);
+		} catch (e) {
+//			alert("動画情報の書き込みに失敗しました orz");
+		} finally {
+			st.Close();
+		}
+	},
+	checkVideoInfoCacheFileDateLastModified: function(url){
+		var file = this.getCacheFileName(url);
+		var fs = new ActiveXObject('Scripting.FileSystemObject');
+
+		if( fs.FileExists(file) == true ){
+			// 最終更新時間を見る
+			var f = fs.GetFile(file);
+			var s = f.DateLastModified;
+			var epoch = parseInt( Date.parse(s), 10 ) / 1000;
+			var now = parseInt( (new Date).getTime() / 1000, 10 );
+			if( now - epoch < settings["VideInfoCacheExpireHour"] * 60 * 60 ){
+				// キャッシュが生きている
+				if( f.Size > 0 ){
+					// 空じゃない
+					return;
+				}
+			}
+		}
+
+		return 1;
+	},
+	// ファイル名を得る（ついでにディレクトリも作成）
+	getCacheFileName: function(url){
+		var id = url.replace(/^.+((sm|nm)[0-9]+)$/, "$1");
+		var n = parseInt( id.replace(/^(sm|nm)([0-9]+)$/, "$2"), 10 );
+		var subdirUpper = parseInt( n / 1000000 );
+		var subdirLower = parseInt( ( n - subdirUpper * 1000000 ) / 1000 );
+
+		var fs = new ActiveXObject('Scripting.FileSystemObject');
+
+		// パスの連結とディレクトリ作成
+		var extra = ["System", cacheDir, subdirUpper, subdirLower];
+		var path = this.createDirRecursive( fs.GetParentFolderName(location.pathname), extra );
+		return fs.BuildPath( path, id + '.xml' );
+	},
+	// 疑似再帰的にディレクトリを作りたい
+	createDirRecursive: function(path, extra){    // str, array
+		var fs = new ActiveXObject('Scripting.FileSystemObject');
+		for( var i = 0; i < extra.length; i++ ){
+			path = fs.BuildPath( path, extra[i] );
+			if( ! fs.FolderExists( path ) ){
+				fs.CreateFolder( path );
+			}
+		}
+		return path;
+	},
+	getXMLviaNet: function(url, callback){
 		var xmlhttp = createXMLHttpRequest();
 		xmlhttp.onreadystatechange = function(){
 			if(xmlhttp.readyState==4){
