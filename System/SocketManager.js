@@ -35,7 +35,8 @@ SocketManager.prototype = {
 				// Chatオブジェクトを引数としてイベント発火
 				this.receiveCommentFunctions[i](new Chat(str));
 			}catch(e){
-				alert("SocketManager.receiveComment/"+i+":"+e.number+"\n"+e.description);
+				if( settings["Debug"] )
+					alert("SocketManager.receiveComment/"+i+":"+e.number+"\n"+e.description);
 			}
 		}
 	},
