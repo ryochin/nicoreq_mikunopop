@@ -201,9 +201,10 @@ function __VideoInformation__receiveComment(Chat){
 				}
 				document.getElementById("VideoInformation").insertAdjacentHTML("BeforeEnd", ""+
 					" <span id=\"__VideoInformation__Twitter\"></span><br>"+
-					(__VideoInformation__Premium?"":"<img src=\"./System/premium.gif\">") +
+//					(__VideoInformation__Premium?"":"<img src=\"./System/premium.gif\">") +
 //del					"<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\"><br><br>" +
 //add start
+					"<hr />" +
 					"<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\"><br>" +
 					"<span class=\"subtitle\">彡 </span><span class=\"count\">"+(settings["GetMikunopopCount"]?getMikunopopCount(VideoID):"-")+"</span>" +
 					" <span class=\"subtitle\">マイリスト率 </span>" + (Math.round(10000*(Number(mylist_counter)/Number(view_counter)))/100) +"%<br><br>" +
