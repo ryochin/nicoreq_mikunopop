@@ -6,7 +6,7 @@ var settings = new Object();
 // =====================================================================================================================
 // デバッグ
 
-settings["Debug"] = true;
+settings["Debug"] = false;
 
 // =====================================================================================================================
 // 使用ブラウザ
@@ -182,6 +182,7 @@ settings["InfoComment"] =
 	  '<font color="#000000">■</font>'
 	+ '<font color="#acacec">{#Title}</font> <br>'
 	+ '<font color="#000000">■</font>'
+//	+ '<font color="#999999"> by</font> '
 	+ '<font color="#ecccac"> {#PName}</font>';
 settings["InfoComment2"] = 
 	  '<font color="#000000">■</font>'
@@ -191,8 +192,8 @@ settings["InfoComment2"] =
 	+ '<font color="#000000">◆</font>'
 	+ '<font color="#aaaaaa">再/</font><font color="#b9f6b9">{#View}</font> '
 	+ '<font color="#aaaaaa">コ/</font><font color="#b9f6b9">{#Comm}</font> '
-	+ '<font color="#aaaaaa">マ/</font><font color="#b9f6b9">{#List} ({#Myri}%)</font> ';
-settings["InfoCommentTimer"] = 6000;// ミリ秒 短くしすぎると、自分のコメントが連投規制される可能性があるので注意
+	+ '<font color="#aaaaaa">マ/</font><font color="#b9f6b9">{#List} ({#Myri}%) </font>';
+settings["InfoCommentTimer"] = 8000;// ミリ秒 短くしすぎると、自分のコメントが連投規制される可能性があるので注意
 //settings["InfoCommentDate"] = "yy年mm月dd日 hh時nn分ss秒";
 settings["InfoCommentDate"] = "20yy.mm.dd";
 //add end
@@ -357,7 +358,7 @@ settings["JingleComment"] =
 	+ '{#longname} <br>'
 	+ '<font color="#000000">◆</font>'
 	+ '<font color="#acacec">No.{#no} '
-	+ '<font color="#999999">presented by </font> '
+	+ '<font color="#999999">presented by</font> '
 	+ '<font color="#ecccac">{#author}</font>';
 
 // =====================================================================================================================
