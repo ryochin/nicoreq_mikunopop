@@ -4,7 +4,7 @@
 	<item popup="Connect" onclick="">接続</item>
 	<item popup="Request" onclick="">リクエスト</item>
 	<item popup="Sort" onclick="">ソート</item>
-	<item popup="Help" onclick="">？</item>
+	<item popup="Help" onclick="">ヘルプ</item>
 </bar>
 <popup id="Connect">
 	<item onclick="top.connectDialog();">接続</item>
@@ -46,6 +46,8 @@
 	<item onclick="top.RequestManager.sort('count', -1);">ミクノ度順(↓)</item>
 </popup>
 <popup id="Help">
+	<item onclick="top.alert('c: 接続 \ni: テキストの取り込み \ne: 再生履歴の出力 \nf: マイリストから検索')">ショートカットの一覧</item>
+	<hr />
 	<item onclick="top.alert(top.HTA.ApplicationName+' '+top.HTA.Version);">バージョン情報</item>
 </popup>
 </menu>

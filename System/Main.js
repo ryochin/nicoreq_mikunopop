@@ -758,3 +758,21 @@ function getTimeLeftMessage (sec) {
 	return msg;
 }
 
+// ホットキーをセット
+$(document).bind('keydown', 'c', function(){
+	// 接続 connect
+	top.connectDialog();
+});
+$(document).bind('keydown', 'i', function(){
+	// テキストの取り込み import
+	top.importText();
+});
+$(document).bind('keydown', 'e', function(){
+	// 再生履歴の出力 export
+	top.exportIDs('PlayLog');
+});
+$(document).bind('keydown', 'f', function(){
+	// マイリストから検索 find
+	top.findMylist();
+});
+
