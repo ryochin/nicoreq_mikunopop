@@ -137,7 +137,7 @@ function __VideoInformation__receiveComment(Chat){
 //del		// ログに追記
 //del		__VideoInformation__PlayLog += VideoID + "\n";
 		document.getElementById("VideoInformation").innerHTML = "";
-		NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + VideoID, function(xmldom){
+		NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + VideoID, 'video', function(xmldom){
 			if(!xmldom || xmldom.getElementsByTagName("error").length){
 //add start
 				__VideoInformation__PlayLog += VideoID + "\n";
@@ -296,7 +296,7 @@ function __VideoInformation__addTwitter(span, VideoID, title){
 // 接続時に流れている動画を捕捉
 function __VideoInformation__onConnect(lv){
 	if(!settings["UseIE"]) return;
-	NicoLive.getXML("http://watch.live.nicovideo.jp/api/getplayerstatus?v=lv" + lv, function(xmldom){
+	NicoLive.getXML("http://watch.live.nicovideo.jp/api/getplayerstatus?v=lv" + lv, 'normal', function(xmldom){
 		if(!xmldom) return;
 		if(xmldom.getElementsByTagName("error").length > 0){
 			// 混雑中エラーの場合は1秒後に再試行

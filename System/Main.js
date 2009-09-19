@@ -149,7 +149,7 @@ function receiveComment_Request(Chat){
 			NicoLive.postComment(">>"+Chat.no+"さん、その動画は流したばかりなので・・・すみません。", "");
 		}else if(settings["CheckNew"]){
 			// 新着かどうか確認し、新着だった場合は運営コメで通達
-			NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + sms[0], function(xmldom){
+			NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + sms[0], 'video', function(xmldom){
 				if(!xmldom.getElementsByTagName("first_retrieve")[0]) {
 					NicoLive.postComment(">>"+Chat.no+"さん　<br />その動画は物理的理由で放送できません。", "big");
 				}else{

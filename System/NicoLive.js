@@ -16,8 +16,8 @@ NicoLive.prototype = {
 		}catch(e){
 		}
 	},
-	getXML: function(url, callback){
-		if( settings["UseVideInfoCache"] ){
+	getXML: function(url, type, callback){
+		if( type == "video" && settings["UseVideInfoCache"] ){
 			// キャッシュ使用
 			if( this.checkVideoInfoCacheFileDateLastModified( url ) ){
 				// キャッシュが無効 -> ネットから取得して保存
@@ -43,7 +43,7 @@ NicoLive.prototype = {
 			}
 		}
 		else{
-			// キャッシュ使用しない
+			// キャッシュ使用しない、または通常の XML
 			this.getXMLviaNet(url, callback);
 		}
 	},
@@ -161,7 +161,7 @@ NicoLive.prototype = {
 	},
 	getPlayerStatus: function(lv, callback, errorAlert){
 		if(settings["UseIE"]){
-			this.getXML("http://watch.live.nicovideo.jp/api/getplayerstatus?v=lv" + lv, function(xmldom){
+			this.getXML("http://watch.live.nicovideo.jp/api/getplayerstatus?v=lv" + lv, 'normal', function(xmldom){
 				if(xmldom){
 					if(xmldom.getElementsByTagName("error").length > 0){
 						var ErrMSG = {
@@ -192,7 +192,7 @@ NicoLive.prototype = {
 		}
 	},
 	getThumbInfo: function(id, callback){
-		this.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + id, function(xmldom){
+		this.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + id, 'video', function(xmldom){
 			if(xmldom){
 				callback(new Request(id, xmldom));
 			}else{

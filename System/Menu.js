@@ -36,7 +36,7 @@ function importMylist(){
 	var url = prompt("ニコニコ動画の公開マイリストを指定してください","http://www.nicovideo.jp/mylist/");
 	if(!url || url=="") return;
 	url = "http://www.nicovideo.jp/mylist/" + url.match(/\d+/) + "?rss=2.0";
-	NicoLive.getXML(url, function(xmldom){
+	NicoLive.getXML(url, 'normal', function(xmldom){
 		if(!xmldom) return;
 		// これはひどい置換コード！
 		var title = xmldom.getElementsByTagName("title")[0].text.replace("マイリスト ","").replace("‐ニコニコ動画(ββ)","");
