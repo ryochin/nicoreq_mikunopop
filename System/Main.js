@@ -1,7 +1,7 @@
 var acceptRequest = true;
 var timeLeftTimer  = 0;
 var playStateTimer = 0;
-var JASCodes = new Array();
+//var JASCodes = new Array();
 var PlayLog = "";
 //add start
 var NGIDs = new Array();
@@ -36,7 +36,7 @@ window.attachEvent("onload", function(){
 	SocketManager.setFlash(Socket);
 	SocketManager.attachEvent("receiveComment", receiveComment_Request);
 	if(settings["TopMost"]) TopMost();
-	loadJASCode();
+//	loadJASCode();
 //add start ログオフチェック
 	if(settings["logoffCheck"]) document.getElementById("loginCheck").checked=true;
 	checklogoffCheck();
@@ -96,7 +96,7 @@ function connect(PS){
 function receiveComment_Request(Chat){
 //del	if(!acceptRequest) return;
 	var text = Zen2Han(Chat.text);
-	checkJASCode(text);
+//	checkJASCode(text);
 	var sms  = text.match(/(sm|nm)\d+/g);
 //add start
 	//副管理者機能
@@ -184,35 +184,29 @@ function receiveComment_Request(Chat){
 }
 
 // JASコード定義済み動画IDをロード
-function loadJASCode(){
-	try{
-		var fso = new ActiveXObject("Scripting.FileSystemObject");
-		var file = fso.OpenTextFile("System\\jascode.csv");
-		while(!file.AtEndOfStream){
-			var line = file.ReadLine();
-			if(line != "") var temp = line.split(",");
-			JASCodes[temp[0]] = temp[1];
-		}
-		file.Close();
-	}catch(e){}
-}
+//function loadJASCode(){
+//	try{
+//		var fso = new ActiveXObject("Scripting.FileSystemObject");
+//		var file = fso.OpenTextFile("System\\jascode.csv");
+//		while(!file.AtEndOfStream){
+//			var line = file.ReadLine();
+//			if(line != "") var temp = line.split(",");
+//			JASCodes[temp[0]] = temp[1];
+//		}
+//		file.Close();
+//	}catch(e){}
+//}
 
 // JASコード付きリクエストをチェック
-function checkJASCode(text){
-//del	var smJAS = text.match(/(sm|nm)\d+.+?\d{3}-\d{4}-\d{1}/ig);
-//add start
-	var smJAS = text.match(/(sm|nm)\d+.+?[0-9a-zA-Z]{3}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]/ig);
-//add end
-	if(!smJAS) return;
-	for(var i=0,l=smJAS.length; i<l; i++){
-		var sm = smJAS[i].match(/(sm|nm)\d+/);
-//del		var jc = smJAS[i].match(/\d{3}-\d{4}-\d{1}/);
-//add start
-		var jc = smJAS[i].match(/[0-9a-zA-Z]{3}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]/);
-//add end
-		JASCodes[sm[0]] = jc;
-	}
-}
+//function checkJASCode(text){
+//	var smJAS = text.match(/(sm|nm)\d+.+?[0-9a-zA-Z]{3}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]/ig);
+//	if(!smJAS) return;
+//	for(var i=0,l=smJAS.length; i<l; i++){
+//		var sm = smJAS[i].match(/(sm|nm)\d+/);
+//		var jc = smJAS[i].match(/[0-9a-zA-Z]{3}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]/);
+//		JASCodes[sm[0]] = jc;
+//	}
+//}
 
 // 通常モードの再生
 RequestManager.Events["Play"] = function(id){

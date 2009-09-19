@@ -22,7 +22,7 @@ function disconnect(){
 function importText(){
 	var text = window.showModalDialog("./System/Import.hta","","status:no;help:no;resizable:yes");
 	if(!text || text=="") return;
-	checkJASCode(text);
+//	checkJASCode(text);
 	var sms  = text.match(/(sm|nm)\d+/ig);
 	if(!sms) return;
 	for(var i=0,l=sms.length; i<l; i++){

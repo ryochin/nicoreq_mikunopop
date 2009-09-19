@@ -21,15 +21,15 @@ RequestManager.prototype = {
 				beforeValue = "[" + RequestManager.Requests[id].tags.join("][") + "]";
 			}
 //add start JASコードなしの場合
-			if(beforeValue==settings["NoJASCode"]){
-				beforeValue = "";
-			}
+//			if(beforeValue==settings["NoJASCode"]){
+//				beforeValue = "";
+//			}
 //add end
 			var afterValue  = prompt("正しい"+type+"を編集してください\n[ctrl]+[Z]で一つ前の状態に戻る、[キャンセル]か空白にして[OK]で未修正のまま終了", beforeValue);
 			if(afterValue && afterValue!=beforeValue){
-//del				RequestManager.Requests[id][type] = afterValue;
+				RequestManager.Requests[id][type] = afterValue;
 //add start
-				if(type!="JASCode") RequestManager.Requests[id][type] = afterValue;
+//				if(type!="JASCode") RequestManager.Requests[id][type] = afterValue;
 //add end
 				element.innerHTML  = afterValue;
 			}
@@ -123,7 +123,7 @@ RequestManager.prototype = {
 	_replaceHTML: function(str, R){
 		if(!R || !R instanceof Request) return str;
 //add start JASコードなしの場合
-		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
+//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
 //add end
 		// sm|nm を除いた動画番号を得る
 		var idno = R.id.replace(/^(sm|nm)/, "");
@@ -166,7 +166,7 @@ RequestManager.prototype = {
 				.replace(/{#Date}/g,  R.getDateString(settings["ItemHTMLDate"]))
 //del				.replace(/{([^}]*?)#JASCode([^{]*?)}/g, JASCodes[R.id] ? function(match,$1,$2){return $1+JASCodes[R.id]+$2;} : "")
 //add start JASコードの編集を可能に
-				.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+"<label ondblclick=\"RequestManager.Events['Edit'](this, 'JASCode','"+R.id+"')\">"+JASCodes[R.id]+"</label>"+RegExp.$2)
+//				.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+"<label ondblclick=\"RequestManager.Events['Edit'](this, 'JASCode','"+R.id+"')\">"+JASCodes[R.id]+"</label>"+RegExp.$2)
 //add end
 				.replace(/{#Tags}/g, "<div title=\""+R.tags+"\">[tag]</div>")
 				.replace(/{#Genre}/g, R.genre.join(" "))
@@ -312,7 +312,7 @@ RequestManager.prototype = {
 		var R = this.Requests[id];
 		if(!R) return "";
 //add start JASコードなしの場合
-		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
+//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
 //add end
 		return settings["InfoComment"]
 					.replace(/{#ID}/g, id)
@@ -329,7 +329,7 @@ RequestManager.prototype = {
 					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))
 //del					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, JASCodes[R.id] ? function(match,$1,$2){return $1+JASCodes[R.id]+$2;} : "")
 //add start JASコード関連の修正
-					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+JASCodes[R.id]+RegExp.$2)
+//					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+JASCodes[R.id]+RegExp.$2)
 //add end
 		;
 	},
@@ -338,7 +338,7 @@ RequestManager.prototype = {
 		var R = this.Requests[id];
 		if(!R) return "";
 //add start JASコードなしの場合
-		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
+//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
 //add end
 		return settings["InfoComment2"]
 					.replace(/{#ID}/g, id)
@@ -355,7 +355,7 @@ RequestManager.prototype = {
 					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))
 //del					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, JASCodes[R.id] ? function(match,$1,$2){return $1+JASCodes[R.id]+$2;} : "")
 //add start JASコード関連の修正
-					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+JASCodes[R.id]+RegExp.$2)
+//					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+JASCodes[R.id]+RegExp.$2)
 //add end
 		;
 	},	// 再生履歴用のテキスト
@@ -363,7 +363,7 @@ RequestManager.prototype = {
 		var R = this.Requests[id];
 		if(!R) return "";
 //add start JASコードなしの場合
-		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
+//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
 //add end
 		return settings["PlayLog"]
 					.replace(/{#ID}/g, id)
@@ -380,7 +380,7 @@ RequestManager.prototype = {
 					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))
 //del					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, JASCodes[R.id] ? function(match,$1,$2){return $1+JASCodes[R.id]+$2;} : "")
 //add start JASコード関連の修正
-					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+JASCodes[R.id]+RegExp.$2)
+//					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+JASCodes[R.id]+RegExp.$2)
 //add end
 		;
 	},
