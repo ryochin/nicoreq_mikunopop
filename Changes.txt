@@ -1,3 +1,160 @@
+commit 31b4757b73c4256abbf02311b08a65dfb1d41a3b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 21 01:32:17 2009 +0900
+
+    added url validation check code for caching feature in System/NicoLive.js.
+
+M	System/NicoLive.js
+
+commit 68f68e06cb2f2a0137852c6a6e74f1e94507ef08
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 21 01:26:25 2009 +0900
+
+    tweaked a couple of files mainly for small usability improvements.
+
+M	System/Connect.hta
+M	System/Export.hta
+M	System/Import.hta
+M	System/Menu.xml
+
+commit d7f14e10fcc2fcf4d279580c21688ef78fb159b8
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 21 01:08:46 2009 +0900
+
+    searched & destroyed an annoying nasty ugly bug caused by using xregexp.js, was removed.
+    
+    But I counldn't find the reason, hmm..
+
+M	NicoRequest.hta
+M	System/Connect.hta
+M	System/NicoLive.js
+M	System/SocketManager.js
+D	System/xregexp.js
+
+commit abbdf6bda7ab6702727cd520b46ab427f9d23c83
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Sep 19 22:44:29 2009 +0900
+
+    added keyboard shortcut feature.
+
+M	NicoRequest.hta
+M	System/Main.js
+M	System/Menu.xml
+A	System/jquery.hotkeys.js
+
+commit ae1d75785cf42e3cb8e3aabd10da6d4097f9bee7
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Sep 19 20:40:44 2009 +0900
+
+    removed JAS-related codes and a data file.
+
+M	System/Main.js
+M	System/Menu.js
+M	System/RequestManager.js
+D	System/jascode.csv
+
+commit 5e1765f53f8f1d65092eb68e7dd26b9c6a841bfe
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Sep 19 19:48:02 2009 +0900
+
+    added cleanup.pl.
+
+A	cleanup.pl
+
+commit 6280eb6837e5d81e8dcef5eee0bd196495409c24
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Sep 19 19:19:24 2009 +0900
+
+    tweaked settings.js for video info posted as admin comment.
+
+M	settings.js
+
+commit 225c899003370b6c93453cc07fbf6cb2c29b56c8
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Sep 19 19:09:31 2009 +0900
+
+    tweaked System/VideoInformation.js.
+
+M	System/VideoInformation.js
+
+commit acc678f891f27b68742d2b1aba61720b7441dc12
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Sep 19 18:54:04 2009 +0900
+
+    suppressed error msg in SocketManager.js, but the solution would cause another enbugs.. :(
+    
+    In addition, I didn't determine the reason why recieveComment is really needed. what the method do?
+
+M	System/SocketManager.js
+
+commit fde436c63d4282b836f5875abee6080e6f98b1c1
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Sep 19 18:52:20 2009 +0900
+
+    fixed a problem that unexpected xml cache for getXML() except video info.
+
+M	System/Connect.hta
+M	System/Main.js
+M	System/Menu.js
+M	System/NicoLive.js
+M	System/VideoInformation.js
+
+commit 29b1d967cac5c15c38369f6fff6cdba1da292da1
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 18 20:12:13 2009 +0900
+
+    tweaked System/VideoInformation.js.
+
+M	System/VideoInformation.js
+
+commit 648af4a8e2e6de9062639501fbcad328c1bdf4b6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 18 20:04:25 2009 +0900
+
+    fixed a bug caused vanishing of video title when sorted.
+
+M	System/RequestManager.js
+
+commit 8f02fb84e20bc8d9ec5dc3add017159dd8852a12
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 18 19:59:11 2009 +0900
+
+    added a feature that each xml files of video info obtained via net can be cached locally.
+
+M	NicoRequest.hta
+M	System/NicoLive.js
+M	settings.js
+
+commit cc285bc58ef70acd148b419b661f3b6121ae5013
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 18 19:40:11 2009 +0900
+
+    added System/xregexp.js.
+
+A	System/xregexp.js
+
+commit d97e342d49228f59fb74ece4367fb49ef0443a2d
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 18 01:21:54 2009 +0900
+
+    added a blacklist feature for mylist-group retrieve.
+
+M	System/VideoInformation.js
+M	settings.js
+
+commit 01f5f750cfe64972a46e5daa247fad1a6490fba3
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 17 21:25:39 2009 +0900
+
+    released 1.19.
+
+M	Changes.txt
+M	MEMO.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 96a7d24729a27441c80d52c3cff72b262166ce77
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Sep 17 21:10:18 2009 +0900

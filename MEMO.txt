@@ -1,23 +1,42 @@
 ﻿■リリース手順
 
-・System/Caches/mylist.json を消すこと。
-・Mikunopop.js 内のバージョン番号を書き直す（１カ所）
-・settings.js の top の箇所があれば bottom に戻しておく
-・nicoreq.iss のバージョン番号を書き直す（３カ所）
-・追加や削除されたファイルがあれば nicoreq.iss に反映しておく
-・NicoRequest.hta 内のバージョン番号を書き直す（１カ所）
-・README に追記する
-・git log --name-status > Changes.txt
-・バイナリを作成してテスト
+・消すファイル
+	perl cleanup.pl
+	場合によっては caches を消すこと。
+
+・settings.js
+	settings["Debug"] = true;　を false に戻しておく
+	top の箇所があれば bottom に戻しておく
+
+・前準備
+	追加や削除されたファイルがあれば nicoreq.iss に反映しておく
+
+・バージョン番号
+	Mikunopop.js 内のバージョン番号を書き直す（１カ所）
+	nicoreq.iss のバージョン番号を書き直す（３カ所）
+	NicoRequest.hta 内のバージョン番号を書き直す（１カ所）
+
+・メタ情報
+	README に追記する
+	git log --name-status > Changes.txt
+
+・ビルド
+	バイナリを作成してテスト
+
 ・ZIP を作成
-　nicoreq をコピー
-　リネーム
-　.gitを削除
-　圧縮
-・ウイルスチェック
-・サーバに転送
-・html にリリースノートを追記する
-・git commit と git push してタグを打っておく
+	nicoreq をコピー＆リネーム
+	.gitを削除
+	圧縮
+
+・アップロード
+	ウイルスチェック
+	サーバに転送
+
+・リリース
+	html にリリースノートを追記する
+
+・後処理
+	git commit と git push してタグを打っておく
 
 以上
 

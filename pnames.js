@@ -545,5 +545,9 @@ settings["exceptionPTagsVO"] = ["",
 	"broiler",
 	"®•”",
 	"peakedyellow",
+	'M@SATOSHI',
+	"Doppelman",
+	"mok",
+	"‰SÒ‚ÌW‚¢",
 ""];
 
