@@ -4,7 +4,7 @@
 	<item popup="Connect" onclick="">接続</item>
 	<item popup="Request" onclick="">リクエスト</item>
 	<item popup="Sort" onclick="">ソート</item>
-	<item popup="Help" onclick="">ヘルプ</item>
+	<item popup="Help" onclick="">？</item>
 </bar>
 <popup id="Connect">
 	<item onclick="top.connectDialog();">接続</item>
