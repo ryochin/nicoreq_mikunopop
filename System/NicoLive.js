@@ -81,9 +81,10 @@ NicoLive.prototype = {
 	},
 	saveVideoInfoCacheFile: function( file, content ){
 		// 使わない海外タグを強引に削る
+		// -> XRegExp は SocketManager 周りでエンバグするので使わないこと！
 		// http://ext.nicovideo.jp/api/getthumbinfo/nm6610413
-		var re = XRegExp("<tags domain=\"(es|de|tw)\">.+?<\/tags>\n?", "gs");
-		content = content.replace(re, "");
+//		var re = XRegExp("<tags domain=\"(es|de|tw)\">.+?<\/tags>\n?", "gs");
+//		content = content.replace(re, "");
 		
 		// それでも保存できない場合があるから、それは無視する。原因不明、文字コードか？
 		
