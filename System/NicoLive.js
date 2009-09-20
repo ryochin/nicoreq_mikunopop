@@ -19,7 +19,7 @@ NicoLive.prototype = {
 	getXML: function(url, type, callback){
 		if( type == "video" && settings["UseVideInfoCache"] ){
 			// キャッシュ使用
-			if( this.checkVideoInfoCacheFileDateLastModified( url ) ){
+			if( this.checkVideoInfoCacheFileDateLastModified( url ) && url.match(/\/(sm|nm)[0-9]+$/) ){
 				// キャッシュが無効 -> ネットから取得して保存
 				this.retrieveVideoInfoCacheFile(url);
 			}
