@@ -1,3 +1,33 @@
+commit a382baf42a76f509afe094aa60cb6ec27a87336e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 24 06:57:22 2009 +0900
+
+    updated jingles.json and pnames.js.
+
+M	jingles.json
+M	pnames.js
+
+commit 2b0465566d8fa0a7d91f4e47424fe0cb9caf2d0b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 24 06:49:26 2009 +0900
+
+    updated version number properly, forgot to change in former commit.
+
+M	NicoRequest.hta
+M	System/Mikunopop.js
+
+commit 4470a9988e83afb7c065a89361710b8b99508d8a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Sep 21 01:43:49 2009 +0900
+
+    released 1.20.
+
+M	Changes.txt
+M	MEMO.txt
+M	README.txt
+M	installer/nicoreq.iss
+M	pnames.js
+
 commit 31b4757b73c4256abbf02311b08a65dfb1d41a3b
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Mon Sep 21 01:32:17 2009 +0900

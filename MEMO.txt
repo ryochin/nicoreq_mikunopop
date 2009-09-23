@@ -1,9 +1,5 @@
 ﻿■リリース手順
 
-・消すファイル
-	perl cleanup.pl
-	場合によっては caches を消すこと。
-
 ・settings.js
 	settings["Debug"] = true;　を false に戻しておく
 	top の箇所があれば bottom に戻しておく
@@ -20,10 +16,15 @@
 	README に追記する
 	git log --name-status > Changes.txt
 
+・消すファイル
+	perl cleanup.pl
+	場合によっては caches を消すこと。
+
 ・ビルド
 	バイナリを作成してテスト
 
 ・ZIP を作成
+	watchlog.txt などを空にしておく
 	nicoreq をコピー＆リネーム
 	.gitを削除
 	圧縮
