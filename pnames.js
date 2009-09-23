@@ -549,5 +549,7 @@ settings["exceptionPTagsVO"] = ["",
 	"Doppelman",
 	"mok",
 	"‰SÒ‚ÌW‚¢",
+	"WHETHE",
+	"hisaruki",
 ""];
 
