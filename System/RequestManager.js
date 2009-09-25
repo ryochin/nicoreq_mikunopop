@@ -539,6 +539,12 @@ RequestManager.prototype = {
 				var IDB = Number(b.id.slice(2));
 				return updown*(IDB-IDA);
 			});
+		}else if(mode=="length"){
+			this.RequestQueues.sort(function(a, b){
+				var LENA = length_str2sec( RequestManager.Requests[a.id].length );
+				var LENB = length_str2sec( RequestManager.Requests[b.id].length );
+				return updown*(LENB-LENA);
+			});
 		}else{
 			if(this.ThumbInfoTimer){
 				alert("動画情報取得中はソートできません");
@@ -638,4 +644,15 @@ function _closeInfo (id) {
 function rewriteTitle (R) {
 	$('#TITLE' + R.id).html( R.title );    // dirty hack :(
 	$('#TITLE' + R.id).attr( { title: R.tags.join("　") } );    // タグ
+}
+
+function length_str2sec (str) {
+	var min = str.replace(/\:[0-9]+$/,"");
+	if( min == "" )
+		min = 0;
+	var sec = str.replace(/^[0-9]+\:/,"");
+	if( sec == "" )
+		sec = 0;
+	
+	return ( min * 60 ) + sec;
 }

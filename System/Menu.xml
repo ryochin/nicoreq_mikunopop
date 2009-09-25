@@ -27,6 +27,9 @@
 	<item onclick="top.RequestManager.sort('id',  1);">動画ID順(↑)</item>
 	<item onclick="top.RequestManager.sort('id', -1);">動画ID順(↓)</item>
 	<hr />
+	<item onclick="top.RequestManager.sort('length',  1);">曲の長さ順(↑)</item>
+	<item onclick="top.RequestManager.sort('length', -1);">曲の長さ順(↓)</item>
+	<hr />
 	<item onclick="top.RequestManager.sort('view',  1);">再生数順(↑)</item>
 	<item onclick="top.RequestManager.sort('view', -1);">再生数順(↓)</item>
 	<hr />
@@ -36,14 +39,16 @@
 	<item onclick="top.RequestManager.sort('list',  1);">マイリスト数順(↑)</item>
 	<item onclick="top.RequestManager.sort('list', -1);">マイリスト数順(↓)</item>
 	<hr />
+	<item onclick="top.RequestManager.sort('count', 1);">ミクノ度順(↑)</item>
+	<item onclick="top.RequestManager.sort('count', -1);">ミクノ度順(↓)</item>
+	<hr />
 	<item onclick="top.RequestManager.sort('request',  1);">リクエストナンバー順(↑)</item>
 	<item onclick="top.RequestManager.sort('request', -1);">リクエストナンバー順(↓)</item>
+<!--
 	<hr />
 	<item onclick="top.RequestManager.sort('myri', 1);">マイリスト率順(↑)</item>
 	<item onclick="top.RequestManager.sort('myri', -1);">マイリスト率順(↓)</item>
-	<hr />
-	<item onclick="top.RequestManager.sort('count', 1);">ミクノ度順(↑)</item>
-	<item onclick="top.RequestManager.sort('count', -1);">ミクノ度順(↓)</item>
+-->
 </popup>
 <popup id="Help">
 	<item onclick="top.alert('c: 接続 \ni: テキストの取り込み \ne: 再生履歴の出力 \nf: マイリストから検索')">ショートカットの一覧</item>
