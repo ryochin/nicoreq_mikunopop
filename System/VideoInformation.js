@@ -7,23 +7,30 @@ var __VideoInformation__MylistIDs = __VideoInformation__getMylistIDs();
 
 function __VideoInformation__getMylistIDs(){
 	var file = getMylistCacheFile();
-	if( checkMylistCacheFileDateLastModified( file ) ){
-		// キャッシュ無効、取得してローカルに保存
-//		alert("マイリストキャッシュをサーバから取得");
-		var content;
-		try {
-			content = __VideoInformation__getMylistIDs_via_net();
-			saveMylistCacheFile( file, content );
-			return eval('(' + content + ')');    // json to object
-		} catch (e) {
-			alert("マイリストの情報を正常に取得できませんでした orz\n（サーバが混雑していると起こりやすいようです）");
-			return;
+	if( settings["UseMylistInfoCache"] ){
+		// キャッシュ機能を使用する
+		if( checkMylistCacheFileDateLastModified( file ) ){
+			// キャッシュ無効、取得してローカルに保存
+//			alert("マイリストキャッシュをサーバから取得");
+			var content;
+			try {
+				content = __VideoInformation__getMylistIDs_via_net();
+				saveMylistCacheFile( file, content );
+				return eval('(' + content + ')');    // json to object
+			} catch (e) {
+				alert("マイリストの情報を正常に取得できませんでした orz\n（サーバが混雑していると起こりやすいようです）");
+				return;
+			}
+		}
+		else{
+			// キャッシュを返す
+//			alert("キャッシュが見つかったのでそのまま返却");
+			return loadMylistCacheFile( file );
 		}
 	}
 	else{
-		// キャッシュを返す
-//		alert("キャッシュが見つかったのでそのまま返却");
-		return loadMylistCacheFile( file );
+		// キャッシュ機能を使用しない
+		return __VideoInformation__getMylistIDs_via_net();
 	}
 }
 
@@ -73,7 +80,7 @@ function checkMylistCacheFileDateLastModified (file) {
 		var s = f.DateLastModified;
 		var epoch = parseInt( Date.parse(s), 10 ) / 1000;
 		var now = parseInt( (new Date).getTime() / 1000, 10 );
-		if( now - epoch < 24 * 60 * 60 ){
+		if( now - epoch < settings["MylistInfoCacheExpireHour"] * 60 * 60 ){
 			// キャッシュが生きている
 			return;
 		}
