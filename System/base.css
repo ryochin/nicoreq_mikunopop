@@ -87,10 +87,12 @@ img.thumb {
 
 input.control-button-up {
 	margin: 8px 4px 4px 4px;
+	cursor: pointer;
 }
 
 input.control-button-down {
 	margin: 2px 4px;
+	cursor: pointer;
 }
 
 /* tooltip */
