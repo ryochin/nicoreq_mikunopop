@@ -1,8 +1,54 @@
 /* base css */
 
+*{
+	font-size: 12;
+	font-family: "MS UI Gothic";
+}
+body{
+	margin:0px;
+	background-color:ThreeDFace;
+	color:WindowText;
+	cursor:default;
+}
+fieldset{
+	padding: 4px;
+}
+#Menu{
+	width:100%;
+}
+#divState{
+	position:absolute;
+	width:180px;
+	left:expression(document.body.clientWidth-this.clientWidth-3);
+	top:4px;
+}
+#Tab{
+	width:100%;
+}
+#MovieControls {
+	padding:4px 2px 0 2px;
+/*	overflow:auto;*/
+	width:100%;
+/*	height:30px;*/
+}
+#TabContents{
+	padding:2px 2px 2px 2px;
+	overflow:auto;
+	width:100%;
+	height:expression(document.body.clientHeight-Menu.clientHeight-Tab.clientHeight-40);
+}
+#RequestHTML{
+	overflow:auto;
+	width:100%;
+	height:expression(TabContents.clientHeight-RequestForm.clientHeight);
+}
+
+/* imag etc */
+
 input.head-control-image {
 	margin: 1px 1px 0px 1px;
 	vertical-align: bottom;
+	cursor: pointer;
 }
 
 select {

@@ -1,10 +1,7 @@
 <html xmlns:HTC>
 <head>
 <meta http-equiv="MSThemeCompatible" content="Yes">
-<!--del <title>NicoRequest</title>-->
-<!--add start-->
 <title>NicoRequest Mikunopop Edition</title>
-<!--add end-->
 <link rel="stylesheet" type="text/css" media="screen" href="./System/base.css" />
 <?import namespace="HTC" implementation="./System/Menu.htc" />
 <?import namespace="HTC" implementation="./System/Tab.htc" />
@@ -30,48 +27,8 @@
 <script type="text/javascript" src="./System/Menu.js"></script>
 <script type="text/javascript" src="./System/Main.js"></script>
 <script type="text/javascript" src="./System/Mikunopop.js"></script>
-<style type="text/css">
-*{
-	font-size: 12;
-	font-family: "MS UI Gothic";
-}
-body{
-	margin:0px;
-	background-color:ThreeDFace;
-	color:WindowText;
-	cursor:default;
-}
-fieldset{
-	padding: 4px;
-}
-#Menu{
-	width:100%;
-}
-#divState{
-	position:absolute;
-	width:180px;
-	left:expression(document.body.clientWidth-this.clientWidth-3);
-	top:4px;
-}
-#Tab{
-	width:100%;
-}
-#TabContents{
-	padding:4px 2px 2px 2px;
-	overflow:auto;
-	width:100%;
-	height:expression(document.body.clientHeight-Menu.clientHeight-Tab.clientHeight);
-}
-#RequestHTML{
-	overflow:auto;
-	width:100%;
-	height:expression(TabContents.clientHeight-RequestForm.clientHeight);
-}
-</style>
-<!--del <hta:application id="HTA" ApplicationName="NicoRequest" Version="2.3.2" InnerBorder="No" SingleInstance="Yes" Navigable="no" icon="./System/Nico.ico"/>-->
-<!--add start-->
-<hta:application id="HTA" ApplicationName="NicoRequest Mikunopop Edition" Version="1.20.1" InnerBorder="No" SingleInstance="Yes" Navigable="no" icon="./System/Nico.ico" contextmenu="no"/>
-<!--add end-->
+<hta:application id="HTA" ApplicationName="NicoRequest Mikunopop Edition" Version="1.20.1"
+	InnerBorder="No" SingleInstance="Yes" Navigable="no" icon="./System/Nico.ico" contextmenu="no" />
 </head>
 <body scroll="no">
 <HTC:Menu id="Menu" xml="./System/Menu.xml" />
@@ -87,15 +44,13 @@ fieldset{
 	<span>副管理者</span>
 	<span>オプション</span>
 </HTC:Tab>
-<div id="TabContents">
+<div id="MovieControls">
 	<div id="RequestForm">
 		&nbsp;
 		<!-- buttons -->
 		<input id="btnPF" type="image" src="./System/assets/play_s.png" value="4" class="head-control-image" onclick="playFirst()" title="一番上を再生">
-<!--add start-->
 		<input type="image" src="./System/assets/stop_s.png" value="g" class="head-control-image" onclick="NicoLive.postComment('/stop')" title="停止">
 		<input type="image" src="./System/assets/soundonly_s.png" value="7" class="head-control-image" onclick="NicoLive.postComment('/soundonly on')" title="音のみに切り替える">
-<!--add end-->
 		<input type="image" src="./System/assets/close_s.png" value="r" class="head-control-image" onclick="delFirst()" title="一番上を削除">
 		<input id="btnPR" type="image" src="./System/assets/random_s.png" value="s" class="head-control-image" onclick="playRandom()" title="ランダム再生">
 
@@ -108,13 +63,10 @@ fieldset{
 -->
 		<input type="hidden" id="playSound"><input type="hidden" id="divPlaySub"><input type="hidden" id="playSub">
 		<input type="hidden" id="btnCR"><input type="hidden" id="extraComment">
-<!--add start-->
 <!--
 		<input type="button" value="１枠延長" onclick="extend()" style="display: none" />
 		<input type="button" onclick="LimitTimeReset()" value="リセット" style="display: none" />
 -->
-<!--add end-->
-<!--add start-->
 	<img id="jingle-thumb" width="24" height="18" align="bottom" />
 	<span id="PlayJingleForm"></span>
 		 <script>
@@ -171,9 +123,10 @@ fieldset{
 					.html( $('#PlayJingleForm').html() + " <input type=\"image\" src=\"./System/assets/play_jingle_s.png\" class=\"head-control-image\" onclick=\"playJingle()\" title=\"ジングルを再生\" />" );
 			}
 		 </script>
-<!--add end-->
 		<hr>
 	</div>
+</div>
+<div id="TabContents">
 	<div id="RequestHTML"></div>
 </div>
 <script type="text/javascript">
@@ -212,19 +165,16 @@ $(document).ready( function () {
 
 </script>
 <div id="TabContents">
-<!--add start-->
 	<input type="text" id="sendCmt_mail" size="10" />
 	<input type="text" id="sendCmt_text" size="50" />
 	<input type="button" value="主コメする" onclick="NicoLive.postComment(document.getElementById('sendCmt_text').value, document.getElementById('sendCmt_mail').value);document.getElementById('sendCmt_text').value='';document.getElementById('sendCmt_mail').value='';" />
 	<hr />
-<!--add end-->
 	<div id="CommentHTML"></div>
 </div>
 <div id="TabContents">
 	<div id="VideoInformation">
 	</div>
 </div>
-<!--add start-->
 <div id="TabContents">
 	<div id="AutoComment">
 		<div id="divAutoPlay">
@@ -238,8 +188,6 @@ $(document).ready( function () {
 		</div>
 	</div>
 </div>
-<!--add end-->
-<!--add start-->
 <div id="TabContents">
 	<div id="dummyAdmin">
 		<fieldset>
@@ -259,7 +207,6 @@ $(document).ready( function () {
 	<hr>
 	<div id="dumyAdminHTML"></div>
 </div>
-<!--add end-->
 <div id="TabContents">
 	<div id="OptionForm">
 		<div id="divAutoPlay">
@@ -279,34 +226,14 @@ $(document).ready( function () {
 		<fieldset>
 			<legend>接続/切断</legend>
 			<input type="checkbox" id="loginCheck" onclick="checkloginCheck()"><label for="loginCheck">ログオフ時強制ログイン</label>
-<!--del			<input type="checkbox" id="logoffCheck" checked=true onclick="checklogoffCheck()"><label for="logoffCheck">30分強制ログアウト</label>-->
-<!--add start-->
 			<input type="checkbox" id="logoffCheck" onclick="checklogoffCheck()"><label for="logoffCheck">30分強制ログアウト</label>
-<!--add end-->
 		</fieldset>
 		</div>
-
 	</div>
 </div>
 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="Socket" style="width:0px;height:0px;">
 	<param name="movie" value="./System/Socket.swf">
 	<param name="allowScriptAccess" value="sameDomain">
 </object>
-</body>
-</html>
-
-ccess" value="sameDomain">
-</object>
-</body>
-</html>
-ody>
-</html>
-t:0px;">
-	<param name="movie" value="./System/Socket.swf">
-	<param name="allowScriptAccess" value="sameDomain">
-</object>
-</body>
-</html>
->
 </body>
 </html>
