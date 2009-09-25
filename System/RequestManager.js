@@ -202,7 +202,7 @@ RequestManager.prototype = {
 		if(!method) method = "push";
 		this.ThumbInfoTasks[method](RQ);
 		// 動画情報を取得するタスクが動いてなかったら起動
-		var wait = settings["UseVideInfoCache"]
+		var wait = settings["UseVideoInfoCache"]
 			? settings["ThumbInfoTaskWaitCached"]
 			: settings["ThumbInfoTaskWait"];
 		if(!this.ThumbInfoTimer) this.ThumbInfoTimer = setInterval(this._doThumbInfoTask, wait);

@@ -17,7 +17,7 @@ NicoLive.prototype = {
 		}
 	},
 	getXML: function(url, type, callback){
-		if( type == "video" && settings["UseVideInfoCache"] ){
+		if( type == "video" && settings["UseVideoInfoCache"] ){
 			// キャッシュ使用
 			if( this.checkVideoInfoCacheFileDateLastModified( url ) && url.match(/\/(sm|nm)[0-9]+$/) ){
 				// キャッシュが無効 -> ネットから取得して保存
@@ -109,7 +109,7 @@ NicoLive.prototype = {
 			var s = f.DateLastModified;
 			var epoch = parseInt( Date.parse(s), 10 ) / 1000;
 			var now = parseInt( (new Date).getTime() / 1000, 10 );
-			if( now - epoch < settings["VideInfoCacheExpireHour"] * 60 * 60 ){
+			if( now - epoch < settings["VideoInfoCacheExpireHour"] * 60 * 60 ){
 				// キャッシュが生きている
 				if( f.Size > 0 ){
 					// 空じゃない
