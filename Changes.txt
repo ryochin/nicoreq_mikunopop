@@ -1,3 +1,73 @@
+commit 64e60c3bbfb1873f5c16530fb89015c99537798e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 25 17:09:01 2009 +0900
+
+    added new sort type 'by song length', and removed 'by mylist ratio' from sort menu.
+
+M	System/Menu.xml
+M	System/RequestManager.js
+
+commit dff3caa43be7703e23342f917891aa64f35453ca
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 25 15:02:38 2009 +0900
+
+    fixed typos around "UseVideoInfoCache" parameter.
+
+M	System/NicoLive.js
+M	System/RequestManager.js
+M	settings.js
+
+commit b11a605fd53862f3fad49f01546f41c0952124fd
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 25 14:58:28 2009 +0900
+
+    added detailed parameters to settings.js about mylistgroup caching feature.
+
+M	System/VideoInformation.js
+M	settings.js
+
+commit bf8adb2fabf5dce06ddf23c40e420a86a90b895c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 25 14:43:05 2009 +0900
+
+    changed cousor type when pointer is over control widgets (image buttons).
+
+M	System/base.css
+
+commit 4388a51ca0695299f2e0d01ba0deff1e9181d628
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 25 14:40:08 2009 +0900
+
+    changed the position for video controls on the request tab, is now fixed to the same absolete pos.
+    
+    moved css lines to System/base.css in NicoRequest.hta.
+
+M	NicoRequest.hta
+M	System/base.css
+
+commit 5ed6cdb2849219344718304a735a670053c30aed
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 24 07:16:36 2009 +0900
+
+    moved System/nico_dummy.png to System/assets/.
+
+A	System/assets/nico_dummy.png
+D	System/nico_dummy.png
+M	settings.js
+
+commit cf5fc9e17dfbca867557ef5639fd767abcd040ac
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Sep 24 07:12:54 2009 +0900
+
+    released 1.20.1.
+
+M	Changes.txt
+M	MEMO.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit a382baf42a76f509afe094aa60cb6ec27a87336e
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Sep 24 06:57:22 2009 +0900
