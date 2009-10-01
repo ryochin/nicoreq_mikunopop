@@ -2,6 +2,7 @@
 <head>
 <meta http-equiv="MSThemeCompatible" content="Yes" />
 <title>接続</title>
+<script type="text/javascript" src="./jquery.js"></script>
 <script type="text/javascript" src="../settings.js"></script>
 <script type="text/javascript" src="./Utils.js"></script>
 <script type="text/javascript" src="./PlayerStatus.js"></script>
@@ -22,6 +23,13 @@ window.onload = function(){
 		document.getElementById("divMSG").style.display = "none";
 	}
 
+	// クリップボードの放送 ID を自動で埋める
+	// http://live.nicovideo.jp/gate/lv4728353
+	var clip = clipboardData.getData("text");
+	if( clip != "" && clip.match(/lv[0-9]+$/) ){
+		$('#lv').val( clip.toString() );
+		$('#OK').focus();
+	}
 }
 
 // 番組情報を取得
