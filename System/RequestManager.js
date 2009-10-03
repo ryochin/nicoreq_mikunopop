@@ -140,9 +140,10 @@ RequestManager.prototype = {
 		}
 		else if( settings["ShowThumbnailType"] == 2 ){
 			// thumbnail
-			var thumb_image = "<img src=\"http://tn-skr4.smilevideo.jp/smile?i="
-				+ idno + "\" width=65 height=50 title=\"" + thumb_title + "\" align=left class=\"thumb\" oncontextmenu=\"" + oncontextmenu + "\" />";
-			thumb_url = '<a href="http://www.nicovideo.jp/watch/' + R.id + '">' + thumb_image + '</a>';
+			var thumb_url = "<img src=\"http://tn-skr4.smilevideo.jp/smile?i="
+				+ idno + "\" width=65 height=50 title=\"" + thumb_title + "\" align=left class=\"thumb\""
+				+ " onclick=\"OpenVideo('" + R.id + "')\""
+				+ " oncontextmenu=\"" + oncontextmenu + "\" />";
 		}
 
 		// title ‚ğ‹­ˆø‚É‘‚«Š·‚¦‚é
@@ -581,7 +582,8 @@ var RequestManager = new RequestManager();
 
 function OpenVideo(id){
 	var WshShell = new ActiveXObject("WScript.Shell");
-	WshShell.run("http://www.nicovideo.jp/watch/"+id,1,false);
+	var url = "http://www.nicovideo.jp/watch/" + id;
+	WshShell.run("rundll32.exe url.dll,FileProtocolHandler " + url, 4, false);
 }
 function comma ( from ){
 	var to = String( from );
