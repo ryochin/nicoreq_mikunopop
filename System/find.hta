@@ -71,6 +71,10 @@ window.attachEvent("onload", function(){
 			var id = Number(RegExp.$1);
 			var title = RegExp.$2;
 			
+			// ブラックリストに載っている名前を弾く
+			if(Zen2Han(settings["MylistBlackList"].join(",")).indexOf(","+Zen2Han(title)+",") > -1)
+				continue;
+
 			MyListNum += 1;
 			MyListName[MyListNum-1] = title;
 			MyListID[MyListNum-1] = id;
