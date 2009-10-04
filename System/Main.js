@@ -76,8 +76,8 @@ function connect(PS){
 		document.getElementById("loginCheck").checked = false;
 	}else{
 		SocketManager.connect(PS);
-		PlayLog += "lv"+PS.lv+"\n";
-		__VideoInformation__PlayLog += "lv"+PS.lv+"\n";
+		PlayLog += getLiveTitle( PS.lv ) + "\n";
+		__VideoInformation__PlayLog += getLiveTitle( PS.lv ) + "\n";
 //add start
 		if(settings["SaveLogTiming"]=="AtPlay") {
 			writelog("play","lv"+PS.lv);
@@ -756,6 +756,40 @@ function getTimeLeftMessage (sec) {
 	}
 	
 	return msg;
+}
+
+// lv1234567 の頭にパート番号を付ける
+// api で取れないのかな
+var LiveTitle = [];
+function getLiveTitle (lv) {
+	// return cache
+	if( LiveTitle[lv] != null )
+		return LiveTitle[lv];
+	
+	var result = "lv" + lv;
+	var url = "http://live.nicovideo.jp/gate/lv" + lv;
+
+	var xmlhttp = createXMLHttpRequest();
+	xmlhttp.open("GET", url, false);
+	xmlhttp.send();
+	xmlhttp.responseText.match(/<h2[^<>]*?>(.+?)<\/h2>/);
+	if( RegExp.$1 != "" ){
+		var title = RegExp.$1;
+		
+		// パート部分を得る
+		if( title.match(/(Part|Vol)[^0-9]*?([0-9]+)/i) ){
+			var part = RegExp.$1;
+			var n = RegExp.$2;
+			if( part.match(/Part/i) ){
+				result = "Part." + n + " " + result;
+			}
+			else if( part.match(/Vol/i) ){
+				result = "vol." + n + " " + result;
+			}
+		}
+	}
+	LiveTitle[lv] = result;
+	return result;
 }
 
 // ホットキーをセット
