@@ -53,6 +53,7 @@ SocketManager.prototype = {
 	disconnect: function(){
 		if(!this.connected) return;
 		this.flash.close();
+		$('#timeleft').html('–¢Ú‘±');
 		this.connected = false;
 	}
 }
