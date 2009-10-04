@@ -1,3 +1,132 @@
+commit d2e63406b0a219e204f3f0c0f41164ab4844d6ff
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 4 12:44:23 2009 +0900
+
+    updated shortcut list description in System/Menu.xml.
+
+M	System/Menu.xml
+
+commit 73e728e35069271010653a046e3f9b8122e491e1
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 4 12:40:58 2009 +0900
+
+    tweaked settings.js.
+
+M	settings.js
+
+commit 286036eb27a704977326013185a10e8ce8076b49
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 4 12:40:12 2009 +0900
+
+    updated pnames.js & tags.js.
+
+M	pnames.js
+M	tags.js
+
+commit 68ca1dea0ffba25ac2d708e7cd4bc2ec01c7f1ab
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 4 12:25:02 2009 +0900
+
+    tweaked System/SocketManager.js for showing 'disconnected' message.
+
+M	System/SocketManager.js
+
+commit a378644aee7666703aa585e6d0f47acddfd77225
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 4 12:22:40 2009 +0900
+
+    assigned D key as shortcut for disconnect() with confirmational dialog.
+
+M	System/Main.js
+
+commit 7b807da6e7210432c48303b193bd355df0cb7575
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 4 12:03:42 2009 +0900
+
+    tweaked System/Export.hta and System/Import.hta.
+
+M	System/Export.hta
+M	System/Import.hta
+
+commit 132ca3a02003a008afc1735c3239efba43ea127a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 4 12:00:53 2009 +0900
+
+    added copy button to the export window.
+
+M	System/Export.hta
+
+commit e93eed22853021df78d0a0432b817cd0ddb8128c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 4 11:46:11 2009 +0900
+
+    added a tiny formatting in the export window content.
+
+M	System/Export.hta
+
+commit 7cc6a08ea367f9322a867a1f4e7bc74e64fd444b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 4 09:09:50 2009 +0900
+
+    added part numbers to each head lines displayed as 'lv******' in the export window.
+
+M	System/Main.js
+
+commit c7554c3727777618016249c9f57e5fe8ab9b5a98
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Oct 3 23:14:45 2009 +0900
+
+    filtered with mylist-blacklist entries to show mylist group names in find.hta window.
+
+M	System/find.hta
+
+commit 840beada070eaa5221320784708298e3ff749153
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Oct 3 22:59:23 2009 +0900
+
+    changed which browser will open passed video url on the request tab thumbnails, indicates to use the 'default browser'.
+
+M	System/RequestManager.js
+
+commit d7d8da42674fc9bd4c6ccd3012a45df2920e7172
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Oct 1 15:22:18 2009 +0900
+
+    added autofill feature of live http url (or id) from clipboard in the Connect window.
+
+M	System/Connect.hta
+
+commit 0e75666edcefdc4dd76e7a8dff05d8400ff3ae71
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Oct 1 15:20:09 2009 +0900
+
+    renamed jquery.min.js to jquery.js.
+
+M	NicoRequest.hta
+M	System/find.hta
+A	System/jquery.js
+D	System/jquery.min.js
+
+commit 6f6d3d1a62e90d9885573272f7d75d08412a7d63
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Sep 26 06:46:23 2009 +0900
+
+    fixed a typo in README.txt.
+
+M	README.txt
+
+commit 1a89bd59acb6d8c682935185d96761c52c88e99d
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Sep 26 06:42:14 2009 +0900
+
+    released 1.21.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 64e60c3bbfb1873f5c16530fb89015c99537798e
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Fri Sep 25 17:09:01 2009 +0900
