@@ -795,7 +795,24 @@ function getLiveTitle (lv) {
 // ホットキーをセット
 $(document).bind('keydown', 'c', function(){
 	// 接続 connect
-	top.connectDialog();
+	if( SocketManager.connected ){
+//		alert("すでに接続しています。");
+	}
+	else{
+		top.connectDialog();
+	}
+});
+$(document).bind('keydown', 'd', function(){
+	// 切断  disconnect
+	if( SocketManager.connected ){
+		// connected
+		if( window.confirm("サーバから切断します。よろしいですか？") ){
+			top.disconnect();
+		}
+	}
+	else{
+//		alert("まだ接続されていません。");
+	}
 });
 $(document).bind('keydown', 'i', function(){
 	// テキストの取り込み import
