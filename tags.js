@@ -2,6 +2,7 @@
 settings["genreTagWhiteList"] = ["",
 	// 一般
 	"テクノ",
+	"テクノポップ",
 	"Instrumental",
 	"ChipTune",
 	"グループサウンズ",
