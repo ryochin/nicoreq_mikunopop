@@ -3,6 +3,7 @@
 <meta http-equiv="MSThemeCompatible" content="Yes" />
 <title>履歴</title>
 <!--add start-->
+<script type="text/javascript" src="./jquery.js"></script>
 <script type="text/javascript" src="../settings.js"></script>
 <!--add end-->
 <script type="text/javascript" src="./Utils.js"></script>
@@ -16,6 +17,13 @@ window.onload = function(){
 	if(!settings["Enable2PostHistory"]) document.getElementById("btn2").style.display = "none";
 //add end
 }
+
+$(document).ready( function () {
+	// 「コピー」ボタン
+	$('#copy-export').click( function () {
+		clipboardData.setData("text", $('#export').html() );
+	} );
+} );
 
 // プレイログ文字列に強引に改行を入れる
 function formatPlayLog (str) {
@@ -140,6 +148,7 @@ button{
 		<option value="1235282075">VOCALOID生放送のプレイリスト</option>
 	</select>に<button id="POST" onclick="postHistory()">投稿する</button><br /></span>
 <!--add end-->
+	<button id="copy-export">コピー</button> &nbsp;
 	<button id="OK" onclick="OK()">OK</button>　
 <!--	<button onclick="window.returnValue=window.dialogArguments;window.close()">キャンセル</button> -->
 </div>
