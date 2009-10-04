@@ -9,7 +9,7 @@
 <script type="text/javascript" src="./Utils.js"></script>
 <script type="text/javascript">
 
-setDialogSize(440, 320);
+setDialogSize(480, 320);
 
 window.onload = function(){
 	document.getElementById("export").value = formatPlayLog( window.dialogArguments );
@@ -23,6 +23,9 @@ $(document).ready( function () {
 	$('#copy-export').click( function () {
 		clipboardData.setData("text", $('#export').html() );
 	} );
+	
+	// OK
+	$('#OK').focus();
 } );
 
 // プレイログ文字列に強引に改行を入れる
@@ -149,7 +152,7 @@ button{
 	</select>に<button id="POST" onclick="postHistory()">投稿する</button><br /></span>
 <!--add end-->
 	<button id="copy-export">コピー</button> &nbsp;
-	<button id="OK" onclick="OK()">OK</button>　
+	<button id="OK" onclick="OK()">閉じる</button>　
 <!--	<button onclick="window.returnValue=window.dialogArguments;window.close()">キャンセル</button> -->
 </div>
 </body>
