@@ -367,7 +367,7 @@ settings["JingleComment"] =
 	'<font color="#000000">Å°</font>'
 	+ '{#longname} <br>'
 	+ '<font color="#000000">Åü</font> '
-	+ '<font color="#acacec">No.{#no} '
+	+ '<font color="#acacec">{#no} '
 	+ '<font color="#999999">presented by</font> '
 	+ '<font color="#ecccac">{#author}</font>';
 

@@ -115,7 +115,7 @@
 							.replace(/{#length}/g, jingle.length);
 						
 						NicoLive.postComment( "/play " + jingle.id );
-						setTimeout( function () { NicoLive.postComment( comment ) }, 3000 )
+						setTimeout( function () { NicoLive.postComment( "/perm " + comment ) }, 2000 )
 					}
 				}
 				
