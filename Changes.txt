@@ -1,3 +1,25 @@
+commit 00fe980990c1c4dfad5f79fef50397c943b7ab5a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Oct 6 07:00:04 2009 +0900
+
+    added a new event promotion video info and reorganized around jingle data etc.
+
+M	NicoRequest.hta
+M	jingles.json
+M	settings.js
+
+commit 7c46d66aaa97b0f3f5b582eafd6e6a5e44dc80ba
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 4 13:19:10 2009 +0900
+
+    released 1.22.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit d2e63406b0a219e204f3f0c0f41164ab4844d6ff
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Sun Oct 4 12:44:23 2009 +0900
