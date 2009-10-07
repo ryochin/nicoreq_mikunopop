@@ -14,7 +14,7 @@ var MyListNum = 0;
 var MyListName = [];
 var MyListID = [];
 
-setDialogSize(400, 650);
+setDialogSize(480, 650);
 
 function OK(){
 	var ReturnValue = "";
@@ -37,9 +37,33 @@ function OK(){
 }
 
 window.attachEvent("onload", function(){
+	$('#MyListHTML').html("");
+	
+	// サーバから取得
+	var mylistGroup = getMylistGroup();
 
-	document.getElementById("MyListHTML").value = "";
+	// リスト作成
+	var html = "<table border=0 class=\"mylistgroup\" width=\"96%\">\n";
+	var cnt = 0;
+	for( var i = 0; mylistGroup.length > i; i++ ){
+		cnt++;
+		var d = mylistGroup[i];
+		if( ( cnt % 3 ) == 1 ){
+			html += "<tr>\n";
+		}
+		html += "<td><input type=\"checkbox\" id=\"MyList" + d.id + "\" /><label for=\"MyList" + d.id + "\">" + d.title + "</label></td>\n";
+		if( ( cnt % 3 ) == 0 || cnt == mylistGroup.length ){
+			html += "</tr>\n";
+		}
+	}
+	html += "</table>";
 
+	$('#MyListHTML').html( html );
+});
+
+function getMylistGroup () {
+	var stash = [];
+	
 	// マイページからマイリストのIDと名前を抽出
 	var xmlhttp = createXMLHttpRequest();
 	xmlhttp.open("GET", "http://www.nicovideo.jp/mylistgroup_edit", false);
@@ -79,11 +103,15 @@ window.attachEvent("onload", function(){
 			MyListName[MyListNum-1] = title;
 			MyListID[MyListNum-1] = id;
 
-			var HTML = "<input type=\"checkbox\" id=\"MyList"+(i+1)+"\" /><label for=\"MyList"+(i+1)+"\">"+title+"</label><br>";
-			document.getElementById("MyListHTML").insertAdjacentHTML("BeforeEnd", HTML);
+			stash.push( {
+				id : i + 1,
+				title: title
+			} );
 		}
 	}
-});
+	
+	return stash;
+}
 
 function MyListmanAdd(){
 	var id = document.getElementById("MyListManAddID").value;
@@ -121,8 +149,12 @@ function findMyList(){
 	document.getElementById("MovieHTML").innerHTML = "";
 	document.getElementById("LimitBtn").disabled = true;
 
+	var j = 0;
 	for(var i=0,l=MyListNum; i<l; i++){
+		if( ! document.getElementById("MyList"+(i+1)) )
+			continue;
 		if(document.getElementById("MyList"+(i+1)).checked) {
+			j++;
 			xmlhttp.open("GET","http://www.nicovideo.jp/mylist/"+MyListID[i],false);
 			xmlhttp.send();
 			var Options1 = xmlhttp.responseText.match(/<strong>(.+?)<\/strong> (投稿|時点)/ig);
@@ -353,6 +385,10 @@ button{
 	width: 100%;
 	text-align: right;
 }
+table.mylistgroup td {
+	margin: 0;
+	paddng: 0;
+}
 </style>
 </head>
 <body bgcolor="buttonface" scroll="Yes">
@@ -429,8 +465,8 @@ button{
 				<input type="checkbox" id="LimitDateCheck" /><label for="LimitDateCheck">投稿日</label>
 			</td>
 			<td>
-				<input id="LimitDateFromText" type="text" size="16" /> から　
-				<input id="LimitDateToText" type="text" size="16" /> まで
+				<input id="LimitDateFromText" type="text" size="20" /> から　
+				<input id="LimitDateToText" type="text" size="20" /> まで
 			</td>
 		</tr>
 		<tr>
