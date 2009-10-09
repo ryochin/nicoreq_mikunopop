@@ -262,14 +262,15 @@ RequestManager.prototype = {
 				var RequestID = RQ.key+"-"+("0000"+RQ.number).slice(-4);
 				document.getElementById("RID"+RQ.id).innerText += ", " + RequestID;
 				
-				// すでにストックにある場合はメッセージを表示
-				var msg = [];
-				msg.push("すでにストックにある曲がリクエストされました。");
-				msg.push("");
-				msg.push( RQ.id );
-				msg.push( $('#TITLE' + RQ.id).text() );
-				
-				alert( msg.join("\n") );
+				// すでにストックにある旨のメッセージを表示
+				if( settings["showStockDuplicatedAlert"] == true ){
+					var msg = [];
+					msg.push("すでにストックにある曲がリクエストされました。");
+					msg.push("");
+					msg.push( RQ.id );
+					msg.push( $('#TITLE' + RQ.id).text() );
+					alert( msg.join("\n") );
+				}
 				
 				// リスナーからのリクエストアイコンをオンにする
 				// -> ソートした時にうまく反映されない問題が未解決なためオンにできない
