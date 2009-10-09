@@ -66,6 +66,7 @@ settings["genreTagWhiteList"] = ["",
 	"ミクろっく",
 	"ミックンベース",
 	"MEIKO無双",
+	"ポストミック",
 	
 	// etc
 	"VOCALOID和風曲",

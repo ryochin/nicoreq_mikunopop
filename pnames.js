@@ -553,5 +553,7 @@ settings["exceptionPTagsVO"] = ["",
 	"hisaruki",
 	"tms",
 	"Miku-flo",
+	"ショウショウ",
+	"yamabushi",
 ""];
 
