@@ -1,3 +1,64 @@
+commit 14633b9d023b6ff978cf313661e9964638fc6abd
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 9 20:32:52 2009 +0900
+
+    added showStockDuplicatedAlert switch to settings.js.
+
+M	System/RequestManager.js
+M	settings.js
+
+commit b6abfd4a8990d556123390123aa5397c32342c7e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 9 20:01:47 2009 +0900
+
+    updated pnames.js and tags.js.
+
+M	pnames.js
+M	tags.js
+
+commit 869bc98e620a8aa21844789b9aa4554376655757
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 9 20:01:19 2009 +0900
+
+    added System/jquery.dump.js for debug.
+
+M	NicoRequest.hta
+A	System/jquery.dump.js
+
+commit 29bb9860ade986672403072d00ea4c5f008d7c55
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 9 20:00:28 2009 +0900
+
+    added 'requested by listener' icon to each songs on the request tab.
+    
+    added a feature to show alert when songs which already stocked would be requested by listeners.
+
+M	System/RequestManager.js
+A	System/assets/request.png
+M	System/base.css
+
+commit 17ece3019cbab318568530ebd451539dbad725c5
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Oct 7 12:13:08 2009 +0900
+
+    updated find.hta for design etc.
+    
+    fixed a bug around mylistgroup blacklist.
+
+M	System/find.hta
+
+commit ce1ddabc01c08ad3c03286685d6a5089e8a86ae7
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Oct 6 07:14:08 2009 +0900
+
+    released 1.23.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 00fe980990c1c4dfad5f79fef50397c943b7ab5a
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Tue Oct 6 07:00:04 2009 +0900
