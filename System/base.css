@@ -62,7 +62,7 @@ u.vid {
 
 /* title */
 td.title-container {
-	padding-top: 2px;
+	padding-top: 4px;
 	text-align: right;
 }
 span.title {
@@ -77,6 +77,10 @@ span.genre {
 }
 span.count {
 	color: #cc3333;
+}
+
+img.requester-icon {
+	margin: 0 9px 0 0;
 }
 
 /* thumbnail */

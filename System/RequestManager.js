@@ -59,13 +59,23 @@ RequestManager.prototype = {
 		var ItemHTML = "<div id=\"{#ID}\"><table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\">"
 
 		// [1/1] nm7804321 L-0001
-		ItemHTML += "<tr><td colspan=4>";
+		ItemHTML += "<tr><td colspan=2>";
 		ItemHTML += "[ <span id=\"RNO{#ID}\" title=\"左クリックで動画情報１をコピー\n右クリックで動画情報２をコピー\" onclick=\"RequestManager.setClipboard('IF', '{#ID}')\" oncontextmenu=\"RequestManager.setClipboard('IF2', '{#ID}');return false;\">"+(this.Indexes[RQ.id]+1)+"/"+this.RequestQueues.length+"</span>]&nbsp;";
 		ItemHTML += "<u class=\"vid\" ondblclick=\"RequestManager.Events['Play']('{#ID}')\" onclick=\"showVideoInfo('{#ID}')\" oncontextmenu=\"OpenVideo('{#ID}')\" title=\"クリックで動画情報表示\"><b>{#ID}</b>&nbsp;";
 		ItemHTML += "<span id=\"RID{#ID}\">"+RequestID+"</span></u></td>";
 
+		// リスナーからのリクエストならアイコン表示
+		ItemHTML += '<td align="right" valign="top">';
+		var reqtypeDisplay = 'none';
+		if( RQ.requester == "listener" ){
+			reqtypeDisplay = 'inline';
+		}
+		ItemHTML += '<img id="req-by-listener-{#ID}" src="./System/assets/request.png" class="requester-icon" title="リスナーからのリクエスト" align="top" style="display: ' + reqtypeDisplay  + '"';
+		ItemHTML += ' oncontextmenu="$(\'#req-by-listener-{#ID}\').hide();" />';    // 右クリックでアイコンを消せるように
+		ItemHTML += '</td>';
+
 		// title
-		ItemHTML += "<tr><td colspan=4 class=\"title-container\">&nbsp;";
+		ItemHTML += "<tr><td colspan=3 class=\"title-container\">&nbsp;";
 		ItemHTML += "<span id=\"TITLE{#ID}\" class=\"title\"></span></td>";    // あとでセットするためのコンテナ
 
 		ItemHTML += "<tr><td width=\"100%\">";
@@ -251,6 +261,22 @@ RequestManager.prototype = {
 			if(document.getElementById(RQ.id)){
 				var RequestID = RQ.key+"-"+("0000"+RQ.number).slice(-4);
 				document.getElementById("RID"+RQ.id).innerText += ", " + RequestID;
+				
+				// すでにストックにある場合はメッセージを表示
+				var msg = [];
+				msg.push("すでにストックにある曲がリクエストされました。");
+				msg.push("");
+				msg.push( RQ.id );
+				msg.push( $('#TITLE' + RQ.id).text() );
+				
+				alert( msg.join("\n") );
+				
+				// リスナーからのリクエストアイコンをオンにする
+				// -> ソートした時にうまく反映されない問題が未解決なためオンにできない
+//				if( RQ.requester == 'listener' ){
+//					var id = "#req-by-listener-" + RQ.id;
+//					$(id).show();
+//				}
 			}else{
 				// 	リストに追加する位置を決める
 				var pos = 'BeforeEnd';
