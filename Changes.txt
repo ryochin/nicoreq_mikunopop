@@ -1,3 +1,31 @@
+commit 9b94cf76793f130811f28a52ca7319066d2271ce
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Oct 15 12:04:55 2009 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+
+commit b3650df8ae37be3db2e065b635463942209c8de0
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Oct 13 19:26:40 2009 +0900
+
+    fixed a bug caused unexpected shortcut key launching when the cursor would focus on any editable fields, thanks to w2k.
+
+M	System/Main.js
+
+commit ebbf61c4ad7381642d1be310c4fe729b3e129dc7
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 9 20:58:00 2009 +0900
+
+    released 1.24.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 14633b9d023b6ff978cf313661e9964638fc6abd
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Fri Oct 9 20:32:52 2009 +0900
