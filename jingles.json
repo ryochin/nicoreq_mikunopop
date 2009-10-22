@@ -119,8 +119,17 @@
 	{"id": "","shortname":"------------------"},    // separater
 	{
 		"no": "イベント告知",
+		"id": "sm8569861",
+		"shortname": "G3-2 音楽が舞い降りる..",
+		"longname": "【大賞告知】音楽が舞い降りる場所【Parasite Satellite】",
+		"author": "きぬこもち",
+		"length": "1:05",
+		"memo": ""
+	},
+	{
+		"no": "イベント告知",
 		"id": "sm8432973",
-		"shortname": "G3-01 第３回大賞 告知",
+		"shortname": "G3-1 告知",
 		"longname": "第3回ミクノポップ大賞-告知動画",
 		"author": "k-sk",
 		"length": "0:41",

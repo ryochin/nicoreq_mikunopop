@@ -371,7 +371,7 @@ settings["LimitTime"] = 1800;
 
 settings["JingleComment"] = 
 	'<font color="#000000">Å°</font>'
-	+ '{#longname} <br>'
+	+ '{#longname}<br>'
 	+ '<font color="#000000">Åü</font> '
 	+ '<font color="#acacec">{#no} '
 	+ '<font color="#999999">presented by</font> '
