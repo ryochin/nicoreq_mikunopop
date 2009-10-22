@@ -1,3 +1,47 @@
+commit 50a1d339c6757e8dc409939c861ecf4e5cb39592
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Oct 22 21:13:33 2009 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+
+commit ddcb69d8c69153591d2798f3ea9271c3bac5f6c3
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Oct 22 21:12:55 2009 +0900
+
+    tweaked settings.js.
+
+M	settings.js
+
+commit 8eb5e7c636d694cb1d1277001e44b553af8e1fcb
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Oct 22 19:04:38 2009 +0900
+
+    optimized for retreiving mylist group info at only one access.
+
+M	System/VideoInformation.js
+
+commit 81b3167cfe658bc94dcd1589679562d73cd96ce3
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Oct 22 18:59:02 2009 +0900
+
+    removed Premium detection codes.
+
+M	System/VideoInformation.js
+
+commit a3f444c9ba6385f52a3cda1a0cc1f7fe28b32536
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Oct 15 12:38:08 2009 +0900
+
+    released 1.25.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 9b94cf76793f130811f28a52ca7319066d2271ce
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Oct 15 12:04:55 2009 +0900
