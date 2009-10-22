@@ -101,29 +101,48 @@ function getMylistCacheFile () {
 function __VideoInformation__getMylistIDs_via_net(){
 	var xmlhttp = createXMLHttpRequest();
 	xmlhttp.open("GET", "http://www.nicovideo.jp/mylistgroup_edit", false);
-	xmlhttp.send();
-	var result = [];
-	// マイページからマイリストのIDと名前を抽出
-	var Options = xmlhttp.responseText.match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong>/ig);
-	if(!Options) return result;
-	for(var i=0,l=Options.length; i<l; i++){
-		Options[i].match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong>/ig);
-		var id = Number(RegExp.$1);
-		var name = RegExp.$2;
-		
-		// ブラックリストに載っている名前を弾く
-		if(Zen2Han(settings["MylistBlackList"].join(",")).indexOf(","+Zen2Han(name)+",") > -1)
-			continue;
-		
-		if(!isNaN(id)){
-			xmlhttp.open("GET","http://www.nicovideo.jp/mylist/" + id, false);
-			xmlhttp.send();
-			var Options2 = xmlhttp.responseText.match(/<h3><a class="video" href="watch\/(.+?)">(.+?)<\/a><\/h3>/ig);
-			if(!Options2||Options2.length<500) {
-				result.push('{id: ' + id + ',name: "' + name + '",flag: true}');
-			}else{
-				result.push('{id: ' + id + ',name: "' + name + '",flag: false}');
+	try{
+		xmlhttp.send();
+	}
+	catch (e) {
+		if(settings["EnforceLogin"]){
+			NicoLive.login(settings["Login_Mail"], settings["Login_Pass"]);
+			try{
+				xmlhttp.send();
 			}
+			catch(e){
+//				alert("ログインできませんでした orz");
+				return;
+			}
+		}
+		else{
+//			alert("ログインできませんでした orz");
+			return;
+		}
+	}
+	var Options = xmlhttp.responseText.match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong> - <strong .+?>([0-9]+)/ig);
+	if(!Options)
+		return;
+
+	var result = [];
+	for(var i=0,l=Options.length-1; i<l; i++){
+		Options[i].match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong> - <strong .+?>([0-9]+)/ig);
+		var id = Number(RegExp.$1);
+		var title = RegExp.$2;
+		var num = Number(RegExp.$3);
+
+		// ブラックリストに載っている名前を弾く
+		if(Zen2Han(settings["MylistBlackList"].join(",")).indexOf(","+Zen2Han(title)+",") > -1)
+			continue;
+
+		// 500 件フルに埋まっているかどうかをチェックしたいから件数も抜き出す
+		if( num < 500 ){
+			// 追加する余地がある
+			result.push('{id: ' + id + ',name: "' + title + '",flag: true}');
+		}
+		else{
+			// もういっぱいいっぱい
+			result.push('{id: ' + id + ',name: "' + title + '",flag: false}');
 		}
 	}
 	
