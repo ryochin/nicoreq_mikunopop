@@ -1,7 +1,6 @@
 SocketManager.attachEvent("receiveComment", __VideoInformation__receiveComment);
 
 var __VideoInformation__PlayLog = "";
-var __VideoInformation__Premium = false;
 var __VideoInformation__MylistIDs = __VideoInformation__getMylistIDs();
 
 
@@ -103,8 +102,6 @@ function __VideoInformation__getMylistIDs_via_net(){
 	var xmlhttp = createXMLHttpRequest();
 	xmlhttp.open("GET", "http://www.nicovideo.jp/mylistgroup_edit", false);
 	xmlhttp.send();
-	// ついでにプレミアム判定しておく
-	__VideoInformation__Premium = (xmlhttp.responseText.indexOf("プレミアム") > -1);
 	var result = [];
 	// マイページからマイリストのIDと名前を抽出
 	var Options = xmlhttp.responseText.match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong>/ig);
@@ -208,8 +205,6 @@ function __VideoInformation__receiveComment(Chat){
 				}
 				document.getElementById("VideoInformation").insertAdjacentHTML("BeforeEnd", ""+
 					" <span id=\"__VideoInformation__Twitter\"></span><br>"+
-//					(__VideoInformation__Premium?"":"<img src=\"./System/premium.gif\">") +
-//del					"<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\"><br><br>" +
 //add start
 					"<hr />" +
 					"<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\"><br>" +
