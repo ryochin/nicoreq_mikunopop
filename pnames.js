@@ -561,5 +561,8 @@ settings["exceptionPTagsVO"] = ["",
 	"ƒrƒAƒJƒŠ",
 	"MKSR",
 	"‚µ‚á‚Ÿ",
+	"”ç",
+	"takamatt",
+	"Plutonius",
 ""];
 
