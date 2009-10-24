@@ -1,3 +1,23 @@
+commit 739f4cefb3dbca1a37620c9b388bea7575053ee5
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 25 01:10:34 2009 +0900
+
+    updated jingles.json.
+
+M	jingles.json
+
+commit 016744b4d01cd9b21a046dd88596b3411a743bd6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 23 01:48:04 2009 +0900
+
+    released 1.26.1.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit dc2a638337cfa462ffefa7cc2460079af42ee9a0
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Fri Oct 23 01:32:03 2009 +0900
