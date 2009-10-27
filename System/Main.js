@@ -508,7 +508,16 @@ function saveStockList(){
 		var fs = new ActiveXObject("Scripting.FileSystemObject");
 		var stockfile = fs.GetParentFolderName(location.pathname)+"\\stock.txt";
 		if(RequestManager.RequestQueues.length==0) {
-			if(!settings["AutoSaveStock"]||fs.FileExists(stockfile)) fs.DeleteFile(stockfile,true);
+			if(!settings["AutoSaveStock"]||fs.FileExists(stockfile)){
+//				fs.DeleteFile(stockfile,true);
+				try {
+					// ファイルを空にする（なにも書き込まずにクローズ）
+					var cf = fs.CreateTextFile(stockfile);
+					cf.Close(); 
+				} catch(e) {
+					alert("ストックリストファイルの操作に失敗しました orz");
+				}
+			}
 			return;
 		}
 		var stocklist = new Array();
