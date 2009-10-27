@@ -162,3 +162,20 @@ function writelog(mode, text){
 	}
 }
 //add end
+
+// HTML アンエスケープ
+function unescapeHTML (str) {
+	return str.replace(/&amp;/g, "&")
+		.replace(/&quot;/g, '"')
+		.replace(/&gt;/g, ">")
+		.replace(/&lt;/g, "<");
+}
+
+// タグ削除（適当）
+function stripTags (str) {
+	var re1 = new RegExp(/\n/g);
+	var re2 = new RegExp(/>(.*?)</g);
+	var re3 = new RegExp(/<("[^"]*"|'[^']*'|[^'">])*>/g);
+	
+	return str.replace(re1, "").replace(re2, ">\n$1\n<").replace(re3, "");
+}
