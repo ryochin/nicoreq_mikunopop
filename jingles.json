@@ -1,6 +1,7 @@
 [null,
 	{
 		"no": "No.13",
+		"is_active": true,
 		"id": "sm8311828",
 		"shortname": "J13 Jagabongo",
 		"longname": "【ジングル】Jagabongo - tradd remix【underground】",
@@ -10,6 +11,7 @@
 	},
 	{
 		"no": "No.12",
+		"is_active": true,
 		"id": "sm8183423",
 		"shortname": "J12 Vacuons Dolls",
 		"longname": "【ジングル】ミクノポップをきかないか？【Vacuons Dolls ver.A】",
@@ -19,6 +21,7 @@
 	},
 	{
 		"no": "No.11",
+		"is_active": true,
 		"id": "sm8032058",
 		"shortname": "J11 xxxxEMPTYxxxx",
 		"longname": "【ジングル】xxxxEMPTYxxxx",
@@ -28,6 +31,7 @@
 	},
 	{
 		"no": "No.10",
+		"is_active": true,
 		"id": "sm7891336",
 		"shortname": "J10 Heart-Beat",
 		"longname": "【ジングル】ミクノポップをきかないか？ジングル【Heart-Beat】",
@@ -37,6 +41,7 @@
 	},
 	{
 		"no": "No.9",
+		"is_active": true,
 		"id": "sm8031848",
 		"shortname": "J09 Freestyle ver.N",
 		"longname": "【ジングル】ミクノポップをきかないか？【Freestyle ver.N】",
@@ -46,6 +51,7 @@
 	},
 	{
 		"no": "No.8",
+		"is_active": true,
 		"id": "sm7539326",
 		"shortname": "J08 Freestyle ver.K",
 		"longname": "【ジングル】ミクノポップをきかないか？ジングル【Freestyle ver.K】",
@@ -55,6 +61,7 @@
 	},
 	{
 		"no": "No.7",
+		"is_active": true,
 		"id": "sm7075450",
 		"shortname": "J07 円の中の世界",
 		"longname": "【ジングル】円の中の世界【EN】",
@@ -64,6 +71,7 @@
 	},
 	{
 		"no": "No.6",
+		"is_active": true,
 		"id": "sm7033805",
 		"shortname": "J06 Freestyle ver.A",
 		"longname": "【ジングル】ミクノポップをきかないか？【Freestyle ver.A】",
@@ -73,6 +81,7 @@
 	},
 	{
 		"no": "No.5",
+		"is_active": true,
 		"id": "sm7007629",
 		"shortname": "J05 音楽が降りてくる",
 		"longname": "【ジングル】音楽が降りてくる【lysosome】",
@@ -82,6 +91,7 @@
 	},
 	{
 		"no": "No.4",
+		"is_active": true,
 		"id": "sm6981084",
 		"shortname": "J04 近未来ラジオ",
 		"longname": "【ジングル】ミクノポップをきかないか？ジングル【近未来ラジオver】",
@@ -91,6 +101,7 @@
 	},
 	{
 		"no": "No.3",
+		"is_active": true,
 		"id": "sm6939234",
 		"shortname": "J03 ミクノポップクエスト",
 		"longname": "【ジングル】ミクノポップクエスト【sunlight loops】",
@@ -100,6 +111,7 @@
 	},
 	{
 		"no": "No.2",
+		"is_active": true,
 		"id": "sm6789315",
 		"shortname": "J02 近未来ラジオ (G)",
 		"longname": "【初音ミク】近未来ラジオ【ジングル用】",
@@ -109,6 +121,7 @@
 	},
 	{
 		"no": "No.1",
+		"is_active": true,
 		"id": "sm6789292",
 		"shortname": "J01 Freestyle (G)",
 		"longname": "【初音ミク】Freestyle【ジングル用】",
@@ -119,6 +132,7 @@
 	{"id": "","shortname":"------------------"},    // separater
 	{
 		"no": "イベント告知",
+		"is_active": true,
 		"id": "sm8611151",
 		"shortname": "G3-4 コトバ キモチ",
 		"longname": "【第3回ミクノポップ大賞告知】コトバ　キモチ【愛してるうぅぅぅ】",
@@ -128,6 +142,7 @@
 	},
 	{
 		"no": "イベント告知",
+		"is_active": true,
 		"id": "sm8588518",
 		"shortname": "G3-3 投票受付開始",
 		"longname": "第3回ミクノポップ大賞-投票受付開始",
@@ -137,6 +152,7 @@
 	},
 	{
 		"no": "イベント告知",
+		"is_active": true,
 		"id": "sm8569861",
 		"shortname": "G3-2 音楽が舞い降りる..",
 		"longname": "【大賞告知】音楽が舞い降りる場所【Parasite Satellite】",
@@ -144,18 +160,20 @@
 		"length": "1:05",
 		"memo": ""
 	},
-//	{
-//		"no": "イベント告知",
-//		"id": "sm8432973",
-//		"shortname": "G3-1 告知",
-//		"longname": "第3回ミクノポップ大賞-告知動画",
-//		"author": "k-sk",
-//		"length": "0:41",
-//		"memo": ""
-//	},
+	{
+		"no": "イベント告知",
+		"is_active": false,
+		"id": "sm8432973",
+		"shortname": "G3-1 告知",
+		"longname": "第3回ミクノポップ大賞-告知動画",
+		"author": "k-sk",
+		"length": "0:41",
+		"memo": ""
+	},
 	{"id": "","shortname":"------------------"},    // separater
 	{
 		"no": "放送事故",
+		"is_active": true,
 		"id": "sm8138979",
 		"shortname": "A01 32bit lovers",
 		"longname": "【ミクノポップをきかないか？】放送事故で３２ｂｉｔ　ｌｏｖｅｒｓ",

@@ -99,6 +99,11 @@
 						.attr( { value: jingle.id } )
 						.addClass('jingles');
 					
+					// active or not
+					if( jingle.is_active != true ){
+						opt.attr( { disabled: "disabled" } );
+					}
+					
 					sel.append(opt);
 					
 					// set names
