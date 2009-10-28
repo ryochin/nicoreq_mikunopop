@@ -99,6 +99,24 @@ input.control-button-down {
 	cursor: pointer;
 }
 
+/* comment tab */
+
+div#CommentHTML span.no {
+	font-weight: bold;
+	color: #aa3333;
+}
+div#CommentHTML span.date {
+	color: #3333aa;
+}
+div#CommentHTML span.id {
+	color: #999;
+}
+div#CommentHTML span.video {
+	cursor: pointer;
+	text-decoration: underline;
+	color: #3333aa;
+}
+
 /* tooltip */
 
 #tooltip {

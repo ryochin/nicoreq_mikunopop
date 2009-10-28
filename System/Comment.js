@@ -4,55 +4,37 @@ SocketManager.attachEvent("receiveComment", __Comment__receiveComment);
 
 function __Comment__receiveComment(Chat){
 	__Comment__CommentLog.push(Chat);
+	
+	// コマンド類なら無視する
+	if( Chat.text.match(/^\/(play|perm) /) )
+		return;
+	
+	// remove tags
+	var text = stripTags( unescapeHTML( Chat.text ) );
+	
+	// autolink to videos
+	var replaceText = "<span title=\"クリックで動画ページを開く\" class=\"video\" onclick=\"OpenVideo('$1');\">$1</span>";
+	if( settings["showCommentTabVideoThumbnail"] == true ){
+		replaceText += "<br /><img src=\"http://niconail.info/$1\" /><br />";
+	}
+	
+	// replace
+	text = text.replace(/((sm|nm)[0-9]{7,})/g, replaceText);
+	
 	var HTML = settings["CommentLogHTML"]
 				.replace(/{#Anonymity}/, Chat.anonymity)
-//del				.replace(/{#Date}/g,     Chat.date)
-//add start
-				.replace(/{#Date}/g,     settings["CommentLogDate"]
-											.replace("yyyy",(new Date(new Date().setTime(Chat.date*1000))).getFullYear())
-											.replace("yy",  (new Date(new Date().setTime(Chat.date*1000))).getFullYear()<2010
-												?("0"+((new Date(new Date().setTime(Chat.date*1000))).getFullYear()-2000))
-												:(new Date(new Date().setTime(Chat.date*1000))).getFullYear()-2000
-											)
-											.replace("mm",  (new Date(new Date().setTime(Chat.date*1000))).getMonth()<9
-												?("0"+((new Date(new Date().setTime(Chat.date*1000))).getMonth()+1))
-												:(new Date(new Date().setTime(Chat.date*1000))).getMonth()+1
-											)
-											.replace("dd",  (new Date(new Date().setTime(Chat.date*1000))).getDate()<10
-												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getDate())
-												:(new Date(new Date().setTime(Chat.date*1000))).getDate()
-											)
-											.replace("dy",  ["日", "月", "火", "水", "木", "金", "土"][(new Date(new Date().setTime(Chat.date*1000))).getDay()])
-											.replace("hh",  (new Date(new Date().setTime(Chat.date*1000))).getHours()<10
-												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getHours())
-												:(new Date(new Date().setTime(Chat.date*1000))).getHours()
-											)
-											.replace("nn",  (new Date(new Date().setTime(Chat.date*1000))).getMinutes()<10
-												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getMinutes())
-												:(new Date(new Date().setTime(Chat.date*1000))).getMinutes()
-											)
-											.replace("ss",  (new Date(new Date().setTime(Chat.date*1000))).getSeconds()<10
-												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getSeconds())
-												:(new Date(new Date().setTime(Chat.date*1000))).getSeconds())
-											)
+				.replace(/{#Date}/g,     getCommentLogDate( Chat, settings["CommentLogDate"] ) )
 				.replace(/{#Mail}/g,     function(){if(Chat.mail!=undefined)return Chat.mail})
-//add end
-//del				.replace(/{#Mail}/g,     Chat.mail)
 				.replace(/{#No}/g,       Chat.no)
 				.replace(/{#Thread}/g,   Chat.thread)
-//del				.replace(/{#ID}/g,       "<span onclick=\"__Comment__showPopup(event.clientX, event.clientY, '"+Chat.user_id+"')\">" + Chat.user_id + "</span>")
-//add start
-				.replace(/{#ID}/g,       "<span onclick=\"__Comment__showPopup(event.clientX, event.clientY, '"+Chat.user_id+"')\" oncontextmenu=\"setSelectedUseridToDummyAdmin('" + Chat.user_id + "')\">" + Chat.user_id + "</span>")
-//add end
+//				.replace(/{#ID}/g,       "<span onclick=\"__Comment__showPopup(event.clientX, event.clientY, '"+Chat.user_id+"')\" oncontextmenu=\"setSelectedUseridToDummyAdmin('" + Chat.user_id + "')\">" + Chat.user_id + "</span>")
+				.replace(/{#ID}/g,       "<span title=\"右クリックで副管理者欄にIDコピー\" oncontextmenu=\"setSelectedUseridToDummyAdmin('" + Chat.user_id + "')\">" + Chat.user_id + "</span>")
 				.replace(/{#Vpos}/g,     Chat.vpos)
-//del 				.replace(/{#Text}/g,     Chat.text)
-//add start
-				.replace(/{#Text}/g,     Chat.text.replace(/\n/g,"<br>").replace(/&lt;/g,"＜").replace(/&gt;/g,"＞"))
-//add end
-	;
+				.replace(/{#Text}/g,     text);
+	
+	// set
 	document.getElementById("CommentHTML").insertAdjacentHTML("AfterBegin", HTML);
 }
-
 
 // 情報ポップアップ
 var __Comment__Popup = window.createPopup();
@@ -64,46 +46,24 @@ function __Comment__showPopup(x, y, UserID){
 	body.style.backgroundColor = "ThreeDFace";
 	body.style.color = "WindowText";
 	body.innerHTML = "";
+
 	for(var i=0,l=__Comment__CommentLog.length; i<l; i++){
 		var Chat = __Comment__CommentLog[i];
 		if(Chat.user_id==UserID){
+			// remove tags
+			var text = stripTags( unescapeHTML( Chat.text ) );
+			
 			var HTML = settings["CommentLogHTML"]
 				.replace(/{#Anonymity}/, Chat.anonymity)
-//del				.replace(/{#Date}/g,     Chat.date)
-//add start
-				.replace(/{#Date}/g,     settings["CommentLogDate"]
-											.replace("yyyy",(new Date(new Date().setTime(Chat.date*1000))).getFullYear())
-											.replace("yy",  (new Date(new Date().setTime(Chat.date*1000))).getFullYear()<2010
-												?("0"+((new Date(new Date().setTime(Chat.date*1000))).getFullYear()-2000))
-												:(new Date(new Date().setTime(Chat.date*1000))).getFullYear()-2000)
-											.replace("mm",  (new Date(new Date().setTime(Chat.date*1000))).getMonth()<9
-												?("0"+((new Date(new Date().setTime(Chat.date*1000))).getMonth()+1))
-												:(new Date(new Date().setTime(Chat.date*1000))).getMonth()+1)
-											.replace("dd",  (new Date(new Date().setTime(Chat.date*1000))).getDate()<10
-												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getDate())
-												:(new Date(new Date().setTime(Chat.date*1000))).getDate())
-											.replace("dy",  ["日", "月", "火", "水", "木", "金", "土"][(new Date(new Date().setTime(Chat.date*1000))).getDay()])
-											.replace("hh",  (new Date(new Date().setTime(Chat.date*1000))).getHours()<10
-												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getHours())
-												:(new Date(new Date().setTime(Chat.date*1000))).getHours())
-											.replace("nn",  (new Date(new Date().setTime(Chat.date*1000))).getMinutes()<10
-												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getMinutes())
-												:(new Date(new Date().setTime(Chat.date*1000))).getMinutes())
-											.replace("ss",  (new Date(new Date().setTime(Chat.date*1000))).getSeconds()<10
-												?("0"+(new Date(new Date().setTime(Chat.date*1000))).getSeconds())
-												:(new Date(new Date().setTime(Chat.date*1000))).getSeconds()))
+				.replace(/{#Date}/g,     getCommentLogDate( Chat, settings["CommentLogDate"] ) )
 				.replace(/{#Mail}/g,     function(){if(Chat.mail!=undefined)return Chat.mail})
-//add end
-//del				.replace(/{#Mail}/g,     Chat.mail)
 				.replace(/{#No}/g,       Chat.no)
 				.replace(/{#Thread}/g,   Chat.thread)
 				.replace(/{#ID}/g,       Chat.user_id)
 				.replace(/{#Vpos}/g,     Chat.vpos)
-//del 				.replace(/{#Text}/g,     Chat.text)
-//add start
-				.replace(/{#Text}/g,     Chat.text.replace(/\n/g,"<br>").replace(/&lt;/g,"＜").replace(/&gt;/g,"＞"))
-			;
-//add end
+				.replace(/{#Text}/g,     text);
+			
+			// set
 			body.insertAdjacentHTML("AfterBegin", HTML);
 		}
 	}
@@ -120,4 +80,28 @@ function findNotoID(findNo){
 	}
 
 	return "";
+}
+
+function getCommentLogDate (Chat, str) {
+	return str
+		.replace("yyyy",(new Date(new Date().setTime(Chat.date*1000))).getFullYear())
+		.replace("yy",  (new Date(new Date().setTime(Chat.date*1000))).getFullYear()<2010
+			?("0"+((new Date(new Date().setTime(Chat.date*1000))).getFullYear()-2000))
+			:(new Date(new Date().setTime(Chat.date*1000))).getFullYear()-2000)
+		.replace("mm",  (new Date(new Date().setTime(Chat.date*1000))).getMonth()<9
+			?("0"+((new Date(new Date().setTime(Chat.date*1000))).getMonth()+1))
+			:(new Date(new Date().setTime(Chat.date*1000))).getMonth()+1)
+		.replace("dd",  (new Date(new Date().setTime(Chat.date*1000))).getDate()<10
+			?("0"+(new Date(new Date().setTime(Chat.date*1000))).getDate())
+			:(new Date(new Date().setTime(Chat.date*1000))).getDate())
+		.replace("dy",  ["日", "月", "火", "水", "木", "金", "土"][(new Date(new Date().setTime(Chat.date*1000))).getDay()])
+		.replace("hh",  (new Date(new Date().setTime(Chat.date*1000))).getHours()<10
+			?("0"+(new Date(new Date().setTime(Chat.date*1000))).getHours())
+			:(new Date(new Date().setTime(Chat.date*1000))).getHours())
+		.replace("nn",  (new Date(new Date().setTime(Chat.date*1000))).getMinutes()<10
+			?("0"+(new Date(new Date().setTime(Chat.date*1000))).getMinutes())
+			:(new Date(new Date().setTime(Chat.date*1000))).getMinutes())
+		.replace("ss",  (new Date(new Date().setTime(Chat.date*1000))).getSeconds()<10
+			?("0"+(new Date(new Date().setTime(Chat.date*1000))).getSeconds())
+			:(new Date(new Date().setTime(Chat.date*1000))).getSeconds());
 }

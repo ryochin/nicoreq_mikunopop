@@ -237,9 +237,14 @@ settings["PlayLog"] = "{#ID}　{#Title}";
 // より細かいカスタマイズをしたい場合はComment.jsを書き換えてください
 //del settings["CommentLogHTML"] = "<b>{#No}</b> :{#Text}<br>[{#ID}]<hr>";
 //add start
-settings["CommentLogHTML"] = "<b>{#No}</b> ({#Date})<br>[{#Mail}]{#Text}<br>[{#ID}]<hr>";
-settings["CommentLogDate"] = "yyyy年mm月dd日　dy曜日　hh時nn分ss秒";
+settings["CommentLogHTML"] = '<span class="no">{#No}</span> <span class="date">{#Date}</span> &nbsp; <span class="id">by {#ID} [{#Mail}]</span><br>'
+							+ '{#Text}<hr>';
+//settings["CommentLogDate"] = "yyyy年mm月dd日　dy曜日　hh時nn分ss秒";
+settings["CommentLogDate"] = "hh:nn:ss";
 //add end
+
+// コメントタブにサムネイル画像を表示するかどうか
+settings["showCommentTabVideoThumbnail"] = true;
 
 // =====================================================================================================================
 // 自動再生時のラグ対策用時間
