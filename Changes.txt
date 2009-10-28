@@ -1,3 +1,73 @@
+commit 96a9e24b6e46c4a08419211a59a7c658f6493702
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Oct 28 21:06:03 2009 +0900
+
+    updated pnames.js and tags.js.
+
+M	pnames.js
+M	tags.js
+
+commit ea897f7dd5a000fe3e5d99eb7ee22c0c530295d4
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Oct 28 20:18:36 2009 +0900
+
+    changed time-left criteria from 10 min to 5 min.
+
+M	System/Main.js
+
+commit 2babb0e020515497aa399c7133ddbdecbcdb40b6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Oct 28 18:32:29 2009 +0900
+
+    reorganized & enhanced the comment tab.
+    
+    added a feature to strip html tags included of the comment text.
+    added autolink feature for video ids.
+    added an switch to show video thumbnail images.
+    removed information popup window feature which was launched by clicking user ids.
+    updated color & design etc.
+
+M	System/Comment.js
+M	System/base.css
+M	settings.js
+
+commit 2574831b1588d8e9c33074a127a0aa3281d68d1d
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Oct 27 22:38:51 2009 +0900
+
+    added 2 basic functions to Utils.js.
+
+M	System/Utils.js
+
+commit 5a7170e51bf71f07419dac99fea1d4dcbabf056e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Oct 27 21:04:55 2009 +0900
+
+    added 'is_active' flag to jingle list.
+
+M	NicoRequest.hta
+M	jingles.json
+
+commit 2041d4fa922f89d8f238094a7eb9a804f7ea558e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Oct 27 20:55:45 2009 +0900
+
+    changed treatment for empty stock.txt, is now not removed at app shutdown.
+
+M	System/Main.js
+
+commit 076e59b000bc083d7e95be65cd245235379ba794
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 25 17:07:02 2009 +0900
+
+    released 1.26.3.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 3c1094665131241e8d4f986de315a6f3b67c5015
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Sun Oct 25 16:50:41 2009 +0900
