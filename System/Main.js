@@ -329,7 +329,7 @@ function getTimeLeft(){
 	//ただし、サマータイムが導入されてる場合にはさらに補正が必要
 	var timeLeft = settings["LimitTime"] - (0-(SocketManager.playerStatus.baseTime-9*60*60)+(new Date().getTime()/1000 + new Date().getTimezoneOffset()*60));
 //add end
-	if(timeLeft<600){
+	if(timeLeft < 60 * 5){
 		tagF="<font color=red>";
 		tagT="</font>";
 	}
