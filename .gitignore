@@ -1,4 +1,7 @@
-stock.txt
+.bashrc
+count.json
+System/caches/
+stock*.txt
 playlog.txt
 watchlog.txt
 playlists/
