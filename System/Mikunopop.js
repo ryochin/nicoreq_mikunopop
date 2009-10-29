@@ -2,13 +2,23 @@
 // ref: http://d.hatena.ne.jp/nacookan/20080221/
 
 var version = '1.27';    // ME version
-var countFile = '\\count.json';    // relative path to NicoRequest.hta
+var countFile = '\\System\\caches\\count.json';    // relative path to NicoRequest.hta
 var countFileURL = 'http://mikunopop.info/play/count.json?' + version;    // make sure ct is test/javascript
 var cacheTime = 6 * 60 * 60;    // sec - please set it at least every 1 hr
 var MikunopopCount = new Object();    // as a hash container
 
+// check main or not
+var isMain = 1;
+$('script').each( function () {
+	if( $(this).attr('src').match(/Mikunopop\.js\?(.+)/) ){
+		if( RegExp.$1 == 'sub' ){
+			isMain = 0;
+		}
+	}
+} );
+
 // main
-if( settings["GetMikunopopCount"] == 1 ){
+if( isMain && settings["GetMikunopopCount"] == 1 ){
 	// get via net
 	if( checkMikunopopCountFileDateLastModified() ){
 		retrieveMikunopopCountFile();
