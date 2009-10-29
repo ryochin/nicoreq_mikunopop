@@ -179,3 +179,8 @@ function stripTags (str) {
 	
 	return str.replace(re1, "").replace(re2, ">\n$1\n<").replace(re3, "");
 }
+
+// ƒ‰ƒ“ƒ_ƒ€‚ÈŽ©‘R”‚ð“¾‚é
+function getNaturalRandomInt(n) {
+	return Math.floor( Math.random() * n + 1 );
+}

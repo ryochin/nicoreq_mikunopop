@@ -150,7 +150,7 @@ RequestManager.prototype = {
 		}
 		else if( settings["ShowThumbnailType"] == 2 ){
 			// thumbnail
-			var thumb_url = "<img src=\"http://tn-skr4.smilevideo.jp/smile?i="
+			var thumb_url = "<img src=\"http://tn-skr" + getNaturalRandomInt(4) + ".smilevideo.jp/smile?i="
 				+ idno + "\" width=65 height=50 title=\"" + thumb_title + "\" align=left class=\"thumb\""
 				+ " onclick=\"OpenVideo('" + R.id + "')\""
 				+ " oncontextmenu=\"" + oncontextmenu + "\" />";
