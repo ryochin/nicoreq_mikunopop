@@ -100,7 +100,7 @@ function getMylistCacheFile () {
 
 function __VideoInformation__getMylistIDs_via_net(){
 	var xmlhttp = createXMLHttpRequest();
-	xmlhttp.open("GET", "http://www.nicovideo.jp/mylistgroup_edit", false);
+	xmlhttp.open("GET", "http://www.nicovideo.jp/my/mylist", false);
 	try{
 		xmlhttp.send();
 	}
@@ -120,20 +120,25 @@ function __VideoInformation__getMylistIDs_via_net(){
 			return;
 		}
 	}
-	var Options = xmlhttp.responseText.match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong> - <strong .+?>([0-9]+)/ig);
-	if(!Options)
+
+	// extract
+	var json = extractObjectByPreloadSection( xmlhttp.responseText );
+	
+	// check
+	if( ! json ){
 		return;
+	}
 
 	var result = [];
-	for(var i=0,l=Options.length-1; i<l; i++){
-		Options[i].match(/ href="mylist\/(.+?)">(.+?)<\/a><\/strong> - <strong .+?>([0-9]+)/ig);
-		var id = Number(RegExp.$1);
-		var title = RegExp.$2;
-		var num = Number(RegExp.$3);
+	$.each( json, function () {
+
+		var id = this.id;
+		var title = this.name;
+		var num = 0;    // 現在は取得できない
 
 		// ブラックリストに載っている名前を弾く
 		if(Zen2Han(settings["MylistBlackList"].join(",")).indexOf(","+Zen2Han(title)+",") > -1)
-			continue;
+			return;
 
 		// 500 件フルに埋まっているかどうかをチェックしたいから件数も抜き出す
 		if( num < 500 ){
@@ -144,7 +149,7 @@ function __VideoInformation__getMylistIDs_via_net(){
 			// もういっぱいいっぱい
 			result.push('{id: ' + id + ',name: "' + title + '",flag: false}');
 		}
-	}
+	} );
 	
 	// to json
 	var json = "[\n\t";
