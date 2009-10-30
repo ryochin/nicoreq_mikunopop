@@ -130,47 +130,47 @@
 		"memo": ""
 	},
 	{"id": "","shortname":"------------------"},    // separater
-	{
-		"no": "イベント告知",
-		"is_active": true,
-		"id": "sm8611151",
-		"shortname": "G3-4 コトバ キモチ",
-		"longname": "【第3回ミクノポップ大賞告知】コトバ　キモチ【愛してるうぅぅぅ】",
-		"author": "きぬこもち",
-		"length": "1:23",
-		"memo": ""
-	},
-	{
-		"no": "イベント告知",
-		"is_active": true,
-		"id": "sm8588518",
-		"shortname": "G3-3 投票受付開始",
-		"longname": "第3回ミクノポップ大賞-投票受付開始",
-		"author": "k-sk",
-		"length": "0:41",
-		"memo": ""
-	},
-	{
-		"no": "イベント告知",
-		"is_active": true,
-		"id": "sm8569861",
-		"shortname": "G3-2 音楽が舞い降りる..",
-		"longname": "【大賞告知】音楽が舞い降りる場所【Parasite Satellite】",
-		"author": "きぬこもち",
-		"length": "1:05",
-		"memo": ""
-	},
-	{
-		"no": "イベント告知",
-		"is_active": false,
-		"id": "sm8432973",
-		"shortname": "G3-1 告知",
-		"longname": "第3回ミクノポップ大賞-告知動画",
-		"author": "k-sk",
-		"length": "0:41",
-		"memo": ""
-	},
-	{"id": "","shortname":"------------------"},    // separater
+//	{
+//		"no": "イベント告知",
+//		"is_active": true,
+//		"id": "sm8611151",
+//		"shortname": "G3-4 コトバ キモチ",
+//		"longname": "【第3回ミクノポップ大賞告知】コトバ　キモチ【愛してるうぅぅぅ】",
+//		"author": "きぬこもち",
+//		"length": "1:23",
+//		"memo": ""
+//	},
+//	{
+//		"no": "イベント告知",
+//		"is_active": true,
+//		"id": "sm8588518",
+//		"shortname": "G3-3 投票受付開始",
+//		"longname": "第3回ミクノポップ大賞-投票受付開始",
+//		"author": "k-sk",
+//		"length": "0:41",
+//		"memo": ""
+//	},
+//	{
+//		"no": "イベント告知",
+//		"is_active": true,
+//		"id": "sm8569861",
+//		"shortname": "G3-2 音楽が舞い降りる..",
+//		"longname": "【大賞告知】音楽が舞い降りる場所【Parasite Satellite】",
+//		"author": "きぬこもち",
+//		"length": "1:05",
+//		"memo": ""
+//	},
+//	{
+//		"no": "イベント告知",
+//		"is_active": false,
+//		"id": "sm8432973",
+//		"shortname": "G3-1 告知",
+//		"longname": "第3回ミクノポップ大賞-告知動画",
+//		"author": "k-sk",
+//		"length": "0:41",
+//		"memo": ""
+//	},
+//	{"id": "","shortname":"------------------"},    // separater
 	{
 		"no": "放送事故",
 		"is_active": true,
