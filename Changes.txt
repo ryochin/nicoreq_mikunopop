@@ -1,3 +1,31 @@
+commit bdf70d73814b38e22250816d0195c3c8e7b585a3
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Oct 31 00:27:19 2009 +0900
+
+    fixed a problem around retrieving mylist.json according to niconico-9 upgrade.
+
+M	System/VideoInformation.js
+
+commit b2dac077a8f572d6830ddf9bee2209871b5dc087
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Oct 31 00:24:48 2009 +0900
+
+    updated jingles.json.
+
+M	jingles.json
+
+commit 0187d43c804254563e7e9b3bac3bcaeb5c0ee867
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 30 23:49:52 2009 +0900
+
+    released 1.28.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit b800511a98807439054fccaca2f92ed4318fc4a2
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Fri Oct 30 23:27:48 2009 +0900
