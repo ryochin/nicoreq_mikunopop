@@ -1,3 +1,68 @@
+commit b800511a98807439054fccaca2f92ed4318fc4a2
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 30 23:27:48 2009 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+
+commit 0281a49d287617f3d980828699f5194956222a32
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 30 23:24:59 2009 +0900
+
+    fixed & refactored 'find-by-mylist' feature in find.hta according to niconico-9 upgrade.
+
+M	System/Utils.js
+M	System/find.hta
+
+commit 7b2167685f9fbc76e4ebf260f8c8838cae8a3f66
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 30 23:10:33 2009 +0900
+
+    re-fixed a problem around count.json.
+
+M	System/Mikunopop.js
+
+commit e96662f4ae7d5e6788f70488e56048b435f6c303
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 30 03:47:31 2009 +0900
+
+    fixed a problem that find.hta retreived & saved extra (meaningless) count.json under System dir.
+    
+    moved count.json file to System/caches/.
+
+M	System/Mikunopop.js
+M	System/find.hta
+
+commit 1ec4ad059ec7718c321a0c15adf8782050615601
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 30 03:25:24 2009 +0900
+
+    added a tiny optimization for image fetch urls.
+
+M	System/RequestManager.js
+M	System/Utils.js
+
+commit bfaa8ec0652f113c12be154f1129e122b8fb2f75
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 30 03:24:36 2009 +0900
+
+    updated .gitignore.
+
+M	.gitignore
+
+commit 676a1170938d5f285e12a3fbc0b6b175c06ff356
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Oct 28 21:22:52 2009 +0900
+
+    released 1.27.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 96a9e24b6e46c4a08419211a59a7c658f6493702
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Wed Oct 28 21:06:03 2009 +0900
