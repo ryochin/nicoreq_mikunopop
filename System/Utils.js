@@ -184,3 +184,15 @@ function stripTags (str) {
 function getNaturalRandomInt(n) {
 	return Math.floor( Math.random() * n + 1 );
 }
+
+// json ÇíäèoÇ∑ÇÈ
+function extractObjectByPreloadSection (str) {
+	// MylistGroup.preload([{"id":"1500001","user_id":"12345","name":"Vocaloid_200910","description":"","public":"1","default_sort":"6","create_time":1254342736,"update_time":1256742236,"sort_order":"26","icon_id":"0"}, ... ]);
+	// Mylist.preload(15008271, [{"ite
+	if( str.match(/\.preload\(([0-9]+, *)*(\[.+?\])\)/) ){
+		if( RegExp.$2 != null ){
+			return eval( RegExp.$2 );
+		}
+	}
+	return;
+}
