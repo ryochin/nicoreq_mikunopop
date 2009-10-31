@@ -239,6 +239,7 @@ function __VideoInformation__receiveComment(Chat){
 				// 現在流れている曲のサムネイルと情報をセット
 				var info = [];
 				info.push(" <span id=\"__VideoInformation__Twitter\"></span><br>");
+				info.push("<div id=\"addMylistResult\"></div>");
 				info.push("<hr />");
 				info.push("<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\">");
 
@@ -258,8 +259,6 @@ function __VideoInformation__receiveComment(Chat){
 				} );
 				info.push("</fieldset></div>");
 
-				info.push("<div id=\"addMylistResult\"></div>");
-
 				document.getElementById("VideoInformation").insertAdjacentHTML("BeforeEnd", info.join("") );
 
 				if(settings["Twitter"]) __VideoInformation__addTwitter(document.getElementById("__VideoInformation__Twitter"), VideoID, title);
@@ -274,53 +273,113 @@ function __VideoInformation__receiveComment(Chat){
 	}
 }
 
-function __VideoInformation__addMylist(VideoID){
-	var mylistID = document.getElementById("__VideoInformation__Mylist").value;
-	var xmlhttp = createXMLHttpRequest();
-	xmlhttp.open("GET", "http://www.nicovideo.jp/watch/"+VideoID, false);
-	xmlhttp.send();
-	xmlhttp.responseText.match(/"csrf_token" value="(.+?)"/ig);
-	var csrf_token = RegExp.$1;
-	xmlhttp.open("POST", "http://www.nicovideo.jp/watch/"+VideoID, false);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	var postData = "";
-	var data = {
-		"mylist": "add",
-		"mylistgroup_name": "",
-		"csrf_token": csrf_token,
-		"group_id": mylistID,
-		"ajax": "1"
-	};
-	for(name in data){
-		postData += name+"="+encodeURIComponent(data[name])+"&";
-	}
-	postData = postData.substring(0, postData.length-1);// 最後の&を消す
-	xmlhttp.send(postData);
-	try{
-		var result = eval(xmlhttp.responseText);
-		var addMylistSel = document.getElementById("__VideoInformation__Mylist");
-		var addMylistI = addMylistSel.selectedIndex;
-		if(result && result.result=="success"){
-			document.getElementById("addMylistResult").innerHTML += VideoID + "をマイリスト「" + addMylistSel.options[addMylistI].text + "」に登録しました";
-//add start
-			if(document.getElementById("checkMylistResult").innerHTML.match('はどのマイリストにも登録されていません。')){
-				document.getElementById("checkMylistResult").innerHTML = VideoID+'はマイリスト「'+addMylistSel.options[addMylistI].text+'」に登録されています。<br>';
-			}else{
-				document.getElementById("checkMylistResult").innerHTML += VideoID+'はマイリスト「'+addMylistSel.options[addMylistI].text+'」に登録されています。<br>';
-			}
-//add end
-		}else if(result.result=="duperror"){
-			document.getElementById("addMylistResult").innerHTML += VideoID + "は既にマイリスト「" + addMylistSel.options[addMylistI].text + "」に登録されています。";
-//add start
-		}else if(result.result=="maxerror"){
-			alert("マイリスト「" + addMylistSel.options[addMylistI].text + "」はすでに満杯なので追加できません。\n他のマイリストを指定してください。");
-//add end
-		}else{
-			alert("想定外のエラー:"+result.result);
+// override for abs uri
+NicoAPI.Mylist.add = function (group_id, item_type, item_id, description) {
+	return NicoAPI.mylist_add_call(
+		"http://www.nicovideo.jp/api/mylist/add",
+		{ "group_id": group_id,
+		  "item_type": item_type,
+		  "item_id": item_id,
+		  "description": description });
+};
+// copied & optimized from nico api js
+function query(obj) {
+	if (typeof obj == "object") {
+		var params = [];
+		for (var key in obj) {
+			key = encodeURIComponent(key);
+			query.encode(params, key, obj[key]);
 		}
-	}catch(e){
-		alert("想定外のエラー:"+e.description);
+		return params.join("&");
+	} else if (typeof obj == "string") {
+		return obj;
+	} else {
+		throw new TypeError("non-Object passed to query()");
 	}
+}
+query.encode = function (params, key, obj) {
+	if (jQuery.isArray(obj)) {
+		jQuery.each(obj, function (i, value) {
+			query.encode(params, key + "[]", value);
+		});
+	} else if (typeof obj == "object") {
+		for (var k in obj) {
+			if (obj[k] !== undefined) {
+				k = encodeURIComponent(k);
+				query.encode(params, key + "[" + k + "]", obj[k]);
+			}
+		}
+	} else if (obj === true) {
+		params.push(key + "=1");
+	} else if (obj === false) {
+		params.push(key + "=0");
+	} else if (obj === null) {
+		params.push(key + "=");
+	} else if (obj !== undefined) {
+		params.push(key + "=" + encodeURIComponent(obj));
+	}
+}
+NicoAPI.mylist_add_call = function (path, params, options) {
+	params = params || {};
+	options = jQuery.extend(this.defaultOptions, options || {});
+
+	if (this.token)
+		params.token = this.token;
+
+	if (options.global && !NicoAPI.active++)
+		jQuery.event.trigger("nicoApiStart");
+
+	jQuery.ajax({
+		type: "POST",
+		url: path,
+		data: query(params),
+		dataType: "json",
+		success: function (data, status) {
+			if( data.status == NicoAPI.Status.SUCCESS ){
+				// 成功
+				alerter("指定されたマイリストに登録しました" );
+			}
+			else{
+				// エラー
+				alerter( data.error.description );
+			}
+		},
+		error: function (_, status, e) {
+			alerter("マイリストの登録時にエラーが発生しました");
+		}
+	});
+};
+
+function alerter (str) {
+	$('#addMylistResult').html( str );
+}
+
+function __VideoInformation__addMylist(VideoID){
+	// 動画番号からシステム側の ID を得る必要がある sm8311828 -> 1253666960
+	var xmlhttp = createXMLHttpRequest();
+	xmlhttp.open("GET", "http://www.nicovideo.jp/mylist_add/video/" + VideoID, false);
+	xmlhttp.send();
+	xmlhttp.responseText.match(/name="item_id" value="([0-9]{10,})">/i);    // hidden field
+	if( ! RegExp.$1 ){
+		alerter("登録できませんでした。ログインは済んでいますか？");
+	}
+	var realVideoId = RegExp.$1;
+	
+	// token を得る
+	// NicoAPI.token = "4630161-1256991501-0bdb968a....";
+	xmlhttp.responseText.match(/NicoAPI.token = "(.+?)">/i);
+	if( ! RegExp.$1 ){
+		alerter("登録できませんでした。ログインは済んでいますか？");
+	}
+	NicoAPI.token = RegExp.$1;    // like a black magic.. hehe
+	
+	// http://www.nicovideo.jp/mylist_add/video/sm8311828
+	var mylistID = $('#__VideoInformation__Mylist').val();
+	var addMylistSel = document.getElementById("__VideoInformation__Mylist");
+	var addMylistI = addMylistSel.selectedIndex;
+	
+//	NicoAPI.Mylist.add(group_id, item_type, item_id, description);
+	NicoAPI.Mylist.add(mylistID, "0", realVideoId, "");
 }
 
 // またニコニコ動画みてるグリースモンキーを流用
