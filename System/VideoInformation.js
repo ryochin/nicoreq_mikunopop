@@ -201,15 +201,21 @@ function __VideoInformation__receiveComment(Chat){
 							var xmlhttp = createXMLHttpRequest();
 							xmlhttp.open("GET","http://www.nicovideo.jp/mylist/"+__VideoInformation__MylistIDs[i].id,false);
 							xmlhttp.send();
-							var result = new Array();
-							result = xmlhttp.responseText.match(/<h3><a class="video" href="watch\/([^\"]+?)">([^<]+?)<\/a><\/h3>/ig);
-							if(result) for(j=0;j<result.length;j++){
-								result[j].match(/<h3><a class="video" href="watch\/([^\"]+?)">([^<]+?)<\/a><\/h3>/ig);
-								if(RegExp.$1==VideoID){
-									document.getElementById("checkMylistResult").innerHTML += VideoID+'はマイリスト「'+__VideoInformation__MylistIDs[i].name+'」に登録されています。<br>';
-									AllreadyExist = true;
-								}
-							}
+							
+							// extract
+							var json = extractObjectByPreloadSection( xmlhttp.responseText );
+							if( ! json )
+								continue;
+							
+							// check
+							$.each( json, function () {
+								if( this.item_data.video_id != VideoID )
+									return;
+								
+								$('#checkMylistResult').html( $('#checkMylistResult').html()
+									+ VideoID + ' はマイリスト「<span class="mylist-name">'+__VideoInformation__MylistIDs[i].name+'</span>」に登録されています。<br>' );
+								AllreadyExist = true;
+							} );
 						}
 						if(!(settings["CheckPlayedVideoIdIsAdd2Mylists"] && __VideoInformation__MylistIDs[i].flag==false)){
 //add end
