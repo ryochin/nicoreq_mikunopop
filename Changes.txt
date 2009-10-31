@@ -1,3 +1,60 @@
+commit 23c58c39bd1500d343ff3934df675dfc5ad920b2
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Nov 1 04:00:35 2009 +0900
+
+    refactored dummy-admin tab for simplification, design and usability improvement.
+
+M	NicoRequest.hta
+M	System/DummyAdmin.js
+M	System/Main.js
+
+commit f48969cc3570fb28a82357e1c665c542a6f9849e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Nov 1 03:57:57 2009 +0900
+
+    moved app icon to System/assets/.
+
+M	NicoRequest.hta
+D	System/Nico.ico
+A	System/assets/app.ico
+
+commit 775193c4b441ddb1344c66924f1b221a1012b743
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Oct 31 23:25:39 2009 +0900
+
+    fixed a problem that adding a 'now playing' video to any arbitrary mylists didn't work on video info tab according to niconico-9 upgrade.
+
+M	NicoRequest.hta
+M	System/VideoInformation.js
+
+commit f834236aa7d700d2389d82d8afff0c514379c495
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Oct 31 20:12:29 2009 +0900
+
+    refactored & enhanced video info tab.
+    
+    added tag list.
+    updated design etc.
+
+M	System/VideoInformation.js
+M	System/base.css
+
+commit a97c9441387a3ee3cf799bdc6f845714677b8ce6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Oct 31 20:10:37 2009 +0900
+
+    fixed a problem that mylist couldn't be loaded properly on video info tab according to niconico-9 upgrade.
+
+M	System/VideoInformation.js
+
+commit abd794e763f4fd79b7a2b5d9bd98a7e9c7f4aabc
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Oct 31 00:36:08 2009 +0900
+
+    re-release 1.28.
+
+M	Changes.txt
+
 commit bdf70d73814b38e22250816d0195c3c8e7b585a3
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Sat Oct 31 00:27:19 2009 +0900
