@@ -162,17 +162,14 @@ function __VideoInformation__receiveComment(Chat){
 	var sms  = Chat.text.match(/(sm|nm)\d+/g);
 	if(sms && /^\/(play|playsound|swapandplay) smile:/.test(Chat.text)){
 		var VideoID = sms[0];
-//del		// ログに追記
-//del		__VideoInformation__PlayLog += VideoID + "\n";
 		document.getElementById("VideoInformation").innerHTML = "";
 		NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + VideoID, 'video', function(xmldom){
 			if(!xmldom || xmldom.getElementsByTagName("error").length){
-//add start
 				__VideoInformation__PlayLog += VideoID + "\n";
 				if(settings["SaveLogTiming"]=="AtPlay") writelog("watch",VideoID);
-//add end
 				return false;
-			}else{
+			}
+			else{
 				// 動画情報を取得してみる
 				var title = xmldom.getElementsByTagName("title")[0].text;
 				var description = xmldom.getElementsByTagName("description")[0].text;
@@ -181,21 +178,25 @@ function __VideoInformation__receiveComment(Chat){
 				var view_counter = xmldom.getElementsByTagName("view_counter")[0].text;
 				var comment_num = xmldom.getElementsByTagName("comment_num")[0].text;
 				var mylist_counter = xmldom.getElementsByTagName("mylist_counter")[0].text;
-
+				var xmltags = xmldom.getElementsByTagName("tags")[0].getElementsByTagName("tag");
+				var tags = [];
+				for(var i=0,l=xmltags.length; i<l; i++){
+					var locked = 0;
+					if(xmltags[i].getAttributeNode("lock")&&xmltags[i].getAttributeNode("lock").value=="1"){
+						locked = true;
+					}
+					tags.push( { name: xmltags[i].text, locked: locked } );
+				}
+				
 				// HTMLの構築
 				// IEはselectをinnerHTMLで追加できないバグがあるので非常に泥臭い処理をする
 				if(settings["UseIE"]){
-//del					document.getElementById("VideoInformation").innerHTML = VideoID + "をマイリスト ";
-//add start
-					document.getElementById("VideoInformation").innerHTML += "<span id=\"checkMylistResult\"></span>" + VideoID + "をマイリスト ";
-//add end
+					document.getElementById("VideoInformation").innerHTML
+						+= "<span id=\"checkMylistResult\"></span>" + VideoID + " をマイリスト ";
 					var sel = document.createElement("select");
 					sel.setAttribute("id", "__VideoInformation__Mylist");
-//add start
 					var AllreadyExist = false;
-//add end
 					for(var i=0,l=__VideoInformation__MylistIDs.length; i<l; i++){
-//add start
 						if(settings["CheckPlayedVideoIdIsAdd2Mylists"]){
 							// マイリスに登録されてるかどうか調査
 							var xmlhttp = createXMLHttpRequest();
@@ -217,39 +218,57 @@ function __VideoInformation__receiveComment(Chat){
 								AllreadyExist = true;
 							} );
 						}
+						
+						// マイリストのプルダウンを作る
 						if(!(settings["CheckPlayedVideoIdIsAdd2Mylists"] && __VideoInformation__MylistIDs[i].flag==false)){
-//add end
-						var opt = document.createElement("option");
-						opt.appendChild(document.createTextNode(__VideoInformation__MylistIDs[i].name));
-						opt.setAttribute("value", __VideoInformation__MylistIDs[i].id);
-						sel.appendChild(opt);
-//add start
+							var opt = document.createElement("option");
+							opt.appendChild(document.createTextNode(__VideoInformation__MylistIDs[i].name));
+							opt.setAttribute("value", __VideoInformation__MylistIDs[i].id);
+							sel.appendChild(opt);
 						}
-//add end
 					}
-//add start
-					if(!AllreadyExist) document.getElementById("checkMylistResult").innerHTML = VideoID+'はどのマイリストにも登録されていません。<br>';
-//add end
+					
+					if(!AllreadyExist)
+						$('#checkMylistResult').html( VideoID + ' はどのマイリストにも登録されていません。<br>' );
+					
 					document.getElementById("VideoInformation").appendChild(sel);
-					document.getElementById("VideoInformation").insertAdjacentHTML("BeforeEnd", " に <input type=\"button\" value=\"登録\" onclick=\"__VideoInformation__addMylist('"+VideoID+"')\">");
+					document.getElementById("VideoInformation").insertAdjacentHTML("BeforeEnd",
+						" に <input type=\"button\" value=\"登録\" onclick=\"__VideoInformation__addMylist('" + VideoID + "')\">");
 				}
-				document.getElementById("VideoInformation").insertAdjacentHTML("BeforeEnd", ""+
-					" <span id=\"__VideoInformation__Twitter\"></span><br>"+
-//add start
-					"<hr />" +
-					"<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\"><br>" +
-					"<span class=\"subtitle\">彡 </span><span class=\"count\">"+(settings["GetMikunopopCount"]?getMikunopopCount(VideoID):"-")+"</span>" +
-					" <span class=\"subtitle\">マイリスト率 </span>" + (Math.round(10000*(Number(mylist_counter)/Number(view_counter)))/100) +"%<br><br>" +
-//add end
-					"<div id=\"addMylistResult\"></div>"
-				);
+				
+				// 現在流れている曲のサムネイルと情報をセット
+				var info = [];
+				info.push(" <span id=\"__VideoInformation__Twitter\"></span><br>");
+				info.push("<hr />");
+				info.push("<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\">");
+
+				// info
+				info.push('<div class="info"><fieldset><legend>情報</legend>');
+				info.push("<span class=\"subtitle\">ミクノ度・彡 </span><span class=\"count\">"+(settings["GetMikunopopCount"]?getMikunopopCount(VideoID):"-")+"</span><br>");
+				info.push("<span class=\"subtitle\">マイリスト率 </span>" + (Math.round(10000*(Number(mylist_counter)/Number(view_counter)))/100) +"%<br>");
+				info.push("</fieldset></div>");
+
+				// tags
+				info.push('<div class="tags"><fieldset><legend>タグ</legend>');
+				$.each( tags, function () {
+					info.push( '<span>' + this.name + "</span>" );
+					if( this.locked == true )
+						info.push( ' <span class="locked" title="タグロック">*</span>' );
+					info.push( "<br>" );
+				} );
+				info.push("</fieldset></div>");
+
+				info.push("<div id=\"addMylistResult\"></div>");
+
+				document.getElementById("VideoInformation").insertAdjacentHTML("BeforeEnd", info.join("") );
+
 				if(settings["Twitter"]) __VideoInformation__addTwitter(document.getElementById("__VideoInformation__Twitter"), VideoID, title);
-//add start
+				
+				// ログに書き出す
 				__VideoInformation__PlayLog += VideoID + "　" + title + "\n";
 				if(settings["SaveLogTiming"]=="AtPlay") {
 					writelog("watch",VideoID + "　" + title);
 				}
-//add end
 			}
 		});
 	}

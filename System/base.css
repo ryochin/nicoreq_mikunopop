@@ -117,6 +117,28 @@ div#CommentHTML span.video {
 	color: #3333aa;
 }
 
+/* video info tab */
+
+div#VideoInformation span.mylist-name {
+	color: #3333aa;
+}
+
+div#VideoInformation span.subtitle {
+	color: #3333aa;
+}
+
+div#VideoInformation img {
+	margin-bottom: 4px;
+}
+
+div#VideoInformation span {
+	line-height: 120%;
+}
+
+div#VideoInformation div.tags span.locked {
+	color: #aa3333;
+}
+
 /* tooltip */
 
 #tooltip {
