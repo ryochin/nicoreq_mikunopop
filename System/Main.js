@@ -124,7 +124,7 @@ function receiveComment_Request(Chat){
 				if (dummyAdminCmtCheck){
 					if (dummyAdminNameCheck){
 						if (dummyAdminName != ""){
-							NicoLive.postComment("<font size=\"-8\">Åö"+dummyAdminName+"Ç≥ÇÒÅö</font><br />"+Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail,"big");
+							NicoLive.postComment("<font size=\"-8\" color=\"#acacec\">Åö"+dummyAdminName+"Ç≥ÇÒÅö</font><br /> "+Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail,"big");
 						}else{
 							NicoLive.postComment(Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail);
 						}

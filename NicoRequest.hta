@@ -198,17 +198,37 @@ $(document).ready( function () {
 <div id="TabContents">
 	<div id="dummyAdmin">
 		<fieldset>
-			<legend>副管理者登録</legend>
-			<input type="checkbox" id="dummyAdminAddMsgCheck" checked><label for="dummyAdminAddMsgCheck">登録時に告知表示</label>
-			<input type="checkbox" id="dummyAdminChgMsgCheck" checked><label for="dummyAdminChgMsgCheck"> 変更時に告知表示</label>
-			<input type="checkbox" id="dummyAdminDelMsgCheck" checked><label for="dummyAdminDelMsgCheck"> 削除時に告知表示</label>
-			<br><br>
-			<input type="checkbox" id="dummyAdminCmdCheck"><label for="dummyAdminCmdCheck">コマンド </label>
-			<input type="checkbox" id="dummyAdminCmtCheck"><label for="dummyAdminCmtCheck">コメント </label>
-			<input type="checkbox" id="dummyAdminNGCheck" checked><label for="dummyAdminNGCheck">NGリストに追加</label>
-			<input type="checkbox" id="dummyAdminNameCheck" checked><label for="dummyAdminNameCheck">名前の表示</label><br>
-			<label>名前：</label><input id="dummyAdminName" type="text" size="6" value=""><label> ID：</label><input id="dummyAdminID" type="text" size="32" value=""><label> ←コメ番</label><input id="dummyAdminNo" type="text" size="4" value=""><input type="button" value="取得" onclick="GetNotoID()"><br>
-			<input type="button" value="↓追加↓" onclick="dummyAdminAdd()">
+			<legend>告知の表示</legend>
+			<input type="checkbox" id="dummyAdminAddMsgCheck" checked="checked"><label for="dummyAdminAddMsgCheck"> 登録時に告知</label>
+			<input type="checkbox" id="dummyAdminChgMsgCheck"><label for="dummyAdminChgMsgCheck"> 変更時に告知</label>
+			<input type="checkbox" id="dummyAdminDelMsgCheck" checked="checked"><label for="dummyAdminDelMsgCheck"> 解除時に告知</label>
+		</fieldset>
+		<fieldset>
+			<legend>登録</legend>
+			<input type="checkbox" id="dummyAdminCmdCheck"><label for="dummyAdminCmdCheck">コマンドを許可</label>
+			<input type="checkbox" id="dummyAdminCmtCheck" checked="checked"><label for="dummyAdminCmtCheck">コメントを許可</label>
+			<input type="checkbox" id="dummyAdminNGCheck" style="display: none" checked="checked"><!-- label for="dummyAdminNGCheck">NGリストに追加</label -->
+			<input type="checkbox" id="dummyAdminNameCheck" style="display: none" checked="checked"><!-- label for="dummyAdminNameCheck">名前の表示</label -->
+			<br>
+			<table summary="subadmin" style="magin: 4px">
+				<tr>
+					<td align="center">名前</td>
+					<td><input id="dummyAdminName" type="text" size="24" value=""> &nbsp;（例： あすたー）</td>
+				</tr>
+				<tr>
+					<td align="center">ID</td>
+					<td><input id="dummyAdminID" type="text" size="44" value=""></td>
+				</tr>
+				<tr>
+					<td align="center">&nbsp;</td>
+					<td>
+						↑またはコメント番号 <input id="dummyAdminNo" type="text" size="5" value="" style="text-align: center"> から ID を <input type="button" value="取得" onclick="GetNotoID()">
+						
+					</td>
+				</tr>
+			</table>
+
+			<input type="button" value="　この ID を副管理者として登録する　" onclick="dummyAdminAdd()">
 		</fieldset>
 	</div>
 	<hr>

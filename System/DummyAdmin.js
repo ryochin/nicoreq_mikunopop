@@ -50,13 +50,8 @@ DummyAdminManager.prototype = {
 			DummyAdminMsg += "　コメント:"
 			if (DA.CmtFlag){DummyAdminMsg+="ON"}else{DummyAdminMsg+="OFF"}
 
-			if (DA.Name != ""){
-//				NicoLive.postComment(DA.Name + "さんに副管理者機能を設定しました　<br>"+DummyAdminMsg, "");
-				NicoLive.postComment(DA.Name + "さん、よろしくお願いしますね　<br>"+DummyAdminMsg, "");
-			}else{
-//				NicoLive.postComment("ID:" + DA.UserID + "<br>に副管理者機能を設定しました　"+DummyAdminMsg, "");
-				NicoLive.postComment("ID:" + DA.UserID + "<br>さん、よろしくお願いしますね　"+DummyAdminMsg, "");
-			}
+			NicoLive.postComment(DA.Name + "さん、コメントよろしくお願いします！　<br><font color=\"#999999\">" + DummyAdminMsg + "</font>", "");
+
 			if(DA.NGFlag) NicoLive.postComment("/ngadd ID " + DA.UserID + " 0 0", "");
 		}
 
@@ -74,15 +69,15 @@ DummyAdminManager.prototype = {
 			if (document.getElementById("dummyAdminChgMsgCheck").checked){
 				if (checked){
 					if (DA.Name != ""){
-						NicoLive.postComment(DA.Name + "さん<br>にコマンド権限を付加しました", "");
+						NicoLive.postComment("（" + DA.Name + "さん<br>にコマンド権限を付加しました）", "");
 					}else{
-						NicoLive.postComment("ID:" + DA.UserID + "<br>にコマンド権限を付加しました ", "");
+						NicoLive.postComment("（ID:" + DA.UserID + "<br>にコマンド権限を付加しました）", "");
 					}
 				}else{
 					if (DA.Name != ""){
-						NicoLive.postComment(DA.Name + "さん<br>のコマンド権限を解除しました", "");
+						NicoLive.postComment("（" + DA.Name + "さん<br>のコマンド権限を解除しました）", "");
 					}else{
-						NicoLive.postComment("ID:" + DA.UserID + "<br>のコマンド権限を解除しました ", "");
+						NicoLive.postComment("（ID:" + DA.UserID + "<br>のコマンド権限を解除しました）", "");
 					}
 				}
 			}
@@ -92,22 +87,10 @@ DummyAdminManager.prototype = {
 			checked = document.getElementById("dummyAdminCmtCheck"+DA.UserID).checked;
 			if (document.getElementById("dummyAdminChgMsgCheck").checked){
 				if (checked){
-					if (DA.Name != ""){
-//						NicoLive.postComment(DA.Name + "さん<br>にコメント権限を付加しました", "");
-						NicoLive.postComment(DA.Name + "さん<br>よろしくお願いします", "");
-
-					}else{
-//						NicoLive.postComment("ID:" + DA.UserID + "<br>にコメント権限を付加しました ", "");
-						NicoLive.postComment("ID:" + DA.UserID + "<br>さん、よろしくお願いします ", "");
-					}
-				}else{
-					if (DA.Name != ""){
-//						NicoLive.postComment(DA.Name + "さん<br>のコメント権限を解除しました", "");
-						NicoLive.postComment(DA.Name + "さん<br>ありがとうございました", "");
-					}else{
-//						NicoLive.postComment("ID:" + DA.UserID + "<br>のコメント権限を解除しました ", "");
-						NicoLive.postComment("ID:" + DA.UserID + "<br>さん、ありがとうございました ", "");
-					}
+					NicoLive.postComment(DA.Name + "さん、よろしくお願いします", "");
+				}
+				else{
+					NicoLive.postComment(DA.Name + "さん<br>ありがとうございました", "");
 				}
 			}
 			this.DummyAdminQueues[this.Indexes[id]].CmtFlag = checked;
@@ -133,10 +116,10 @@ DummyAdminManager.prototype = {
 		if (document.getElementById("dummyAdminDelMsgCheck").checked){
 			if (DA.Name != ""){
 //				NicoLive.postComment(DA.Name + "さんの副管理者機能を解除しました", "");
-				NicoLive.postComment(DA.Name + "さん、ありがとうございました", "");
+				NicoLive.postComment(DA.Name + "さん、ありがとうございました！", "");
 			}else{
 //				NicoLive.postComment("ID:" + DA.UserID + "<br>の副管理者機能を解除しました", "");
-				NicoLive.postComment("ID:" + DA.UserID + "<br>さん、ありがとうございました", "");
+				NicoLive.postComment("ID:" + DA.UserID + "<br>さん、ありがとうございました！", "");
 			}
 		}
 		if(DA.NGFlag) NicoLive.postComment("/ngdel ID " + DA.UserID, "");
@@ -161,27 +144,30 @@ DummyAdminManager.prototype = {
 		ItemHTML += "<td width=\"100%\">";
 		ItemHTML += "<b>名前</b>:"+DA.Name+"  ";
 		ItemHTML += "<b>ID</b>:"+DA.UserID+"<br>";
-		ItemHTML += "<b>[オプション] </b>:";
+//		ItemHTML += "<b>[オプション] </b>:";
 		if (DA.CmdFlag == true){
-			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminCmdCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','1')\" checked><label>コマンド </label>";
+			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminCmdCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','1')\" checked><label for=\"dummyAdminCmdCheck"+DA.UserID+"\"> コマンドを許可 </label>";
 		}else{
-			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminCmdCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','1')\"><label>コマンド </label>";
+			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminCmdCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','1')\"><label for=\"dummyAdminCmdCheck"+DA.UserID+"\"> コマンドを許可 </label>";
 		}
 		if (DA.CmtFlag == true){
-			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminCmtCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','2')\" checked><label>コメント </label>";
+			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminCmtCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','2')\" checked><label for=\"dummyAdminCmtCheck"+DA.UserID+"\"> コメントを許可 </label>";
 		}else{
-			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminCmtCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','2')\"><label>コメント </label>";
+			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminCmtCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','2')\"><label for=\"dummyAdminCmtCheck"+DA.UserID+"\"> コメントを許可 </label>";
 		}
-		if (DA.NGFlag == true){
-			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminNGCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','3')\" checked><label>NG </label>";
-		}else{
-			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminNGCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','3')\"><label>NG </label>";
-		}
-		if (DA.NameFlag == true){
-			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminNameCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','4')\" checked><label>名前表示</label>";
-		}else{
-			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminNameCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','4')\"><label>名前表示</label>";
-		}
+//		if (DA.NGFlag == true){
+//			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminNGCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','3')\" checked><label>NG </label>";
+//		}else{
+//			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminNGCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','3')\"><label>NG </label>";
+//		}
+//		if (DA.NameFlag == true){
+//			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminNameCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','4')\" checked><label>名前表示</label>";
+//		}else{
+//			ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminNameCheck"+DA.UserID+"\" onclick=\"DummyAdminManager.chgDummyAdminQueue('{DA_UserID}','4')\"><label>名前表示</label>";
+//		}
+		ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminNGCheck"+DA.UserID+"\" style=\"display: none\">";
+		ItemHTML += "<input type=\"checkbox\" id=\"dummyAdminNameCheck"+DA.UserID+"\" style=\"display: none\" checked=\"checked\">";
+
 		ItemHTML += "</div></td><td align=\"right\">";
 		ItemHTML += "</td>";
 		ItemHTML += "<td>";
@@ -203,6 +189,9 @@ function dummyAdminAdd(){
 	var cmt = document.getElementById("dummyAdminCmtCheck").checked;
 	var ng = document.getElementById("dummyAdminNGCheck").checked;
 	var nameflag = document.getElementById("dummyAdminNameCheck").checked;
+
+	if( name == "" )
+		name = "ゲスト";
 
 	if (id != ""){
 		DummyAdminManager.addDummyAdminQueue(new DummyAdmin(id, name, cmd, cmt, ng, nameflag));
