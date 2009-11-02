@@ -40,8 +40,8 @@
 </div>
 <HTC:Tab id="Tab" selectedIndex="1">
 	<span>リクエスト</span>
-	<span>コメント</span>
 	<span>動画情報</span>
+	<span>コメント</span>
 	<span>連続コメント</span>
 	<span>副管理者</span>
 	<span>オプション</span>
@@ -172,15 +172,15 @@ $(document).ready( function () {
 
 </script>
 <div id="TabContents">
+	<div id="VideoInformation">
+	</div>
+</div>
+<div id="TabContents">
 	<input type="text" id="sendCmt_mail" size="10" />
 	<input type="text" id="sendCmt_text" size="50" />
 	<input type="button" value="主コメする" onclick="NicoLive.postComment(document.getElementById('sendCmt_text').value, document.getElementById('sendCmt_mail').value);document.getElementById('sendCmt_text').value='';document.getElementById('sendCmt_mail').value='';" />
 	<hr />
 	<div id="CommentHTML"></div>
-</div>
-<div id="TabContents">
-	<div id="VideoInformation">
-	</div>
 </div>
 <div id="TabContents">
 	<div id="AutoComment">
