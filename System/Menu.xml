@@ -9,6 +9,8 @@
 <popup id="Connect">
 	<item onclick="top.connectDialog();">接続</item>
 	<hr />
+	<item onclick="top.extend();">残り時間カウントを１枠延長する</item>
+	<hr />
 	<item onclick="top.disconnect();">切断</item>
 	<hr />
 	<item onclick="top.window.close();">アプリケーションの終了</item>
