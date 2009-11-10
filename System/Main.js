@@ -317,6 +317,12 @@ function closeRequest(){
 	if(SocketManager.connected && document.getElementById("extraComment").checked) NicoLive.postComment("募集締切！", "big");
 }
 
+function calcTimeLeft () {
+	return settings["LimitTime"]
+		- (0-(SocketManager.playerStatus.baseTime-9*60*60)
+		+ (new Date().getTime()/1000 + new Date().getTimezoneOffset()*60));
+}
+
 //残り時間を計算
 function getTimeLeft(){
 	if(!SocketManager.connected) return;
@@ -327,7 +333,7 @@ function getTimeLeft(){
 	//settings["LimitTime"][秒]-(-開始時間[秒]+現在時間[秒])
 	//開始時間は日本時間固定だが、現在時間は日本時間とは限らないのでそれぞれUTC標準時に変換
 	//ただし、サマータイムが導入されてる場合にはさらに補正が必要
-	var timeLeft = settings["LimitTime"] - (0-(SocketManager.playerStatus.baseTime-9*60*60)+(new Date().getTime()/1000 + new Date().getTimezoneOffset()*60));
+	var timeLeft = calcTimeLeft();
 //add end
 	if(timeLeft < 60 * 5){
 		tagF="<font color=red>";
@@ -388,6 +394,9 @@ function showPlayState(startTime, PlayTime, id){
 			if( residue < 0 ){
 				residue = 0;
 			}
+			
+			// 再生マージンをセット
+			$('#timeleft').attr( { title: "空 " + convertTimeString( parseInt(calcTimeLeft() - residue) ) } );
 		}
 		else{
 			// カウントアップ（デフォルト）
@@ -424,16 +433,27 @@ function showPlayState(startTime, PlayTime, id){
 		// 自動再生がOFFなら再生終了して待機
 		}else{
 			document.getElementById("playState").innerHTML = "再生終了";
+			$('#timeleft').attr( { title: "" } );
 		}
 	}
 }
 
 function convertTimeString(num){
-	mm=parseInt(num/60);
-	if(mm<10) mm = "0"+mm;
-	ss=parseInt(num%60);
-	if(ss<10) ss = "0"+ss;
-	return mm+":"+ss;
+	var n = num >= 0
+		? num
+		: - num;
+	
+	var min = parseInt( n / 60 );
+	if( min < 10 )
+		min = '0' + min;
+	var sec = parseInt( n % 60 );
+	if( sec < 10 )
+		sec = '0' + sec;
+	
+	var str = min + ':' + sec;
+	return num >= 0
+		? str
+		: '-' + str;
 }
 
 // 強制ログイン機能
