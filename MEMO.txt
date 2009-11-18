@@ -37,7 +37,10 @@
 	html にリリースノートを追記する
 
 ・後処理
-	git commit と git push してタグを打っておく
+	git commit
+	git tag 1.xx xxxxxxxxxxxxxxxx
+	git push origin --tags
+
 
 以上
 
