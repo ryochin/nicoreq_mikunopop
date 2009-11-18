@@ -1,3 +1,41 @@
+commit 175a908b9bfa6693fa698cf5ccca759437575e5c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Nov 18 13:18:59 2009 +0900
+
+    updated jingles.json, pnames.js and tags.js.
+
+M	jingles.json
+M	pnames.js
+M	tags.js
+
+commit 9da53a1e35f2dd5dfbf4223c458d994db3490a0c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Nov 18 13:13:01 2009 +0900
+
+    updated MEMO.txt.
+
+M	MEMO.txt
+
+commit 0de40438355a9c8677bbadd08395ff1b99389167
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Nov 18 13:12:05 2009 +0900
+
+    optimized a tiny in System/Main.js.
+
+M	System/Main.js
+
+commit 9c4bc499a1adb6831060b9188c861ad5d6f53657
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Nov 10 10:55:33 2009 +0900
+
+    released 1.30.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit b99389b60fc7e7b36fe25010bbeb882e1d8d2271
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Tue Nov 10 10:41:07 2009 +0900
