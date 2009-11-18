@@ -396,7 +396,11 @@ function showPlayState(startTime, PlayTime, id){
 			}
 			
 			// 再生マージンをセット
-			$('#timeleft').attr( { title: "空 " + convertTimeString( parseInt(calcTimeLeft() - residue) ) } );
+			var ctl = parseInt( calcTimeLeft() );
+			var t = t >= ctl
+				? ctl
+				: parseInt( ctl - residue );
+			$('#timeleft').attr( { title: "空 " + convertTimeString( t ) } );
 		}
 		else{
 			// カウントアップ（デフォルト）
