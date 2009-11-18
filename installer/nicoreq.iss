@@ -42,6 +42,7 @@ Source: "C:\NicoLive\nicoreq\NicoRequest.hta"; DestDir: "{app}"; Flags: ignoreve
 Source: "C:\NicoLive\nicoreq\README.txt"; DestDir: "{app}";
 ; Source: "C:\NicoLive\nicoreq\README.txt"; DestDir: "{app}"; Flags: isreadme
 Source: "C:\NicoLive\nicoreq\EULA.txt"; DestDir: "{app}";
+Source: "C:\NicoLive\nicoreq\HISTORY.txt"; DestDir: "{app}"
 Source: "C:\NicoLive\nicoreq\Changes.txt"; DestDir: "{app}";
 Source: "C:\NicoLive\nicoreq\NGIDList.txt"; DestDir: "{app}";
 Source: "C:\NicoLive\nicoreq\settings.js"; DestDir: "{app}"; Flags: confirmoverwrite uninsneveruninstall

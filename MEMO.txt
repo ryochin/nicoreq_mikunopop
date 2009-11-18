@@ -8,12 +8,12 @@
 	追加や削除されたファイルがあれば nicoreq.iss に反映しておく
 
 ・バージョン番号
-	Mikunopop.js 内のバージョン番号を書き直す（１カ所）
 	nicoreq.iss のバージョン番号を書き直す（３カ所）
+	Mikunopop.js 内のバージョン番号を書き直す（１カ所）
 	NicoRequest.hta 内のバージョン番号を書き直す（１カ所）
 
 ・メタ情報
-	README に追記する
+	HISTORY に追記する
 	git log --name-status > Changes.txt
 
 ・消すファイル
