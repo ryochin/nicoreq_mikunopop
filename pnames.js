@@ -568,5 +568,6 @@ settings["exceptionPTagsVO"] = ["",
 	"fourier-drive",
 	"Enicy",
 	"akamimi",
+	"POM",
 ""];
 

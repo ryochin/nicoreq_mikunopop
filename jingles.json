@@ -11,7 +11,7 @@
 	},
 	{
 		"no": "No.12",
-		"is_active": true,
+		"is_active": false,
 		"id": "sm8183423",
 		"shortname": "J12 Vacuons Dolls",
 		"longname": "【ジングル】ミクノポップをきかないか？【Vacuons Dolls ver.A】",
@@ -71,7 +71,7 @@
 	},
 	{
 		"no": "No.6",
-		"is_active": true,
+		"is_active": false,
 		"id": "sm7033805",
 		"shortname": "J06 Freestyle ver.A",
 		"longname": "【ジングル】ミクノポップをきかないか？【Freestyle ver.A】",
