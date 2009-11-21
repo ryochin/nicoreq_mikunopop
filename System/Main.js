@@ -400,7 +400,10 @@ function showPlayState(startTime, PlayTime, id){
 			var t = t >= ctl
 				? ctl
 				: parseInt( ctl - residue );
-			$('#timeleft').attr( { title: "空 " + convertTimeString( t ) } );
+			var str = "空 " + convertTimeString( t );
+			if( $('#timeleft').attr('title') != str ){    // trying to suppress annoying flicker :(
+				$('#timeleft').attr( { title: str } );
+			}
 		}
 		else{
 			// カウントアップ（デフォルト）

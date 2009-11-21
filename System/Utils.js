@@ -191,7 +191,13 @@ function extractObjectByPreloadSection (str) {
 	// Mylist.preload(15008271, [{"ite
 	if( str.match(/\.preload\(([0-9]+, *)*(\[.+?\])\)/) ){
 		if( RegExp.$2 != null ){
-			return eval( RegExp.$2 );
+			var obj;
+			try {
+				obj = eval( RegExp.$2 );
+			} catch(e) {
+//				alert(RegExp.$2);
+			}
+			return obj;
 		}
 	}
 	return;
