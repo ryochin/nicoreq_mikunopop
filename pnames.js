@@ -569,5 +569,10 @@ settings["exceptionPTagsVO"] = ["",
 	"Enicy",
 	"akamimi",
 	"POM",
+	"ƒNƒ‰ƒ“ƒN",
+	"Junky",
+	"whoo",
+	"‚³‚Â‚«‚ª‚Ä‚ñ‚±‚à‚è",
+	"Phasma",
 ""];
 
