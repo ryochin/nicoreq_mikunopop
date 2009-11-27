@@ -31,12 +31,34 @@
 <script type="text/javascript" src="./System/Mikunopop.js"></script>
 <hta:application id="HTA" ApplicationName="NicoRequest Mikunopop Edition" Version="1.30.1  (2009.11.18)"
 	InnerBorder="No" SingleInstance="Yes" Navigable="no" icon="./System/assets/app.ico" contextmenu="no" />
+<script>
+var lefttimeFlag = 0;    // 0: left 1: margin
+$(document).ready( function () {
+	// swap time-left display
+	var swapTimeLeft = function () {
+		if( lefttimeFlag == 0 ){
+			// timeleft -> margin
+			$('#timeleft').hide();
+			$('#timemargin').show();
+			lefttimeFlag = 1;
+		}
+		else{
+			// margin -> timeleft
+			$('#timeleft').show();
+			$('#timemargin').hide();
+			lefttimeFlag = 0;
+		}
+	};
+	$('#timeleft').click( swapTimeLeft );
+	$('#timemargin').click( swapTimeLeft );
+} );
+</script>
 </head>
 <body scroll="no">
 <HTC:Menu id="Menu" xml="./System/Menu.xml" />
 <div id="divState" align="right">
 	<span id="playState"></span>　
-	<span id="timeleft"></span>
+	<span id="timeleft" title="クリックで空き時間表示">未接続</span><span id="timemargin" title="クリックで残り時間表示" style="display: none">空 --:--</span>
 </div>
 <HTC:Tab id="Tab" selectedIndex="1">
 	<span>リクエスト</span>

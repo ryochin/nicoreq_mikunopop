@@ -54,6 +54,7 @@ SocketManager.prototype = {
 		if(!this.connected) return;
 		this.flash.close();
 		$('#timeleft').html('–¢Ú‘±');
+		$('#timemargin').html('‹ó --:--');
 		this.connected = false;
 	}
 }

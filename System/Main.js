@@ -350,7 +350,8 @@ function getTimeLeft(){
 		if(document.getElementById("logoffCheck").checked){
 			disconnect();
 		}
-		document.getElementById("timeleft").innerHTML = "放送終了";
+		$('#timeleft').html("放送終了");
+//		$('#timemargin').html("放送終了");
 	}
 }
 
@@ -365,6 +366,7 @@ function checkAutoPlay(flag){
 // getTimeLeftとは時間の扱い方が逆なのに注意
 //del function showPlayState(startTime, PlayTime){
 //add start
+var last_t = 0;
 function showPlayState(startTime, PlayTime, id){
 //add end
 	var tagF = "", tagT = "";
@@ -396,13 +398,11 @@ function showPlayState(startTime, PlayTime, id){
 			}
 			
 			// 再生マージンをセット
-			var ctl = parseInt( calcTimeLeft() );
-			var t = t >= ctl
-				? ctl
-				: parseInt( ctl - residue );
+			var t = parseInt( calcTimeLeft() - residue );
 			var str = "空 " + convertTimeString( t );
-			if( $('#timeleft').attr('title') != str ){    // trying to suppress annoying flicker :(
-				$('#timeleft').attr( { title: str } );
+			if( last_t == 0 || Math.abs( last_t - t ) > 5 ){    // trying to suppress annoying flip-flop flickers :(
+				$('#timemargin').html( str );
+				last_t = t;
 			}
 		}
 		else{
@@ -439,8 +439,8 @@ function showPlayState(startTime, PlayTime, id){
 			}
 		// 自動再生がOFFなら再生終了して待機
 		}else{
-			document.getElementById("playState").innerHTML = "再生終了";
-			$('#timeleft').attr( { title: "" } );
+			$("#playState").html("再生終了");
+			$("#timemargin").html("再生終了");
 		}
 	}
 }
