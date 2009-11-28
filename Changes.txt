@@ -1,3 +1,53 @@
+commit 4605fea01493b6cebb3387b2e1985b942b9375bb
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Nov 28 03:56:27 2009 +0900
+
+    updated for display swap feature between time-left and residue by clicking on them.
+
+M	NicoRequest.hta
+M	System/Main.js
+M	System/SocketManager.js
+
+commit 8508acd0b72556aa7e3f0aa5e9ba9c0d8cc8e585
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Nov 27 18:31:54 2009 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+
+commit 87a91e4b07f7c967a59d3a03c19f2da296ae3517
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Nov 21 11:39:48 2009 +0900
+
+    optimized a couple of files.
+
+M	System/Main.js
+M	System/Utils.js
+
+commit cb051f7af1e98b5496cbe8603764ea5ce933522d
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Nov 18 13:44:04 2009 +0900
+
+    separated HISTORY.txt from README.txt.
+
+A	HISTORY.txt
+M	MEMO.txt
+M	README.txt
+M	installer/nicoreq.iss
+
+commit 747f2b581f594ce670b876e2cdc4c8090effa2da
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Nov 18 13:36:12 2009 +0900
+
+    released 1.30.1.
+
+M	Changes.txt
+M	NicoRequest.hta
+M	README.txt
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 175a908b9bfa6693fa698cf5ccca759437575e5c
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Wed Nov 18 13:18:59 2009 +0900
