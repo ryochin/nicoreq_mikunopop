@@ -157,11 +157,10 @@ settings["showStockDuplicatedAlert"] = true;
 // 枠内で、１人がリクエストできる曲数の上限を設定します。
 
 // 0: チェックしない（一人何曲でもリクエスト可能）　デフォルト
-// 数字: 一人＊曲までリクエスト可能。たとえば１だと１曲、２だと２曲。　
+// 数字: 一人＊曲までリクエスト可能。たとえば１だと１曲、２だと２曲。
 
-//settings["multiRequestLimit"] = 0;    // チェックしない
-settings["multiRequestLimit"] = 1;    // １人１曲まで
-//settings["multiRequestLimit"] = 2;    // １人２曲まで
+settings["multiRequestLimit"] = 0;    // チェックしない
+//settings["multiRequestLimit"] = 1;    // １人１曲まで
 
 // =====================================================================================================================
 // 動画リストHTML
