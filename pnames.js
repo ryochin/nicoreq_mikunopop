@@ -574,5 +574,7 @@ settings["exceptionPTagsVO"] = ["",
 	"whoo",
 	"‚³‚Â‚«‚ª‚Ä‚ñ‚±‚à‚è",
 	"Phasma",
+	"NOEL-KIT",
+	"ƒEƒ`ƒhƒ",
 ""];
 
