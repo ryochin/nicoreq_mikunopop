@@ -70,6 +70,8 @@ window.attachEvent("onbeforeunload", function(){
 });
 //add end
 
+var liveID = null;
+
 function connect(PS){
 	if(!PS || PS.lv=="" || PS.addr=="" || PS.port=="" || PS.thread==""){
 		//ログオフ時強制ログインのチェックを外す
@@ -89,8 +91,13 @@ function connect(PS){
 		}
 		timeLeftTimer = setInterval(getTimeLeft, 500);
 		__VideoInformation__onConnect(PS.lv);
+		
+		// set global live id
+		liveID = PS.lv;
 	}
 }
+
+var reqIDs = {};    // { liveid => { userid => n, .. }, .. } on memory only
 
 // リクエストのチェック
 function receiveComment_Request(Chat){
@@ -138,20 +145,31 @@ function receiveComment_Request(Chat){
 	}
 //add end
 	if(sms && !(/^\/(play|playsound|swapandplay) smile:/.test(text))){
-//add start
 		if(!acceptRequest){
+			// リク〆中
 			NicoLive.postComment(">>"+Chat.no+"さん、今はリク受け付けてないので・・・ｻｰｾﾝ", "big");
-		}else if(sms[1]){
+		}
+		else if(sms[1]){
+			// １コメに複数の動画番号がある
 			NicoLive.postComment(">>"+Chat.no+"さん、1コメ1リクでお願いします。", "big");
-		}else if(NGIDs[sms[0]]) {
+		}
+		else if(NGIDs[sms[0]]) {
+			// NG 動画
 			NicoLive.postComment(">>"+Chat.no+"さん、その動画は主のNG動画リストに<br />登録済みなので流せないんです、ごめんなさい", "big");
-		}else if(settings["AddPlayedVideoId2NGIDs"]&&PlayedVideoIds[sms[0]]) {
+		}
+		else if(settings["AddPlayedVideoId2NGIDs"]&&PlayedVideoIds[sms[0]]) {
+			// 最近流れた動画
 			NicoLive.postComment(">>"+Chat.no+"さん、その動画は流したばかりなので・・・すみません。", "");
-		}else if(settings["CheckNew"]){
+		}
+		else if( settings["multiRequestLimit"] > 0 && ! checkReqIDs( liveID, Chat.user_id ) ){
+			// １人による複数回リクのチェック
+			NicoLive.postComment(">>"+Chat.no+"さん、お一人" + settings["multiRequestLimit"] +  "リクまでとさせてくださいませ m(_ _)m", "");
+		}
+		else if(settings["CheckNew"]){
 			// 新着かどうか確認し、新着だった場合は運営コメで通達
 			NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + sms[0], 'video', function(xmldom){
 				if(!xmldom.getElementsByTagName("first_retrieve")[0]) {
-					NicoLive.postComment(">>"+Chat.no+"さん　<br />その動画は物理的理由で放送できません。", "big");
+					NicoLive.postComment(">>"+Chat.no+"さん　<br />その動画は情報が取得できなかったので流せません・・。", "big");
 				}else{
 					// 現在
 					var today = Math.floor(new Date(new Date().getTime())/1000);
@@ -171,16 +189,44 @@ function receiveComment_Request(Chat){
 					}
 					else{
 						RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no, 'listener'));
+						
+						// 複数リクエストのチェックのために user id を登録する
+						addReqIDs( liveID, Chat.user_id );
 					}
 				}
 			});
-		}else{
-//add end
-		RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no, 'listener'));
-//add start
 		}
-//add end
+		else{
+			RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no, 'listener'));
+			
+			// 複数リクエストのチェックのために user id を登録する
+			addReqIDs( liveID, Chat.user_id );
+		}
 	}
+}
+
+function addReqIDs (live_id, user_id) {
+	if( reqIDs[ live_id ] == undefined )
+		reqIDs[ live_id ] = {};
+	
+	if( reqIDs[ live_id ][ Chat.user_id ] == undefined ){
+		reqIDs[ live_id ][ Chat.user_id ] = 1;
+	}
+	else{
+		reqIDs[ live_id ][ Chat.user_id ]++;
+	}
+}
+
+function checkReqIDs (live_id, user_id) {
+	if( reqIDs[ live_id ] == undefined )
+		return 1;
+	
+	if( reqIDs[ live_id ][ Chat.user_id ] == undefined )
+		return 1;
+	
+	return reqIDs[ live_id ][ Chat.user_id ] < settings["multiRequestLimit"]
+		? 1
+		: 0;
 }
 
 // JASコード定義済み動画IDをロード
