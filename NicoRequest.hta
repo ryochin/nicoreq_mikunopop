@@ -261,7 +261,7 @@ $(document).ready( function () {
 		<div id="divAutoPlay">
 		<fieldset>
 			<legend>自動再生</legend>
-			<input type="checkbox" id="autoPlay" onclick="checkAutoPlay(this.checked)"><label for="autoPlay">自動再生</label>/再生間隔:<input id="autoPlayInterval" type="text" size="3" value="60000">秒/<input type="checkbox" id="autoPlayRandom"><label for="autoPlayRandom">ランダム再生</label><br>
+			<input type="checkbox" id="autoPlay" onclick="checkAutoPlay(this.checked)"><label for="autoPlay">自動再生</label>/再生間隔:<input id="autoPlayInterval" type="text" size="6" value="60000">秒/<input type="checkbox" id="autoPlayRandom"><label for="autoPlayRandom">ランダム再生</label><br>
 			<input type="checkbox" id="autoPlayStanby"><label for="autoPlayStanby">ストック数0の場合は待機する</label>
 		</fieldset>
 		</div>
@@ -276,6 +276,13 @@ $(document).ready( function () {
 			<legend>接続/切断</legend>
 			<input type="checkbox" id="loginCheck" onclick="checkloginCheck()"><label for="loginCheck">ログオフ時強制ログイン</label>
 			<input type="checkbox" id="logoffCheck" onclick="checklogoffCheck()"><label for="logoffCheck">30分強制ログアウト</label>
+		</fieldset>
+		</div>
+		<div>
+		<fieldset>
+			<legend>リクエスト</legend>
+			<input type="checkbox" id="multiReqCheck" /><label for="multiReqCheck">
+				１人あたりのリクエスト数</label>を <input type="text" value="1" id="multiReqNum" size="3" style="text-align: center" /> 件に制限する
 		</fieldset>
 		</div>
 	</div>

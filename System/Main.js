@@ -45,6 +45,47 @@ window.attachEvent("onload", function(){
 	// ストックのロード
 	if(settings["AutoLoadStock"]) loadStockList();
 //add end
+
+	// multi_req_check
+	if( settings["multiRequestLimit"] > 0 ){
+		// on
+		$('#multiReqCheck').attr( { checked: 1 } );
+		$('#multiReqNum').val( settings["multiRequestLimit"] );
+	}
+	else{
+		// off
+		$('#multiReqCheck').attr( { checked: 0 } );
+		$('#multiReqNum').attr( { disabled: 1 } );
+		$('#multiReqNum').val( 1 );
+	}
+	
+	$('#multiReqCheck').click( function () {
+		// 
+		if( $(this).attr('checked') ){
+			$('#multiReqNum').attr( { disabled: 0 } );
+			settings["multiRequestLimit"] = $('#multiReqNum').val();
+		}
+		else{
+			$('#multiReqNum').attr( { disabled: 1 } );
+			settings["multiRequestLimit"] = 0;
+		}
+	} );
+	
+	$('#multiReqNum').keyup( function () {
+		var n = parseInt( $(this).val() );
+		if( n > 0 ){
+			// ok
+			settings["multiRequestLimit"] = $(this).val();
+		}
+		else{
+			// invalid
+			settings["multiRequestLimit"] = 1;
+		}
+	} );
+	$('#multiReqNum').blur( function () {
+		if( ! $(this).val().match(/^[1-9][0-9]*$/) )
+			$(this).val(1);
+	} );
 });
 
 document.attachEvent("onkeydown", function(){
