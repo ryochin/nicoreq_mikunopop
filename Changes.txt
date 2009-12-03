@@ -1,3 +1,49 @@
+commit 2e0871a9b03c0fec6a458f9625f40ddffab3d572
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Dec 4 01:59:24 2009 +0900
+
+    tweaked setting.js, changed default value.
+
+M	settings.js
+
+commit 3c0ad1773eaae81e50922fec00515760eb65903e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Dec 4 01:57:49 2009 +0900
+
+    implemented user interface on the option tab for avoid-multi-req feature.
+
+M	NicoRequest.hta
+M	System/Main.js
+
+commit 60b7c14dabacb6577a7750d6cb7d1c1d8d0fccf6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Dec 3 23:36:35 2009 +0900
+
+    implemented avoid-multi-req feature.
+
+M	System/Main.js
+M	settings.js
+
+commit 286cb8b9bbd45d1dd3cf9e86c0430c10e1ef0198
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Dec 3 19:48:25 2009 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+
+commit dd1974084d06b9b7e4c41d94857e78b8a0f0cc5c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Nov 28 15:06:43 2009 +0900
+
+    released 1.31.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 4605fea01493b6cebb3387b2e1985b942b9375bb
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Sat Nov 28 03:56:27 2009 +0900
