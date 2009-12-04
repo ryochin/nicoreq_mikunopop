@@ -250,11 +250,11 @@ function addReqIDs (live_id, user_id) {
 	if( reqIDs[ live_id ] == undefined )
 		reqIDs[ live_id ] = {};
 	
-	if( reqIDs[ live_id ][ Chat.user_id ] == undefined ){
-		reqIDs[ live_id ][ Chat.user_id ] = 1;
+	if( reqIDs[ live_id ][ user_id ] == undefined ){
+		reqIDs[ live_id ][ user_id ] = 1;
 	}
 	else{
-		reqIDs[ live_id ][ Chat.user_id ]++;
+		reqIDs[ live_id ][ user_id ]++;
 	}
 }
 
@@ -262,10 +262,10 @@ function checkReqIDs (live_id, user_id) {
 	if( reqIDs[ live_id ] == undefined )
 		return 1;
 	
-	if( reqIDs[ live_id ][ Chat.user_id ] == undefined )
+	if( reqIDs[ live_id ][ user_id ] == undefined )
 		return 1;
 	
-	return reqIDs[ live_id ][ Chat.user_id ] < settings["multiRequestLimit"]
+	return reqIDs[ live_id ][ user_id ] < settings["multiRequestLimit"]
 		? 1
 		: 0;
 }
