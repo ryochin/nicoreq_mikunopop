@@ -326,6 +326,8 @@ RequestManager.Events["Play"] = function(id){
 	PlayLog += RequestManager.getPlayLog(id)+"\n";
 	// “®‰æî•ñ‚ªæ“¾‚Å‚«‚Ä‚¢‚È‚©‚Á‚½‚çI—¹
 	if(!RequestManager.Requests[id]) return;
+	// clear
+	NicoLive.postComment("/clear", "");
 	// InfoComment‚Ì“Še
 	NicoLive.postComment(RequestManager.getInfoComment(id), "big");
 	// InfoComment2‚ªİ’è‚³‚ê‚Ä‚¢‚½‚çŠÔ·“Še
@@ -333,6 +335,16 @@ RequestManager.Events["Play"] = function(id){
 		setTimeout(function(){
 			NicoLive.postComment(RequestManager.getInfoComment2(id), "big");
 		}, settings["InfoCommentTimer"]);
+	}
+	// PermComment
+	if( settings["PermComment"] != undefined ){
+		var cmd = ["hidden"];
+		if( settings["PermCommentCmd"] != "" ){
+			cmd.push( settings["PermCommentCmd"] );
+		}
+		setTimeout(function(){
+			NicoLive.postComment("/perm " + RequestManager.getPermComment(id), cmd.join(" "));
+		}, settings["InfoCommentTimer"] * 2 );
 	}
 //add start
 	if(settings["SaveLogTiming"]=="AtPlay") {

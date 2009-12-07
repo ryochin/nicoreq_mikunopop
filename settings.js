@@ -225,6 +225,23 @@ settings["InfoCommentDate"] = "20yy.mm.dd";
 //add end
 
 // =====================================================================================================================
+// 常時コメント
+// 空じゃない文字列が設定されたら、曲情報表示後に永続情報を表示します
+
+// 左寄せの例
+//settings["PermComment"] = 
+//	  '<font color="#999999">　彡</font><font color="#f3aaaa">{#Count}</font><font color="#acacec">　　{#Title}</font><font color="#000000">{#PName}　　</font><br>'
+//	+ '<font color="#000000">　彡</font><font color="#000000">{#Count}</font><font color="#ecccac">　　{#PName}</font><font color="#000000">{#Title}　　</font>';
+//settings["PermCommentCmd"] = 'hidari';
+
+// 右よせの例 a.k.a. boro さん仕様
+//settings["PermComment"] = 
+//	  '<br>'
+//	+ '<font color="#000000">{#PName}</font><font color="#a3a3a3">{#Title}</font><br>'
+//	+ '<font color="#000000">{#Title}</font><font color="#f3f3f3">{#PName}</font>';
+//settings["PermCommentCmd"] = 'migi';
+
+// =====================================================================================================================
 // 再生履歴用文字列
 
 // 再生時の履歴を構成します

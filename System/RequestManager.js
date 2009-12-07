@@ -335,14 +335,9 @@ RequestManager.prototype = {
 		if(ss<10) ss = "0"+ss;
 		return mm+":"+ss;
 	},
-	// 再生時の運営者コメント
-	getInfoComment: function(id){
-		var R = this.Requests[id];
-		if(!R) return "";
-//add start JASコードなしの場合
-//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
-//add end
-		return settings["InfoComment"]
+	// 情報テキスト置き換え
+	replaceInfoStr: function(str, id, R){
+		return str
 					.replace(/{#ID}/g, id)
 					.replace(/{#Title}/g, R.title)
 					.replace(/{#PName}/g, R.name)
@@ -361,6 +356,15 @@ RequestManager.prototype = {
 //add end
 		;
 	},
+	// 再生時の運営者コメント
+	getInfoComment: function(id){
+		var R = this.Requests[id];
+		if(!R) return "";
+//add start JASコードなしの場合
+//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
+//add end
+		return this.replaceInfoStr( settings["InfoComment"], id, R );
+	},
 	// 再生時の運営者コメント2
 	getInfoComment2: function(id){
 		var R = this.Requests[id];
@@ -368,24 +372,16 @@ RequestManager.prototype = {
 //add start JASコードなしの場合
 //		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
 //add end
-		return settings["InfoComment2"]
-					.replace(/{#ID}/g, id)
-					.replace(/{#Title}/g, R.title)
-					.replace(/{#PName}/g, R.name)
-					.replace(/{#View}/g,  comma(R.view))
-					.replace(/{#Comm}/g,  comma(R.comm))
-					.replace(/{#List}/g,  comma(R.list))
-					.replace(/{#Count}/g,  comma(R.count))
-//add start
-					.replace(/{#Myri}/g,  R.myri)
+		return this.replaceInfoStr( settings["InfoComment2"], id, R );
+	},	// 再生履歴用のテキスト
+	// 永続的に出す運営者コメント
+	getPermComment: function(id){
+		var R = this.Requests[id];
+		if(!R) return "";
+//add start JASコードなしの場合
+//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
 //add end
-					.replace(/{#Time}/g,  R.length)
-					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))
-//del					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, JASCodes[R.id] ? function(match,$1,$2){return $1+JASCodes[R.id]+$2;} : "")
-//add start JASコード関連の修正
-//					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+JASCodes[R.id]+RegExp.$2)
-//add end
-		;
+		return this.replaceInfoStr( settings["PermComment"], id, R );
 	},	// 再生履歴用のテキスト
 	getPlayLog: function(id){
 		var R = this.Requests[id];
@@ -393,24 +389,7 @@ RequestManager.prototype = {
 //add start JASコードなしの場合
 //		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
 //add end
-		return settings["PlayLog"]
-					.replace(/{#ID}/g, id)
-					.replace(/{#Title}/g, R.title)
-					.replace(/{#PName}/g, R.name)
-					.replace(/{#View}/g,  comma(R.view))
-					.replace(/{#Comm}/g,  comma(R.comm))
-					.replace(/{#List}/g,  comma(R.list))
-					.replace(/{#Count}/g,  comma(R.count))
-//add start
-					.replace(/{#Myri}/g,  R.myri)
-//add end
-					.replace(/{#Time}/g,  R.length)
-					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))
-//del					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, JASCodes[R.id] ? function(match,$1,$2){return $1+JASCodes[R.id]+$2;} : "")
-//add start JASコード関連の修正
-//					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+JASCodes[R.id]+RegExp.$2)
-//add end
-		;
+		return this.replaceInfoStr( settings["PlayLog"], id, R );
 	},
 //add start　各種動画情報を取得保存し、タイプ判定に使用
 	// アラート表示

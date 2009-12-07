@@ -143,6 +143,7 @@ $(document).ready( function () {
 							.replace(/{#author}/g, jingle.author)
 							.replace(/{#length}/g, jingle.length);
 						
+						NicoLive.postComment( "/clear " );
 						NicoLive.postComment( "/play " + jingle.id );
 						setTimeout( function () { NicoLive.postComment( "/perm " + comment ) }, 2000 )
 					}
