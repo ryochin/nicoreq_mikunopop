@@ -367,7 +367,7 @@ function __VideoInformation__addMylist(VideoID){
 	
 	// token を得る
 	// NicoAPI.token = "4630161-1256991501-0bdb968a....";
-	xmlhttp.responseText.match(/NicoAPI.token = "(.+?)">/i);
+	xmlhttp.responseText.match(/NicoAPI\.token = "(.+?)"/i);
 	if( ! RegExp.$1 ){
 		alerter("登録できませんでした。ログインは済んでいますか？");
 	}
