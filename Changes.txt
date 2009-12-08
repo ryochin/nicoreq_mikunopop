@@ -1,3 +1,34 @@
+commit 7f8f60b19d8b9006ec1cf24d483ec1a457e5d642
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Dec 8 04:16:33 2009 +0900
+
+    implemented 'permanent info comment' feature.
+
+M	NicoRequest.hta
+M	System/Main.js
+M	System/RequestManager.js
+M	settings.js
+
+commit 8f66cb162a74a3995a5ee8524c3219502eacb41b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Dec 7 23:41:18 2009 +0900
+
+    fixed a problem for adding movies to mylist, thanks to Mint.
+
+M	System/VideoInformation.js
+
+commit 6065b86dcd26fcb47161d6650146693357ab3812
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Dec 4 20:56:15 2009 +0900
+
+    released 1.33.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit d8b3866ccfc790ff7db23a22ff8177d1224605ee
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Fri Dec 4 19:43:44 2009 +0900

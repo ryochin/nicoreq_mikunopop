@@ -39,7 +39,8 @@
 ・後処理
 	git commit
 	git tag 1.xx xxxxxxxxxxxxxxxx
-	git push origin --tags
+	git push
+	git push --tags
 
 
 以上
