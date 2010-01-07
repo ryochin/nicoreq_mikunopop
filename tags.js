@@ -7,6 +7,7 @@ settings["genreTagWhiteList"] = ["",
 	"ChipTune",
 	"グループサウンズ",
 	"ミニマル",
+	"J-CORE",
 
 	// 属性
 	"電子ドラッグ",
@@ -74,6 +75,7 @@ settings["genreTagWhiteList"] = ["",
 	// etc
 	"VOCALOID和風曲",
 	"ミクウェーブ",
+	"VOCALOID-EUROBEAT",
 	
 	// ミク
 	"みんなのミクうた",
