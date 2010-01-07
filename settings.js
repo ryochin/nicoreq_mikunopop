@@ -234,7 +234,7 @@ settings["InfoCommentDate"] = "20yy.mm.dd";
 //	+ '<font color="#000000">　彡</font><font color="#000000">{#Count}</font><font color="#ecccac">　　{#PName}</font><font color="#000000">{#Title}　　</font>';
 //settings["PermCommentCmd"] = 'hidari';
 
-// 右よせの例 a.k.a. boro さん仕様
+// 右よせの例 a.k.a. boro (original by A*Ster) さん仕様
 //settings["PermComment"] = 
 //	  '<br>'
 //	+ '<font color="#000000">{#PName}</font><font color="#a3a3a3">{#Title}</font><br>'
@@ -525,9 +525,8 @@ settings["NotPTagsVO"] = ["", "MikuPOP", "RinPOP", "アニメOP", "ゲームOP", "エロ
 // 空文字("")を設定するとダブルクリックによるPネーム編集機能が使えなくなります
 //del settings["NoPName"] = "P名?";
 //add start
-//settings["NoPName"] = " ";
-//settings["NoPName"] = "?";
 settings["NoPName"] = "P名?";
+//settings["NoPName"] = "P名不明！ 情報求ム！";
 
 // JASRACコードがない時の{#JASCode}の代替文字列
 settings["NoJASCode"] = "コードなし";
