@@ -136,6 +136,9 @@ function connect(PS){
 		// set global live id
 		liveID = PS.lv;
 	}
+	
+	// 枠の時間を自動的にリセット
+	settings["LimitTime"] = 30 * 60;
 }
 
 var reqIDs = {};    // { liveid => { userid => n, .. }, .. } on memory only
