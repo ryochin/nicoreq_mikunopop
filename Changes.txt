@@ -1,3 +1,53 @@
+commit 823c8e572b9bc92d868acc92e3cf3bd901a38e8f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jan 7 15:01:45 2010 +0900
+
+    tweaked settings.js.
+
+M	settings.js
+
+commit 2b063af807fca15bcf148b085f0f788bec224d25
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jan 7 15:01:02 2010 +0900
+
+    updated tags.js.
+
+M	tags.js
+
+commit c397a64f23cd3e2238da93a1905da514a012b4f0
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jan 7 14:51:41 2010 +0900
+
+    fixed a bug that remain time wasn't calculated properly when reconnect if former frame was extended.
+
+M	System/Main.js
+
+commit bbb82911516b15a92ca9e452c593b29b4eff6fb5
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jan 7 14:47:51 2010 +0900
+
+    added pnames auto concat & generation feature.
+    
+    now pnames.js is alphabetically sorted.
+
+M	pnames.js
+A	pnames/base.js
+A	pnames/kotac.js
+A	script/pnames_concat.pl
+
+commit 4b76bc4d948f959486b98547d4744a54fcfc8ef3
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Dec 8 21:50:33 2009 +0900
+
+    released 1.34.
+
+M	Changes.txt
+M	HISTORY.txt
+M	MEMO.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 7f8f60b19d8b9006ec1cf24d483ec1a457e5d642
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Tue Dec 8 04:16:33 2009 +0900
