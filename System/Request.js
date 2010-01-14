@@ -8,20 +8,20 @@ function Request(){
 	this.date   = new Date();
 	this.tags   = new Array();
 	this.name   = "";
-//add start
+
 	// タイプ判定用
 	this.oTitle        = "";	// 元の動画タイトル
 	this.thumbnail_url = "";	// サムネイルURL
 	this.description   = "";	// 動画説明
 	this.type          = "";	// タイプ(typeX("typeX")／複数("plural")／不明(""))
-	this.myri          =  0;	//マイリスト率（マイリスト/再生）
-	this.count         =  0;	//ミクノ度
-//サムネ = 
-//add end
+	this.myri          =  0;	// マイリスト率（マイリスト/再生）
+	this.count         =  0;	// ミクノ度
+	this.requester     = "";	// リクエスト元
+
 	this.initialize.apply(this, arguments);
 }
 Request.prototype = {
-	initialize: function(id, xmldom){
+	initialize: function(id, reqCommentNum, xmldom){
 		this.id     = id;
 		if(!xmldom || xmldom.getElementsByTagName("error").length > 0){
 			this.title = xmldom.getElementsByTagName("code")[0].text;
@@ -51,7 +51,9 @@ Request.prototype = {
 		this.count = settings["GetMikunopopCount"]
 						? getMikunopopCount( id )
 						: "-";
-
+		this.requester = reqCommentNum == ""
+						? settings["RequesterAdminStr"]
+						: settings["RequesterListenerStr"].replace(/{#ReqCommentNum}/g, reqCommentNum);
 //add start タイプ判定用プロパティ
 		this.oTitle  = xmldom.getElementsByTagName("title")[0].text;
 		this.thumbnail_url = xmldom.getElementsByTagName("thumbnail_url")[0].text;

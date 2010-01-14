@@ -192,10 +192,10 @@ NicoLive.prototype = {
 			}
 		}
 	},
-	getThumbInfo: function(id, callback){
+	getThumbInfo: function(id, reqCommentNum, callback){
 		this.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + id, 'video', function(xmldom){
 			if(xmldom){
-				callback(new Request(id, xmldom));
+				callback(new Request(id, reqCommentNum, xmldom));
 			}else{
 				callback();
 			}

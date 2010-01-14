@@ -70,7 +70,7 @@ RequestManager.prototype = {
 		if( RQ.requester == "listener" ){
 			reqtypeDisplay = 'inline';
 		}
-		ItemHTML += '<img id="req-by-listener-{#ID}" src="./System/assets/request.png" class="requester-icon" title="リスナーからのリクエスト" align="top" style="display: ' + reqtypeDisplay  + '"';
+		ItemHTML += '<img id="req-by-listener-{#ID}" src="./System/assets/request.png" class="requester-icon" title=">>' + RQ.number + ' さんのリクエスト" align="top" style="display: ' + reqtypeDisplay  + '"';
 		ItemHTML += ' oncontextmenu="$(\'#req-by-listener-{#ID}\').hide();" />';    // 右クリックでアイコンを消せるように
 		ItemHTML += '</td>';
 
@@ -227,7 +227,7 @@ RequestManager.prototype = {
 		}else{
 			// キューを取り出して動画情報を取得する
 			var RQ = RequestManager.ThumbInfoTasks.shift();
-			NicoLive.getThumbInfo(RQ.id, function (R){
+			NicoLive.getThumbInfo(RQ.id, ( RQ.requester == 'listener' ? RQ.number : "" ), function (R){
 				if(!R){
 					// タイムアウトした場合はタスクに優先的に追加
 					RequestManager.doThumbInfoTask(RQ, "unshift");
@@ -347,6 +347,7 @@ RequestManager.prototype = {
 					.replace(/{#Count}/g,  comma(R.count))
 //add start
 					.replace(/{#Myri}/g,  R.myri)
+					.replace(/{#ReqInfo}/g,  R.requester)
 //add end
 					.replace(/{#Time}/g,  R.length)
 					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))

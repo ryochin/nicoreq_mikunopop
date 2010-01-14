@@ -215,14 +215,23 @@ settings["InfoComment2"] =
 	+ '<font color="#acacec">{#Date}</font> '
 	+ '<font color="#aaaaaa">時/</font><font color="#b9f6b9">{#Time}</font> '
 	+ '<font color="#ecccac">彡</font><font color="#aaaaaa">/</font><font color="#f3aaaa">{#Count}</font> '
+	+ '<font color="#aaaaaa">リ/</font><font color="#ecccac">{#ReqInfo}</font>'
 	+ '<font color="#000000">◆</font>'
 	+ '<font color="#aaaaaa">再/</font><font color="#b9f6b9">{#View}</font> '
 	+ '<font color="#aaaaaa">コ/</font><font color="#b9f6b9">{#Comm}</font> '
-	+ '<font color="#aaaaaa">マ/</font><font color="#b9f6b9">{#List} ({#Myri}%) </font>';
-settings["InfoCommentTimer"] = 8000;// ミリ秒 短くしすぎると、自分のコメントが連投規制される可能性があるので注意
+	+ '<font color="#aaaaaa">マ/</font><font color="#b9f6b9">{#List}</font> ';
+//	+ '<font color="#aaaaaa">マ/</font><font color="#b9f6b9">{#List} ({#Myri}%) </font>';
+
+// 日付の表示
 //settings["InfoCommentDate"] = "yy年mm月dd日 hh時nn分ss秒";
 settings["InfoCommentDate"] = "20yy.mm.dd";
-//add end
+
+// リクエスト元の表示 by Mint=Rabbit
+settings["RequesterAdminStr"]    = "主セレ";    // 主セレ
+settings["RequesterListenerStr"] = "{#ReqCommentNum}さん";    // リクエスト {#ReqCommentNum}がコメNoに置換される
+
+// 次の情報を表示するまでの時間
+settings["InfoCommentTimer"] = 8000;    // ミリ秒 短くしすぎると、自分のコメントが連投規制される可能性があるので注意
 
 // =====================================================================================================================
 // 常時コメント
