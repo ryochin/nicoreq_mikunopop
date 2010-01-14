@@ -3,9 +3,13 @@
 
 use strict;
 use warnings;
+use Getopt::Std;
 use IO::File;
 use IO::Dir;
 use File::Spec;
+
+Getopt::Std::getopts 'p' => my $opt = {};
+# -p: as perl array
 
 my $base_dir = shift @ARGV || "./pnames";
 
@@ -28,22 +32,41 @@ while( defined( my $f = $d->read ) ){
 }
 
 my @result;
-push @result, '// P名のリストです。';
-push @result, 'settings["exceptionPTagsVO"] = ["",';
 
-for my $name( sort keys %{ $pname } ){
-	$name =~ s{'}{\\'}go if $name =~ /'/o;
-	push @result, sprintf qq{\t'%s',}, $name;
+if( defined $opt->{p} ){
+	# perl
+	push @result, 'our $Pnames = [';
+	
+	for my $name( sort keys %{ $pname } ){
+		$name =~ s{'}{\\'}go if $name =~ /'/o;
+		push @result, sprintf qq{\t'%s',}, $name;
+	}
+	
+	push @result, '];';
+	
+	# out
+	print join("\n", @result);
+}
+else{
+	# js
+	push @result, '// P名のリストです。';
+	push @result, 'settings["exceptionPTagsVO"] = ["",';
+	
+	for my $name( sort keys %{ $pname } ){
+		$name =~ s{'}{\\'}go if $name =~ /'/o;
+		push @result, sprintf qq{\t'%s',}, $name;
+	}
+	
+	push @result, qq{\t};
+	push @result, qq{\t// ここから追加してください。};
+	push @result, qq{\t};
+	
+	push @result, "''];";
+	
+	# out
+	print join("\r\n", @result);
 }
 
-push @result, qq{\t};
-push @result, qq{\t// ここから追加してください。};
-push @result, qq{\t};
-
-push @result, "''];";
-
-# out
-print join("\r\n", @result);
 
 printf STDERR "total %d names.\n", scalar keys %{ $pname };
 exit 0;
