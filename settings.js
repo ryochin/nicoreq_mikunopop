@@ -197,30 +197,31 @@ settings["ItemHTMLDate"] = "yyyy年mm月dd日";
 // 基本的に動画リストHTMLと同じですが、一部使用できない特殊文字列も存在します
 // InfoCommentの表示からInfoCommentTimerミリ秒後にInfoComment2を表示します
 // InfoComment2の文字列を空にした場合はこの機能は無効となります
-//del settings["InfoComment"] = "　{#Title}　<br>　再/{#View} コ/{#Comm} マ/{#List} 時/{#Time}　";
-//del settings["InfoComment2"] = "";
-//del settings["InfoCommentTimer"] = 8000;// ミリ秒
-//del settings["InfoCommentDate"] = "yy/mm/dd hh:nn:ss";
-//add start
+
+// original
 //settings["InfoComment"] = "再生/{#View} ｺﾒﾝﾄ/{#Comm} ﾏｲﾘｽﾄ/{#List} 時間/{#Time}　<br>聴き入り度/{#Kiki} ﾏｲﾘｽﾄ率/{#Myri}% 正義値/{#Hiky}";
 //settings["InfoComment2"] = "{#Title}　<br>JASｺｰﾄﾞ/{#JASCode}　P名/{#PName}　投稿日時/{#Date}";
+
+// １番目
 settings["InfoComment"] = 
 	  '<font color="#000000">■</font>'
 	+ '<font color="#acacec">{#Title}</font> <br>'
 	+ '<font color="#000000">■</font>'
 //	+ '<font color="#999999"> by</font> '
 	+ '<font color="#ecccac"> {#PName}</font>';
+
+// ２番目
 settings["InfoComment2"] = 
 	  '<font color="#000000">■</font>'
 	+ '<font color="#acacec">{#Date}</font> '
 	+ '<font color="#aaaaaa">時/</font><font color="#b9f6b9">{#Time}</font> '
 	+ '<font color="#ecccac">彡</font><font color="#aaaaaa">/</font><font color="#f3aaaa">{#Count}</font> '
 	+ '<font color="#aaaaaa">リ/</font><font color="#ecccac">{#ReqInfo}</font>'
+//	+ '<font color="#aaaaaa">リ/</font><font color="#b9f6b9">{#ReqInfo}</font><br> '
 	+ '<font color="#000000">◆</font>'
 	+ '<font color="#aaaaaa">再/</font><font color="#b9f6b9">{#View}</font> '
-	+ '<font color="#aaaaaa">コ/</font><font color="#b9f6b9">{#Comm}</font> '
-	+ '<font color="#aaaaaa">マ/</font><font color="#b9f6b9">{#List}</font> ';
-//	+ '<font color="#aaaaaa">マ/</font><font color="#b9f6b9">{#List} ({#Myri}%) </font>';
+//	+ '<font color="#aaaaaa">コ/</font><font color="#b9f6b9">{#Comm}</font> '
+	+ '<font color="#aaaaaa">マ/</font><font color="#b9f6b9">{#List} ({#Myri}%) </font>';
 
 // 日付の表示
 //settings["InfoCommentDate"] = "yy年mm月dd日 hh時nn分ss秒";
@@ -229,6 +230,7 @@ settings["InfoCommentDate"] = "20yy.mm.dd";
 // リクエスト元の表示 by Mint=Rabbit
 settings["RequesterAdminStr"]    = "主セレ";    // 主セレ
 settings["RequesterListenerStr"] = "{#ReqCommentNum}さん";    // リクエスト {#ReqCommentNum}がコメNoに置換される
+//settings["RequesterListenerStr"] = ">>{#ReqCommentNum}さん";
 
 // 次の情報を表示するまでの時間
 settings["InfoCommentTimer"] = 8000;    // ミリ秒 短くしすぎると、自分のコメントが連投規制される可能性があるので注意
