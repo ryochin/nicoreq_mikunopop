@@ -171,6 +171,17 @@
 //		"memo": ""
 //	},
 //	{"id": "","shortname":"------------------"},    // separater
+//	{
+//		"no": "エンディング",
+//		"is_active": true,
+//		"id": "sm9334241",
+//		"shortname": "X01 Good Night",
+//		"longname": "【ジングル】Good Night ☆ Mikuno",
+//		"author": "くしゃみＰ",
+//		"length": "2:39",
+//		"memo": "ＭＥ的には除外"
+//	},
+//	{"id": "","shortname":"------------------"},    // separater
 	{
 		"no": "放送事故",
 		"is_active": true,
