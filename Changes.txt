@@ -1,3 +1,93 @@
+commit d83a615745cdc67f3ff94b02d6d4024d2487a5d6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jan 16 02:29:05 2010 +0900
+
+    updated jingles.json.
+
+M	jingles.json
+
+commit 654723d19faf6efb41bbbbdc7ef05ab41e46b29e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jan 16 02:23:25 2010 +0900
+
+    tweaked settings.js.
+
+M	settings.js
+
+commit c10507bbebbe973ec72fd2351b3cb5b19b830752
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jan 16 02:14:05 2010 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+
+commit 1835508510a5950cdd11729a71e00a42e1de720e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jan 15 22:36:21 2010 +0900
+
+    tweaked System/Comment.js.
+
+M	System/Comment.js
+
+commit 347bb53667538a3fb877e207f8a4de8b58c6b310
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jan 15 03:13:17 2010 +0900
+
+    added displaying requester comment number as video info feature, thanks to Mint.
+
+M	System/NicoLive.js
+M	System/Request.js
+M	System/RequestManager.js
+M	settings.js
+
+commit 9f94b8a82045fbfd4d4f249d0db95d1f0cd39fc0
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jan 15 02:09:55 2010 +0900
+
+    added pnames/saihane.js.
+
+A	pnames/saihane.js
+
+commit bc836ba35274c058f97b6c1553ebdf73ad4eee18
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jan 15 02:09:26 2010 +0900
+
+    updated script/pnames_concat.pl.
+
+M	script/pnames_concat.pl
+
+commit 1febe1ce6acfd13fa0ba003436ddb3794ae47c6b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jan 15 01:53:03 2010 +0900
+
+    tweaked some files.
+
+M	settings.js
+M	tags.js
+
+commit 5c9417cd135f09601dab2d0a88fe8436882fad31
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jan 7 15:21:45 2010 +0900
+
+    moved & renamed cleanup.pl to script/cache_cleanup.pl.
+
+M	MEMO.txt
+D	cleanup.pl
+A	script/cache_cleanup.pl
+
+commit dbbc5fe3fae07d0340c167c361a9a6d5b47ff67c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jan 7 15:19:15 2010 +0900
+
+    released 1.35.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 823c8e572b9bc92d868acc92e3cf3bd901a38e8f
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Jan 7 15:01:45 2010 +0900
