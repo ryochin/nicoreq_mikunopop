@@ -6,7 +6,7 @@ function __Comment__receiveComment(Chat){
 	__Comment__CommentLog.push(Chat);
 	
 	// ƒRƒ}ƒ“ƒh—Þ‚È‚ç–³Ž‹‚·‚é
-	if( Chat.text.match(/^\/(play|perm) /) )
+	if( Chat.text.match(/^\/(play|perm|clear) */) )
 		return;
 	
 	// remove tags
