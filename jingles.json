@@ -1,6 +1,10 @@
 [null,
+
+// ================================================================================================
+// オープニング
+
 	{
-		"no": "No.13",
+		"no": "OP No.13",
 		"is_active": true,
 		"id": "sm8311828",
 		"shortname": "J13 Jagabongo",
@@ -10,7 +14,7 @@
 		"memo": ""
 	},
 	{
-		"no": "No.12",
+		"no": "OP No.12",
 		"is_active": false,
 		"id": "sm8183423",
 		"shortname": "J12 Vacuons Dolls",
@@ -20,7 +24,7 @@
 		"memo": "ver.A"
 	},
 	{
-		"no": "No.11",
+		"no": "OP No.11",
 		"is_active": true,
 		"id": "sm8032058",
 		"shortname": "J11 xxxxEMPTYxxxx",
@@ -30,7 +34,7 @@
 		"memo": ""
 	},
 	{
-		"no": "No.10",
+		"no": "OP No.10",
 		"is_active": true,
 		"id": "sm7891336",
 		"shortname": "J10 Heart-Beat",
@@ -40,7 +44,7 @@
 		"memo": ""
 	},
 	{
-		"no": "No.9",
+		"no": "OP No.9",
 		"is_active": true,
 		"id": "sm8031848",
 		"shortname": "J09 Freestyle ver.N",
@@ -50,7 +54,7 @@
 		"memo": "再うｐのため動画番号は新しくなっている"
 	},
 	{
-		"no": "No.8",
+		"no": "OP No.8",
 		"is_active": true,
 		"id": "sm7539326",
 		"shortname": "J08 Freestyle ver.K",
@@ -60,7 +64,7 @@
 		"memo": ""
 	},
 	{
-		"no": "No.7",
+		"no": "OP No.7",
 		"is_active": true,
 		"id": "sm7075450",
 		"shortname": "J07 円の中の世界",
@@ -70,7 +74,7 @@
 		"memo": ""
 	},
 	{
-		"no": "No.6",
+		"no": "OP No.6",
 		"is_active": false,
 		"id": "sm7033805",
 		"shortname": "J06 Freestyle ver.A",
@@ -80,7 +84,7 @@
 		"memo": ""
 	},
 	{
-		"no": "No.5",
+		"no": "OP No.5",
 		"is_active": true,
 		"id": "sm7007629",
 		"shortname": "J05 音楽が降りてくる",
@@ -90,7 +94,7 @@
 		"memo": ""
 	},
 	{
-		"no": "No.4",
+		"no": "OP No.4",
 		"is_active": true,
 		"id": "sm6981084",
 		"shortname": "J04 近未来ラジオ",
@@ -100,7 +104,7 @@
 		"memo": ""
 	},
 	{
-		"no": "No.3",
+		"no": "OP No.3",
 		"is_active": true,
 		"id": "sm6939234",
 		"shortname": "J03 ミクノポップクエスト",
@@ -110,7 +114,7 @@
 		"memo": ""
 	},
 	{
-		"no": "No.2",
+		"no": "OP No.2",
 		"is_active": true,
 		"id": "sm6789315",
 		"shortname": "J02 近未来ラジオ (G)",
@@ -120,7 +124,7 @@
 		"memo": ""
 	},
 	{
-		"no": "No.1",
+		"no": "OP No.1",
 		"is_active": true,
 		"id": "sm6789292",
 		"shortname": "J01 Freestyle (G)",
@@ -129,7 +133,38 @@
 		"length": "1:55",
 		"memo": ""
 	},
+
+// ================================================================================================
+// エンディング
+
 	{"id": "","shortname":"------------------"},    // separater
+
+	{
+		"no": "ED No.1",
+		"is_active": true,
+		"id": "sm9446991",
+		"shortname": "E01 マイティボンジャック",
+		"longname": "【EDジングル】『マイティボンジャック』-forget me Mix-",
+		"author": "きぬこもち",
+		"length": "2:12",
+		"memo": ""
+	},
+//	{
+//		"no": "ED No.0",
+//		"is_active": true,
+//		"id": "sm9334241",
+//		"shortname": "E00 Good Night",
+//		"longname": "【ジングル】Good Night ☆ Mikuno",
+//		"author": "くしゃみＰ",
+//		"length": "2:39",
+//		"memo": "ＭＥ的には除外"
+//	},
+
+// ================================================================================================
+// イベント
+
+//	{"id": "","shortname":"------------------"},    // separater
+//
 //	{
 //		"no": "イベント告知",
 //		"is_active": true,
@@ -170,18 +205,12 @@
 //		"length": "0:41",
 //		"memo": ""
 //	},
-//	{"id": "","shortname":"------------------"},    // separater
-//	{
-//		"no": "エンディング",
-//		"is_active": true,
-//		"id": "sm9334241",
-//		"shortname": "X01 Good Night",
-//		"longname": "【ジングル】Good Night ☆ Mikuno",
-//		"author": "くしゃみＰ",
-//		"length": "2:39",
-//		"memo": "ＭＥ的には除外"
-//	},
-//	{"id": "","shortname":"------------------"},    // separater
+
+// ================================================================================================
+// 放送事故
+
+	{"id": "","shortname":"------------------"},    // separater
+
 	{
 		"no": "放送事故",
 		"is_active": true,
@@ -192,6 +221,10 @@
 		"length": "1:58",
 		"memo": "放送事故用"
 	},
+
+// ================================================================================================
+// その他
+
 // ["sm7246105","1000回記念：ジングル：悶さん"],
 // ["sm7341325","第２回大賞：大賞告知：悶さん"],
 // ["sm7343558","第２回大賞：大賞告知：きぬこもちさん"],
