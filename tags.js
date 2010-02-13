@@ -78,6 +78,7 @@ settings["genreTagWhiteList"] = ["",
 	"VOCALOID-EUROBEAT",
 	"ボカロコア",
 	"VOCALOUD",
+	"Chiptune×VOCALOIDリンク",
 	
 	// ミク
 	"みんなのミクうた",
