@@ -139,6 +139,18 @@ div#VideoInformation div.tags span.locked {
 	color: #aa3333;
 }
 
+/* status */
+
+div#status {
+	margin: 0;
+	padding: 2px;
+}
+
+div#status p {
+	margin: 0;
+	padding: 2px 2px;
+}
+
 /* tooltip */
 
 #tooltip {
