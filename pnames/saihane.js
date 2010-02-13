@@ -4,5 +4,6 @@ settings["exceptionPTagsVO"] = ["",
 	"ホワイトロリータ",
 	"22",
 	"G@POPO",
+	"rlboro",
 ""];
 
