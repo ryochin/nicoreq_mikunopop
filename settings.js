@@ -340,7 +340,7 @@ settings["typeTAG"] = false;
 // 新着確認フラグ
 
 // リクされた動画が新着かどうかを確認するかどうかをここで設定します。
-settings["CheckNew"] = true;
+settings["CheckNew"] = false;
 
 // =====================================================================================================================
 // NGリストに一時的に追加
@@ -529,7 +529,7 @@ settings["exceptionPTagsIM"] = ["", ""];
 // ニコマス・ボカロ向け除外Pネーム
 // タグ名の末尾がPでもP名として取得しない場合はここに記述します
 settings["NotPTagsIM"] = ["", "iM@SHUP", "アイドルマスターSP", "PSP", ""];
-settings["NotPTagsVO"] = ["", "MikuPOP", "RinPOP", "VochnoPop", "アニメOP", "ゲームOP", "エロゲOP", "偽OP", "J-POP", "これからもずっとbakerの嫁P", "2STEP", "ミーム第２期OP", "Human_Dump", "お前はもう死んでいるP", "吸引力の変わらない唯一の鼻そうめんP", ""];
+settings["NotPTagsVO"] = ["", "MikuPOP", "RinPOP", "VochnoPop", "アニメOP", "ゲームOP", "エロゲOP", "偽OP", "J-POP", "これからもずっとbakerの嫁P", "2STEP", "ミーム第２期OP", "Human_Dump", "お前はもう死んでいるP", "吸引力の変わらない唯一の鼻そうめんP", "新人潰しを自称する割に全然潰せてないP", ""];
 
 // Pネーム取得失敗時の名前
 // タグからPネームを取得できなかった際に用いられる文字列を指定します
