@@ -1,3 +1,66 @@
+commit 79cd5ff04b6a5a360f06542641aa0cb3aa04d87a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Feb 22 22:40:03 2010 +0900
+
+    updated settings.js.
+
+M	settings.js
+
+commit ad223fd3a4a03681a40126b9229c770b005222f9
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Feb 22 22:30:19 2010 +0900
+
+    fixed a problem that the video ids on comments posted by aircaster were treated as requests.
+
+M	System/Chat.js
+M	System/Main.js
+
+commit 3d96f629d815d33559f4c32ce69144a03275587e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Feb 22 22:12:01 2010 +0900
+
+    tweaked Mikunopop.js for status display.
+
+M	System/Mikunopop.js
+
+commit 4a060c08ff10a6dddc4c0ca15d42d32d5db2d99b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Feb 13 17:35:47 2010 +0900
+
+    added showing status feature.
+
+M	NicoRequest.hta
+A	System/Status.js
+M	System/base.css
+
+commit 7a4101fb56d650c757ecd1d2aabb7ebca13b2527
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Feb 13 15:08:18 2010 +0900
+
+    updated tags.js.
+
+M	tags.js
+
+commit 871287269d0eb2eef3cdd6805fe22930becd958e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Feb 13 15:07:57 2010 +0900
+
+    updated pnames/saihane.js/
+
+M	pnames/saihane.js
+
+commit fd162ee6f62943c22e642e71efea6d390b7977aa
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jan 23 04:19:55 2010 +0900
+
+    released 1.36.1.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 041f2a07c3fd38e92ed2b56200422a08ba489f42
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Sat Jan 23 03:59:46 2010 +0900
