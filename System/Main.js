@@ -145,6 +145,9 @@ var reqIDs = {};    // { liveid => { userid => n, .. }, .. } on memory only
 
 // リクエストのチェック
 function receiveComment_Request(Chat){
+	// 自分（主）の通常発言なら、常に拾わない
+	if( Chat.premium == 3 )
+		return;
 //del	if(!acceptRequest) return;
 	var text = Zen2Han(Chat.text);
 //	checkJASCode(text);

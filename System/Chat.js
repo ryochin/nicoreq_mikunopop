@@ -7,6 +7,7 @@ function Chat(){
 	this.user_id;
 	this.vpos;
 	this.text;
+	this.premium;
 	this.initialize.apply(this, arguments);
 }
 
