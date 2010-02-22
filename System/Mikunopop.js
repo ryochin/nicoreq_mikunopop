@@ -25,11 +25,23 @@ if( settings["GetMikunopopCount"] == 1 ){
 	// get via net
 	if( checkMikunopopCountFileDateLastModified() ){
 		retrieveMikunopopCountFile();
-//		alert("最新のミクノ度情報をネットから取得しました。");
+		
+		// load
+		loadMikunopopCountFile();
+		
+		// status
+		Status.postStatus("最新のミクノ度情報をネットから取得しました（" + comma( getVideoNum() ) + "曲）。", 5000, 1000);
 	}
-	
-	// load
-	loadMikunopopCountFile();
+	else{
+		// load
+		loadMikunopopCountFile();
+	}
+}
+
+function getVideoNum () {
+	var len = 0;
+	$.each( MikunopopCount, function () { len++ } );
+	return len;
 }
 
 function getMikunopopCount (id) {
