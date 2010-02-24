@@ -56,8 +56,6 @@ NicoLive.prototype = {
 			timeout: 5000,
 			dataType: "text",
 			success: function (result) {
-				// sjis で保存されるから charset を強引に変える
-				result = result.replace(/encoding="UTF-8"/ig, 'encoding="Shift_JIS"');
 				// 保存
 				NicoLive.saveVideoInfoCacheFile(file, result);
 			},
@@ -86,18 +84,8 @@ NicoLive.prototype = {
 //		var re = XRegExp("<tags domain=\"(es|de|tw)\">.+?<\/tags>\n?", "gs");
 //		content = content.replace(re, "");
 		
-		// それでも保存できない場合があるから、それは無視する。原因不明、文字コードか？
-		
-		var fs = new ActiveXObject('Scripting.FileSystemObject');
-		try {
-			var st = fs.CreateTextFile(file, true, false);
-			// simply write down all the content as-is :)
-			st.writeLine(content);
-		} catch (e) {
-//			alert("動画情報の書き込みに失敗しました orz");
-		} finally {
-			st.Close();
-		}
+		// UTF-8 で保存する
+		return saveFileAsUTF8( file, content );
 	},
 	checkVideoInfoCacheFileDateLastModified: function(url){
 		var file = this.getCacheFileName(url);
