@@ -981,3 +981,9 @@ function isOnEditableArea () {
 	return eval( $(document.activeElement).get(0).tagName.match(/^(input|textarea)$/i) ) ? true : false;
 }
 
+function OpenOfficialSite () {
+	var WshShell = new ActiveXObject("WScript.Shell");
+	var url = "http://mikunopop.info/manual/nicoreq.html";
+	WshShell.run("rundll32.exe url.dll,FileProtocolHandler " + url, 4, false);
+}
+

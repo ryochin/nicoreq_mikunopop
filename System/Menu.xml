@@ -56,5 +56,6 @@
 	<item onclick="top.alert('c: 接続 \nd: 切断 \ni: テキストの取り込み \ne: 再生履歴の出力 \nf: マイリストから検索')">ショートカットの一覧</item>
 	<hr />
 	<item onclick="top.alert(top.HTA.ApplicationName+' '+top.HTA.Version);">バージョン情報</item>
+	<item onclick="top.OpenOfficialSite();">サポートページを開く</item>
 </popup>
 </menu>
