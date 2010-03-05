@@ -8,6 +8,7 @@ function RequestManager(){
 	this.RequestDOMTimer   = 0;
 	this.Events            = new Array();
 	this.initialize.apply(this, arguments);
+	this.status            = {};    // request status container { id => { requester: 'listener', number: 31 }, ...
 }
 
 RequestManager.prototype = {
@@ -70,7 +71,7 @@ RequestManager.prototype = {
 		if( RQ.requester == "listener" ){
 			reqtypeDisplay = 'inline';
 		}
-		ItemHTML += '<img id="req-by-listener-{#ID}" src="./System/assets/request.png" class="requester-icon" title=">>' + RQ.number + ' さんのリクエスト" align="top" style="display: ' + reqtypeDisplay  + '"';
+		ItemHTML += '<img id="req-by-listener-{#ID}" src="./System/assets/request.png" class="requester-icon" title="' + this.getRequestStatusStr( RQ.number ) + '" align="top" style="display: ' + reqtypeDisplay  + '"';
 		ItemHTML += ' oncontextmenu="$(\'#req-by-listener-{#ID}\').hide();" />';    // 右クリックでアイコンを消せるように
 		ItemHTML += '</td>';
 
@@ -265,19 +266,43 @@ RequestManager.prototype = {
 				// すでにストックにある旨のメッセージを表示
 				if( settings["showStockDuplicatedAlert"] == true ){
 					var msg = [];
-					msg.push("すでにストックにある曲がリクエストされました。");
+					msg.push("！　すでにストックにある曲がリクエストされました　！");
 					msg.push("");
-					msg.push( RQ.id );
-					msg.push( $('#TITLE' + RQ.id).text() );
-					alert( msg.join("\n") );
+					msg.push( "　" + RQ.id + ": " + $('#TITLE' + RQ.id).text() );
+					msg.push("");
+					
+					var imageID = "#req-by-listener-" + RQ.id;
+					
+					// リスナーからのリクエストにするか主セレのままにするか選んでもらう
+					if( $(imageID).css('display') == "none" ){
+						// 今、主セレの場合
+						msg.push("リスナーからのリクエストとして扱いますか？");
+						msg.push("");
+						msg.push("　　→ はい　：　" + RQ.number + "さんのリクエストになります");
+						msg.push("　　→ いいえ：　主セレのままになります");
+					}
+					else{
+						// 今、すでにリクエストの場合
+						msg.push("すでに別の古いリスナーからのリクエストとなっていますが、");
+						msg.push("新しいリスナーからのリクエストとして上書きしますか？");
+					}
+					
+					if( window.confirm( msg.join("\n") ) ){
+						// （新しい）リスナーからのリクエストに切り替える
+						var origRQ = RequestManager.Requests[RQ.id];
+						origRQ.requester = 'listener';
+						origRQ.requesterstr = settings["RequesterListenerStr"].replace(/{#ReqCommentNum}/g, RQ.number);
+						
+						// ソート時に復帰するための status をセット
+						RequestManager.setRequestStatus(RQ);
+							
+						// リクエストアイコンをセット
+						RequestManager.writebackRequestStatus(RQ);
+					}
+					else{
+						// 主セレ、あるいは古いリスナーからのリクエストのまま（何もしない）
+					}
 				}
-				
-				// リスナーからのリクエストアイコンをオンにする
-				// -> ソートした時にうまく反映されない問題が未解決なためオンにできない
-//				if( RQ.requester == 'listener' ){
-//					var id = "#req-by-listener-" + RQ.id;
-//					$(id).show();
-//				}
 			}else{
 				// 	リストに追加する位置を決める
 				var pos = 'BeforeEnd';
@@ -297,6 +322,11 @@ RequestManager.prototype = {
 				if( RequestManager.Requests[RQ.id] != null ){
 					// title を強引に書き換える
 					rewriteTitle( RequestManager.Requests[RQ.id] );
+					
+					// リクエストアイコンをセット
+					if( RequestManager.status[RQ.id] ){
+						RequestManager.writebackRequestStatus(RQ, RequestManager.status[RQ.id]);
+					}
 				}
 				
 //add start	タイプ判定
@@ -305,6 +335,28 @@ RequestManager.prototype = {
 				RequestManager.setCumulativeTime(RQ.id);
 			}
 		}
+	},
+	// リクエストの状態をキャッシュする（ソート後に書き戻すため）
+	setRequestStatus: function (RQ) {
+		if( ! RQ ) return;
+		
+		if( RequestManager.status[RQ.id] == null )
+			RequestManager.status[RQ.id] = {};
+							
+		RequestManager.status[RQ.id].requester = 'listener';
+		RequestManager.status[RQ.id].number    =  RQ.number;
+	},
+	// リクエストの状態を書き戻す（アイコン＋コメント番号）
+	writebackRequestStatus: function (RQ, status) {
+		if( ! RQ ) return;
+		
+		var imageID = "#req-by-listener-" + RQ.id;
+		$(imageID).show();
+		$(imageID).attr( { title: this.getRequestStatusStr( status ? status.number : RQ.number ) } );
+	},
+	// >>31 さんのリクエスト　の文字列を生成する
+	getRequestStatusStr: function (number) {
+		return ">>" + number + " さんのリクエスト";
 	},
 	// 累積時間の設定
 	setCumulativeTime: function(id){
