@@ -15,9 +15,7 @@ settings["Debug"] = false;
 // ”ñIEƒRƒ“ƒ|[ƒlƒ“ƒgƒuƒ‰ƒEƒU‚ÅƒƒOƒCƒ“‚µ‚Ä‚¢‚éê‡‚Ífalse‚Éİ’è‚µ‚Ä‚­‚¾‚³‚¢
 // Windows VistaŠÂ‹«‚ÅIE‚Ì•ÛŒìƒ‚[ƒh‚ª—LŒø‚Ìê‡‚Ífalse‚Éİ’è‚µ‚Ä‚­‚¾‚³‚¢
 // false‚Éİ’è‚·‚é‚ÆNicoRequest‚ª§ŒÀƒ‚[ƒh‚Å“®ì‚·‚é‚æ‚¤‚É‚È‚è‚Ü‚·
-//add start
 // ‚È‚¨ANiconicoCookieImporter‚ğ•Ê“r“üè‚µ‚Äg—p‚·‚é‚±‚Æ‚ÅA”ñIE‚©‚Âtrueİ’è‚Å‚à“®ì‚·‚é‚æ‚¤‚É‚È‚è‚Ü‚µ‚½B
-//add end
 settings["UseIE"] = true;
 
 // =====================================================================================================================
@@ -40,8 +38,6 @@ settings["WindowY"] = 0;
 // ƒEƒBƒ“ƒhƒE‚ğí‚ÉÅ‘O–Ê‚É•\¦‚·‚é
 
 // ƒEƒBƒ“ƒhƒE‚ğí‚ÉÅ‘O–Ê‚É•\¦‚µ‚Ü‚·
-//del settings["TopMost"] = false;
-//add start
 settings["TopMost"] = false;
 
 // =====================================================================================================================
@@ -50,7 +46,6 @@ settings["TopMost"] = false;
 // ƒc[ƒ‹‹N“®‚É‚·‚®‚ÉƒƒOƒCƒ“‰æ–Ê‚ğ•\¦‚·‚é‚©‚ğİ’è‚µ‚Ü‚·
 // true=•\¦‚·‚é@false=•\¦‚µ‚È‚¢
 settings["logoffCheck"] = false;
-//add end
 
 // =====================================================================================================================
 // Ä¶Ø‚è‘Ö‚¦•û®
@@ -171,15 +166,10 @@ settings["multiRequestLimit"] = 0;    // ƒ`ƒFƒbƒN‚µ‚È‚¢
 // {#Date}‚ÍX‚Ésettings["ItemHTMLDate"]‚ÅƒtƒH[ƒ}ƒbƒg‚ğw’è‚Å‚«‚Ü‚·
 // {#Date}‚Ì“Áê•¶š—ñ: yyyy, yy, mm, dd, dy, hh, nn, ss
 // “Á’èƒRƒ~ƒ…Œü‚¯‚Ì“Áê•¶š—ñ‚Æ‚µ‚ÄˆÈ‰º‚Ì‚à‚Ì‚ª‚ ‚è‚Ü‚·
-//del // {#PName}:Pƒl[ƒ€, {#JASCode}, JASƒR[ƒh
-//del settings["ItemHTML"] = "{#Title}<br><b>Ä/</b>{#View} <b>ƒR/</b>{#Comm} <b>ƒ}/</b>{#List} <b>/</b>{#Time} <b>—İ/</b>{#CTime} {<b>JAS/</b>#JASCode}";
-//del settings["ItemHTMLDate"] = "yy/mm/dd hh:nn:ss";
-//add start
 // {#PName}:Pƒl[ƒ€, {#JASCode}:JASƒR[ƒh, {#Type}:ƒ^ƒCƒv”»’è, {#Kiki}:•·‚«“ü‚è“x, {#Myri}:ƒ}ƒCƒŠƒX—¦, {#Hiky}:³‹`“xi‚Ú‚©‚ç‚ñ•â³j
 //settings["ItemHTML"] = "{#Type}{#Title}<br><b>P–¼/</b>{#PName} <b>JAS-C/</b>{#JASCode}<br><b>Ä/</b>{#View} <b>ƒR/</b>{#Comm} <b>ƒ}/</b>{#List} <b>/</b>{#Time} <b>—İ/</b>{#CTime}<br><b>“Še“ú/</b>{#Date}<br><b>’®‚«“ü‚è“x/</b>{#Kiki} <b>ƒ}ƒCƒŠƒXƒg—¦/</b>{#Myri}% <b>³‹`’l/</b>{#Hiky}";
 //settings["ItemHTML"] = "{#Type}{#Title}<br>"
 settings["ItemHTML"] = ""
-//	+ "<img src=\"http://tn-skr4.smilevideo.jp/smile?i={#IDNO}\" width=65 height=50 align=left>"
 	+ "{#ThumbURL}"
 	+ '<span class="subtitle">‚o </span>{#PName}<br>'
 	+ '<span class="subtitle">“Š </span>{#Date}<br>'
@@ -188,7 +178,6 @@ settings["ItemHTML"] = ""
 	+ '<span class="genre">{#Genre}</span>';
 //settings["ItemHTMLDate"] = "yyyy”NmmŒdd“ú hhnn•ªss•b";
 settings["ItemHTMLDate"] = "yyyy”NmmŒdd“ú";
-//add end
 
 // =====================================================================================================================
 // î•ñƒRƒƒ“ƒg
@@ -257,7 +246,6 @@ settings["InfoCommentTimer"] = 8000;    // ƒ~ƒŠ•b ’Z‚­‚µ‚·‚¬‚é‚ÆA©•ª‚ÌƒRƒƒ“ƒg
 
 // Ä¶‚Ì—š—ğ‚ğ\¬‚µ‚Ü‚·
 // Šî–{“I‚É“®‰æƒŠƒXƒgHTML‚Æ“¯‚¶‚Å‚·‚ªAˆê•”g—p‚Å‚«‚È‚¢“Áê•¶š—ñ‚à‘¶İ‚µ‚Ü‚·
-//settings["PlayLog"] = "{#ID}@{#Title}@{#JASCode}";
 settings["PlayLog"] = "{#ID}@{#Title}";
 
 // =====================================================================================================================
@@ -265,21 +253,15 @@ settings["PlayLog"] = "{#ID}@{#Title}";
 
 // ƒRƒƒ“ƒgƒ^ƒu‚É•\¦‚³‚ê‚éHTML‚ğ\¬‚µ‚Ü‚·
 // ˆÈ‰º‚Ì“Áê•¶š—ñ‚ğ‹Lq‚·‚é‚Æ‚»‚Ì•”•ª‚ğƒRƒƒ“ƒgî•ñ‚É‘‚«Š·‚¦‚Ä•\¦‚µ‚Ü‚·
-// {#No}:ƒRƒƒ“ƒgƒiƒ“ƒo[, {#Text}:ƒRƒƒ“ƒgƒeƒLƒXƒg, {#ID}: ƒ†[ƒU[ID
-//add start
 // {#No}:ƒRƒƒ“ƒgƒiƒ“ƒo[, {#Text}:ƒRƒƒ“ƒgƒeƒLƒXƒg, {#ID}: ƒ†[ƒU[ID, {#Date}:ƒRƒƒ“ƒg‚³‚ê‚½“ú
 // ‚½‚¾‚µA“–ŠÂ‹«‚Å‚ÍA{#Date}‚ğw’è‚·‚éê‡A“ú•t‚ğ•\¦‚·‚éİ’è‚É‚µ‚È‚¢‚ÆA
 // •\¦‚ª‚¤‚Ü‚­‚¢‚©‚È‚¢‚æ‚¤‚Å‚·orz ’N‚©‰ğŒˆ–@‹³‚¦‚Äplz
 //
-//add end
 // ‚æ‚è×‚©‚¢ƒJƒXƒ^ƒ}ƒCƒY‚ğ‚µ‚½‚¢ê‡‚ÍComment.js‚ğ‘‚«Š·‚¦‚Ä‚­‚¾‚³‚¢
-//del settings["CommentLogHTML"] = "<b>{#No}</b> :{#Text}<br>[{#ID}]<hr>";
-//add start
 settings["CommentLogHTML"] = '<span class="no">{#No}</span> <span class="date">{#Date}</span> &nbsp; <span class="id">by {#ID} [{#Mail}]</span><br>'
 							+ '{#Text}<hr>';
 //settings["CommentLogDate"] = "yyyy”NmmŒdd“ú@dy—j“ú@hhnn•ªss•b";
 settings["CommentLogDate"] = "hh:nn:ss";
-//add end
 
 // ƒRƒƒ“ƒgƒ^ƒu‚ÉƒTƒ€ƒlƒCƒ‹‰æ‘œ‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©
 settings["showCommentTabVideoThumbnail"] = true;
@@ -288,13 +270,10 @@ settings["showCommentTabVideoThumbnail"] = true;
 // ©“®Ä¶‚Ìƒ‰ƒO‘Îô—pŠÔ
 
 // ©“®Ä¶‚É‹­§“I‚É‘Ò‹@‚·‚éŠÔ‚ğİ’è‚µ‚Ü‚·
-//add start
 // sm“®‰æ‚ÌÄ¶‚ÌŒã‚Ísettings["AutoPlayMargin"]•b‘Ò‹@‚µ‚Ü‚·B
 // nm“®‰æ‚ÌÄ¶‚ÌŒã‚Ísettings["AutoPlayMargin_nm"]•b‘Ò‹@‚µ‚Ü‚·B
-//add end
 // ‰ñüó‹µ‚È‚Ç‚É‚æ‚Á‚ÄÅ“K‚È’l‚ÍˆÙ‚È‚è‚Ü‚·
-//del settings["AutoPlayMargin"] = 10;
-//add start
+
 settings["AutoPlayMargin"] = 3;
 settings["AutoPlayMargin_nm"] = 3;
 
@@ -391,7 +370,6 @@ settings["AutoLoadStock"] = true;
 
 settings["AutoSaveStock"] = true;
 // ‚È‚¨Astock.txt‚ÌƒtƒH[ƒ}ƒbƒg‚Í‚Ps‚ªsm/nm“®‰æID‚Ì‚İ‚Å\¬‚³‚ê‚éƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Å‚·B
-// JASƒR[ƒh‚à“o˜^‚Å‚«‚é‚æ‚¤‚É‚Å‚«‚é‚©‚ÈH
 
 // =====================================================================================================================
 // ƒEƒBƒ“ƒhƒE‚ÌˆÊ’uEƒTƒCƒY‚ğsettings.js‚É”½‰f‚³‚¹‚é‚©‚Ç‚¤‚©
@@ -448,10 +426,7 @@ settings["cookieLifeSpan"] = 0;
 //  0:ƒGƒ“ƒ^ƒƒ‚[ƒh, ‰¹º‚Ìí—ŞEƒXƒs[ƒh‚ªƒ‰ƒ“ƒ_ƒ€‚Éİ’è‚³‚êAƒRƒƒ“ƒg‚ª“Še‚³‚ê‚é‚½‚Ñ‚É“Ç‚İã‚°‚Ü‚·
 //  1:À—pƒ‚[ƒh,     ‰¹º‚Ìí—ŞEƒXƒs[ƒh‚ª•·‚«‚â‚·‚¢‚à‚Ì‚ÉŒÀ’è‚³‚êA1‚Â‚ÌƒRƒƒ“ƒg‚ğ“Ç‚İI‚¦‚é‚Ü‚Å‘¼‚ÌƒRƒƒ“ƒg‚ğ‘Ò‹@‚³‚¹‚Ü‚·
 //  2:”¼•ªƒ‚[ƒh,     ‰¹º‚Ìí—ŞEƒXƒs[ƒh‚ª•·‚«‚â‚·‚¢‚à‚Ì‚ÉŒÀ’è‚³‚êAƒRƒƒ“ƒg‚ª“Še‚³‚ê‚é‚½‚Ñ‚É“Ç‚İã‚°‚Ü‚·
-//del settings["SofTalkMode"] = 1;
-//add start
 settings["SofTalkMode"] = -1;
-//add end
 
 // SofTalkŒÀŠEƒRƒƒ“ƒg’·
 // SofTalk‚Å“Ç‚İã‚°‚éƒRƒƒ“ƒg‚Ì’·‚³‚ÌŒÀŠE‚ğİ’è‚µ‚Ü‚·
@@ -476,7 +451,6 @@ settings["SofTalkStockLimit"] = 20;
 settings["Twitter"] = false;
 settings["Twitter_Mail"] = "example@example.com";
 settings["Twitter_Pass"] = "example";
-
 
 // =====================================================================================================================
 // ‚±‚±‚©‚ç”ñ„§İ’è
@@ -534,15 +508,11 @@ settings["NotPTagsVO"] = ["", "MikuPOP", "RinPOP", "VochnoPop", "ƒAƒjƒOP", "ƒQ
 // Pƒl[ƒ€æ“¾¸”s‚Ì–¼‘O
 // ƒ^ƒO‚©‚çPƒl[ƒ€‚ğæ“¾‚Å‚«‚È‚©‚Á‚½Û‚É—p‚¢‚ç‚ê‚é•¶š—ñ‚ğw’è‚µ‚Ü‚·
 // ‹ó•¶š("")‚ğİ’è‚·‚é‚Æƒ_ƒuƒ‹ƒNƒŠƒbƒN‚É‚æ‚éPƒl[ƒ€•ÒW‹@”\‚ªg‚¦‚È‚­‚È‚è‚Ü‚·
-//del settings["NoPName"] = "P–¼?";
-//add start
 settings["NoPName"] = "P–¼?";
 //settings["NoPName"] = "P–¼•s–¾I î•ñ‹ƒ€I";
 
 // JASRACƒR[ƒh‚ª‚È‚¢‚Ì{#JASCode}‚Ì‘ã‘Ö•¶š—ñ
 settings["NoJASCode"] = "ƒR[ƒh‚È‚µ";
-
-//add end
 
 // æ“¾‚·‚éƒ}ƒCƒŠƒXƒgƒOƒ‹[ƒv‚©‚çœŠO‚·‚é–¼‘O
 settings["MylistBlackList"] = ["", "ƒAƒCƒ}ƒX", "MMD", "3D", "‚Ê‚±", "good", "ƒ~ƒNƒQ[", "‹Zp•”", "–G‚¦", "_name_", ""];

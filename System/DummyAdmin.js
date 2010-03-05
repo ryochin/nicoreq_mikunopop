@@ -115,10 +115,8 @@ DummyAdminManager.prototype = {
 		var DA = this.DummyAdminQueues[this.Indexes[id]];
 		if (document.getElementById("dummyAdminDelMsgCheck").checked){
 			if (DA.Name != ""){
-//				NicoLive.postComment(DA.Name + "さんの副管理者機能を解除しました", "");
 				NicoLive.postComment(DA.Name + "さん、ありがとうございました！", "");
 			}else{
-//				NicoLive.postComment("ID:" + DA.UserID + "<br>の副管理者機能を解除しました", "");
 				NicoLive.postComment("ID:" + DA.UserID + "<br>さん、ありがとうございました！", "");
 			}
 		}

@@ -117,19 +117,13 @@ function TopMost(){
 	}catch(e){try{
 		new ActiveXObject("WScript.Shell").run("./System/htaEx.exe /t", 1, true);
 	}catch(e){
-//add start
 			try{
 				topmost("/t");
 			}catch(e){
-//add end
 		alert("Utils.js: TopMost"+e.description);
-//add start
 			}
-//add end
 	}}
 }
-//add start
-
 //画面を最前面に貼付(私の環境[ie7+vista]だとこれじゃないとやっぱり動かないみたい)
 //参照先:http://code.nanigac.com/source/view/671
 function topmost(arg){///t: 最前面表示 /a: 透明度％ /c: 透明色 /t /a:80 /c:FF00FF
@@ -161,7 +155,6 @@ function writelog(mode, text){
 		alert(logfile + "への書き込みに失敗しました。")
 	}
 }
-//add end
 
 // HTML アンエスケープ
 function unescapeHTML (str) {

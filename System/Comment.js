@@ -27,7 +27,6 @@ function __Comment__receiveComment(Chat){
 				.replace(/{#Mail}/g,     function(){if(Chat.mail!=undefined)return Chat.mail})
 				.replace(/{#No}/g,       Chat.no)
 				.replace(/{#Thread}/g,   Chat.thread)
-//				.replace(/{#ID}/g,       "<span onclick=\"__Comment__showPopup(event.clientX, event.clientY, '"+Chat.user_id+"')\" oncontextmenu=\"setSelectedUseridToDummyAdmin('" + Chat.user_id + "')\">" + Chat.user_id + "</span>")
 				.replace(/{#ID}/g,       "<span title=\"右クリックで副管理者欄にIDコピー\" oncontextmenu=\"setSelectedUseridToDummyAdmin('" + Chat.user_id + "')\">" + Chat.user_id + "</span>")
 				.replace(/{#Vpos}/g,     Chat.vpos)
 				.replace(/{#Text}/g,     text);

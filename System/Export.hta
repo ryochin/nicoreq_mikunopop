@@ -2,10 +2,8 @@
 <head>
 <meta http-equiv="MSThemeCompatible" content="Yes" />
 <title>履歴</title>
-<!--add start-->
 <script type="text/javascript" src="./jquery.js"></script>
 <script type="text/javascript" src="../settings.js"></script>
-<!--add end-->
 <script type="text/javascript" src="./Utils.js"></script>
 <script type="text/javascript">
 
@@ -13,9 +11,7 @@ setDialogSize(480, 320);
 
 window.onload = function(){
 	document.getElementById("export").value = formatPlayLog( window.dialogArguments );
-//add start
 	if(!settings["Enable2PostHistory"]) document.getElementById("btn2").style.display = "none";
-//add end
 }
 
 $(document).ready( function () {
@@ -41,7 +37,6 @@ function formatPlayLog (str) {
 	return result.join("\n") + "\n";
 }
 
-//add start
 function postHistory(){
 	var NAME="";
 	if(settings["PlayListSiteName"]==""){
@@ -101,7 +96,6 @@ function postHistory(){
 	}
 }
 
-//add end
 function OK(){
 	window.returnValue = document.getElementById("export").value;
 	window.close();
@@ -144,16 +138,13 @@ button{
 <textarea id="export" rows="5" cols="70"></textarea>
 <div id="btn">
 	<hr>
-<!--add start-->
 	<span id="btn2">
 	履歴を<select id="atesaki">
 		<option value="1231411454">初音ミクのライブのプレイリスト</option>
 		<option value="1235282075">VOCALOID生放送のプレイリスト</option>
 	</select>に<button id="POST" onclick="postHistory()">投稿する</button><br /></span>
-<!--add end-->
 	<button id="copy-export">コピー</button> &nbsp;
 	<button id="OK" onclick="OK()">閉じる</button>　
-<!--	<button onclick="window.returnValue=window.dialogArguments;window.close()">キャンセル</button> -->
 </div>
 </body>
 </html>

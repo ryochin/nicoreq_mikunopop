@@ -32,9 +32,7 @@ Request.prototype = {
 		this.view   = Number(xmldom.getElementsByTagName("view_counter")[0].text);
 		this.comm   = Number(xmldom.getElementsByTagName("comment_num")[0].text);
 		this.list   = Number(xmldom.getElementsByTagName("mylist_counter")[0].text);
-//add start
 		this.myri = (100*this.list/this.view).toFixed(1);
-//add end
 		this.length = xmldom.getElementsByTagName("length")[0].text;
 		this.date   = new Date(xmldom.getElementsByTagName("first_retrieve")[0].text.replace("-","/").replace("T"," ").replace("+09:00",""));
 		var xmltags = xmldom.getElementsByTagName("tags")[0].getElementsByTagName("tag");
@@ -55,12 +53,10 @@ Request.prototype = {
 		this.requesterstr = reqCommentNum == ""
 						? settings["RequesterAdminStr"]
 						: settings["RequesterListenerStr"].replace(/{#ReqCommentNum}/g, reqCommentNum);
-//add start タイプ判定用プロパティ
 		this.oTitle  = xmldom.getElementsByTagName("title")[0].text;
 		this.thumbnail_url = xmldom.getElementsByTagName("thumbnail_url")[0].text;
 		this.description = xmldom.getElementsByTagName("description")[0].text;
 		this.type        = this.getType(this.oTitle, this.description, this.tags);
-//add end
 	},
 	getTitle: function(title){
 		var T = title;
@@ -95,11 +91,8 @@ Request.prototype = {
 		if(P=="") P = settings["NoPName"];
 		return P;
 	},
-//add start　タイプ判定
+
 	getType: function(title, description, tags){
-//タイトル = title
-//動画説明 = description
-//タグ = tags(tag)
 		var T = "";
 		if (settings["typeTITLE"]) T += title+" ";
 		if (settings["typeDESCRIPTION"]) T += description+" ";
@@ -136,14 +129,11 @@ Request.prototype = {
 		if(m>0) return "type"+m;
 		return "";
 	},
-//add end
+
 	getDateString: function(format){
 		if(!format) format = "yy/mm/dd hh:nn:ss";
 		var YYYY = this.date.getFullYear();
-//del		var YY   = this.fillZero(this.date.getYear());
-//add start
 		var YY   = this.fillZero(YYYY<2000?YYYY-1900:YYYY-2000);
-//add end
 		var MM   = this.fillZero(this.date.getMonth() + 1);
 		var DD   = this.fillZero(this.date.getDate());
 		var DY   = ["日", "月", "火", "水", "木", "金", "土"][this.date.getDay()];

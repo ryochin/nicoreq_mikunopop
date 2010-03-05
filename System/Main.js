@@ -1,18 +1,13 @@
 var acceptRequest = true;
 var timeLeftTimer  = 0;
 var playStateTimer = 0;
-//var JASCodes = new Array();
 var PlayLog = "";
-//add start
 var NGIDs = new Array();
 var PlayedVideoIds = new Array();
-//add end
-
 
 setWindowSize(settings["WindowWidth"], settings["WindowHeight"]);
 
 window.attachEvent("onload", function(){
-//add start
 	NicoCookieImporter("connect", settings["browserType"], settings["cookieLifeSpan"]);
 	// ログファイルの削除
 	if(settings["DeleteLogWhenOpen"]){
@@ -22,7 +17,6 @@ window.attachEvent("onload", function(){
 		if(fs.FileExists(watchlog)) fs.DeleteFile(watchlog);
 		if(fs.FileExists(playlog)) fs.DeleteFile(playlog);
 	}
-//add end
 	if(!settings["UseIE"]){
 		document.getElementById("divAutoPlay").style.display = "none";
 		document.getElementById("btnPF").style.display = "none";
@@ -36,15 +30,12 @@ window.attachEvent("onload", function(){
 	SocketManager.setFlash(Socket);
 	SocketManager.attachEvent("receiveComment", receiveComment_Request);
 	if(settings["TopMost"]) TopMost();
-//	loadJASCode();
-//add start ログオフチェック
 	if(settings["logoffCheck"]) document.getElementById("loginCheck").checked=true;
 	checklogoffCheck();
 	// NGIDList.txtからNG動画一覧を取得
 	loadNGIDs();
 	// ストックのロード
 	if(settings["AutoLoadStock"]) loadStockList();
-//add end
 
 	// multi_req_check
 	if( settings["multiRequestLimit"] > 0 ){
@@ -91,12 +82,9 @@ window.attachEvent("onload", function(){
 document.attachEvent("onkeydown", function(){
 	var target = settings["key"][event.keyCode];
 	if(target && typeof(target)=="function") target();
-//del	if(event.keyCode==116) return false;
-//add start
+
 	if(event.keyCode==116) event.keyCode = 0;
-//add end
 });
-//add start
 
 window.attachEvent("onbeforeunload", function(){
 	if(settings["AutoSaveStock"]) saveStockList();
@@ -109,7 +97,6 @@ window.attachEvent("onbeforeunload", function(){
 	if(settings["AutoSaveWindowParams"]) saveWindowSize();
 	NicoCookieImporter("disconnect");
 });
-//add end
 
 var liveID = null;
 
@@ -121,12 +108,12 @@ function connect(PS){
 		SocketManager.connect(PS);
 		PlayLog += getLiveTitle( PS.lv ) + "\n";
 		__VideoInformation__PlayLog += getLiveTitle( PS.lv ) + "\n";
-//add start
+
 		if(settings["SaveLogTiming"]=="AtPlay") {
 			writelog("play","lv"+PS.lv);
 			writelog("watch","lv"+PS.lv);
 		}
-//add end
+
 		if(timeLeftTimer!=0){
 			clearInterval(timeLeftTimer);
 		}
@@ -148,11 +135,9 @@ function receiveComment_Request(Chat){
 	// 自分（主）の通常発言なら、常に拾わない
 	if( Chat.premium == 3 )
 		return;
-//del	if(!acceptRequest) return;
 	var text = Zen2Han(Chat.text);
-//	checkJASCode(text);
 	var sms  = text.match(/(sm|nm)\d+/g);
-//add start
+
 	//副管理者機能
 	if (DummyAdminManager.Indexes[Chat.user_id] != undefined){
 		var dummyAdminID = DummyAdminManager.DummyAdminQueues[DummyAdminManager.Indexes[Chat.user_id]].UserID;
@@ -190,7 +175,7 @@ function receiveComment_Request(Chat){
 			}
 		}
 	}
-//add end
+
 	if(sms && !(/^\/(play|playsound|swapandplay) smile:/.test(text))){
 		if(!acceptRequest){
 			// リク〆中
@@ -276,31 +261,6 @@ function checkReqIDs (live_id, user_id) {
 		: 0;
 }
 
-// JASコード定義済み動画IDをロード
-//function loadJASCode(){
-//	try{
-//		var fso = new ActiveXObject("Scripting.FileSystemObject");
-//		var file = fso.OpenTextFile("System\\jascode.csv");
-//		while(!file.AtEndOfStream){
-//			var line = file.ReadLine();
-//			if(line != "") var temp = line.split(",");
-//			JASCodes[temp[0]] = temp[1];
-//		}
-//		file.Close();
-//	}catch(e){}
-//}
-
-// JASコード付きリクエストをチェック
-//function checkJASCode(text){
-//	var smJAS = text.match(/(sm|nm)\d+.+?[0-9a-zA-Z]{3}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]/ig);
-//	if(!smJAS) return;
-//	for(var i=0,l=smJAS.length; i<l; i++){
-//		var sm = smJAS[i].match(/(sm|nm)\d+/);
-//		var jc = smJAS[i].match(/[0-9a-zA-Z]{3}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]/);
-//		JASCodes[sm[0]] = jc;
-//	}
-//}
-
 // 通常モードの再生
 RequestManager.Events["Play"] = function(id){
 	// 制限モード
@@ -308,17 +268,17 @@ RequestManager.Events["Play"] = function(id){
 		// 再生履歴取得
 		PlayLog += RequestManager.getPlayLog(id);
 		PlayLog += "\n";
-//add start
+
 		if(settings["SaveLogTiming"]=="AtPlay") {
 			writelog("play",PlayLog);
 		}
-//add end
+
 		// 履歴ボタンを無効に
 		document.getElementById("PLY"+id).disabled = true;
 	}
-//add start
+
 	if(settings["AddPlayedVideoId2NGIDs"]) PlayedVideoIds[id] = true;
-//add end
+
 	if(!SocketManager.connected) return;
 	// PlayModeによって処理を分岐
 	if(settings["PlayMode"]==0){
@@ -352,11 +312,11 @@ RequestManager.Events["Play"] = function(id){
 			NicoLive.postComment("/perm " + RequestManager.getPermComment(id), cmd.join(" "));
 		}, settings["InfoCommentTimer"] * 2 );
 	}
-//add start
+
 	if(settings["SaveLogTiming"]=="AtPlay") {
 		writelog("play",PlayLog);
 	}
-//add end
+
 	// キューの削除
 	RequestManager.deleteRequestQueueById(id);
 	// 再生情報タスクの準備
@@ -367,10 +327,7 @@ RequestManager.Events["Play"] = function(id){
 		playStateTimer = 0;
 	}
 	playStateTimer = setInterval(function(){
-//del		showPlayState(startTime, PlayTime);
-//add start
 		showPlayState(startTime, PlayTime, id);
-//add end
 	}, 500);
 	// 2度押しを防ぐための処理
 	document.getElementById("btnPF").disabled = true;
@@ -432,19 +389,15 @@ function calcTimeLeft () {
 function getTimeLeft(){
 	if(!SocketManager.connected) return;
 	var tagF = "", tagT = "";
-//del	//30[分]-(-開始時間[秒]+現在時間[秒])
-//del	var timeLeft = 1800 - (0-SocketManager.playerStatus.baseTime+new Date().getTime()/1000);
-//add start
 	//settings["LimitTime"][秒]-(-開始時間[秒]+現在時間[秒])
 	//開始時間は日本時間固定だが、現在時間は日本時間とは限らないのでそれぞれUTC標準時に変換
 	//ただし、サマータイムが導入されてる場合にはさらに補正が必要
 	var timeLeft = calcTimeLeft();
-//add end
+
 	if(timeLeft < 60 * 5){
 		tagF="<font color=red>";
 		tagT="</font>";
 	}
-//	document.getElementById("timeleft").innerHTML = "残り時間/" + tagF + convertTimeString(timeLeft) + tagT;
 	document.getElementById("timeleft").innerHTML = "残 " + tagF + convertTimeString(timeLeft) + tagT;
 	if(timeLeft<=0){
 		if(timeLeftTimer!=0){
@@ -456,7 +409,6 @@ function getTimeLeft(){
 			disconnect();
 		}
 		$('#timeleft').html("放送終了");
-//		$('#timemargin').html("放送終了");
 	}
 }
 
@@ -469,11 +421,8 @@ function checkAutoPlay(flag){
 
 // 再生情報の表示と自動再生のチェック
 // getTimeLeftとは時間の扱い方が逆なのに注意
-//del function showPlayState(startTime, PlayTime){
-//add start
 var last_t = 0;
 function showPlayState(startTime, PlayTime, id){
-//add end
 	var tagF = "", tagT = "";
 	var timeLeft = (new Date().getTime() - startTime) / 1000;
 	var Interval = Number(document.getElementById("autoPlayInterval").value);
@@ -483,15 +432,13 @@ function showPlayState(startTime, PlayTime, id){
 		tagF="<font color=red>";
 		tagT="</font>";
 	}
-//del	min += settings["AutoPlayMargin"];
-//add start
 	if(id.match("sm")){
 		min += settings["AutoPlayMargin"];
 	}
 	else if(id.match("nm")){
 		min += settings["AutoPlayMargin_nm"];
 	}
-//add end
+
 	// 再生中
 	if(min-timeLeft>0){
 		var residue;
@@ -581,7 +528,6 @@ function checklogoffCheck(){
 	if(!document.getElementById("loginCheck").checked || (SocketManager.connected && document.getElementById("timeleft").innerHTML!="放送終了")) return;
 	disconnect();
 }
-//add start
 
 // ウィンドウの位置・サイズをsettings.jsに反映
 function saveWindowSize(){
@@ -854,7 +800,6 @@ function myDispCmt(id){
 //		alert(tags.length);
 	}
 }
-//add end
 
 function getTimeLeftMessage (sec) {
 	var msg;

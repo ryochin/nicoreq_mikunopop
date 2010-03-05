@@ -21,17 +21,9 @@ RequestManager.prototype = {
 			if(beforeValue==settings["NoPName"]){
 				beforeValue = "[" + RequestManager.Requests[id].tags.join("][") + "]";
 			}
-//add start JASコードなしの場合
-//			if(beforeValue==settings["NoJASCode"]){
-//				beforeValue = "";
-//			}
-//add end
 			var afterValue  = prompt("正しい"+type+"を編集してください\n[ctrl]+[Z]で一つ前の状態に戻る、[キャンセル]か空白にして[OK]で未修正のまま終了", beforeValue);
 			if(afterValue && afterValue!=beforeValue){
 				RequestManager.Requests[id][type] = afterValue;
-//add start
-//				if(type!="JASCode") RequestManager.Requests[id][type] = afterValue;
-//add end
 				element.innerHTML  = afterValue;
 			}
 		}
@@ -88,23 +80,13 @@ RequestManager.prototype = {
 			ItemHTML += "動画情報取得中...";
 		}
 		ItemHTML += "</div></td><td align=\"right\">";
-//		ItemHTML += "<input type=\"button\" onclick=\"RequestManager.setClipboard('ID', '{#ID}')\" value=\"動\">";
-//		ItemHTML += "<br> ";
-//		ItemHTML += "<br><input type=\"button\" onclick=\"RequestManager.setClipboard('IF', '{#ID}')\" value=\"情\" title=\"右クリックで動画情報2をコピー\" oncontextmenu=\"RequestManager.setClipboard('IF2', '{#ID}');return false;\">";
-//		ItemHTML += "</td><td>";
 		var buttonName = settings["UseIE"]
 			? '再生'
 			: '履歴';
-//		ItemHTML += "<input type=\"button\" id=\"PLY{#ID}\" onclick=\"RequestManager.Events['Play']('{#ID}')\" value=\"" + buttonName + "\">";
 		ItemHTML += "<input type=\"image\" src=\"./System/assets/play.png\" id=\"PLY{#ID}\" class=\"control-button-up\" onclick=\"RequestManager.Events['Play']('{#ID}')\" value=\"" + buttonName + "\">";
-//		ItemHTML += "<br> ";
-//		ItemHTML += "<br><input type=\"button\" onclick=\"RequestManager.deleteRequestQueueById('{#ID}')\" value=\"削除\"></td>";
 		ItemHTML += "<br><input type=\"image\" src=\"./System/assets/remove.png\" class=\"control-button-down\" onclick=\"RequestManager.deleteRequestQueueById('{#ID}')\" value=\"削除\"></td>";
 		ItemHTML += "</td><td>";
-//		ItemHTML += "<input type=\"button\" onclick=\"RequestManager.upRequest('{#ID}')\" oncontextmenu=\"RequestManager.upRequestFirst('{#ID}');return false;\" value=\"↑\" title=\"右クリックで一番上に移動\">";
 		ItemHTML += "<input type=\"image\" src=\"./System/assets/up.png\" class=\"control-button-up\" onclick=\"RequestManager.upRequest('{#ID}')\" oncontextmenu=\"RequestManager.upRequestFirst('{#ID}');return false;\" value=\"↑\" title=\"右クリックで一番上に移動\">";
-//		ItemHTML += "<br> ";
-//		ItemHTML += "<br><input type=\"button\" onclick=\"RequestManager.downRequest('{#ID}')\" oncontextmenu=\"RequestManager.downRequestLast('{#ID}');return false;\" value=\"↓\" title=\"右クリックで一番下に移動\">";
 		ItemHTML += "<br><input type=\"image\" src=\"./System/assets/down.png\" class=\"control-button-down\" onclick=\"RequestManager.downRequest('{#ID}')\" oncontextmenu=\"RequestManager.downRequestLast('{#ID}');return false;\" value=\"↓\" title=\"右クリックで一番下に移動\">";
 		ItemHTML += "</td></tr></table>";
 		ItemHTML += "<div id=\"info-{#ID}\" style=\"display: none\"></div>";
@@ -122,9 +104,7 @@ RequestManager.prototype = {
 		var info = document.getElementById("INF"+R.id);
 		if(info){
 			info.innerHTML = this._replaceHTML(settings["ItemHTML"], R);
-//add start	タイプ判定
 			RequestManager.typeHTML(R.id);
-//add end
 		}else{
 			setTimeout(function(){RequestManager.replaceHTML(R);}, 50);
 		}
@@ -133,9 +113,6 @@ RequestManager.prototype = {
 	// PNameとJASCodeは前後に文字列を含めることができたりする
 	_replaceHTML: function(str, R){
 		if(!R || !R instanceof Request) return str;
-//add start JASコードなしの場合
-//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
-//add end
 		// sm|nm を除いた動画番号を得る
 		var idno = R.id.replace(/^(sm|nm)/, "");
 
@@ -170,35 +147,25 @@ RequestManager.prototype = {
 				.replace(/{#Comm}/g,  comma(R.comm))
 				.replace(/{#List}/g,  comma(R.list))
 				.replace(/{#Count}/g,  comma(R.count))
-//add start
 				.replace(/{#Myri}/g,  R.myri)
-//add end
 				.replace(/{#Time}/g,  R.length)
 				.replace(/{#CTime}/g, "<label id=\"CT"+R.id+"\">"+this.getCumulativeTime(R.id)+"</label>")
 				.replace(/{#Date}/g,  R.getDateString(settings["ItemHTMLDate"]))
-//del				.replace(/{([^}]*?)#JASCode([^{]*?)}/g, JASCodes[R.id] ? function(match,$1,$2){return $1+JASCodes[R.id]+$2;} : "")
-//add start JASコードの編集を可能に
-//				.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+"<label ondblclick=\"RequestManager.Events['Edit'](this, 'JASCode','"+R.id+"')\">"+JASCodes[R.id]+"</label>"+RegExp.$2)
-//add end
 				.replace(/{#Tags}/g, "<div title=\""+R.tags+"\">[tag]</div>")
 				.replace(/{#Genre}/g, R.genre.join(" "))
-//add start タイプ表示箇所を追加
 				.replace(/{#Type}/g, "<span id=\"TYP"+R.id+"\" onclick=\"RequestManager.setAlert('"+R.id+"')\" title=\"クリックで詳細情報を表示\"></span>")
-//add end
 		;
 	},
-//add start
+
 	//タイプ表示
 	typeHTML: function(id){
 		var R = this.Requests[id];
 		var objIndex = "TYP"+id;
 		if(document.getElementById(objIndex)){
 			if(R.type=="plural"){
-//				document.getElementById(objIndex).innerHTML += "複数該当";
 				document.getElementById(objIndex).style.backgroundColor="yellow";
 				document.getElementById(objIndex).style.color="#000000";
 			} else if(R.type==""){
-//				document.getElementById(objIndex).innerHTML += "該当無し";
 				document.getElementById(objIndex).style.backgroundColor="gray";
 				document.getElementById(objIndex).style.color="#ffffff";
 			} else {
@@ -208,7 +175,7 @@ RequestManager.prototype = {
 			}
 		}
 	},
-//add end
+
 	// 動画情報の取得タスク
 	doThumbInfoTask: function(RQ, method){
 		if(!method) method = "push";
@@ -329,9 +296,7 @@ RequestManager.prototype = {
 					}
 				}
 				
-//add start	タイプ判定
 				RequestManager.typeHTML(RQ.id);
-//add end
 				RequestManager.setCumulativeTime(RQ.id);
 			}
 		}
@@ -408,54 +373,36 @@ RequestManager.prototype = {
 					.replace(/{#Comm}/g,  comma(R.comm))
 					.replace(/{#List}/g,  comma(R.list))
 					.replace(/{#Count}/g,  comma(R.count))
-//add start
 					.replace(/{#Myri}/g,  R.myri)
 					.replace(/{#ReqInfo}/g,  R.requesterstr)
-//add end
 					.replace(/{#Time}/g,  R.length)
 					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))
-//del					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, JASCodes[R.id] ? function(match,$1,$2){return $1+JASCodes[R.id]+$2;} : "")
-//add start JASコード関連の修正
-//					.replace(/{([^}]*?)#JASCode([^{]*?)}/g, RegExp.$1+JASCodes[R.id]+RegExp.$2)
-//add end
 		;
 	},
 	// 再生時の運営者コメント
 	getInfoComment: function(id){
 		var R = this.Requests[id];
 		if(!R) return "";
-//add start JASコードなしの場合
-//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
-//add end
 		return this.replaceInfoStr( settings["InfoComment"], id, R );
 	},
 	// 再生時の運営者コメント2
 	getInfoComment2: function(id){
 		var R = this.Requests[id];
 		if(!R) return "";
-//add start JASコードなしの場合
-//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
-//add end
 		return this.replaceInfoStr( settings["InfoComment2"], id, R );
-	},	// 再生履歴用のテキスト
+	},
 	// 永続的に出す運営者コメント
 	getPermComment: function(id){
 		var R = this.Requests[id];
 		if(!R) return "";
-//add start JASコードなしの場合
-//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
-//add end
 		return this.replaceInfoStr( settings["PermComment"], id, R );
-	},	// 再生履歴用のテキスト
+	},
 	getPlayLog: function(id){
 		var R = this.Requests[id];
 		if(!R) return "";
-//add start JASコードなしの場合
-//		if(!JASCodes[R.id]) JASCodes[R.id]=settings["NoJASCode"];
-//add end
 		return this.replaceInfoStr( settings["PlayLog"], id, R );
 	},
-//add start　各種動画情報を取得保存し、タイプ判定に使用
+
 	// アラート表示
 	setAlert: function(id){
 		var R = this.Requests[id];
@@ -494,7 +441,7 @@ RequestManager.prototype = {
 
 		return str;
 	},
-//add end
+
 	// ID指定による削除
 	deleteRequestQueueById: function(id){
 		document.getElementById("RequestHTML").removeChild(document.getElementById(id));
@@ -632,23 +579,12 @@ RequestManager.prototype = {
 		for(var i=0,l=this.RequestQueues.length; i<l; i++){
 			this.Indexes[this.RequestQueues[i].id] = i;
 			this.doRequestDOMTask(this.RequestQueues[i]);
-//add start	タイプ判定
 			this.typeHTML(this.RequestQueues[i].id);
-//add end
 		}
 	}
 }
 
 var RequestManager = new RequestManager();
-
-
-// 情報ポップアップ
-//var __RequestManager__Popup = window.createPopup();
-//function __RequestManager__showPopup(x, y, VideoID){ 
-//	var body  = __RequestManager__Popup.document.body;
-//	body.innerHTML = "<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+"\" width=\"314\" height=\"178\" onclick=\"top.__RequestManager__Popup.hide();\" onmousewheel=\"top.__RequestManager__Popup.hide();\">";
-//	__RequestManager__Popup.show(x, y, 314, 178, document.body);
-//}
 
 function OpenVideo(id){
 	var WshShell = new ActiveXObject("WScript.Shell");
