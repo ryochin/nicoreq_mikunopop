@@ -72,7 +72,7 @@ RequestManager.prototype = {
 			reqtypeDisplay = 'inline';
 		}
 		ItemHTML += '<img id="req-by-listener-{#ID}" src="./System/assets/request.png" class="requester-icon" title="' + this.getRequestStatusStr( RQ.number ) + '" align="top" style="display: ' + reqtypeDisplay  + '"';
-		ItemHTML += ' oncontextmenu="$(\'#req-by-listener-{#ID}\').hide();" />';    // 右クリックでアイコンを消せるように
+		ItemHTML += ' oncontextmenu="RequestManager.changeRequestStatusToAdminSelect(\'{#ID}\');" />';    // 右クリックでアイコンを消せるように
 		ItemHTML += '</td>';
 
 		// title
@@ -354,9 +354,20 @@ RequestManager.prototype = {
 		$(imageID).show();
 		$(imageID).attr( { title: this.getRequestStatusStr( status ? status.number : RQ.number ) } );
 	},
+	// 
+	changeRequestStatusToAdminSelect: function(id) {
+		// requester を戻す
+		var RQ = RequestManager.Requests[id];
+		RQ.requester = 'admin';
+		RQ.requesterstr = settings["RequesterAdminStr"];
+		
+		// アイコンをオフにする
+		var imageID = "#req-by-listener-" + id;
+		$(imageID).hide();
+	},
 	// >>31 さんのリクエスト　の文字列を生成する
 	getRequestStatusStr: function (number) {
-		return ">>" + number + " さんのリクエスト";
+		return ">>" + number + " さんのリクエスト (右クリックで主セレに戻す)";
 	},
 	// 累積時間の設定
 	setCumulativeTime: function(id){
