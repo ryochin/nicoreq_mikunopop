@@ -1,3 +1,49 @@
+commit f00dcb62474d5bc14e135f2870abdb9c93da6c06
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Mar 5 13:33:31 2010 +0900
+
+    implemented that right clicking on each request icons on the request tab now changes back those requests to admin's selections.
+
+M	System/RequestManager.js
+
+commit eacce1b55cd406e7a1ed29329e2ede6550013cb6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Mar 5 13:06:15 2010 +0900
+
+    implemented a feature that aircaster now can select which the duplicated new request in the stock would be remained as an admin request or listener request.
+
+M	System/RequestManager.js
+
+commit 8e8fa8b877ba83631feb858a5a23ebc5c7de521b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Mar 5 12:29:57 2010 +0900
+
+    separated an opaque variable 'requester' that had unexpectedly dual context to requester and requesterstr.
+
+M	System/Request.js
+M	System/RequestManager.js
+
+commit 157c396579211f224e2e94cf498f4421f91eaae5
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Feb 24 23:24:22 2010 +0900
+
+    added saveFileAsUTF8 method with BOM removement, for mainly video info caches. thanks to w2k.
+
+M	System/NicoLive.js
+M	System/Utils.js
+
+commit fcf11aae09eaf1b8b984db7d78d26dbac0beadad
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Feb 22 23:04:39 2010 +0900
+
+    released 1.37.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 79cd5ff04b6a5a360f06542641aa0cb3aa04d87a
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Mon Feb 22 22:40:03 2010 +0900
