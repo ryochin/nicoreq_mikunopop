@@ -146,6 +146,6 @@ settings["genreTagWhiteList"] = ["",
 	"ProjectDIVA-ACŠy‹È•åW",
 
 	// •]‰¿Šî€
-	"‚à‚Á‚Æ•]‰¿‚³‚ê‚é‚×‚«",
-	"‚»‚Á‚Æ•]‰¿‚³‚ê‚é‚×‚«",
+//	"‚à‚Á‚Æ•]‰¿‚³‚ê‚é‚×‚«",
+//	"‚»‚Á‚Æ•]‰¿‚³‚ê‚é‚×‚«",
 ""];
