@@ -347,7 +347,7 @@ RequestManager.prototype = {
 					.replace(/{#Count}/g,  comma(R.count))
 //add start
 					.replace(/{#Myri}/g,  R.myri)
-					.replace(/{#ReqInfo}/g,  R.requester)
+					.replace(/{#ReqInfo}/g,  R.requesterstr)
 //add end
 					.replace(/{#Time}/g,  R.length)
 					.replace(/{#Date}/g,  R.getDateString(settings["InfoCommentDate"]))

@@ -17,6 +17,7 @@ function Request(){
 	this.myri          =  0;	// マイリスト率（マイリスト/再生）
 	this.count         =  0;	// ミクノ度
 	this.requester     = "";	// リクエスト元
+	this.requesterstr  = "";	// リクエスト元整形後文字列
 
 	this.initialize.apply(this, arguments);
 }
@@ -51,7 +52,7 @@ Request.prototype = {
 		this.count = settings["GetMikunopopCount"]
 						? getMikunopopCount( id )
 						: "-";
-		this.requester = reqCommentNum == ""
+		this.requesterstr = reqCommentNum == ""
 						? settings["RequesterAdminStr"]
 						: settings["RequesterListenerStr"].replace(/{#ReqCommentNum}/g, reqCommentNum);
 //add start タイプ判定用プロパティ
