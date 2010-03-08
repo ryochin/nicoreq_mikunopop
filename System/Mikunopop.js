@@ -110,7 +110,7 @@ function loadMikunopopCountFile () {
 		var content = st.ReadAll();
 		st.Close();
 		
-		MikunopopCount = eval("("+content+")");    // load as json
+		MikunopopCount = $.evalJSON( content );
 	} catch(e) {
 		alert("ミクノ度ファイルの読み込みに失敗しました orz");
 	}

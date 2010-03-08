@@ -15,7 +15,7 @@ function __VideoInformation__getMylistIDs(){
 			try {
 				content = __VideoInformation__getMylistIDs_via_net();
 				saveMylistCacheFile( file, content );
-				return eval('(' + content + ')');    // json to object
+				return $.evalJSON( content );
 			} catch (e) {
 				alert("マイリストの情報を正常に取得できませんでした orz\n（サーバが混雑していると起こりやすいようです）");
 				return;
@@ -63,7 +63,7 @@ function loadMylistCacheFile (file) {
 		var st = fs.OpenTextFile(file, 1, false, -2);
 		var content = st.ReadAll();
 		
-		return eval("("+content+")");    // load as json
+		return $.evalJSON( content );
 	} catch(e) {
 		alert("マイリストキャッシュの読み込みに失敗しました orz");
 	} finally {

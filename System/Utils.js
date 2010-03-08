@@ -186,7 +186,8 @@ function extractObjectByPreloadSection (str) {
 		if( RegExp.$2 != null ){
 			var obj;
 			try {
-				obj = eval( RegExp.$2 );
+				var str = RegExp.$2;
+				obj = $.evalJSON( str );
 			} catch(e) {
 //				alert(RegExp.$2);
 			}
