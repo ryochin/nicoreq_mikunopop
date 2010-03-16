@@ -253,6 +253,12 @@ function __VideoInformation__receiveComment(Chat){
 				info.push("<span class=\"subtitle\">マイリスト率 </span>" + (Math.round(10000*(Number(mylist_counter)/Number(view_counter)))/100) +"%<br>");
 				info.push("</fieldset></div>");
 
+				// address
+				info.push('<div class="info"><fieldset><legend>アドレス</legend>');
+				info.push("<span class=\"subtitle\">動画 </span><a title=\"クリックで動画ページを開く\" onclick=\"OpenVideo('" + VideoID + "')\">http://www.nicovideo.jp/watch/" + VideoID + "</a><br>");
+				info.push("<span class=\"subtitle\">情報 </span><a title=\"クリックで情報ページを開く\" onclick=\"OpenURL('http://mikunopop.info/info/" + VideoID + "')\">http://mikunopup.info/info/" + VideoID + "</a><br>");
+				info.push("</fieldset></div>");
+
 				// tags
 				info.push('<div class="tags"><fieldset><legend>タグ</legend>');
 				$.each( tags, function () {

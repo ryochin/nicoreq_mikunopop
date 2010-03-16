@@ -586,10 +586,13 @@ RequestManager.prototype = {
 
 var RequestManager = new RequestManager();
 
-function OpenVideo(id){
+function OpenURL(url){
 	var WshShell = new ActiveXObject("WScript.Shell");
-	var url = "http://www.nicovideo.jp/watch/" + id;
 	WshShell.run("rundll32.exe url.dll,FileProtocolHandler " + url, 4, false);
+}
+function OpenVideo(id){
+	var url = "http://www.nicovideo.jp/watch/" + id;
+	OpenURL( url );
 }
 function comma ( from ){
 	var to = String( from );
