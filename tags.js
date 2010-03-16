@@ -9,6 +9,7 @@ settings["genreTagWhiteList"] = ["",
 	"ミニマル",
 	"J-CORE",
 	"テレパスミュージック",
+	"サイケポップ",
 
 	// 属性
 	"電子ドラッグ",
@@ -80,6 +81,7 @@ settings["genreTagWhiteList"] = ["",
 	"ボカロコア",
 	"VOCALOUD",
 	"Chiptune×VOCALOIDリンク",
+	"VOCALOID幻想狂気曲リンク",
 	
 	// ミク
 	"みんなのミクうた",
