@@ -66,8 +66,12 @@ function loadMylistCacheFile (file) {
 		return $.evalJSON( content );
 	} catch(e) {
 		alert("マイリストキャッシュの読み込みに失敗しました orz");
+		try {
+			st.Close();
+			fs.deleteFile(file);    // どうせ読めないから次回起動のために消す
+		} catch(e) {}
 	} finally {
-		st.Close();
+//		st.Close();
 	}
 }
 
