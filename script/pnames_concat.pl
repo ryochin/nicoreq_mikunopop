@@ -8,7 +8,7 @@ use IO::File;
 use IO::Dir;
 use File::Spec;
 
-Getopt::Std::getopts 'p' => my $opt = {};
+Getopt::Std::getopts 'pt' => my $opt = {};
 # -p: as perl array
 
 my $base_dir = shift @ARGV || "./pnames";
@@ -46,6 +46,12 @@ if( defined $opt->{p} ){
 	
 	# out
 	print join("\n", @result);
+}
+elsif( defined $opt->{t} ){
+	# text for nico live helper etc.
+
+	# out
+	printf join("\n", sort keys %{ $pname }), "\n";
 }
 else{
 	# js
