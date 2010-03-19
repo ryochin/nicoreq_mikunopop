@@ -232,42 +232,55 @@ RequestManager.prototype = {
 				
 				// すでにストックにある旨のメッセージを表示
 				if( settings["showStockDuplicatedAlert"] == true ){
-					var msg = [];
-					msg.push("！　すでにストックにある曲がリクエストされました　！");
-					msg.push("");
-					msg.push( "　" + RQ.id + ": " + $('#TITLE' + RQ.id).text() );
-					msg.push("");
-					
-					var imageID = "#req-by-listener-" + RQ.id;
-					
-					// リスナーからのリクエストにするか主セレのままにするか選んでもらう
-					if( $(imageID).css('display') == "none" ){
-						// 今、主セレの場合
-						msg.push("リスナーからのリクエストとして扱いますか？");
+
+					// 
+					if( RQ.requester == 'listener' ){
+						// リスナーからのリクエスト
+						var msg = [];
+						msg.push("！　すでにストックにある曲がリクエストされました　！");
 						msg.push("");
-						msg.push("　　→ はい　：　" + RQ.number + "さんのリクエストになります");
-						msg.push("　　→ いいえ：　主セレのままになります");
-					}
-					else{
-						// 今、すでにリクエストの場合
-						msg.push("すでに別の古いリスナーからのリクエストとなっていますが、");
-						msg.push("新しいリスナーからのリクエストとして上書きしますか？");
-					}
-					
-					if( window.confirm( msg.join("\n") ) ){
-						// （新しい）リスナーからのリクエストに切り替える
-						var origRQ = RequestManager.Requests[RQ.id];
-						origRQ.requester = 'listener';
-						origRQ.requesterstr = settings["RequesterListenerStr"].replace(/{#ReqCommentNum}/g, RQ.number);
+						msg.push( "　" + RQ.id + ": " + $('#TITLE' + RQ.id).text() );
+						msg.push("");
 						
-						// ソート時に復帰するための status をセット
-						RequestManager.setRequestStatus(RQ);
+						var imageID = "#req-by-listener-" + RQ.id;
+						
+						// リスナーからのリクエストにするか主セレのままにするか選んでもらう
+						if( $(imageID).css('display') == "none" ){
+							// 今、主セレの場合
+							msg.push("リスナーからのリクエストとして扱いますか？");
+							msg.push("");
+							msg.push("　　→ はい　：　" + RQ.number + "さんのリクエストになります");
+							msg.push("　　→ いいえ：　主セレのままになります");
+						}
+						else{
+							// 今、すでにリクエストの場合
+							msg.push("すでに別の古いリスナーからのリクエストとなっていますが、");
+							msg.push("新しいリスナーからのリクエストとして上書きしますか？");
+						}
+						
+						if( window.confirm( msg.join("\n") ) ){
+							// （新しい）リスナーからのリクエストに切り替える
+							var origRQ = RequestManager.Requests[RQ.id];
+							origRQ.requester = 'listener';
+							origRQ.requesterstr = settings["RequesterListenerStr"].replace(/{#ReqCommentNum}/g, RQ.number);
 							
-						// リクエストアイコンをセット
-						RequestManager.writebackRequestStatus(RQ);
+							// ソート時に復帰するための status をセット
+							RequestManager.setRequestStatus(RQ);
+								
+							// リクエストアイコンをセット
+							RequestManager.writebackRequestStatus(RQ);
+						}
+						else{
+							// 主セレ、あるいは古いリスナーからのリクエストのまま（何もしない）
+						}
 					}
 					else{
-						// 主セレ、あるいは古いリスナーからのリクエストのまま（何もしない）
+						// 主が自分でストックに追加する場合など
+						var msg = [];
+						msg.push("！　すでにストックにある曲が指定されました　！");
+						msg.push("");
+						msg.push( "　" + RQ.id + ": " + $('#TITLE' + RQ.id).text() );
+						window.alert( msg.join("\n") );
 					}
 				}
 			}else{
