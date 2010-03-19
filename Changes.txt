@@ -1,3 +1,141 @@
+commit 6040e3715001fca0cf9525c2bec0ef24d446cb02
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Mar 20 05:31:58 2010 +0900
+
+    updated pnames.
+
+M	pnames.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit 62fa24116822443de53dee509d1a3467a1645391
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Mar 20 05:22:13 2010 +0900
+
+    added re-issuing play command feature of last played video on the 'request' menu.
+
+M	System/Main.js
+M	System/Menu.xml
+
+commit d30890c2888755008748eed79e1d2f0a4fb49b11
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Mar 20 04:49:38 2010 +0900
+
+    fixed a problem that admin requests were recognized as admin ones when duplicated.
+
+M	System/RequestManager.js
+
+commit 46735653a51ef801af6b2b1024a93f25c26529b9
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Mar 16 17:08:02 2010 +0900
+
+    updated tags.js.
+
+M	tags.js
+
+commit eb1b396657a05e947e9c7c02ca8043be6ab8ecda
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Mar 16 17:06:45 2010 +0900
+
+    updated jingles.json.
+
+M	jingles.json
+
+commit 1a7eb2764d1f595d0e27bfe06eb099fe6cb8831a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Mar 16 17:06:05 2010 +0900
+
+    updated & added pnames related files.
+
+A	pnames/pnames.txt
+M	pnames/saihane.js
+M	script/pnames_concat.pl
+
+commit c4328f68b835063396001ae19bb285be5c96f58c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Mar 16 17:05:07 2010 +0900
+
+    updated video info tab.
+
+M	System/RequestManager.js
+M	System/VideoInformation.js
+
+commit c1bc1f9bd4f5e77bc4f2f37ba1cef895a8e94787
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Mar 16 17:01:51 2010 +0900
+
+    optimized around mylist cache failure.
+
+M	System/VideoInformation.js
+
+commit 0c05b31a503fc79039ff40fcc59c05684ddd6f46
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Mar 8 18:20:15 2010 +0900
+
+    added jquery.json.js and replaced 'eval' method to 'evalJSON'.
+
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	System/Utils.js
+M	System/VideoInformation.js
+M	System/find.hta
+A	System/jquery.json.js
+
+commit 2daea1843b89067796215fa73fb389fa61c300e3
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Mar 8 17:43:38 2010 +0900
+
+    tweaked tags.js.
+
+M	tags.js
+
+commit 2e4c697e0dae775dd1d533eb3b709f5f532f6047
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Mar 6 07:20:44 2010 +0900
+
+    removed extra comment lines.
+
+M	System/Alert.hta
+M	System/Comment.js
+M	System/DummyAdmin.js
+M	System/Export.hta
+M	System/Main.js
+M	System/Menu.js
+M	System/Request.js
+M	System/RequestManager.js
+M	System/Utils.js
+M	System/find.hta
+M	settings.js
+
+commit 1ef46ca30f6f5c279b0892f8054ce159627377a3
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Mar 6 06:50:02 2010 +0900
+
+    added a link menu to open official support site on the main menu.
+
+M	System/Main.js
+M	System/Menu.xml
+
+commit ad5889f9765806c6bc6338c83e5cf3b2c9c8d8a5
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Mar 5 14:23:16 2010 +0900
+
+    released 1.38.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
+commit 5528532af7d79e1b03c879d09c4c3f8592ede7e1
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Mar 5 14:17:56 2010 +0900
+
+    tweaked tags.js.
+
+M	tags.js
+
 commit f00dcb62474d5bc14e135f2870abdb9c93da6c06
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Fri Mar 5 13:33:31 2010 +0900
