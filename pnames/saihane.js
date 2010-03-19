@@ -6,5 +6,7 @@ settings["exceptionPTagsVO"] = ["",
 	"G@POPO",
 	"rlboro",
 	"b-st",
+	"omoide2027",
+	"Ç—Ç°Ç∆É}ÉìÅô",
 ""];
 
