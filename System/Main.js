@@ -4,6 +4,7 @@ var playStateTimer = 0;
 var PlayLog = "";
 var NGIDs = new Array();
 var PlayedVideoIds = new Array();
+var lastPlayedID = "";    // 直近に流した動画
 
 setWindowSize(settings["WindowWidth"], settings["WindowHeight"]);
 
@@ -280,15 +281,12 @@ RequestManager.Events["Play"] = function(id){
 	if(settings["AddPlayedVideoId2NGIDs"]) PlayedVideoIds[id] = true;
 
 	if(!SocketManager.connected) return;
-	// PlayModeによって処理を分岐
-	if(settings["PlayMode"]==0){
-		NicoLive.postComment((document.getElementById("playSound").checked?"/playsound ":"/play ")+id+(document.getElementById("playSub").checked?" sub":""));
-	}else if(settings["PlayMode"]==1){
-		NicoLive.postComment("/swapandplay "+id);
-		setTimeout(function(){
-			NicoLive.postComment("/stop sub", "big");
-		}, 5000);
-	}
+	// play コマンドを発行
+	postPlayCommand( id );
+	
+	// 再度コマンド発行のために id を控えておく
+	lastPlayedID = id;
+	
 	PlayLog += RequestManager.getPlayLog(id)+"\n";
 	// 動画情報が取得できていなかったら終了
 	if(!RequestManager.Requests[id]) return;
@@ -335,6 +333,36 @@ RequestManager.Events["Play"] = function(id){
 	setTimeout(function(){
 		document.getElementById("btnPF").disabled = false;
 	}, 5000);
+}
+
+// play コマンドを発行
+function postPlayCommand (id) {
+	if( settings["PlayMode"] == 0 ){
+//		var cmd = (document.getElementById("playSound").checked?"/playsound ":"/play ")+id+(document.getElementById("playSub").checked?" sub":"");
+		var cmd = $("#playSound").attr('checked') ? "/playsound " : "/play ";
+		cmd += id;
+		cmd += $('#playSub').attr('checked') ? " sub" : "";
+		NicoLive.postComment( cmd );
+	}
+	else if( settings["PlayMode"] == 1 ){
+		NicoLive.postComment("/swapandplay " + id);
+		setTimeout(function(){
+			NicoLive.postComment("/stop sub", "big");
+		}, 5000);
+	}
+}
+
+// 直前の再生コマンドを再発行する
+function postLastIDPlayCommand () {
+	if( lastPlayedID == "" ){
+		// まだ１つも再生していない場合
+		Status.postStatus('まだ１つも再生していません。', 5000);
+	}
+	else{
+		// 再発行
+		postPlayCommand( lastPlayedID );
+		Status.postStatus('動画 ' + lastPlayedID + ' の再生コマンドを発行しました。', 10000);
+	}
 }
 
 // リクエストリストの最初を再生

@@ -22,6 +22,8 @@
 	<hr />
 	<item onclick="top.exportIDs('PlayLog');">再生履歴の出力</item>
 	<item onclick="top.exportIDs('__VideoInformation__PlayLog');">視聴履歴の出力</item>
+	<hr />
+	<item onclick="top.postLastIDPlayCommand();">直前の再生コマンドを再発行する</item>
 </popup>
 <popup id="Sort">
 	<item onclick="top.RequestManager.sort('shuffle');">シャッフル</item>
