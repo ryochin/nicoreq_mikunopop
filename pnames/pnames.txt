@@ -180,10 +180,12 @@ SH100000
 SH1000000
 SHIKI
 SHUN
+SOLIDIO
 Sat4
 Seventh_Heaven
 ShakeSphere
 Shibayan
+Shin1985
 Soaa
 Spiltmilk
 StingraySongs
@@ -371,6 +373,7 @@ mia子
 microgroover
 mijinko3
 mikuru396
+millstones
 minami
 mintiack
 mishiki
@@ -439,6 +442,7 @@ sasakure.UK
 sat1080
 sh_m
 shin
+shin_entertainment
 shokaki
 shu
 sixty-six-eleven
@@ -462,6 +466,7 @@ takunama
 takuyabrian
 tarumi
 tatmos
+team-FSR
 temporu
 terry10x12th
 theta
@@ -581,6 +586,7 @@ ziki_7
 ぱたや(ヨンモジＰ)
 ぱんつのうた製作委員会
 ぱッぱッぱらてど
+ひ～ま
 ひめさん
 ひらの
 ひろ☆りん
@@ -663,7 +669,9 @@ ziki_7
 ティンゴ
 テンネン
 トーマ
+トーン
 トマ豆腐
+トリ音
 ナツカゼP(Tastle)
 ナヅキ
 ノーベル
@@ -753,6 +761,7 @@ ziki_7
 神戸のシュナイダー
 人間どっく
 人工モノクローム
+水無国民労働党
 雛國ミキ
 世紀末ニート
 星空かける
