@@ -1,3 +1,34 @@
+commit 191f97314447654ec64f607cc22f07b548c690f8
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Mar 25 21:07:30 2010 +0900
+
+    applied a patch for catching up with new api, thanks to w2k.
+
+M	System/Main.js
+M	System/NicoLive.js
+
+commit cff8936e09b919d21a65a38a54c753eff0187022
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Mar 25 20:38:47 2010 +0900
+
+    added & updated pnames, thanks to kawa.
+
+M	pnames.js
+A	pnames/kawa.js
+M	pnames/pnames.txt
+
+commit e1a08e7b78873729598f43e2a86ac6043ad29caf
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Mar 20 05:48:38 2010 +0900
+
+    released 1.39.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 6040e3715001fca0cf9525c2bec0ef24d446cb02
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Sat Mar 20 05:31:58 2010 +0900
