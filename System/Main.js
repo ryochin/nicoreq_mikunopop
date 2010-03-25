@@ -5,6 +5,7 @@ var PlayLog = "";
 var NGIDs = new Array();
 var PlayedVideoIds = new Array();
 var lastPlayedID = "";    // 直近に流した動画
+var apiToken = "";    // API token
 
 setWindowSize(settings["WindowWidth"], settings["WindowHeight"]);
 
@@ -121,12 +122,24 @@ function connect(PS){
 		timeLeftTimer = setInterval(getTimeLeft, 500);
 		__VideoInformation__onConnect(PS.lv);
 		
+		// set API token
+		setAPIToken( PS.lv );
+		
 		// set global live id
 		liveID = PS.lv;
 	}
 	
 	// 枠の時間を自動的にリセット
 	settings["LimitTime"] = 30 * 60;
+}
+
+// get & set API token by w2k
+function setAPIToken (lv) {
+	NicoLive.getXMLviaNet("http://live.nicovideo.jp/api/getpublishstatus?v=lv" + lv, function (xmldom) {
+		if( ! xmldom || ! xmldom.getElementsByTagName("token") )
+			return;
+		apiToken = xmldom.getElementsByTagName("token")[0].text;
+	});
 }
 
 var reqIDs = {};    // { liveid => { userid => n, .. }, .. } on memory only

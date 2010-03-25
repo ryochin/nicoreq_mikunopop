@@ -195,7 +195,11 @@ NicoLive.prototype = {
 		if(!lv || body=="") return;
 		if(!mail) mail = "";
 		var xmlhttp = createXMLHttpRequest();
-		xmlhttp.Open("GET", "http://watch.live.nicovideo.jp/api/broadcast/lv"+lv+"?body="+encodeURIComponent(body)+"&mail="+encodeURIComponent(mail), true);
+		var url = "http://watch.live.nicovideo.jp/api/broadcast/lv" + lv
+			+ "?body=" + encodeURIComponent(body)
+			+ "&mail=" + encodeURIComponent(mail)
+			+ "&token=" + apiToken;
+		xmlhttp.Open("GET", url, true);
 		xmlhttp.send();
 	}
 }
