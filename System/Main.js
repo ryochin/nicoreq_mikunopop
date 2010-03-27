@@ -899,7 +899,7 @@ function getLiveTitle (lv) {
 	var xmlhttp = createXMLHttpRequest();
 	xmlhttp.open("GET", url, false);
 	xmlhttp.send();
-	xmlhttp.responseText.match(/<h2[^<>]*?>(.+?)<\/h2>/);
+	xmlhttp.responseText.match(/<title[^<>]*?>(.+?)</);
 	if( RegExp.$1 != "" ){
 		var title = RegExp.$1;
 		
