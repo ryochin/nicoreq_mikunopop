@@ -1,3 +1,23 @@
+commit 85ca67e81cb5faa134974346dc5cc08e28a735e2
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Mar 27 17:03:21 2010 +0900
+
+    fixed a problem that the part number wasn't extracted properly (according to alternation of origin HTML).
+
+M	System/Main.js
+
+commit 5d938d3b513027401dd118d2b3c7a066c1450787
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Mar 25 22:11:49 2010 +0900
+
+    released 1.40.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 191f97314447654ec64f607cc22f07b548c690f8
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Mar 25 21:07:30 2010 +0900
