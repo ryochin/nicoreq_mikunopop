@@ -8,5 +8,6 @@ settings["exceptionPTagsVO"] = ["",
 	"b-st",
 	"omoide2027",
 	"‚Ñ‚¡‚Æƒ}ƒ“™",
+	"ƒqƒQƒ^ƒR",
 ""];
 
