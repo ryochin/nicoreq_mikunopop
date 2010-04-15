@@ -67,6 +67,7 @@ settings["PlayMode"] = 0;
 // 2: サムネイル画像をネットから取得して表示する（デフォルト）
 settings["ShowThumbnailType"] = 2;
 settings["ThumbnailDummyImagePath"] = 'System/assets/nico_dummy.png';    // NicoRequest.hta からの相対URL
+settings["ThumbnailNoLiveImagePath"] = 'System/assets/nico_nolive.png';    // NicoRequest.hta からの相対URL
 
 // =====================================================================================================================
 // ミクノ度 by saihane

@@ -120,7 +120,13 @@ RequestManager.prototype = {
 		var thumb_url;
 		var thumb_title = "左クリックで動画をブラウザで開く\n右クリックで動画番号をコピー";
 		var oncontextmenu = "RequestManager.setClipboard('IDONLY','" + R.id + "')";
-		if( settings["ShowThumbnailType"] == 1 ){
+		if( R.no_live_play == 1 ){
+			// 生拒否
+			var thumb_dummy_path = location.href.toString().replace(/NicoRequest\.hta$/,"")
+				+ settings["ThumbnailNoLiveImagePath"];
+			thumb_url = "<img src=\"" + thumb_dummy_path + "\" width=65 height=50 align=left title=\"" + thumb_title + "\" oncontextmenu=\"" + oncontextmenu + "\" />";
+		}
+		else if( settings["ShowThumbnailType"] == 1 ){
 			// dummy
 			var thumb_dummy_path = location.href.toString().replace(/NicoRequest\.hta$/,"")
 				+ settings["ThumbnailDummyImagePath"];

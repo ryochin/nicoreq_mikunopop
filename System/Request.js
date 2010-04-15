@@ -35,6 +35,7 @@ Request.prototype = {
 		this.myri = (100*this.list/this.view).toFixed(1);
 		this.length = xmldom.getElementsByTagName("length")[0].text;
 		this.date   = new Date(xmldom.getElementsByTagName("first_retrieve")[0].text.replace("-","/").replace("T"," ").replace("+09:00",""));
+		this.no_live_play = Number(xmldom.getElementsByTagName("no_live_play")[0].text);
 		var xmltags = xmldom.getElementsByTagName("tags")[0].getElementsByTagName("tag");
 		var genreTagWhiteList = Zen2Han(settings["genreTagWhiteList"].join(","));    // cached
 		this.genre = [];
