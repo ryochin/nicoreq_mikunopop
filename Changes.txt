@@ -1,3 +1,35 @@
+commit d9839d32f9ca494e79f3206c964255ecefbdcc7c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Apr 15 20:48:25 2010 +0900
+
+    added video length over 'title' attribute on each jingle thumbnails.
+
+M	NicoRequest.hta
+
+commit 7f800fe09cd701f43b9be18e066c27362ad7c7fa
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Apr 15 20:43:46 2010 +0900
+
+    supported 'no_live_play' flag from video information.
+
+M	System/Request.js
+M	System/RequestManager.js
+A	System/assets/nico_nolive.png
+M	settings.js
+
+commit 0974be14c9af40f60e7afc0ecfa7b43c19df21c9
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Apr 8 01:06:42 2010 +0900
+
+    released 1.41.1.
+
+M	Changes.txt
+M	HISTORY.txt
+M	MEMO.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit de7f1d595ca469b2800bda252231fb2ac60c7c9f
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Apr 8 00:53:32 2010 +0900
