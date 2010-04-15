@@ -109,6 +109,7 @@ $(document).ready( function () {
 				alert("ジングル情報ファイルの読み込みに失敗しました orz");
 			}
 			
+			JingleLen = {};
 			if(settings["jingles"]){
 				var sel = $('<select />')
 					.attr( { id: "jingle" } );
@@ -133,6 +134,9 @@ $(document).ready( function () {
 					
 					// set names
 					jinglelist[ jingle.id ] = jingle;
+					
+					// set length
+					JingleLen[ jingle.id ] = jingle.length;
 				}
 				
 				function playJingle () {
@@ -185,10 +189,10 @@ $(document).ready( function () {
 		if( val.match(/^(sm|nm)/) ){
 			var id = val.replace(/^(sm|nm)/,"");
 			var url = "http://tn-skr2.smilevideo.jp/smile?i=" + id;
-//			var image = '<img src="http://tn-skr2.smilevideo.jp/smile?i="' + id + '" />';
+			var length = JingleLen[ val ];
 			$('#jingle-thumb')
 				.attr( { src: url } )
-//				.attr( { title: image } );
+				.attr( { title: length } );
 		}
 	};
 
