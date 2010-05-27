@@ -1,3 +1,54 @@
+commit cc767dd1cfe5b4d2e0b14e332ad0c7b02db4f24b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri May 28 03:46:41 2010 +0900
+
+    tweaked a couple of files.
+
+M	System/Mikunopop.js
+M	settings.js
+
+commit 34597d8b54ab02ed58f6d2f4e597b757e9d504ed
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri May 28 03:46:13 2010 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit b22fec2b7540533fd4c5cb7b6238c772c47fbeb4
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat May 8 02:45:46 2010 +0900
+
+    updated pnames.js. (thanks to koke)
+
+M	pnames.js
+M	pnames/base.js
+M	pnames/koke.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit 00e5a5695eb7c39d16ced2a4e2ad57fd87d1462e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Apr 26 06:38:28 2010 +0900
+
+    tweaked settings.js.
+
+M	settings.js
+
+commit 8baf78e1fa85ca10a9cf45750047fd822bff69c0
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Apr 15 21:20:11 2010 +0900
+
+    released 1.42.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit d9839d32f9ca494e79f3206c964255ecefbdcc7c
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Apr 15 20:48:25 2010 +0900
