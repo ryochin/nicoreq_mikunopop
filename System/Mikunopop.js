@@ -45,7 +45,7 @@ function getVideoNum () {
 }
 
 function getMikunopopCount (id) {
-	if( MikunopopCount[id] != undefined && MikunopopCount[id] > 0 ){
+	if( MikunopopCount[id] != undefined && MikunopopCount[id] !== '0' ){
 		return MikunopopCount[id];
 	}
 	else{
