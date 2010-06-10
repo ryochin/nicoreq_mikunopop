@@ -684,7 +684,7 @@ if( settings["autoSaveStockFile"] )
 // main
 function autoSaveStockListMain () {
 	saveStockList();
-	Status.postStatus("ストックリストを保存しました。", 3000);
+//	Status.postStatus("ストックリストを保存しました。", 3000);
 }
 
 function thisTime () {
