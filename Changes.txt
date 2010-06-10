@@ -1,3 +1,59 @@
+commit 948aeea1bf9d346a3db5c07c8479b263319d4f00
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jun 10 19:03:33 2010 +0900
+
+    fixed a runtime problem caused an un-created genre array (but still a workaround).
+
+M	System/RequestManager.js
+
+commit f37ae9e67a1eaf35fd6402aacdcf578094123eaa
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jun 10 18:42:29 2010 +0900
+
+    updated tags.js.
+
+M	tags.js
+
+commit 506e7d4ecbdda93b8eb59de1575fb4be41a50789
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jun 10 18:41:27 2010 +0900
+
+    commented a debug message line.
+
+M	System/Main.js
+
+commit 14fe0ade82f39dee77d63ce565a4508f8438c9e6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jun 10 18:35:05 2010 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit c272b6d8a5bfee0fae254932bc566a74e2e3719d
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jun 10 18:32:50 2010 +0900
+
+    added auto-save stock list feature.
+
+M	System/Main.js
+M	System/RequestManager.js
+M	settings.js
+
+commit 6201c47b7d780f9243ebe8b65361b09fef4cb073
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri May 28 03:53:56 2010 +0900
+
+    released 1.43.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit cc767dd1cfe5b4d2e0b14e332ad0c7b02db4f24b
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Fri May 28 03:46:41 2010 +0900
