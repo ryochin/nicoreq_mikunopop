@@ -317,6 +317,10 @@ RequestManager.prototype = {
 				
 				RequestManager.typeHTML(RQ.id);
 				RequestManager.setCumulativeTime(RQ.id);
+				
+				// ストックリスト自動保存
+				if( settings["autoSaveStockFile"] )
+					autoSaveStockList();
 			}
 		}
 	},
@@ -476,6 +480,10 @@ RequestManager.prototype = {
 		// 動画情報はキャッシュとして残しておくのでコメントアウト
 		// delete this.Requests[id];
 		this.resetCumulativeTime();
+		
+		// ストックリスト自動保存
+		if( settings["autoSaveStockFile"] )
+			autoSaveStockList();
 	},
 	// Index指定による削除
 	deleteRequestQueueByIndex: function(index){

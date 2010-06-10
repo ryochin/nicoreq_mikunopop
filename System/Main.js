@@ -356,6 +356,10 @@ function postPlayCommand (id) {
 		cmd += id;
 		cmd += $('#playSub').attr('checked') ? " sub" : "";
 		NicoLive.postComment( cmd );
+		
+		// ストックリスト自動保存
+		if( settings["autoSaveStockFile"] )
+			autoSaveStockList();
 	}
 	else if( settings["PlayMode"] == 1 ){
 		NicoLive.postComment("/swapandplay " + id);
@@ -650,6 +654,42 @@ function saveStockList(){
 		}
 		cf.Close(); 
 	}catch(e){}
+}
+
+// ストックリストの自動保存
+var autoSaveStockListRequest = 0;
+var autoSaveStockListLastRun = thisTime();
+
+// 保存リクエストがあったら時刻を記録する
+function autoSaveStockList(){
+	autoSaveStockListRequest = thisTime();
+}
+
+// タイマーを仕掛ける
+function autoSaveStockListTimer () {
+	// もし最後に保存した時刻よりあたらしいリクエストがあったら起動する
+	if( autoSaveStockListRequest > autoSaveStockListLastRun ){
+		autoSaveStockListMain();
+		autoSaveStockListLastRun = thisTime();
+	}
+	
+	// call myself
+	setTimeout( "autoSaveStockListTimer()", 10 * 1000 );
+}
+
+// bootstrap
+if( settings["autoSaveStockFile"] )
+	autoSaveStockListTimer();
+
+// main
+function autoSaveStockListMain () {
+	saveStockList();
+	Status.postStatus("ストックリストを保存しました。", 3000);
+}
+
+function thisTime () {
+	var d = new Date;
+	return parseInt( d.getTime(), 10 );    // epoch の 10^3 倍の値であることに注意
 }
 
 // NG動画IDをロード
