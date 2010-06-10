@@ -158,7 +158,7 @@ RequestManager.prototype = {
 				.replace(/{#CTime}/g, "<label id=\"CT"+R.id+"\">"+this.getCumulativeTime(R.id)+"</label>")
 				.replace(/{#Date}/g,  R.getDateString(settings["ItemHTMLDate"]))
 				.replace(/{#Tags}/g, "<div title=\""+R.tags+"\">[tag]</div>")
-				.replace(/{#Genre}/g, R.genre.join(" "))
+				.replace(/{#Genre}/g, R.genre ? R.genre.join(" ") : "")
 				.replace(/{#Type}/g, "<span id=\"TYP"+R.id+"\" onclick=\"RequestManager.setAlert('"+R.id+"')\" title=\"クリックで詳細情報を表示\"></span>")
 		;
 	},
