@@ -276,6 +276,7 @@ function checkReqIDs (live_id, user_id) {
 }
 
 // 通常モードの再生
+var lastPlayVideoTime = 0;
 RequestManager.Events["Play"] = function(id){
 	// 制限モード
 	if(!settings["UseIE"]){
@@ -294,8 +295,18 @@ RequestManager.Events["Play"] = function(id){
 	if(settings["AddPlayedVideoId2NGIDs"]) PlayedVideoIds[id] = true;
 
 	if(!SocketManager.connected) return;
+
+	// ２度押しチェック
+	if( thisTime() - lastPlayVideoTime < 10 * 1000 ){
+		Status.postStatus("連続再生を検知しました！　１度目以降の再生をキャンセルしました。", 5000);
+		return;
+	}
+	
 	// play コマンドを発行
 	postPlayCommand( id );
+	
+	// 時刻を記録
+	lastPlayVideoTime = thisTime();
 	
 	// 再度コマンド発行のために id を控えておく
 	lastPlayedID = id;
