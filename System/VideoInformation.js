@@ -256,7 +256,7 @@ function __VideoInformation__receiveComment(Chat){
 				// address
 				info.push('<div class="info"><fieldset><legend>アドレス</legend>');
 				info.push("<span class=\"subtitle\">動画 </span><a title=\"クリックで動画ページを開く\" onclick=\"OpenVideo('" + VideoID + "')\">http://www.nicovideo.jp/watch/" + VideoID + "</a><br>");
-				info.push("<span class=\"subtitle\">情報 </span><a title=\"クリックで情報ページを開く\" onclick=\"OpenURL('http://mikunopop.info/info/" + VideoID + "')\">http://mikunopup.info/info/" + VideoID + "</a><br>");
+				info.push("<span class=\"subtitle\">情報 </span><a title=\"クリックで情報ページを開く\" onclick=\"OpenURL('http://mikunopop.info/info/" + VideoID + "')\">http://mikunopop.info/info/" + VideoID + "</a><br>");
 				info.push("</fieldset></div>");
 
 				// tags
