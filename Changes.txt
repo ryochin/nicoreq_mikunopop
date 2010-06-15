@@ -1,3 +1,49 @@
+commit 58d70f609ff822d85aec396d4d1d7cbefea6664a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Jun 15 13:55:25 2010 +0900
+
+    tweaked NicoRequest.hta for design.
+
+M	NicoRequest.hta
+
+commit b10d71b458b7e8ebae97a2e07a14b666b58ab4bf
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Jun 15 13:46:16 2010 +0900
+
+    updated pnames.js. (thanks to koke)
+
+M	pnames.js
+M	pnames/koke.js
+M	pnames/pnames.txt
+
+commit eee0e7d2d66a8ca240671b2f4303eed9e5517c10
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jun 12 19:24:42 2010 +0900
+
+    implemented multiple-play preventing feature.
+
+M	System/Main.js
+
+commit aacd89c53f49efacffc3b7960fc0c92464149922
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jun 12 19:14:03 2010 +0900
+
+    fixed a tiny typo.
+
+M	System/VideoInformation.js
+
+commit 18e1d5e5a21838a63856dca7080ae786be64a8ce
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jun 10 19:06:17 2010 +0900
+
+    released 1.44.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 948aeea1bf9d346a3db5c07c8479b263319d4f00
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Jun 10 19:03:33 2010 +0900
