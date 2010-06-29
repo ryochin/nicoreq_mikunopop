@@ -3,6 +3,16 @@
 // ================================================================================================
 // オープニング
 	{
+		"no": "OP No.15",
+		"is_active": true,
+		"id": "sm11225262",
+		"shortname": "J15 anger RMX",
+		"longname": "【ジングル？】 anger RMX -prologue- 【CM?】",
+		"author": "danjoh's friend",
+		"length": "2:45",
+		"memo": "danjoh さんが友人に作ってもらったもの。"
+	},
+	{
 		"no": "OP No.14",
 		"is_active": true,
 		"id": "sm10317607",
