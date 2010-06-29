@@ -23,5 +23,8 @@ settings["exceptionPTagsVO"] = ["",
 	"‚½‚ñ‚½‚ñô",
 	"IM",
 	"‚³‚Â‚«",
+	"y_t_b",
+	"’ë–ìˆäŒË",
+	"Soda_Lady",
 ""];
 
