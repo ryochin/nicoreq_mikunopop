@@ -243,6 +243,17 @@
 	{
 		"no": "放送事故",
 		"is_active": true,
+		"id": "sm11322979",
+		"shortname": "A02 恋はきっと急上昇",
+		"longname": "【ボカロ系生放送】放送事故で恋はきっと急上昇☆【です☆めた】",
+		"author": "きぬこもち",
+		"length": "1:29",
+		"memo": "放送事故用"
+	},
+
+	{
+		"no": "放送事故",
+		"is_active": true,
 		"id": "sm8138979",
 		"shortname": "A01 32bit lovers",
 		"longname": "【ミクノポップをきかないか？】放送事故で３２ｂｉｔ　ｌｏｖｅｒｓ",
