@@ -26,5 +26,11 @@ settings["exceptionPTagsVO"] = ["",
 	"y_t_b",
 	"庭野井戸",
 	"Soda_Lady",
+	"KinemagiKs",
+	"shino",
+	"ギザギザネコ・ユープケッチャ",
+	"BANANAYOKAN",
+	"pacifica",
+	"ロム虫",
 ""];
 
