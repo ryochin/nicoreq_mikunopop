@@ -1,3 +1,33 @@
+commit 562ae83b40f2372e7f37c738df96591d0a6caac4
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jul 10 23:26:10 2010 +0900
+
+    updated jingles.json.
+
+M	jingles.json
+
+commit 831cb7cf38ee3c50e7f826cdd92503f04989e0fd
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jul 10 23:25:31 2010 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit 69347355d83c9b1a3537406f01047d6471d002ce
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Jun 29 21:35:14 2010 +0900
+
+    released 1.45.1.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit ec0d0d68653447800b3c14dd199fa5bdea3dde46
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Tue Jun 29 21:26:37 2010 +0900
