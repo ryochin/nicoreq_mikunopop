@@ -32,5 +32,11 @@ settings["exceptionPTagsVO"] = ["",
 	"BANANAYOKAN",
 	"pacifica",
 	"ƒƒ€’",
+	"AHR",
+	"nmk",
+	"k-",
+	"politru",
+	"Soaa-",
+	"millstones",
 ""];
 

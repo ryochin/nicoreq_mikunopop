@@ -18,6 +18,7 @@
 A0010
 AEGIS
 AETA(イータ)
+AHR
 AIR田
 AIR田F
 ARuFa
@@ -229,6 +230,7 @@ Shunta
 Siryu
 SoMa
 Soaa
+Soaa-
 Soda_Lady
 Soseki
 Spiltmilk
@@ -391,6 +393,7 @@ instinctive
 iroha(sasaki)
 iymt
 jazzcat07
+k-
 k-sk
 k.TAMAYAN
 k2
@@ -489,6 +492,7 @@ nick
 nicol
 nimo@
 njn
+nmk
 noa.
 nof
 nonomori
@@ -511,6 +515,7 @@ pemopemo
 pemopemo3
 phili@music
 placebo
+politru
 polyline
 postom
 psgmania
