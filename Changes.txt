@@ -1,3 +1,41 @@
+commit acc4dcfcadb5bbc4770f2adce1914a6ace33f5ff
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jul 22 23:59:18 2010 +0900
+
+    updated pnames.js.
+
+M	pnames.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit cd532b951af3bd25ead1285683d245419055c70f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jul 22 23:56:35 2010 +0900
+
+    updated jingles.json.
+
+M	jingles.json
+
+commit 65f00711262077d519f24cb960ecf947a8af821f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jul 22 23:48:53 2010 +0900
+
+    reverted jingle display as admin comment behavior back to normal one.
+
+M	NicoRequest.hta
+
+commit 56538752616c96023696b1087ca21ccd7af98974
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Jul 10 23:37:27 2010 +0900
+
+    released 1.45.2.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 562ae83b40f2372e7f37c738df96591d0a6caac4
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Sat Jul 10 23:26:10 2010 +0900

@@ -1,4 +1,4 @@
-﻿■リリース手順
+﻿e■リリース手順
 
 ・settings.js
 	settings["Debug"] = true;　を false に戻しておく
