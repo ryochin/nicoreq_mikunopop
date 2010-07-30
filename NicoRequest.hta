@@ -66,7 +66,6 @@ $(document).ready( function () {
 	<span>リクエスト</span>
 	<span>動画情報</span>
 	<span>コメント</span>
-	<span>連続コメント</span>
 	<span>副管理者</span>
 	<span>オプション</span>
 </HTC:Tab>
@@ -211,19 +210,6 @@ $(document).ready( function () {
 	<input type="button" value="主コメする" onclick="NicoLive.postComment(document.getElementById('sendCmt_text').value, document.getElementById('sendCmt_mail').value);document.getElementById('sendCmt_text').value='';document.getElementById('sendCmt_mail').value='';" />
 	<hr />
 	<div id="CommentHTML"></div>
-</div>
-<div id="TabContents">
-	<div id="AutoComment">
-		<div id="divAutoPlay">
-			<fieldset>
-				<legend>主コメント</legend>
-				<input id="AutoCmtBtn" type="button" value="1行出力" onclick="AutoCmtOnePut()"><br><br>
-				<input id="AutoCmAlltBtn" type="button" value="連続出力" onclick="AutoCmtAllPut()">
-				コメント間隔:<input id="AutoCmtInterval" type="text" size="3" value="5">秒<br><br>
-				内容：<br><textarea name="AutoCmtText" rows="10" cols="50"></textarea>
-			</fieldset>
-		</div>
-	</div>
 </div>
 <div id="TabContents">
 	<div id="dummyAdmin">
