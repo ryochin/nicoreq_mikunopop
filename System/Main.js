@@ -138,7 +138,9 @@ function setAPIToken (lv) {
 	NicoLive.getXMLviaNet("http://live.nicovideo.jp/api/getpublishstatus?v=lv" + lv, function (xmldom) {
 		if( ! xmldom || ! xmldom.getElementsByTagName("token") )
 			return;
-		apiToken = xmldom.getElementsByTagName("token")[0].text;
+		try {
+			apiToken = xmldom.getElementsByTagName("token")[0].text;
+		} catch(e) { }
 	});
 }
 
