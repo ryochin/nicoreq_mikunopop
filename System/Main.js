@@ -696,7 +696,9 @@ if( settings["autoSaveStockFile"] )
 
 // main
 function autoSaveStockListMain () {
-	saveStockList();
+	// 万が一プログラムにミスがあった場合に消えてしまうのを防ぐ
+	if(RequestManager.RequestQueues.length>0)
+		saveStockList();
 //	Status.postStatus("ストックリストを保存しました。", 3000);
 }
 
