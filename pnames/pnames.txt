@@ -43,6 +43,7 @@ Bt_Maly
 Bumpyうるし
 CAINE
 CALFO
+CASE
 CPU9
 CROWWORD
 CYTOKINE
@@ -162,6 +163,7 @@ MineK
 Mjoln
 Mn
 Momotalow
+Mr.Pom
 NANIKA_SHEILA
 NAV
 NES
@@ -196,6 +198,7 @@ Phantasma
 Phasma
 Phil Peterson
 Pianissimo
+PieTako
 Pigeonsbug
 Plutonius
 PolyphonicBranch
@@ -208,6 +211,7 @@ RYOKU
 Re:nG
 ReON
 Rin
+Rin(ぎん)
 Rin（ぎん）
 Rock
 Runo
@@ -255,11 +259,13 @@ Tatsh
 TeT
 Team_Frontier
 TempoRally
+Tes.
 TheoRe::
 Treow(逆衝動P)
 Tripshots
 TuKuRu
 U-ji
+U-ji(霊長類P)
 UPNUSY
 UsK
 V.C.
@@ -360,6 +366,7 @@ electripper
 electroplamo
 em_es
 embryo4713
+emon(Tes.)
 en
 endy
 err
@@ -427,6 +434,7 @@ koma
 konkon
 kordy
 kotaro
+kouki
 kous
 ku6
 kuma
@@ -443,6 +451,7 @@ ma10a
 mackine
 madamxx
 makoto
+mamagotone
 maru
 maruomi
 masa_zero
@@ -502,6 +511,7 @@ nyan_nyan
 o.ken
 oOらいかOo
 oc-tave
+oga
 ohnuma
 omoide2027
 otetsu
@@ -556,6 +566,7 @@ snowy*
 sorahayah
 spikin
 stereoberry
+studio_balabushka
 supply
 suzy
 su~mi
@@ -570,6 +581,7 @@ taat
 tac_
 takamatt
 take
+take_coke
 takotakoagare交響楽団
 takunama
 takuyabrian
@@ -718,6 +730,7 @@ ziki_7
 はんにゃG
 ぱきら
 ぱたや
+ぱたや(ヨンモジP)
 ぱたや(ヨンモジＰ)
 ぱんつのうた製作委員会
 ぱッぱッぱらてど
@@ -755,6 +768,7 @@ ziki_7
 めいこっち
 もぐたん
 もじゃぶた
+もふてゐ
 ももか
 やしきん
 やひろ
@@ -762,6 +776,7 @@ ziki_7
 ゆいほ
 ゆうきちゃん
 ゆきぃ
+ゆめくらげ
 ゆよゆっぺ
 よ
 よりと
@@ -849,6 +864,7 @@ ziki_7
 ブタ
 ブルボンヌ雪村
 プラスナイン
+ペコロ
 ホワイトロリータ
 ボカロ互助会
 ボッチ
@@ -887,11 +903,13 @@ ziki_7
 卯月めい
 横関サトシ
 黄花
+俺＋
 夏人
 架空ばんび観察員
 歌和サクラ
 花一
 海藤るぱん
+外道さん
 関西芋ぱん伝
 喜兵衛
 帰る
@@ -900,6 +918,7 @@ ziki_7
 究極RADIO
 銀色の人
 銀泡虹草
+空海月
 空乃音
 熊田寅吉
 芸龍作
