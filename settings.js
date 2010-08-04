@@ -303,15 +303,15 @@ settings["typeMax"] = 2;
 // ここで設定された色が文字と背景に適用されます
 // 指定表記は16進数、文字列どちらも対応しています
 //タイプ判定１
-settings["type1STR"] = ["オリジナル", "おりじなる", "オリ曲", "セルフカバー", "自作"];
-settings["type1Text"] =  "オリジナル";
-settings["type1color"] =  "#ffffff";
-settings["type1backgroundColor"] =  "blue";
+//settings["type1STR"] = ["オリジナル", "おりじなる", "オリ曲", "セルフカバー", "自作"];
+//settings["type1Text"] =  "オリジナル";
+//settings["type1color"] =  "#ffffff";
+//settings["type1backgroundColor"] =  "blue";
 //タイプ判定２
-settings["type2STR"] = ["カバー", "かばー", "コピー", "こぴー", "替え歌", "東方", "アイマス", "アイドルマスター"];
-settings["type2Text"] =  "カバー";
-settings["type2color"] =  "#ffffff";
-settings["type2backgroundColor"] =  "red";
+//settings["type2STR"] = ["カバー", "かばー", "コピー", "こぴー", "替え歌", "東方", "アイマス", "アイドルマスター"];
+//settings["type2Text"] =  "カバー";
+//settings["type2color"] =  "#ffffff";
+//settings["type2backgroundColor"] =  "red";
 
 // =====================================================================================================================
 // タイプ判定対象項目
@@ -423,8 +423,6 @@ settings["browserType"] = 0;
 //クッキーの寿命(単位は時間  0にすると無期限)
 settings["cookieLifeSpan"] = 0;
 
-//add end
-
 // =====================================================================================================================
 // ここから拡張設定
 // 拡張機能を使用しない場合は使用しない設定です
@@ -495,34 +493,11 @@ settings["key"] = {
 // 待機時間を短くすると正常に動作しなくなる恐れがあります
 settings["ThumbInfoTaskWait"] = 250;
 
-// 動画タイトルから削除する文字列
-// 動画タイトルを短縮するために用います
-// ここに記述された文字列は全て削除されます
-//settings["TitleDeleteTargets"] = [/^アイドルマスター[\s　]+/, /((を|で)?(初音ミク|ギロカクたん)+[\s　]*が[\s　]*(オリジナル|カバー|.*の替え歌)?(を|曲を|曲の)?)+[\s　]*/g, /((を|が)?(歌|唄)+(いました|いました|いやがった|う|ってくれた|ってくれました|ってみた)+(っ|よ)?)+[\s　]*/g, /(☆+[\s　]*)$/, /(！+[\s　]*)$/];
-settings["TitleDeleteTargets"] = [];
-
-// ニコマス・ボカロ向け例外Pネーム
-// Pネームを表すタグ名の末尾がPまたは氏または作品でない場合はここに記述します
-// 最初と最後はダミーとして空白("")を設定してください
-//settings["exceptionPTagsIM"] = ["", "がぶ呑み", "ayakanP(仮名)", "GazL", "hbrk", "7インチ", "伝説のもやしもん", "とかち未来派", "末期P（仮）", "モロ兵P（仮）", "うそ太郎", ""];
-settings["exceptionPTagsIM"] = ["", ""];
-//settings["exceptionPTagsVO"] = ["", "OSTER_project", "ika", "kz", "ryo", "KEI", "masquer", "ボカロ互助会", "AEGIS", "andromeca", "awk", "Azell", "cokesi", "DARS", "DixieFlatline", "GonGoss", "G-Fac.", "halyosy", "haruna808", "HMOとかの中の人", "IGASIO", "inokix", "iroha(sasaki)", "Karimono", "kashiwagi氏", "kotaro", "kous", "KuKuDoDo", "LOLI.COM", "MAX_VEGETABLE", "Masuda_K", "MineK", "No.D", "OPA", "otetsu", "Otomania", "AETA(イータ)", "cosMo(暴走P)", "doriko", "PENGUINS_PROJECT", "Re:nG", "ShakeSphere", "samfree", "Shibayan", "SHIKI", "snowy*", "takotakoagare交響楽団", "Tatsh", "Treow(逆衝動P)", "Tripshots", "TuKuRu", "UPNUSY", "VIVO", "wintermute", "X-Plorez", "YAMADA-SUN", "yukiwo", "カリスマブレイクに定評のあるうP主", "[TEST]", "杏あめ", "Dog tails", "歌和サクラ", "裸時", "邂逅の中の人", "喜兵衛", "Φ串Φ", "このり", "小林オニキス", "田中和夫", "ちゃぁ", "チョコパ幻聴P(パティシエ)", "ティッシュ姫", "テンネン", "とおくできこえるデンシオン", "トマ豆腐", "ナツカゼP(Tastle)", "肉骸骨", "伴長", "森井ケンシロウ", "山本似之", "山本ニュー", "林檎", "レインロード", "164", "∀studio", "uunnie", "おいも", "madamxx", "mijinko3", "DECO*27", "さかきょ", "ちーむ炙りトロ丼", "GlassOnion", "bothneco", "yu", "m@rk", "shin", "kame", "たすどろ", "nof", "YYMIKUYY", "Zekky", "HironoLin", "スタジオいるかのゆ", "PEG", "meam", "ＸＧｗｏｒｋｓ", "まはい", "nankyoku", "ナヅキ", "Nen-Sho-K", "Sat4", "suzy", "ぽぴー", "名鉄2000系", "Noya", "さね", "きらら", "ごんぱち", "えどみはる", "analgesic_agents", "不確定名：producer（1）", "takuyabrian", "kuma", "tomo", "nabe_nabe", "桃茄子", "river", "れい・ぼーん", "クリアP(YS)", "usuki", "OperaGhost", "instinctive", "銀色の人", "pan", "龍徹", "AVTechNO", "●テラピコス", "びんご", "shin", "ゆよゆっぺ", "くっじー", "ミナグ", "LIQ", "まゆたま", "チームほしくず", "WEB-MIX", "ukey", "Phantasma", "Kossy", "mintiack", "Yoshihi", "ぱきら", "すたじおEKO＆GP1", "Neri_McMinn", "ぼか主", "Harmonia", "Rock", "TACHE", "cmmz", "BIRUGE", "m_yus", "たけchan", "CleanTears", "Lue", "FuMay", "SHUN", "関西芋ぱん伝", "静野", "どぶウサギ", "bestgt", "IGASI○", "メロネード(仮)", "ICEproject", "ぱんつのうた製作委員会", "さいはね", "MikSolodyne-ts", "Yossy", "あつぞうくん", "タイスケ", ""];
-//settings["exceptionPTagsVO"] = ["","OSTER_project","ika","kz","ryo","KEI","masquer","ボカロ互助会","AEGIS","andromeca","awk","Azell","cokesi","DARS","DixieFlatline","GonGoss","G-Fac.","halyosy","haruna808","HMOとかの中の人","IGASIO","inokix","iroha(sasaki)","Karimono","kashiwagi氏","kotaro","kous","KuKuDoDo","LOLI.COM","MAX_VEGETABLE","Masuda_K","MineK","No.D","OPA","otetsu","Otomania","AETA(イータ)","cosMo(暴走P)","doriko","PENGUINS_PROJECT","Re:nG","ShakeSphere","samfree","Shibayan","SHIKI","snowy*","takotakoagare交響楽団","Tatsh","Treow(逆衝動P)","Tripshots","TuKuRu","UPNUSY","VIVO","wintermute","X-Plorez","YAMADA-SUN","yukiwo","カリスマブレイクに定評のあるうP主","[TEST]","杏あめ","Dog tails","歌和サクラ","裸時","邂逅の中の人","喜兵衛","Φ串Φ","このり","小林オニキス","田中和夫","ちゃぁ","チョコパ幻聴P(パティシエ)","ティッシュ姫","テンネン","とおくできこえるデンシオン","トマ豆腐","ナツカゼP(Tastle)","肉骸骨","伴長","森井ケンシロウ","山本似之","山本ニュー","林檎","レインロード","164","∀studio","uunnie","おいも","madamxx","mijinko3","DECO*27","さかきょ","ちーむ炙りトロ丼","GlassOnion","bothneco","yu","m@rk","shin","kame","たすどろ","nof","YYMIKUYY","Zekky","HironoLin","スタジオいるかのゆ","PEG","meam","ＸＧｗｏｒｋｓ","まはい","nankyoku","ナヅキ","Nen-Sho-K","Sat4","suzy","ぽぴー","名鉄2000系","Noya","さね","きらら","ごんぱち","えどみはる","analgesic_agents","takuyabrian","kuma","tomo","nabe_nabe","桃茄子","river","れい・ぼーん","クリアP(YS)","usuki","OperaGhost","instinctive","銀色の人","pan","龍徹","AVTechNO","●テラピコス","びんご","shin","ゆよゆっぺ","くっじー","ミナグ","LIQ","まゆたま","チームほしくず","WEB-MIX","ukey","Phantasma","Kossy","mintiack","Yoshihi","ぱきら","すたじおEKO＆GP1","Neri_McMinn","ぼか主","Harmonia","Rock","TACHE","cmmz","BIRUGE","m_yus","たけchan","CleanTears","Lue","FuMay","SHUN","関西芋ぱん伝","静野","どぶウサギ","bestgt","IGASI○","メロネード(仮)","ICEproject","ぱんつのうた製作委員会","さいはね","MikSolodyne-ts","Yossy","あつぞうくん","タイスケ","P∴Rhythmatiq","ぎん","Rin","hapi⇒","microgroover","Studio_IIG","cenozoic","miumix","U-ji","aquascape","deathpiyo","Fraidy-fraidy","いのりば","DATEKEN","霧島","餅",""];
-
-// ニコマス・ボカロ向け例外Pネーム
-// ニコマス・ボカロ向け除外Pネーム
-// タグ名の末尾がPでもP名として取得しない場合はここに記述します
-settings["NotPTagsIM"] = ["", "iM@SHUP", "アイドルマスターSP", "PSP", ""];
-settings["NotPTagsVO"] = ["", "MikuPOP", "RinPOP", "VochnoPop", "アニメOP", "ゲームOP", "エロゲOP", "偽OP", "J-POP", "これからもずっとbakerの嫁P", "2STEP", "ミーム第２期OP", "Human_Dump", "お前はもう死んでいるP", "吸引力の変わらない唯一の鼻そうめんP", "新人潰しを自称する割に全然潰せてないP", "忍者らじおOP", "Star_Step", "育児POP", "VOCALOID-NONSTOP", ""];
-
 // Pネーム取得失敗時の名前
 // タグからPネームを取得できなかった際に用いられる文字列を指定します
 // 空文字("")を設定するとダブルクリックによるPネーム編集機能が使えなくなります
 settings["NoPName"] = "P名?";
 //settings["NoPName"] = "P名不明！ 情報求ム！";
-
-// JASRACコードがない時の{#JASCode}の代替文字列
-settings["NoJASCode"] = "コードなし";
 
 // 取得するマイリストグループから除外する名前
 settings["MylistBlackList"] = ["", "アイマス", "MMD", "3D", "ぬこ", "good", "ミクゲー", "技術部", "萌え", "_name_", ""];

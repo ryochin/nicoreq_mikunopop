@@ -57,12 +57,15 @@ Request.prototype = {
 		this.oTitle  = xmldom.getElementsByTagName("title")[0].text;
 		this.thumbnail_url = xmldom.getElementsByTagName("thumbnail_url")[0].text;
 		this.description = xmldom.getElementsByTagName("description")[0].text;
-		this.type        = this.getType(this.oTitle, this.description, this.tags);
+//		this.type        = this.getType(this.oTitle, this.description, this.tags);
+		this.type        = "";
 	},
 	getTitle: function(title){
 		var T = title;
-		for(var i=0,l=settings["TitleDeleteTargets"].length; i<l; i++){
-			T = T.replace(settings["TitleDeleteTargets"][i], "");
+		if( settings["TitleDeleteTargets"] != null ){
+			for(var i=0,l=settings["TitleDeleteTargets"].length; i<l; i++){
+				T = T.replace(settings["TitleDeleteTargets"][i], "");
+			}
 		}
 		return T;
 	},
@@ -77,7 +80,6 @@ Request.prototype = {
 				var _P = P;
 				P += Tag + " ";
 				// でも除外リストに載ってたら白紙に
-				if(Zen2Han(settings["NotPTagsIM"].join(",")).indexOf(","+Zen2Han(Tag)+",") > -1) P = _P;
 				if(Zen2Han(settings["NotPTagsVO"].join(",")).indexOf(","+Zen2Han(Tag)+",") > -1) P = _P;
 				// タイトルの中に出てくるって事は曲名かもしれないって事で白紙に
 				if(title.indexOf(Tag) > -1) P = _P;
@@ -86,50 +88,49 @@ Request.prototype = {
 			// ～リスペクト作品ってタグは除外
 			if(Tag.match(/(氏|作品)$/) && !Tag.match(/リスペクト作品/)) P += Tag + " ";
 			// 上記のルール以外の作者タグは例外リストで対応
-			if(Zen2Han(settings["exceptionPTagsIM"].join(",")).indexOf(","+Zen2Han(Tag)+",") > -1) P += Tag + " ";
 			if(Zen2Han(settings["exceptionPTagsVO"].join(",")).indexOf(","+Zen2Han(Tag)+",") > -1) P += Tag + " ";
 		}
 		if(P=="") P = settings["NoPName"];
 		return P;
 	},
 
-	getType: function(title, description, tags){
-		var T = "";
-		if (settings["typeTITLE"]) T += title+" ";
-		if (settings["typeDESCRIPTION"]) T += description+" ";
-		if (settings["typeTAG"]) T += tags+" ";
-
-		//type1のチェック
-		var i=0;//単語番号
-		var j=0;//単語グループ番号
-		var k=0;//複数フラグ
-		var l=0;//単語総数
-		var m=0;//該当グループ番号
-		var typeSTR="";
-		while (j<settings["typeMax"] && k<2){
-			j++;
-			typeSTR="type"+j+"STR";
-			if(settings[typeSTR]){
-				l=settings[typeSTR].length;
-				while (i<l && j>m){
-					if(T.indexOf(settings[typeSTR][i]) > -1){
-						//該当グループ番号更新
-						m=j;
-						k++;
-					}
-					i++;
-				}
-				//単語番号リセット
-				i=0;
-			}
-		}
-		//タイプ判定
-		//複数に該当する場合
-		if(k>1) return "plural";
-		//単独で該当する場合
-		if(m>0) return "type"+m;
-		return "";
-	},
+//	getType: function(title, description, tags){
+//		var T = "";
+//		if (settings["typeTITLE"]) T += title+" ";
+//		if (settings["typeDESCRIPTION"]) T += description+" ";
+//		if (settings["typeTAG"]) T += tags+" ";
+//
+//		//type1のチェック
+//		var i=0;//単語番号
+//		var j=0;//単語グループ番号
+//		var k=0;//複数フラグ
+//		var l=0;//単語総数
+//		var m=0;//該当グループ番号
+//		var typeSTR="";
+//		while (j<settings["typeMax"] && k<2){
+//			j++;
+//			typeSTR="type"+j+"STR";
+//			if(settings[typeSTR]){
+//				l=settings[typeSTR].length;
+//				while (i<l && j>m){
+//					if(T.indexOf(settings[typeSTR][i]) > -1){
+//						//該当グループ番号更新
+//						m=j;
+//						k++;
+//					}
+//					i++;
+//				}
+//				//単語番号リセット
+//				i=0;
+//			}
+//		}
+//		//タイプ判定
+//		//複数に該当する場合
+//		if(k>1) return "plural";
+//		//単独で該当する場合
+//		if(m>0) return "type"+m;
+//		return "";
+//	},
 
 	getDateString: function(format){
 		if(!format) format = "yy/mm/dd hh:nn:ss";
