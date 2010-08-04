@@ -46,7 +46,8 @@ Source: "C:\NicoLive\nicoreq\HISTORY.txt"; DestDir: "{app}"
 Source: "C:\NicoLive\nicoreq\Changes.txt"; DestDir: "{app}";
 Source: "C:\NicoLive\nicoreq\NGIDList.txt"; DestDir: "{app}";
 Source: "C:\NicoLive\nicoreq\settings.js"; DestDir: "{app}"; Flags: confirmoverwrite uninsneveruninstall
-Source: "C:\NicoLive\nicoreq\pnames.js"; DestDir: "{app}";
+Source: "C:\NicoLive\nicoreq\pnames.js"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "C:\NicoLive\nicoreq\pnames_ex.js"; DestDir: "{app}"
 Source: "C:\NicoLive\nicoreq\tags.js"; DestDir: "{app}";
 Source: "C:\NicoLive\nicoreq\jingles.json"; DestDir: "{app}";
 Source: "C:\NicoLive\nicoreq\System\*"; DestDir: "{app}\System\";
