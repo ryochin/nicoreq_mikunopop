@@ -181,7 +181,7 @@ settings["autoSaveStockFile"] = true;
 //settings["ItemHTML"] = "{#Type}{#Title}<br>"
 settings["ItemHTML"] = ""
 	+ "{#ThumbURL}"
-	+ '<span class="subtitle">Ｐ </span>{#PName}<br>'
+	+ '<span class="subtitle">Ｐ </span><span title="ダブルクリックして名前を編集">{#PName}</span><br>'
 	+ '<span class="subtitle">投 </span>{#Date}<br>'
 	+ '<span class="subtitle">再 </span>{#View} <span class="subtitle">コ </span>{#Comm} <span class="subtitle">マ </span>{#List}<br>'
 	+ '<span class="subtitle">彡 </span><span class="count">{#Count}</span>&nbsp; <span class="subtitle">時 </span>{#Time}&nbsp; <span class="subtitle">計 </span>{#CTime}<br>'

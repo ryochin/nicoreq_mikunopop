@@ -19,9 +19,16 @@ RequestManager.prototype = {
 		this.Events["Edit"] = function(element, type, id){
 			var beforeValue = element.innerHTML;
 			if(beforeValue==settings["NoPName"]){
-				beforeValue = "[" + RequestManager.Requests[id].tags.join("][") + "]";
+//				beforeValue = "[" + RequestManager.Requests[id].tags.join("][") + "]";
 			}
-			var afterValue  = prompt("正しい"+type+"を編集してください\n[ctrl]+[Z]で一つ前の状態に戻る、[キャンセル]か空白にして[OK]で未修正のまま終了", beforeValue);
+			var typeName;
+			if( type == "name" ){
+				typeName = "Ｐ名";
+			}
+			else{
+				typeName = type;
+			}
+			var afterValue  = prompt("正しい"+typeName+"を編集してください\n[ctrl]+[Z]で一つ前の状態に戻る、[キャンセル]か空白にして[OK]で未修正のまま終了", beforeValue);
 			if(afterValue && afterValue!=beforeValue){
 				RequestManager.Requests[id][type] = afterValue;
 				element.innerHTML  = afterValue;
