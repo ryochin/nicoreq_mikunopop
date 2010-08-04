@@ -73,6 +73,7 @@ Request.prototype = {
 		var P = "";
 		// たまに～に定評のある～Pというタグが付いてることがある
 		// そういうのは順番的に後ろだろうということで、手前にある作者タグを優先する
+		var exceptionPTagsVO = Zen2Han(settings["exceptionPTagsVO"].join(","));    // cache
 		for(var i=tags.length-1; i>=0; i--){
 			var Tag = tags[i];
 			// タグ名の最後にPがついたらヒット
@@ -88,7 +89,7 @@ Request.prototype = {
 			// ～リスペクト作品ってタグは除外
 			if(Tag.match(/(氏|作品)$/) && !Tag.match(/リスペクト作品/)) P += Tag + " ";
 			// 上記のルール以外の作者タグは例外リストで対応
-			if(Zen2Han(settings["exceptionPTagsVO"].join(",")).indexOf(","+Zen2Han(Tag)+",") > -1) P += Tag + " ";
+			if(exceptionPTagsVO.indexOf(","+Zen2Han(Tag)+",") > -1) P += Tag + " ";
 		}
 		if(P=="") P = settings["NoPName"];
 		return P;
