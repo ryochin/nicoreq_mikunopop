@@ -7,7 +7,7 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{D2DE523D-77A0-459C-9F2A-0EF93B58FF43}
 AppName=NicoRequest Mikunopop Edition
-AppVerName=NicoRequest Mikunopop Edition 1.46
+AppVerName=NicoRequest Mikunopop Edition 1.47
 AppPublisher=saihane
 AppPublisherURL=http://mikunopop.info/
 AppSupportURL=http://mikunopop.info/
@@ -17,11 +17,11 @@ DefaultGroupName=NicoRequest Mikunopop Edition
 AllowNoIcons=yes
 LicenseFile=C:\NicoLive\nicoreq\EULA.txt
 InfoBeforeFile=C:\NicoLive\nicoreq\README.txt
-OutputBaseFilename=NicoReqMikunopopEdition_146
+OutputBaseFilename=NicoReqMikunopopEdition_147
 Compression=lzma
 SolidCompression=yes
 SetupIconFile=C:\NicoLive\nicoreq\installer\app.ico
-VersionInfoVersion=1.4.6.0
+VersionInfoVersion=1.4.7.0
 VersionInfoDescription=NicoRequest for Mikunopop community
 AppCopyright=saihane, w2k, ExceptionError
 WizardImageFile=C:\NicoLive\nicoreq\installer\wizard.bmp
