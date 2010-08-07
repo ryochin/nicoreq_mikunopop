@@ -37,6 +37,7 @@ BANANAYOKAN
 BBれもん
 BIRUGE
 BONU
+BRBRP
 BeatCharger
 BiRD(s)
 Bt_Maly
@@ -379,6 +380,7 @@ geppei-taro
 glim
 halyosy
 hapi⇒
+haren
 harun
 haruna808
 hashibami
@@ -523,6 +525,7 @@ paraoka
 peakedyellow
 pemopemo
 pemopemo3
+phase
 phili@music
 placebo
 politru
@@ -643,12 +646,14 @@ ziki_7
 ＨＩＤＡＫＡ
 ＫＩＴさん
 ＸＧｗｏｒｋｓ
+ｋすけ
 ｋ彩施
 あーさん
 あお
 あず
 あずーる
 あつぞうくん
+あめ(Creche)
 あらい
 いたる
 いとうぺんこ
@@ -801,7 +806,6 @@ ziki_7
 オンドル
 カーリー
 カマキリ☆ジョー
-カリスマブレイクに定評のあるうP主
 カントリーマァム
 キモチワルイtypeYZM
 キンタ
@@ -861,6 +865,7 @@ ziki_7
 ピアナ
 ピロシキ＋
 ファンド
+フィンクス
 ブタ
 ブルボンヌ雪村
 プラスナイン
@@ -1011,6 +1016,7 @@ ziki_7
 流歌
 龍徹
 林檎
+鈴掛ヨモギ
 鈴木ろりー太
 恋竹林
 漣也

@@ -61,5 +61,12 @@ settings["exceptionPTagsVO"] = ["",
 	"mamagotone",
 	"外道さん",
 	"ゆめくらげ",
+	"phase",
+	"あめ(Creche)",
+	"ｋすけ",
+	"haren",
+	"BRBRP",
+	"鈴掛ヨモギ",
+	"フィンクス",
 ""];
 
