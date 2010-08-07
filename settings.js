@@ -136,7 +136,7 @@ settings["MylistInfoCacheExpireHour"] = 3 * 24;    // 3 day
 settings["UseVideoInfoCache"] = 1;
 
 // キャッシュする時間
-settings["VideoInfoCacheExpireHour"] = 2 * 24;    // a day
+settings["VideoInfoCacheExpireHour"] = 12;
 
 // 動画情報の取得の待機時間をミリ秒単位で設定します
 // （おそらくほとんど意味をなしません）

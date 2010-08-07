@@ -3,7 +3,7 @@
 
 var version = '1.47';    // ME version
 var countFileURL = 'http://mikunopop.info/play/count.json?' + version;    // make sure ct is test/javascript
-var cacheTime = 6 * 60 * 60;    // sec - please set it at least every 1 hr
+var cacheTime = 4 * 60 * 60;    // sec - please set it at least every 1 hr
 var MikunopopCount = new Object();    // as a hash container
 
 // check main or not
