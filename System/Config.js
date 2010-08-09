@@ -55,6 +55,11 @@ Config.prototype = {
 	// デフォルトオブジェクトを作成
 	getDefaultObject: function () {
 		return {
+			// １人あたりのリクエスト数の制限
+			'MultiRequestLimit.Flag':0,
+			'MultiRequestLimit.Num':1,
+			
+			// リクエスト制限（タグ）
 			'RequestLimitation.Flag': 0,
 			'RequestLimitation.DefaultTags': {
 				"テクノ": 1,

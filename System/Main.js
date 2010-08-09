@@ -59,44 +59,47 @@ window.attachEvent("onload", function(){
 	if(settings["AutoLoadStock"]) loadStockList();
 
 	// multi_req_check
-	if( settings["multiRequestLimit"] > 0 ){
+	if( config.get("MultiRequestLimit.Flag") ){
 		// on
 		$('#multiReqCheck').attr( { checked: 1 } );
-		$('#multiReqNum').val( settings["multiRequestLimit"] );
 	}
 	else{
 		// off
 		$('#multiReqCheck').attr( { checked: 0 } );
 		$('#multiReqNum').attr( { disabled: 1 } );
-		$('#multiReqNum').val( 1 );
 	}
+	$('#multiReqNum').val( config.get("MultiRequestLimit.Num") );
 	
 	$('#multiReqCheck').click( function () {
 		// 
 		if( $(this).attr('checked') ){
 			$('#multiReqNum').attr( { disabled: 0 } );
-			settings["multiRequestLimit"] = $('#multiReqNum').val();
+			config.set( "MultiRequestLimit.Flag", 1 );
 		}
 		else{
 			$('#multiReqNum').attr( { disabled: 1 } );
-			settings["multiRequestLimit"] = 0;
+			config.set( "MultiRequestLimit.Flag", 0 );
 		}
+		config.save();
 	} );
 	
 	$('#multiReqNum').keyup( function () {
 		var n = parseInt( $(this).val() );
-		if( n > 0 ){
+		if( n > 0 && n < 100 ){
 			// ok
-			settings["multiRequestLimit"] = $(this).val();
+			config.set("MultiRequestLimit.Num", $(this).val() );
 		}
 		else{
 			// invalid
-			settings["multiRequestLimit"] = 1;
+			config.set("MultiRequestLimit.Num", 1 );
 		}
+		config.save();
 	} );
 	$('#multiReqNum').blur( function () {
-		if( ! $(this).val().match(/^[1-9][0-9]*$/) )
+		var n = parseInt( $(this).val() );
+		if( ! ( n > 0 && n < 100 ) ){
 			$(this).val(1);
+		}
 	} );
 });
 
@@ -228,9 +231,9 @@ function receiveComment_Request(Chat){
 			// 最近流れた動画
 			NicoLive.postComment(">>"+Chat.no+"さん、その動画は流したばかりなので・・・すみません。", "");
 		}
-		else if( settings["multiRequestLimit"] > 0 && ! checkReqIDs( liveID, Chat.user_id ) ){
+		else if( config.get("MultiRequestLimit.Flag") && ! checkReqIDs( liveID, Chat.user_id ) ){
 			// １人による複数回リクのチェック
-			NicoLive.postComment(">>"+Chat.no+"さん、お一人" + settings["multiRequestLimit"] +  "リクまでとさせてくださいませ m(_ _)m", "");
+			NicoLive.postComment(">>"+Chat.no+"さん、おひとり" + config.get("MultiRequestLimit.Num") +  "リクまでとさせてくださいませ m(_ _)m", "");
 		}
 		else if(settings["CheckNew"]){
 			// 新着かどうか確認し、新着だった場合は運営コメで通達
@@ -326,7 +329,7 @@ function checkReqIDs (live_id, user_id) {
 	if( reqIDs[ live_id ][ user_id ] == undefined )
 		return 1;
 	
-	return reqIDs[ live_id ][ user_id ] < settings["multiRequestLimit"]
+	return reqIDs[ live_id ][ user_id ] < config.get("MultiRequestLimit.Num")
 		? 1
 		: 0;
 }
