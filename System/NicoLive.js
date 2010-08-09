@@ -65,17 +65,9 @@ NicoLive.prototype = {
 		} );
 	},
 	loadVideoInfoCacheFile: function( file ){
-		var fs = new ActiveXObject('Scripting.FileSystemObject');
-		var content;
-		try {
-			var st = fs.OpenTextFile(file, 1, false, -2);
-			content = st.ReadAll();
-		} catch (e) {
-//			alert("動画情報の読み込みに失敗しました orz");
-		} finally {
-			st.Close();
-		}
-		return content;
+		var f = new File;
+		f.file = file;
+		return f.read();
 	},
 	saveVideoInfoCacheFile: function( file, content ){
 		// 使わない海外タグを強引に削る
@@ -90,24 +82,22 @@ NicoLive.prototype = {
 		return f.saveAsUTF8(content);
 	},
 	checkVideoInfoCacheFileDateLastModified: function(url){
-		var file = this.getCacheFileName(url);
-		var fs = new ActiveXObject('Scripting.FileSystemObject');
-
-		if( fs.FileExists(file) == true ){
+		var f = new File;
+		f.file = this.getCacheFileName(url);
+		
+		if( f.isExists() ){
 			// 最終更新時間を見る
-			var f = fs.GetFile(file);
-			var s = f.DateLastModified;
-			var epoch = parseInt( Date.parse(s), 10 ) / 1000;
+			var epoch = f.getLastModified();
 			var now = parseInt( (new Date).getTime() / 1000, 10 );
 			if( now - epoch < settings["VideoInfoCacheExpireHour"] * 60 * 60 ){
 				// キャッシュが生きている
-				if( f.Size > 0 ){
+				if( f.getSize() > 0 ){
 					// 空じゃない
 					return;
 				}
 			}
 		}
-
+		
 		return 1;
 	},
 	// ファイル名を得る（ついでにディレクトリも作成）

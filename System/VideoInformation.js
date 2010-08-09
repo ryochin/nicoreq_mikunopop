@@ -18,7 +18,13 @@ function __VideoInformation__getMylistIDs(){
 				return $.evalJSON( content );
 			} catch (e) {
 				alert("マイリストの情報を正常に取得できませんでした orz\n（サーバが混雑していると起こりやすいようです）");
-				return;
+				
+				// workaround として、ダミーを埋めておく
+				var f = new File;
+				f.file = file;
+				f.save( "[]" );
+				
+				return [];
 			}
 		}
 		else{
@@ -34,61 +40,40 @@ function __VideoInformation__getMylistIDs(){
 }
 
 function saveMylistCacheFile (file, content) {
-	var fs = new ActiveXObject('Scripting.FileSystemObject');
-	// cache dir
-	var cacheDir = fs.GetParentFolderName( file );
-	if( ! fs.FolderExists( cacheDir ) ){
-		try {
-			fs.CreateFolder( cacheDir );
-		} catch (e) {
-			alert("ディレクトリの作成に失敗しました orz");
-		}
-	}
-	
-	// file
-	var st = fs.OpenTextFile(file, 2, true, -2);
-	// simply write down all the content as-is :)
-	try {
-		st.writeLine(content);
-	} catch (e) {
-		alert("ファイルの書き込みに失敗しました orz");
-	} finally {
-		st.Close();
-	}
+	var f = new File;
+	f.file = file;
+	f.createParentDir();
+	f.save( content );
 }
 
 function loadMylistCacheFile (file) {
-	var fs = new ActiveXObject('Scripting.FileSystemObject');
-	try {
-		var st = fs.OpenTextFile(file, 1, false, -2);
-		var content = st.ReadAll();
-		
-		return $.evalJSON( content );
-	} catch(e) {
-		alert("マイリストキャッシュの読み込みに失敗しました orz");
-		try {
-			st.Close();
-			fs.deleteFile(file);    // どうせ読めないから次回起動のために消す
-		} catch(e) {}
-	} finally {
-//		st.Close();
+	var f = new File;
+	f.file = file;
+	var obj = f.readAsJSON();
+	
+	if( obj ){
+		return obj;
+	}
+	else{ 
+		// どうせ読めないなら次回起動のために消す
+		f.remove();
 	}
 }
 
 function checkMylistCacheFileDateLastModified (file) {
-	var fs = new ActiveXObject('Scripting.FileSystemObject');
-	if( fs.FileExists(file) == true ){
-		// 最終更新時間を見る
-		var f = fs.GetFile(file);
-		var s = f.DateLastModified;
-		var epoch = parseInt( Date.parse(s), 10 ) / 1000;
+	var f = new File;
+	f.file = file;
+	
+	if( f.isExists() ){
+		var epoch = f.getLastModified();
 		var now = parseInt( (new Date).getTime() / 1000, 10 );
+		
 		if( now - epoch < settings["MylistInfoCacheExpireHour"] * 60 * 60 ){
 			// キャッシュが生きている
 			return;
 		}
 	}
-
+	
 	return 1;
 }
 
@@ -200,35 +185,38 @@ function __VideoInformation__receiveComment(Chat){
 					var sel = document.createElement("select");
 					sel.setAttribute("id", "__VideoInformation__Mylist");
 					var AllreadyExist = false;
-					for(var i=0,l=__VideoInformation__MylistIDs.length; i<l; i++){
-						if(settings["CheckPlayedVideoIdIsAdd2Mylists"]){
-							// マイリスに登録されてるかどうか調査
-							var xmlhttp = createXMLHttpRequest();
-							xmlhttp.open("GET","http://www.nicovideo.jp/mylist/"+__VideoInformation__MylistIDs[i].id,false);
-							xmlhttp.send();
-							
-							// extract
-							var json = extractObjectByPreloadSection( xmlhttp.responseText );
-							if( ! json )
-								continue;
-							
-							// check
-							$.each( json, function () {
-								if( this.item_data.video_id != VideoID )
-									return;
+					
+					if( __VideoInformation__MylistIDs != null ){
+						for(var i=0,l=__VideoInformation__MylistIDs.length; i<l; i++){
+							if(settings["CheckPlayedVideoIdIsAdd2Mylists"]){
+								// マイリスに登録されてるかどうか調査
+								var xmlhttp = createXMLHttpRequest();
+								xmlhttp.open("GET","http://www.nicovideo.jp/mylist/"+__VideoInformation__MylistIDs[i].id,false);
+								xmlhttp.send();
 								
-								$('#checkMylistResult').html( $('#checkMylistResult').html()
-									+ VideoID + ' はマイリスト「<span class="mylist-name">'+__VideoInformation__MylistIDs[i].name+'</span>」に登録されています。<br>' );
-								AllreadyExist = true;
-							} );
-						}
-						
-						// マイリストのプルダウンを作る
-						if(!(settings["CheckPlayedVideoIdIsAdd2Mylists"] && __VideoInformation__MylistIDs[i].flag==false)){
-							var opt = document.createElement("option");
-							opt.appendChild(document.createTextNode(__VideoInformation__MylistIDs[i].name));
-							opt.setAttribute("value", __VideoInformation__MylistIDs[i].id);
-							sel.appendChild(opt);
+								// extract
+								var json = extractObjectByPreloadSection( xmlhttp.responseText );
+								if( ! json )
+									continue;
+								
+								// check
+								$.each( json, function () {
+									if( this.item_data.video_id != VideoID )
+										return;
+									
+									$('#checkMylistResult').html( $('#checkMylistResult').html()
+										+ VideoID + ' はマイリスト「<span class="mylist-name">'+__VideoInformation__MylistIDs[i].name+'</span>」に登録されています。<br>' );
+									AllreadyExist = true;
+								} );
+							}
+							
+							// マイリストのプルダウンを作る
+							if(!(settings["CheckPlayedVideoIdIsAdd2Mylists"] && __VideoInformation__MylistIDs[i].flag==false)){
+								var opt = document.createElement("option");
+								opt.appendChild(document.createTextNode(__VideoInformation__MylistIDs[i].name));
+									opt.setAttribute("value", __VideoInformation__MylistIDs[i].id);
+								sel.appendChild(opt);
+							}
 						}
 					}
 					
