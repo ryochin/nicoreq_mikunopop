@@ -35,6 +35,7 @@
 <script type="text/javascript" src="./System/Menu.js"></script>
 <script type="text/javascript" src="./System/Main.js"></script>
 <script type="text/javascript" src="./System/Mikunopop.js"></script>
+<script type="text/javascript" src="./System/RequestLimitation.js"></script>
 <hta:application id="HTA" ApplicationName="NicoRequest Mikunopop Edition" Version="1.47  (2010.08.05)"
 	InnerBorder="No" SingleInstance="Yes" Navigable="no" icon="./System/assets/app.ico" contextmenu="no" />
 <script>
@@ -68,6 +69,7 @@ $(document).ready( function () {
 </div>
 <HTC:Tab id="Tab" selectedIndex="1">
 	<span>リクエスト</span>
+	<span>リク制限</span>
 	<span>動画情報</span>
 	<span>コメント</span>
 	<span>副管理者</span>
@@ -204,6 +206,30 @@ $(document).ready( function () {
 } );
 
 </script>
+<div id="TabContents">
+	<div id="ReqLimitationSetting">
+		<fieldset>
+			<legend>全体的な設定</legend>
+			<input type="checkbox" id="req_limitation_flag"><label for="req_limitation_flag"> リクエスト制限を有効にする</label>
+		</fieldset>
+		<fieldset class="req_limitation">
+			<legend>標準タグ</legend>
+			<div id="req_limitation_default_tags" />
+		</fieldset>
+		<fieldset class="req_limitation">
+			<legend>拡張タグ</legend>
+			<div id="req_limitation_extra_tags" />
+		</fieldset>
+		<fieldset class="req_limitation">
+			<legend>独自タグ</legend>
+			<div id="req_limitation_user">
+				<textarea id="req_limitation_user_area" cols="60" rows="6"></textarea>
+			</div>
+		</fieldset>
+	</div>
+	<div id="ReqLimitation">
+	</div>
+</div>
 <div id="TabContents">
 	<div id="VideoInformation">
 	</div>
