@@ -3,7 +3,7 @@
 var DefaultTags = [];
 var ExtraTags = [];
 
-var width_len = 16;
+var width_len = 18;
 
 $(document).ready( function () {
 	// ”š‚ğ‚Â‚¯‚ÄŠÇ—‚·‚é
@@ -31,13 +31,8 @@ $(document).ready( function () {
 	RL.setDefaultTagCheckboxBehaivier();
 	RL.setExtraTagCheckboxBehaivier();
 	RL.setUserTagCheckboxBehaivier();
-	
-	
-	
-	
-	
-	
-	
+
+	RL.getLimitedTags();
 } );
 
 function RequestLimitation () {
@@ -192,6 +187,26 @@ RequestLimitation.prototype = {
 			// save
 			config.save();
 		} );
+	},
+	
+	// Main.js ‚©‚çŒÄ‚Ô
+	getLimitedTags: function () {
+		var tags = [];
+		$.each( config.get("RequestLimitation.DefaultTags"), function (name, value) {
+			if( value == 1 )
+				tags.push(name);
+		} );
+		$.each( config.get("RequestLimitation.ExtraTags"), function (name, value) {
+			if( value == 1 )
+				tags.push(name);
+		} );
+		
+		var userTags = config.get("RequestLimitation.UserTags");
+		$.each( config.get("RequestLimitation.UserTags"), function (i) {
+			tags.push( userTags[i] );
+		} );
+		
+		return tags;
 	}
 }
 

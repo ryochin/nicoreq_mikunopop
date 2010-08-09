@@ -263,11 +263,46 @@ function receiveComment_Request(Chat){
 				}
 			});
 		}
+		else if( $('#req_limitation_flag').attr('checked') == true ){
+			// リクエスト制限をかけている
+			NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + sms[0], 'video', function(xmldom){
+				
+				// 手元の NG タグをまとめる
+				var RL = new RequestLimitation;
+				var limitedTags = Zen2Han( ',' + RL.getLimitedTags().join(",") + ',' );
+				
+				// 動画のタグ
+				var xmltags = xmldom.getElementsByTagName("tags")[0].getElementsByTagName("tag");
+				
+				var ok = 0;
+				for(var i=0,l=xmltags.length; i<l; i++){
+					var t = ',' + Zen2Han( xmltags[i].text ) + ',';
+					if( limitedTags.indexOf( t ) > -1 ){
+						ok++;
+						break;
+					}
+				}
+				
+				if( ok ){
+					RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no, 'listener'));
+				}
+				else{
+					NicoLive.postComment(">>"+Chat.no+"さん、現在のリク基準を満たしていないようです m(_ _)m", "");
+				}
+			} );
+		}
 		else{
-			RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no, 'listener'));
-			
-			// 複数リクエストのチェックのために user id を登録する
-			addReqIDs( liveID, Chat.user_id );
+			NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + sms[0], 'video', function(xmldom){
+				if(!xmldom.getElementsByTagName("first_retrieve")[0]) {
+					NicoLive.postComment(">>"+Chat.no+"さん　<br />その動画は情報が取得できなかったので流せません・・。", "big");
+				}
+				else{
+					RequestManager.addRequestQueue(new RequestQueue(sms[0], "C", Chat.no, 'listener'));
+					
+					// 複数リクエストのチェックのために user id を登録する
+					addReqIDs( liveID, Chat.user_id );
+				}
+			});
 		}
 	}
 }
