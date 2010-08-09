@@ -85,7 +85,9 @@ NicoLive.prototype = {
 //		content = content.replace(re, "");
 		
 		// UTF-8 ‚Å•Û‘¶‚·‚é
-		return saveFileAsUTF8( file, content );
+		var f = new File;
+		f.file = file;
+		return f.saveAsUTF8(content);
 	},
 	checkVideoInfoCacheFileDateLastModified: function(url){
 		var file = this.getCacheFileName(url);

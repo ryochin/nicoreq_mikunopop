@@ -54,24 +54,14 @@ function getMikunopopCount (id) {
 }
 
 function checkMikunopopCountFileDateLastModified () {
-	var fs = new ActiveXObject('Scripting.FileSystemObject');
-	var path = fs.GetParentFolderName(location.pathname) + countFile;
-	var expired = 0;
-	try {
-		var f = fs.GetFile(path);
-		var s = f.DateLastModified;
-		var epoch = parseInt( Date.parse(s), 10 ) / 1000;
-		var now = parseInt( (new Date).getTime() / 1000, 10 );
-		
-		// check
-		expired = now - epoch > cacheTime
-			? 1
-			: 0;
-	} catch(e) {
-		// not found
-		expired = 1;
-	}
-	return expired;
+	var f = new File;
+	f.file = countFile;
+	var epoch = f.getLastModified();
+	var now = parseInt( (new Date).getTime() / 1000, 10 );
+	
+	return now - epoch > cacheTime
+		? 1
+		: 0;
 }
 
 function retrieveMikunopopCountFile () {
@@ -87,33 +77,21 @@ function retrieveMikunopopCountFile () {
 			saveMikunopopCountFile(count);
 		},
 		error: function (req, status, error) {
-			alert("ミクノ度ファイルの更新に失敗しました orz");
+			Status.postStatus("ミクノ度ファイルの更新に失敗しました orz", 5000 );
 		}
 	} );
 }
 
 function saveMikunopopCountFile (count) {
-	var fs = new ActiveXObject('Scripting.FileSystemObject');
-	var path = fs.GetParentFolderName(location.pathname) + countFile;
-	var st = fs.OpenTextFile(path, 2, true, -2);
-
-	// simply write down all the content as-is :)
-	st.writeLine(count);
-	st.Close();
+	var f = new File;
+	f.file = countFile;
+	f.save(count);
 }
 
 function loadMikunopopCountFile () {
-	var fs = new ActiveXObject('Scripting.FileSystemObject');
-	var path = fs.GetParentFolderName(location.pathname) + countFile;
-	try {
-		var st = fs.OpenTextFile(path, 1, false, -2);
-		var content = st.ReadAll();
-		st.Close();
-		
-		MikunopopCount = $.evalJSON( content );
-	} catch(e) {
-		alert("ミクノ度ファイルの読み込みに失敗しました orz");
-	}
+	var f = new File;
+	f.file = countFile;
+	MikunopopCount = f.readAsJSON();
 }
 
 // EOF
