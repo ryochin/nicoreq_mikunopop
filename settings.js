@@ -481,13 +481,8 @@ settings["Login_Pass"] = "example";
 // キーボードショートカットの設定です
 // キーコードとそれに対応する機能を記述します
 settings["key"] = {
-	27/*Esc*/: function(){window.close();},
-	112/*F1*/: function(){NicoLive.postComment("枠とってくる", "");},
-	113/*F2*/: function(){NicoLive.postComment("次がラスト", "");},
-	114/*F3*/: function(){NicoLive.postComment("次の動画はじまったらリク開始", "");},
-	115/*F4*/: function(){NicoLive.postComment("ゆっくりしていってね！", "");},
-//	116/*F5*/: function(){NicoLive.postComment("現在のストック："+RequestManager.RequestQueues.length, "");},
-	116/*F5*/: function(){NicoLive.postComment("現在のストック："+RequestManager.RequestQueues.length + "曲", "");},
+//	27/*Esc*/: function(){window.close();},
+	112/*F1*/: function(){NicoLive.postComment("現在のストックは " + RequestManager.RequestQueues.length + " 曲です。", "");},
 	0/*dummy*/: function(){}
 };
 
