@@ -6,8 +6,27 @@ var NGIDs = new Array();
 var PlayedVideoIds = new Array();
 var lastPlayedID = "";    // 直近に流した動画
 var apiToken = "";    // API token
+var config;    // グローバルな config オブジェクトを作って使い回す
 
 setWindowSize(settings["WindowWidth"], settings["WindowHeight"]);
+
+// コンフィグの自動保存タイマーをしかける
+function autoSaveConfigTimer () {
+	// save
+	config.save();
+	
+	// call myself
+	setTimeout( "autoSaveConfigTimer()", 20 * 1000 );
+}
+
+// config を読み込む
+$(document).ready( function () {
+	config = new Config;
+	config.load();
+	
+	// bootstrap
+	setTimeout( "autoSaveConfigTimer()", 5 * 1000 );
+} );
 
 window.attachEvent("onload", function(){
 	NicoCookieImporter("connect", settings["browserType"], settings["cookieLifeSpan"]);
