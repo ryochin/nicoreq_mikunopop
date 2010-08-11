@@ -1,3 +1,171 @@
+commit 546527d000bdc39f84312f42fc9696f1084e84d0
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Aug 12 00:44:29 2010 +0900
+
+    changed the way how to show the results of adding to mylist on video info tag.
+
+M	System/VideoInformation.js
+
+commit 06ec43cdf579bd7ce3c98b86e6eca7e13a4a9327
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Aug 11 17:42:16 2010 +0900
+
+    tweaked pnames_ex.js.
+
+M	pnames_ex.js
+
+commit 42b9f7a3075dac79ec1484bc6b876f1350576d14
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 10 07:57:38 2010 +0900
+
+    moved multi-request limitation feature params from setting.js to config framework.
+
+M	System/Config.js
+M	System/Main.js
+M	settings.js
+
+commit 8fce623234268bba5402bf5f340f1b2a21ed3236
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 10 07:20:15 2010 +0900
+
+    tweaked settings.js for keyboard shortcut messages.
+
+M	settings.js
+
+commit 1b594a2d94090b076d22d556ae473406481028c5
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 10 05:20:40 2010 +0900
+
+    added a dummy button for onchange event handler to request limitation tab.
+
+M	NicoRequest.hta
+
+commit 069e9c33e3ad6d4be0ec2a26ef020ace242370b6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 10 04:59:36 2010 +0900
+
+    implemented logical side of the request limitation feature.
+
+M	System/Main.js
+M	System/RequestLimitation.js
+
+commit 4b9e5b45d55401de8a50a889c637e46412f410f4
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 10 03:59:14 2010 +0900
+
+    tweaked .gitignore.
+
+M	.gitignore
+
+commit 8033c0e204013d2bc8051aa30563c128171b9f99
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 10 03:57:39 2010 +0900
+
+    added 'request limitation' tab & its interface part.
+
+M	NicoRequest.hta
+A	System/RequestLimitation.js
+M	settings.js
+
+commit bfd6bba3f8d4b5d17b25d3a0394cd6c3a9f47a6b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 10 03:55:23 2010 +0900
+
+    added global configuration framework.
+
+M	NicoRequest.hta
+A	System/Config.js
+M	System/Main.js
+M	settings.js
+
+commit f0b68968f54550b24f981259da964ab33bd590f8
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 10 02:01:03 2010 +0900
+
+    updated & improved around file processing codes (in progress, maybe).
+
+M	NicoRequest.hta
+M	System/File.js
+M	System/NicoLive.js
+M	System/VideoInformation.js
+M	System/find.hta
+
+commit e18cf37850f4f59e34f4b05fdfb3d2413fba7c23
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 10 00:29:17 2010 +0900
+
+    added File.js and moved some codes to the one (in progress).
+
+M	NicoRequest.hta
+A	System/File.js
+M	System/Mikunopop.js
+M	System/NicoLive.js
+M	System/Utils.js
+
+commit 29a90c1b87e45fe57948e9e33eb1af53bece9982
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Aug 9 22:39:53 2010 +0900
+
+    added System/sprintf.js.
+
+M	NicoRequest.hta
+A	System/sprintf.js
+
+commit 874aa29f8aa59a53303a9f823668be579f4f4af6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Aug 9 21:11:37 2010 +0900
+
+    updated pnames.
+
+M	pnames.js
+M	pnames/base.js
+M	pnames/kotac.js
+M	pnames/pnames.txt
+M	pnames_ex.js
+
+commit 6024a910af9493a4c3ce134e478e2f7aa115398e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Aug 7 15:57:00 2010 +0900
+
+    added & tweaked pnames.
+
+M	pnames.js
+M	pnames/base.js
+M	pnames/kotac.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+M	pnames_ex.js
+
+commit d113c6d8ba23b7cc41612ac27fc05c063a1fb5de
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Aug 7 15:50:14 2010 +0900
+
+    updated pnames_ex.js largely.
+
+M	pnames_ex.js
+
+commit 1a65aec8331562d993bb8474b43151a2da0717a9
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Aug 7 15:49:28 2010 +0900
+
+    altered default cache time settings.
+
+M	System/Mikunopop.js
+M	settings.js
+
+commit 71a9212592a705c31620fc64ca4f0a513b42c9c2
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Aug 5 00:08:39 2010 +0900
+
+    released 1.47.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+D	installer/Output/NicoReqMikunopopEdition_146.exe
+M	installer/nicoreq.iss
+
 commit f526f47e1cc13cc45cf2ef59099357e9ab6298cc
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Wed Aug 4 23:59:26 2010 +0900
