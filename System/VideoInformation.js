@@ -335,6 +335,7 @@ NicoAPI.mylist_add_call = function (path, params, options) {
 		success: function (data, status) {
 			if( data.status == NicoAPI.Status.SUCCESS ){
 				// 成功
+				$('#checkMylistResult').html("");    // 消す
 				alerter("指定されたマイリストに登録しました" );
 			}
 			else{
@@ -349,7 +350,8 @@ NicoAPI.mylist_add_call = function (path, params, options) {
 };
 
 function alerter (str) {
-	$('#addMylistResult').html( str );
+//	$('#addMylistResult').html( str );
+	Status.postStatus( str, 5000 );
 }
 
 function __VideoInformation__addMylist(VideoID){
