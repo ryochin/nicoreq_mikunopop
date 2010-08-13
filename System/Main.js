@@ -376,11 +376,11 @@ RequestManager.Events["Play"] = function(id){
 	// clear
 	NicoLive.postComment("/clear", "");
 	// InfoCommentÇÃìäçe
-	NicoLive.postComment(RequestManager.getInfoComment(id), "big");
+	NicoLive.postComment( unescapeHTML( RequestManager.getInfoComment(id) ), "big" );
 	// InfoComment2Ç™ê›íËÇ≥ÇÍÇƒÇ¢ÇΩÇÁéûä‘ç∑ìäçe
 	if(settings["InfoComment2"]!=""){
 		setTimeout(function(){
-			NicoLive.postComment(RequestManager.getInfoComment2(id), "big");
+			NicoLive.postComment( unescapeHTML( RequestManager.getInfoComment2(id) ), "big" );
 		}, settings["InfoCommentTimer"]);
 	}
 	// PermComment
@@ -390,7 +390,7 @@ RequestManager.Events["Play"] = function(id){
 			cmd.push( settings["PermCommentCmd"] );
 		}
 		setTimeout(function(){
-			NicoLive.postComment("/perm " + RequestManager.getPermComment(id), cmd.join(" "));
+			NicoLive.postComment("/perm " + unescapeHTML( RequestManager.getPermComment(id) ), cmd.join(" "));
 		}, settings["InfoCommentTimer"] * 2 );
 	}
 
