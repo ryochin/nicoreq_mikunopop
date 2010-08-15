@@ -68,5 +68,9 @@ settings["exceptionPTagsVO"] = ["",
 	"BRBRP",
 	"鈴掛ヨモギ",
 	"フィンクス",
+	"Shin_Suito",
+	"FL-TR",
+	"うの人",
+	"s86",
 ""];
 

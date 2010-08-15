@@ -31,7 +31,6 @@ Akari
 Akia
 AnemoneLuv
 Aoi
-AquesTone
 Azell
 BANANAYOKAN
 BBれもん
@@ -87,6 +86,7 @@ Endy
 Enicy
 FB
 FB777
+FL-TR
 FMAK
 FloatGarden
 Fraidy-fraidy
@@ -231,6 +231,7 @@ ShakeSphere
 Shibayan
 ShimA
 Shin1985
+Shin_Suito
 Shunta
 Siryu
 SoMa
@@ -545,6 +546,7 @@ rudder-k
 ryo
 ryuto
 s*g*
+s86
 saku
 salome
 samfree
@@ -659,6 +661,7 @@ ziki_7
 いのりば
 うどんゲルゲ
 うねりとイカサマ・ヘッド
+うの人
 ええすゆう
 えこ。
 えどみはる
