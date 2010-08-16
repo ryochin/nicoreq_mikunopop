@@ -397,8 +397,8 @@ RequestManager.prototype = {
 	replaceInfoStr: function(str, id, R){
 		return str
 					.replace(/{#ID}/g, id)
-					.replace(/{#Title}/g, R.title)
-					.replace(/{#PName}/g, R.name)
+					.replace(/{#Title}/g, unescapeHTML( R.title) )
+					.replace(/{#PName}/g, unescapeHTML( R.name ) )
 					.replace(/{#View}/g,  comma(R.view))
 					.replace(/{#Comm}/g,  comma(R.comm))
 					.replace(/{#List}/g,  comma(R.list))
