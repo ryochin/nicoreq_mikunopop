@@ -1,3 +1,62 @@
+commit ddf55a545da2d599454ae4be9534e094904f1e0d
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Aug 28 17:20:58 2010 +0900
+
+    updated pnames. (thanks to koke)
+
+M	pnames.js
+M	pnames/koke.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+M	pnames_ex.js
+
+commit 1c5973faab9a5f0354dbd74b831b05827fe70662
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Aug 28 17:17:34 2010 +0900
+
+    tweaked for P name detection policy.
+
+M	System/Request.js
+
+commit 6b842c4b39a8414916278ef0edc7d89eca551621
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Aug 17 02:53:14 2010 +0900
+
+    fixed a problem that the title/P name on (play|watch)log.txt were not escaped properly.
+
+M	System/RequestManager.js
+
+commit c4d272b1c82beb43f6cb0dc3aacd29c2b974a935
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Aug 15 18:21:42 2010 +0900
+
+    updated pnames.
+
+M	pnames.js
+M	pnames/kotac.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit 8d323bbd60465e70ee6d7e8ab9df5ceb3aa98524
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Aug 13 22:37:41 2010 +0900
+
+    fixed a problem that the admin comments was not escaped properly.
+
+M	System/Main.js
+
+commit 1ded39c7bcc6ab16a3f7292c3a360c7e311b6e38
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Aug 12 00:54:43 2010 +0900
+
+    released 1.48.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 546527d000bdc39f84312f42fc9696f1084e84d0
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Aug 12 00:44:29 2010 +0900
