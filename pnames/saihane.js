@@ -72,5 +72,6 @@ settings["exceptionPTagsVO"] = ["",
 	"FL-TR",
 	"Ç§ÇÃêl",
 	"s86",
+	"kuma+",
 ""];
 

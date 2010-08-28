@@ -73,6 +73,10 @@ settings["NotPTagsVO"] = ["",
 	"’x‚ê‚Ä—ˆ‚½‘å•¨P",
 	"Comic'pop",
 	"PLAYRA`P",
+	"¡ŒãŽg‚Á‚Ä‚¢‚«‚½‚¢P",
+	"—ª‚µ‚â‚·‚¢P",
+	"ŒÄ‚Ñ‚â‚·‚¢P",
+	"ˆø‚«‘±‚«P",
 	
 	// “®‰æŽt‚»‚Ì‘¼
 	"LOOP",
