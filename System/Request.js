@@ -83,7 +83,8 @@ Request.prototype = {
 				// でも除外リストに載ってたら白紙に
 				if(Zen2Han(settings["NotPTagsVO"].join(",")).indexOf(","+Zen2Han(Tag)+",") > -1) P = _P;
 				// タイトルの中に出てくるって事は曲名かもしれないって事で白紙に
-				if(title.indexOf(Tag) > -1) P = _P;
+				// 曲名の場合は積極的に除外Ｐリストをメンテすることにしよう
+//				if(title.indexOf(Tag) > -1) P = _P;
 			}
 			// 例外的に～氏と～作品が作者タグになっている場合があるので調べる
 			// ～リスペクト作品ってタグは除外
