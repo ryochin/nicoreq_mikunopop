@@ -133,6 +133,12 @@ RequestManager.prototype = {
 				+ settings["ThumbnailNoLiveImagePath"];
 			thumb_url = "<img src=\"" + thumb_dummy_path + "\" width=65 height=50 align=left title=\"" + thumb_title + "\" oncontextmenu=\"" + oncontextmenu + "\" />";
 		}
+		else if( NGIDs[R.id] == true ){
+			// NGID ‚É“o˜^‚³‚ê‚Ä‚¢‚éiåƒZƒŒ‚Ìê‡j
+			var thumb_dummy_path = location.href.toString().replace(/NicoRequest\.hta$/,"")
+				+ settings["ThumbnailNGIDImagePath"];
+			thumb_url = "<img src=\"" + thumb_dummy_path + "\" width=65 height=50 align=left title=\"" + thumb_title + "\" oncontextmenu=\"" + oncontextmenu + "\" />";
+		}
 		else if( settings["ShowThumbnailType"] == 1 ){
 			// dummy
 			var thumb_dummy_path = location.href.toString().replace(/NicoRequest\.hta$/,"")

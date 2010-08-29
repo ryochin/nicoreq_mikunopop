@@ -73,6 +73,7 @@ settings["PlayMode"] = 0;
 settings["ShowThumbnailType"] = 2;
 settings["ThumbnailDummyImagePath"] = 'System/assets/nico_dummy.png';    // NicoRequest.hta ‚©‚ç‚Ì‘Š‘ÎURL
 settings["ThumbnailNoLiveImagePath"] = 'System/assets/nico_nolive.png';    // NicoRequest.hta ‚©‚ç‚Ì‘Š‘ÎURL
+settings["ThumbnailNGIDImagePath"] = 'System/assets/nico_ngid.png';    // NicoRequest.hta ‚©‚ç‚Ì‘Š‘ÎURL
 
 // =====================================================================================================================
 // ƒ~ƒNƒm“x by saihane
