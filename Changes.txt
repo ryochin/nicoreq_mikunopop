@@ -1,3 +1,52 @@
+commit 1928635c960bbece8f20148464aabf0044802d33
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Aug 29 16:31:31 2010 +0900
+
+    updated pnames.
+
+M	pnames.js
+M	pnames/base.js
+M	pnames/pnames.txt
+M	pnames_ex.js
+
+commit c00ab6be563a589b7f0b6acfb5248c58a0ac8aeb
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Aug 29 16:28:19 2010 +0900
+
+    updated NGIDList.txt.
+
+M	NGIDList.txt
+
+commit cfa59d6009a9d2577e78a552bff2665518e9d440
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Aug 29 16:21:47 2010 +0900
+
+    tweaked System/RequestManager.js.
+
+M	System/RequestManager.js
+
+commit c7ec4404c46c31038993aa06ee8724875db24ab7
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Aug 29 16:19:11 2010 +0900
+
+    added 'NGID video icon' on the request tab when NG videos will be imported by aircaster.
+
+M	System/RequestManager.js
+A	System/assets/nico_ngid.png
+M	settings.js
+
+commit 074b744101125f7efedbf1242365270afc77ba05
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Aug 28 17:45:39 2010 +0900
+
+    released 1.49.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit ddf55a545da2d599454ae4be9534e094904f1e0d
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Sat Aug 28 17:20:58 2010 +0900
