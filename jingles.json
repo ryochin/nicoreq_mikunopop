@@ -3,6 +3,16 @@
 // ================================================================================================
 // オープニング
 	{
+		"no": "OP No.16",
+		"is_active": true,
+		"id": "sm12101110",
+		"shortname": "J16 EXHAUST BEAT",
+		"longname": "【ジングル】ミクノポップをきかないか？【EXHAUST BEAT】",
+		"author": "karukaru",
+		"length": "1:43",
+		"memo": ""
+	},
+	{
 		"no": "OP No.15",
 		"is_active": true,
 		"id": "sm11225262",
@@ -158,6 +168,16 @@
 
 	{"id": "","shortname":"------------------"},    // separater
 
+	{
+		"no": "ED No.2",
+		"is_active": true,
+		"id": "sm12109937",
+		"shortname": "E02 relax",
+		"longname": "【EDジングル】relax【goodnight-flavored】",
+		"author": "saihane",
+		"length": "1:30",
+		"memo": ""
+	},
 	{
 		"no": "ED No.1",
 		"is_active": true,
