@@ -75,5 +75,6 @@ settings["exceptionPTagsVO"] = ["",
 	"kuma+",
 	"MK–C",
 	"ƒiƒJƒm‚Í4”Ô",
+	"saculy",
 ""];
 
