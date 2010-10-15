@@ -199,15 +199,39 @@ function receiveComment_Request(Chat){
 				}
 			}else{
 				if (dummyAdminCmtCheck){
+					// name
+					var name;
 					if (dummyAdminNameCheck){
 						if (dummyAdminName != ""){
-							NicoLive.postComment("<font size=\"-8\" color=\"#acacec\">Åö"+dummyAdminName+"Ç≥ÇÒÅö</font><br /> "+Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail,"big");
+							name = dummyAdminName + "Ç≥ÇÒ";
 						}else{
-							NicoLive.postComment(Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail);
+							name = "ÉQÉXÉgÇ≥ÇÒ";
 						}
-					}else{
-						NicoLive.postComment(Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,""), Chat.mail!=undefined?Chat.mail.replace("184",""):Chat.mail);
 					}
+					else{
+						name = "ÉQÉXÉgÇ≥ÇÒ";
+					}
+					
+					// comment
+					var comment;
+					if( settings["dummyAdminCommentIsBSPStyle"] == true ){
+						// BSP comment
+						// /press show blue Ç®çDÇ´Ç»ï∂éö ñºëO
+						comment = "/press show blue ";
+						comment += "Åö" + name + "Åö";
+						comment += Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,"");
+						comment += " " + name;
+					}
+					else{
+						// normal admin comment
+						comment = "<font size=\"-8\" color=\"#acacec\">Åö" + name + "Åö</font><br /> ";
+						comment += Chat.text.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/\//g,"Å^").replace(/\n/g,"<br>").replace(/\r/g,"");
+					}
+					
+					// post
+					var mail = Chat.mail != undefined ? Chat.mail.replace("184","") : Chat.mail;
+					NicoLive.postComment( comment, mail );
+					
 					return;
 				}
 			}
