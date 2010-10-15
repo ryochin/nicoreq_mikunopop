@@ -76,5 +76,8 @@ settings["exceptionPTagsVO"] = ["",
 	"MK砲",
 	"ナカノは4番",
 	"saculy",
+	"Reg;",
+	"louet",
+	"アツタメガネ",
 ""];
 

@@ -9,4 +9,12 @@ settings["exceptionPTagsVO"] = ["",
 	"SOLIDIO",
 	"ひ～ま",
 	"トリ音",
+	"ソウナ",
+	"solareca",
+	"tak",
+	"DigitalMode",
+	"レノン",
+	"s-jungle",
+	"Ageha",
+
 ""];

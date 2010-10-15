@@ -30,6 +30,7 @@ A_Luyuvi
 Ace_F
 Aether_Eru
 Aether_eru
+Ageha
 Akari
 Akia
 AnemoneLuv
@@ -69,6 +70,7 @@ DaemonDrive
 Dee!
 Dengaku
 DiGiZeN
+DigitalMode
 DixieFlatline
 DjA.Q.
 DoT
@@ -224,6 +226,7 @@ REDALiCE
 RYOKU
 Re:nG
 ReON
+Reg;
 Rin
 Rin(ぎん)
 Rin（ぎん）
@@ -473,6 +476,7 @@ kz
 lazyrage
 liam
 life636_
+louet
 low
 m1dy
 m@rk
@@ -574,6 +578,7 @@ rudder-k
 ryo
 ryuto
 s*g*
+s-jungle
 s86
 saculy
 saku
@@ -614,6 +619,7 @@ t+pazolite
 t-oach
 taat
 tac_
+tak
 takamatt
 take
 take_coke
@@ -844,6 +850,7 @@ ziki_7
 れお
 れるりり
 わたしょ
+アツタメガネ
 アドム
 アラケン
 アルカナ
@@ -955,6 +962,7 @@ ziki_7
 ルパン
 レインロード
 レトロビーム
+レノン
 ロム虫
 ヴァチカン猫耳マキアート
 Φ串Φ
