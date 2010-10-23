@@ -79,5 +79,9 @@ settings["exceptionPTagsVO"] = ["",
 	"Reg;",
 	"louet",
 	"アツタメガネ",
+	"mnm",
+	"こじろ",
+	"柏木るざりん",
+	"integural",
 ""];
 
