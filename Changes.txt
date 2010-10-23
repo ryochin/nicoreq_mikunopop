@@ -1,3 +1,81 @@
+commit fbf4e9830f1a3b279cb6b1382424dc626d195fe9
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Oct 23 23:17:48 2010 +0900
+
+    updated pnames.
+
+M	pnames.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit 6f731efe6a897064e5d6064089b7d08d81574a47
+Merge: 32e7327 76b8648
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Oct 21 14:50:59 2010 +0900
+
+    Merge branch 'bsp-comment'
+
+commit 76b86489fbb52da653f6a3495458a9e1e92a74c9
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Oct 21 14:46:56 2010 +0900
+
+    changed the default value to off for BSP-style comment.
+
+M	settings.js
+
+commit 32e73271de23248a3bf063eaa41fa1fe7dff834a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Oct 17 14:38:12 2010 +0900
+
+    updated pnames. (thanks to koke)
+
+M	pnames.js
+M	pnames/koke.js
+M	pnames/pnames.txt
+
+commit c9486d7a4af343d3e946371dc8fecab20110f206
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 15 19:59:01 2010 +0900
+
+    added BPS-style comment on dummy admin.
+
+M	System/Main.js
+M	settings.js
+
+commit 79b83a426a6ee561403caec3477c909361583e75
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Oct 15 15:31:41 2010 +0900
+
+    updated pnames.
+
+M	pnames.js
+M	pnames/kawa.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit 34fa884fcdfe96ace1bb9a68cb8c741471aa8a68
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sat Sep 25 20:56:39 2010 +0900
+
+    updated pnames. (thanks to mashita)
+
+M	pnames.js
+A	pnames/mashita.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit d1e0eae55cdfa6c5d55f52c2cb190e19888728b4
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Sep 15 00:58:49 2010 +0900
+
+    released 1.50.1.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit fe0856a1ae661cd7ec954ed5d9e645569fabe710
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Wed Sep 15 00:49:40 2010 +0900
