@@ -66,6 +66,7 @@ DARS
 DATEKEN
 DBP(charlie)
 DECO*27
+DJ_TAKUAN
 DJ_Zovi
 DJシガニー・ウィーバー
 DONTNORA
@@ -269,6 +270,7 @@ Shin1985
 Shin_Suito
 Shunta
 Siryu
+SmileR
 SoMa
 Soaa
 Soaa-
@@ -860,6 +862,7 @@ ziki_7
 ぺぺるる
 ぺぺるる(ぺ猫)
 ぼか主
+ぼくです
 ぼのりす
 ぽき
 ぽぴー
@@ -998,6 +1001,7 @@ ziki_7
 マイナスナイン
 マクガフィン
 マサシ
+マジカル☆
 マスターvation
 マック木根
 マッコイ
