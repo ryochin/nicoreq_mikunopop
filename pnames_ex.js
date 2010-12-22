@@ -41,6 +41,7 @@ settings["NotPTagsVO"] = ["",
 	"Max/MSP",
 	"SLPM.JP",
 	"nanoloop",
+	"PSP",
 	
 	// Cü‚³‚ê‚½‚o–¼
 	"‚±‚ê‚©‚ç‚à‚¸‚Á‚Æbaker‚Ì‰ÅP",
