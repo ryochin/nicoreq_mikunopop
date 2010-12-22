@@ -22,7 +22,7 @@ function disconnect(){
 function importText(){
 	var text = window.showModalDialog("./System/Import.hta","","status:no;help:no;resizable:yes");
 	if(!text || text=="") return;
-	var sms  = text.match(/(sm|nm)\d+/ig);
+	var sms  = text.match(/(sm|nm|so)\d+/ig);
 	if(!sms) return;
 	for(var i=0,l=sms.length; i<l; i++){
 		ImportNumber++;
@@ -43,7 +43,7 @@ function importMylist(){
 		var MylistImportNumber = 0;
 		for(var i=0,l=items.length; i<l; i++){
 			var link = items[i].getElementsByTagName("link")[0].text;
-			var sms = link.match(/(sm|nm)\d+/ig);
+			var sms = link.match(/(sm|nm|so)\d+/ig);
 			if(!sms){
 				continue;
 			}else{

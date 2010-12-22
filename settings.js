@@ -291,7 +291,7 @@ settings["showCommentTabVideoThumbnail"] = true;
 // 自動再生時のラグ対策用時間
 
 // 自動再生時に強制的に待機する時間を設定します
-// sm動画の再生の後はsettings["AutoPlayMargin"]秒待機します。
+// smまたはso動画の再生の後はsettings["AutoPlayMargin"]秒待機します。
 // nm動画の再生の後はsettings["AutoPlayMargin_nm"]秒待機します。
 // 回線状況などによって最適な値は異なります
 

@@ -19,7 +19,7 @@ NicoLive.prototype = {
 	getXML: function(url, type, callback){
 		if( type == "video" && settings["UseVideoInfoCache"] ){
 			// キャッシュ使用
-			if( this.checkVideoInfoCacheFileDateLastModified( url ) && url.match(/\/(sm|nm)[0-9]+$/) ){
+			if( this.checkVideoInfoCacheFileDateLastModified( url ) && url.match(/\/(sm|nm|so)[0-9]+$/) ){
 				// キャッシュが無効 -> ネットから取得して保存
 				this.retrieveVideoInfoCacheFile(url);
 			}
@@ -102,8 +102,8 @@ NicoLive.prototype = {
 	},
 	// ファイル名を得る（ついでにディレクトリも作成）
 	getCacheFileName: function(url){
-		var id = url.replace(/^.+((sm|nm)[0-9]+)$/, "$1");
-		var n = parseInt( id.replace(/^(sm|nm)([0-9]+)$/, "$2"), 10 );
+		var id = url.replace(/^.+((sm|nm|so)[0-9]+)$/, "$1");
+		var n = parseInt( id.replace(/^(sm|nm|so)([0-9]+)$/, "$2"), 10 );
 		var subdirUpper = parseInt( n / 1000000 );
 		var subdirLower = parseInt( ( n - subdirUpper * 1000000 ) / 1000 );
 

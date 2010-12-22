@@ -191,8 +191,8 @@ $(document).ready( function () {
 
 	var loadJingleThumb = function () {
 		var val = $('#jingle').val();
-		if( val.match(/^(sm|nm)/) ){
-			var id = val.replace(/^(sm|nm)/,"");
+		if( val.match(/^(sm|nm|so)/) ){
+			var id = val.replace(/^(sm|nm|so)/,"");
 			var url = "http://tn-skr2.smilevideo.jp/smile?i=" + id;
 			var length = JingleLen[ val ];
 			$('#jingle-thumb')

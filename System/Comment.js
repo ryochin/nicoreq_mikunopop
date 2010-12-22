@@ -19,7 +19,7 @@ function __Comment__receiveComment(Chat){
 	}
 	
 	// replace
-	text = text.replace(/((sm|nm)[0-9]{7,})/g, replaceText);
+	text = text.replace(/((sm|nm|so)[0-9]{7,})/g, replaceText);
 	
 	var HTML = settings["CommentLogHTML"]
 				.replace(/{#Anonymity}/, Chat.anonymity)

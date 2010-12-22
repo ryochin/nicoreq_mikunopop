@@ -174,7 +174,7 @@ function receiveComment_Request(Chat){
 	if( Chat.premium == 3 )
 		return;
 	var text = Zen2Han(Chat.text);
-	var sms  = text.match(/(sm|nm)\d+/g);
+	var sms  = text.match(/(sm|nm|so)\d+/g);
 
 	//•›ŠÇ—ŽÒ‹@”\
 	if (DummyAdminManager.Indexes[Chat.user_id] != undefined){
@@ -577,6 +577,9 @@ function showPlayState(startTime, PlayTime, id){
 	else if(id.match("nm")){
 		min += settings["AutoPlayMargin_nm"];
 	}
+	else if(id.match("so")){
+		min += settings["AutoPlayMargin"];
+	}
 
 	// Ä¶’†
 	if(min-timeLeft>0){
@@ -710,8 +713,8 @@ function loadStockList(){
 		while(!file.AtEndOfStream){
 			//count++;
 			var line = file.ReadLine();
-			if(line.match(/([sn]m\d+)/)){
-				line.match(/([sn]m\d+)/);
+			if(line.match(/((sm|nm|so)\d+)/)){
+				line.match(/((sm|nm|so)\d+)/);
 				RequestManager.addRequestQueue(new RequestQueue(RegExp.$1, "L", count++, 'stock'));
 			}
 		}
@@ -795,8 +798,8 @@ function loadNGIDs(){
 		var file = fso.OpenTextFile("NGIDList.txt");
 		while(!file.AtEndOfStream){
 			var line = file.ReadLine();
-			if(line.match(/([sn]m\d+)/)){
-				line.match(/([sn]m\d+)/);
+			if(line.match(/((sm|nm|so)\d+)/)){
+				line.match(/((sm|nm|so)\d+)/);
 				NGIDs[RegExp.$1] = true;
 			}
 		}

@@ -18,7 +18,7 @@ window.attachEvent("onload", function(){
 // SocketManagerにイベント登録
 SocketManager.attachEvent("receiveComment", function(Chat){
 	// リクエストコメントは読まない
-	var sms  = Chat.text.match(/(sm|nm)\d+/g);
+	var sms  = Chat.text.match(/(sm|nm|so)\d+/g);
 	if(softalk && document.getElementById("softalk").checked && !sms){
 		SofTalk.Talk(Chat.text);
 	}

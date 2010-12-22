@@ -120,8 +120,8 @@ RequestManager.prototype = {
 	// PNameとJASCodeは前後に文字列を含めることができたりする
 	_replaceHTML: function(str, R){
 		if(!R || !R instanceof Request) return str;
-		// sm|nm を除いた動画番号を得る
-		var idno = R.id.replace(/^(sm|nm)/, "");
+		// sm|nm|so を除いた動画番号を得る
+		var idno = R.id.replace(/^(sm|nm|so)/, "");
 
 		// サムネイル画像の種類を分ける
 		var thumb_url;

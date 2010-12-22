@@ -148,7 +148,7 @@ function __VideoInformation__getMylistIDs_via_net(){
 }
 
 function __VideoInformation__receiveComment(Chat){
-	var sms  = Chat.text.match(/(sm|nm)\d+/g);
+	var sms  = Chat.text.match(/(sm|nm|so)\d+/g);
 	if(sms && /^\/(play|playsound|swapandplay) smile:/.test(Chat.text)){
 		var VideoID = sms[0];
 		document.getElementById("VideoInformation").innerHTML = "";
