@@ -87,6 +87,7 @@ settings["genreTagWhiteList"] = ["",
 	"VOCALOUD",
 	"Chiptune×VOCALOIDリンク",
 	"VOCALOID幻想狂気曲リンク",
+	"クラブで使えるボカロ曲リンク",
 	
 	// ミク
 	"みんなのミクうた",
