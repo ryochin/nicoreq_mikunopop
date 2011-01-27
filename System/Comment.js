@@ -15,7 +15,8 @@ function __Comment__receiveComment(Chat){
 	// autolink to videos
 	var replaceText = "<span title=\"クリックで動画ページを開く\" class=\"video\" onclick=\"OpenVideo('$1');\">$1</span>";
 	if( settings["showCommentTabVideoThumbnail"] == true ){
-		replaceText += "<br /><img src=\"http://niconail.info/$1\" /><br />";
+		var thumbURL = sprintf( settings["VideoThumbnailURL"], "$1" );
+		replaceText += "<br /><img src=\"" + thumbURL + "\" /><br />";
 	}
 	
 	// replace

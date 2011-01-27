@@ -179,6 +179,11 @@ settings["autoSaveStockFile"] = true;
 settings["dummyAdminCommentIsBSPStyle"] = false;
 
 // =====================================================================================================================
+// サムネイル画像サービスのアドレス by saihane
+
+settings["VideoThumbnailURL"] = "http://niconail.in/%s";    // sprintf.js format
+
+// =====================================================================================================================
 // 動画リストHTML
 
 // NicoRequest内のリクエストリストのHTMLを構成します
