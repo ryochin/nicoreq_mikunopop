@@ -674,9 +674,10 @@ function _createInfo (id) {
 	var ic = '#info-' + id;
 
 	// ‰æ‘œ
+	var thumbURL = sprintf( settings["VideoThumbnailURL"], id );
 	$("<img />")
 		.appendTo(ic)
-		.attr( { src: "http://niconail.info/" + id } )
+		.attr( { src: thumbURL } )
 		.attr( { alt: id } );
 
 	// •Â‚¶‚é€”õ

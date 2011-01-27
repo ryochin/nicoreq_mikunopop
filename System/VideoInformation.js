@@ -229,11 +229,13 @@ function __VideoInformation__receiveComment(Chat){
 				}
 				
 				// 現在流れている曲のサムネイルと情報をセット
+				var thumbURL = sprintf( settings["VideoThumbnailURL"], VideoID );
+				
 				var info = [];
 				info.push(" <span id=\"__VideoInformation__Twitter\"></span><br>");
 				info.push("<div id=\"addMylistResult\"></div>");
 				info.push("<hr />");
-				info.push("<img src=\"http://niconail.info/"+VideoID+"\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\">");
+				info.push("<img src=\"" + thumbURL + "\" alt=\""+VideoID+" : "+title+"\" width=\"314\" height=\"178\">");
 
 				// info
 				info.push('<div class="info"><fieldset><legend>情報</legend>');
