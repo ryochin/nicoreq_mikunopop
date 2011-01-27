@@ -1,3 +1,58 @@
+commit 5e7b543d230c80c7428ae0af8735db2f5fa6262a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jan 27 19:46:49 2011 +0900
+
+    updated tags.js.
+
+M	tags.js
+
+commit 6638217aed91329cfd986321648a016820a3f951
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jan 27 19:44:23 2011 +0900
+
+    separated thumbnail-server URL param to settings.pm.
+
+M	System/Comment.js
+M	System/RequestManager.js
+M	System/VideoInformation.js
+M	settings.js
+
+commit 77725b52863d4ee0220c6635a5f796879859c8f2
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Dec 22 16:46:32 2010 +0900
+
+    added support for channel (means so\d+) videos.
+
+M	NicoRequest.hta
+M	System/Comment.js
+M	System/Main.js
+M	System/Menu.js
+M	System/NicoLive.js
+M	System/RequestManager.js
+M	System/SofTalk.js
+M	System/VideoInformation.js
+M	settings.js
+
+commit 0bbe1a1fd87387920efd0fd6cefd52d07c234851
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Dec 22 16:44:51 2010 +0900
+
+    updated pnames_ex.js.
+
+M	pnames_ex.js
+
+commit 717c37f2fa347c78144e3188c6d9a122fc30860c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Dec 21 18:35:10 2010 +0900
+
+    released 1.51.3.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit a9e16b118522d0c17d3bb2471c6055f82d58cb6b
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Tue Dec 21 18:22:44 2010 +0900
