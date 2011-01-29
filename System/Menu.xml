@@ -20,6 +20,8 @@
 	<item onclick="top.importMylist();">マイリストの取り込み</item>
 	<item onclick="top.findMylist();">マイリストから検索</item>
 	<hr />
+	<item onclick="top.toggleDeleteButton();">削除ボタンの有効無効を切り替える</item>
+	<hr />
 	<item onclick="top.exportIDs('PlayLog');">再生履歴の出力</item>
 	<item onclick="top.exportIDs('__VideoInformation__PlayLog');">視聴履歴の出力</item>
 	<hr />

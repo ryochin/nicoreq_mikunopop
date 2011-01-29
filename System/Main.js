@@ -1112,3 +1112,19 @@ function OpenOfficialSite () {
 	WshShell.run("rundll32.exe url.dll,FileProtocolHandler " + url, 4, false);
 }
 
+var deleteButtonIsEnabled = 1;
+function toggleDeleteButton () {
+	if( deleteButtonIsEnabled ){
+		deleteButtonIsEnabled = 0;
+		$('input.delete-button').attr( { disabled: 1 } )
+			.attr( { src: "./System/assets/remove_disabled.png" } )
+			.attr( { title: "íœ‚Í–³Œø‚Å‚·" } );
+	}
+	else{
+		deleteButtonIsEnabled = 1;
+		$('input.delete-button').attr( { disabled: 0 } )
+			.attr( { src: "./System/assets/remove.png" } )
+			.attr( { title: "íœ‚·‚é" } );
+	}
+}
+
