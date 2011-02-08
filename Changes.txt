@@ -1,4 +1,27 @@
-commit 5e7b543d230c80c7428ae0af8735db2f5fa6262a
+commit 545336b8c5bdc49174d88aad51583474fe223e6a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Jan 30 07:00:25 2011 +0900
+
+    added delete-button disable feature on the request tab.
+
+M	System/Main.js
+M	System/Menu.xml
+M	System/RequestManager.js
+A	System/assets/remove_disabled.png
+
+commit 75a55bc310aa96e5877853dd1ed1bfc5bc9b221e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Jan 27 19:59:00 2011 +0900
+
+    released 1.52.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
+commit 654645665d685a3d56ce68911fd3231203bcaa19
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Jan 27 19:46:49 2011 +0900
 
@@ -6,11 +29,11 @@ Date:   Thu Jan 27 19:46:49 2011 +0900
 
 M	tags.js
 
-commit 6638217aed91329cfd986321648a016820a3f951
+commit 7cc134ad36aab3ab321728125566c473af1b905e
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Jan 27 19:44:23 2011 +0900
 
-    separated thumbnail-server URL param to settings.pm.
+    separated thumbnail-server URL param to settings.js.
 
 M	System/Comment.js
 M	System/RequestManager.js
