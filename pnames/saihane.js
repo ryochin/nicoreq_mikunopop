@@ -100,5 +100,7 @@ settings["exceptionPTagsVO"] = ["",
 	"HAMUTA",
 	"Matthew",
 	"‚Ö‚Á‚Ç‚Ó‚§‚ñ",
+	"nil",
+	"posaunist",
 ""];
 
