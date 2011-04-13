@@ -1,3 +1,25 @@
+commit 90e2c9dacb11b2029181b950f5b04e3a95cca25e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Apr 13 17:39:11 2011 +0900
+
+    updated pnames. (thanks to koke)
+
+M	pnames.js
+M	pnames/koke.js
+M	pnames/saihane.js
+
+commit 87e0e00b046306b1a839fd63fef045893e3efb82
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Feb 8 21:09:59 2011 +0900
+
+    released 1.53.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 545336b8c5bdc49174d88aad51583474fe223e6a
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Sun Jan 30 07:00:25 2011 +0900
