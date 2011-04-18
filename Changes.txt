@@ -1,3 +1,41 @@
+commit d37b1692c003b0d6dd7fb28ee7bdec64173153e2
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Apr 18 14:59:46 2011 +0900
+
+    organized pnames a bit.
+
+M	pnames.js
+M	pnames/pnames.txt
+M	script/pnames_concat.pl
+
+commit 37ef6a985f84a3f11d35d1a94eb905ad91781faa
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Apr 18 14:54:42 2011 +0900
+
+    updated jingles.json.
+
+M	jingles.json
+
+commit acf2448c8509fa9e0cf48242384dfe01dbd840df
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Apr 13 17:58:53 2011 +0900
+
+    revised pnames/pnames.txt.
+
+M	pnames/pnames.txt
+
+commit b0a0890d440e0f45284855b8bee68495e728495c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Apr 13 17:47:32 2011 +0900
+
+    released 1.53.1.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 90e2c9dacb11b2029181b950f5b04e3a95cca25e
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Wed Apr 13 17:39:11 2011 +0900
