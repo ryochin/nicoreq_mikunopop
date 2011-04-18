@@ -26,6 +26,9 @@ while( defined( my $f = $d->read ) ){
 		$line =~ s/\t*["']//o;
 		$line =~ s/["'],.*$//o;
 		
+		next if $line =~ m{^[\s\t]+$}o;
+		next if $line =~ m{^\t*//}o;
+		
 		# set
 		$pname->{ $line } = 1;    # for uniq
 	}
