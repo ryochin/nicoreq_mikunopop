@@ -1,7 +1,7 @@
 // Mikunopop
 // ref: http://d.hatena.ne.jp/nacookan/20080221/
 
-var version = '1.53.2';    // ME version
+var version = '1.53.3';    // ME version
 var countFileURL = 'http://mikunopop.info/play/count.json?' + version;    // make sure ct is test/javascript
 var cacheTime = 4 * 60 * 60;    // sec - please set it at least every 1 hr
 var MikunopopCount = new Object();    // as a hash container

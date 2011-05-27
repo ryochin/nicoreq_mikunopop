@@ -1,3 +1,36 @@
+commit 97eb7513c14804cdfe0d9a383df62b8134a1aad7
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri May 27 20:55:18 2011 +0900
+
+    tweaked some files.
+
+M	NGIDList.txt
+M	tags.js
+
+commit c47ff68953e0a7980debfc3c87a37672cfce6f8f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri May 27 20:54:47 2011 +0900
+
+    updated pnames.
+
+M	pnames.js
+M	pnames/mashita.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+M	pnames_ex.js
+
+commit d6eb7fa149e8a8a2814cd0d09d7bc0d1ab02708a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Mon Apr 18 15:07:03 2011 +0900
+
+    released 1.53.2.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit d37b1692c003b0d6dd7fb28ee7bdec64173153e2
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Mon Apr 18 14:59:46 2011 +0900
