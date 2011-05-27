@@ -20,6 +20,7 @@ settings["NotPTagsVO"] = ["",
 	"”EÒ‚ç‚¶‚¨OP",
 	"ˆç™POP",
 	"NebulaŒ€ê”ÅOP",
+	"ƒ~ƒNƒmPOP",
 	
 	// ‹È–¼
 	"Dump",
