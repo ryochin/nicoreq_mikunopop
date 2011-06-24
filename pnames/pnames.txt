@@ -812,6 +812,7 @@ xkaz
 y_kw
 y_t_b
 yamabushi
+yan
 yateasa
 ych
 yk+

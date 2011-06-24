@@ -104,5 +104,7 @@ settings["exceptionPTagsVO"] = ["",
 	"posaunist",
 	"KiNO",
 	"PieTako",
+	"yan",
+	"SmileR",
 ""];
 
