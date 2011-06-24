@@ -1,3 +1,65 @@
+commit 25341ae5323bec4116d1cb84b08ac1a96cb8fe6f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 24 12:53:20 2011 +0900
+
+    updated NGIDList.txt.
+
+M	NGIDList.txt
+
+commit 86731d2cf20f1565e4a0596a32110307ecbe9bbe
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 24 12:52:56 2011 +0900
+
+    updated pnames.
+
+M	pnames.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit 6592d0fc49d086398e68235d6de2adec91f26499
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 24 12:49:59 2011 +0900
+
+    updated to accept live url with query param when auto-filling the one via clipboard.
+
+M	System/Connect.hta
+
+commit a7bcbd6e52ffe9d1d2d20a43d7eed0198056955b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 24 12:44:34 2011 +0900
+
+    updated for a mylistgroup spec change.
+
+M	System/VideoInformation.js
+
+commit 1a80669621246eeef528067a33b4851dbe9721c5
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 24 12:41:32 2011 +0900
+
+    fixed a tiny logical bug for loop break.
+
+M	System/VideoInformation.js
+
+commit 793702b43978e0f54cb8bee30efc58ff9e2d9827
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 24 12:40:08 2011 +0900
+
+    fixed a bug around mylist json eval.
+
+M	System/VideoInformation.js
+
+commit a5665a8ad66a74a9f93c6786c2e13486fea9f878
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri May 27 21:02:00 2011 +0900
+
+    released 1.53.3.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 97eb7513c14804cdfe0d9a383df62b8134a1aad7
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Fri May 27 20:55:18 2011 +0900
