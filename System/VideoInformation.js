@@ -90,7 +90,7 @@ function getMylistCacheFile () {
 
 function __VideoInformation__getMylistIDs_via_net(){
 	var xmlhttp = createXMLHttpRequest();
-	xmlhttp.open("GET", "http://www.nicovideo.jp/my/mylist", false);
+	xmlhttp.open("GET", "http://www.nicovideo.jp/api/mylistgroup/list", false);
 	try{
 		xmlhttp.send();
 	}
@@ -112,7 +112,7 @@ function __VideoInformation__getMylistIDs_via_net(){
 	}
 
 	// extract
-	var json = extractObjectByPreloadSection( xmlhttp.responseText );
+	var json = $.evalJSON( xmlhttp.responseText );
 	
 	// check
 	if( ! json ){
@@ -120,7 +120,7 @@ function __VideoInformation__getMylistIDs_via_net(){
 	}
 
 	var result = [];
-	$.each( json, function () {
+	$.each( json["mylistgroup"], function () {
 
 		var id = this.id;
 		var title = this.name;
