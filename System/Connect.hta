@@ -26,7 +26,7 @@ window.onload = function(){
 	// クリップボードの放送 ID を自動で埋める
 	// http://live.nicovideo.jp/gate/lv4728353
 	var clip = clipboardData.getData("text");
-	if( clip != "" && clip.match(/lv[0-9]+$/) ){
+	if( clip != "" && clip.match(/lv[0-9]+(\?.*)?$/) ){
 		$('#lv').val( clip.toString() );
 		$('#OK').focus();
 	}
