@@ -197,18 +197,17 @@ function __VideoInformation__receiveComment(Chat){
 								
 								// extract
 								var json = extractObjectByPreloadSection( xmlhttp.responseText );
-								if( ! json )
-									continue;
-								
-								// check
-								$.each( json, function () {
-									if( this.item_data.video_id != VideoID )
-										return;
-									
-									$('#checkMylistResult').html( $('#checkMylistResult').html()
-										+ VideoID + ' はマイリスト「<span class="mylist-name">'+__VideoInformation__MylistIDs[i].name+'</span>」に登録されています。<br>' );
-									AllreadyExist = true;
-								} );
+								if( json ){
+									// check
+									$.each( json, function () {
+										if( this.item_data.video_id != VideoID )
+											return;
+										
+										$('#checkMylistResult').html( $('#checkMylistResult').html()
+											+ VideoID + ' はマイリスト「<span class="mylist-name">'+__VideoInformation__MylistIDs[i].name+'</span>」に登録されています。<br>' );
+										AllreadyExist = true;
+									} );
+								}
 							}
 							
 							// マイリストのプルダウンを作る
