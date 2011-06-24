@@ -35,7 +35,8 @@ function __VideoInformation__getMylistIDs(){
 	}
 	else{
 		// キャッシュ機能を使用しない
-		return __VideoInformation__getMylistIDs_via_net();
+		var content = __VideoInformation__getMylistIDs_via_net();
+		return $.evalJSON( content );
 	}
 }
 
