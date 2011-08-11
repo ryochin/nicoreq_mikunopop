@@ -1,3 +1,44 @@
+commit 57b99a2817d244e9a59cfe2ccf544521f8d7409a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Aug 11 22:24:57 2011 +0900
+
+    updated tags.
+
+M	tags.js
+
+commit 597440129e5b00e9bbea4fe31f041c09face8401
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Aug 11 22:24:30 2011 +0900
+
+    updated pnames.
+
+M	pnames.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit d8e523cb5014b7d48c699940757f379bbdb12d6c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Aug 11 22:21:39 2011 +0900
+
+    implemented 'forbid NM video request' option feature for workaround of a flash bug.
+
+M	NicoRequest.hta
+M	System/Config.js
+M	System/Main.js
+M	System/Menu.js
+
+commit 339b35cd2478b9dfaeadb26b4ebded7245da3c53
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Jun 24 13:02:36 2011 +0900
+
+    released 1.54.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 25341ae5323bec4116d1cb84b08ac1a96cb8fe6f
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Fri Jun 24 12:53:20 2011 +0900
