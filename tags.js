@@ -80,6 +80,7 @@ settings["genreTagWhiteList"] = ["",
 	"ミクリーモ",
 	"ボカロハウス",
 	"ボカムンベース",
+	"Vocacore",
 	
 	// etc
 	"VOCALOID和風曲",
