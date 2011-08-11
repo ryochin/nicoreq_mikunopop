@@ -59,6 +59,9 @@ Config.prototype = {
 			'MultiRequestLimit.Flag':0,
 			'MultiRequestLimit.Num':1,
 			
+			// nm 動画のリクエスト禁止
+			'ForbidNMVideo.Flag': 0,
+			
 			// リクエスト制限（タグ）
 			'RequestLimitation.Flag': 0,
 			'RequestLimitation.DefaultTags': {

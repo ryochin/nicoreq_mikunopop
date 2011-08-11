@@ -24,9 +24,18 @@ function importText(){
 	if(!text || text=="") return;
 	var sms  = text.match(/(sm|nm|so)\d+/ig);
 	if(!sms) return;
+	var isNM = false;
 	for(var i=0,l=sms.length; i<l; i++){
+		// nm check
+		if( config.get("ForbidNMVideo.Flag") && sms[i].match(/^nm/i) ){
+			isNM = true;
+		}
+		
 		ImportNumber++;
 		RequestManager.addRequestQueue(new RequestQueue(sms[i], "I", ImportNumber, 'admin'));
+	}
+	if( isNM ){
+		Status.postStatus("y’ˆÓIz nm “®‰æ‚ªŽæ‚èž‚ÝŽž‚ÉŽw’è‚³‚ê‚Ü‚µ‚½B", 10000);
 	}
 }
 

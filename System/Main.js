@@ -101,6 +101,26 @@ window.attachEvent("onload", function(){
 			$(this).val(1);
 		}
 	} );
+	
+	// ForbidNMVideo
+	if( config.get("ForbidNMVideo.Flag") ){
+		// on
+		$('#forbidNMVideo').attr( { checked: 1 } );
+	}
+	else{
+		// off
+		$('#forbidNMVideo').attr( { checked: 0 } );
+	}
+	$('#forbidNMVideo').click( function () {
+		// 
+		if( $(this).attr('checked') ){
+			config.set( "ForbidNMVideo.Flag", 1 );
+		}
+		else{
+			config.set( "ForbidNMVideo.Flag", 0 );
+		}
+		config.save();
+	} );
 });
 
 document.attachEvent("onkeydown", function(){
@@ -254,6 +274,10 @@ function receiveComment_Request(Chat){
 		else if(settings["AddPlayedVideoId2NGIDs"]&&PlayedVideoIds[sms[0]]) {
 			// 最近流れた動画
 			NicoLive.postComment(">>"+Chat.no+"さん、その動画は流したばかりなので・・・すみません。", "");
+		}
+		else if( config.get("ForbidNMVideo.Flag") && sms[0].match(/^nm/i) ){
+			// nm 動画
+			NicoLive.postComment(">>"+Chat.no+"さん、nm 動画は現在流せません、ごめんなさい。", "");
 		}
 		else if( config.get("MultiRequestLimit.Flag") && ! checkReqIDs( liveID, Chat.user_id ) ){
 			// １人による複数回リクのチェック
