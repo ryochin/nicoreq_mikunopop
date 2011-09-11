@@ -327,6 +327,10 @@ function receiveComment_Request(Chat){
 			// １人による複数回リクのチェック
 			NicoLive.postComment(">>"+Chat.no+"さん、おひとり" + config.get("MultiRequestLimit.Num") +  "リクまでとさせてくださいませ m(_ _)m", "");
 		}
+		else if( config.get("RestrictPlayCount.Flag") && ! checkPlayCount( sms[0], config.get("RestrictPlayCount.Num") ) ){
+			// ミクノ度による制限チェック
+			NicoLive.postComment(">>"+Chat.no+"さん、ミクノ度が" + config.get("RestrictPlayCount.Num") +  "未満のリクは現在受け付けていません m(_ _)m", "");
+		}
 		else if(settings["CheckNew"]){
 			// 新着かどうか確認し、新着だった場合は運営コメで通達
 			NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + sms[0], 'video', function(xmldom){
@@ -425,6 +429,20 @@ function checkReqIDs (live_id, user_id) {
 		? 1
 		: 0;
 }
+
+function checkPlayCount (video_id, minNum) {
+	var count = getMikunopopCount( video_id );
+	if( count == undefined )
+		return 0;
+	
+	if( count < minNum ){
+		return 0;
+	}
+	else{
+		return 1;
+	}
+}
+
 
 // 通常モードの再生
 var lastPlayVideoTime = 0;
