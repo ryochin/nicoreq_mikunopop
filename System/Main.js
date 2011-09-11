@@ -121,6 +121,50 @@ window.attachEvent("onload", function(){
 		}
 		config.save();
 	} );
+	
+	// restrict req by playcount
+	if( config.get("RestrictPlayCount.Flag") ){
+		// on
+		$('#restrictPlayCount').attr( { checked: 1 } );
+	}
+	else{
+		// off
+		$('#restrictPlayCount').attr( { checked: 0 } );
+		$('#restrictPlayCountNum').attr( { disabled: 1 } );
+	}
+	$('#restrictPlayCountNum').val( config.get("RestrictPlayCount.Num") );
+	
+	$('#restrictPlayCount').click( function () {
+		// 
+		if( $(this).attr('checked') ){
+			$('#restrictPlayCountNum').attr( { disabled: 0 } );
+			config.set( "RestrictPlayCount.Flag", 1 );
+		}
+		else{
+			$('#restrictPlayCountNum').attr( { disabled: 1 } );
+			config.set( "RestrictPlayCount.Flag", 0 );
+		}
+		config.save();
+	} );
+	
+	$('#restrictPlayCountNum').keyup( function () {
+		var n = parseInt( $(this).val() );
+		if( n > 0 && n < 1000 ){
+			// ok
+			config.set("RestrictPlayCount.Num", parseInt( $(this).val() ) );
+		}
+		else{
+			// invalid
+			config.set("RestrictPlayCount.Num", 1 );
+		}
+		config.save();
+	} );
+	$('#restrictPlayCountNum').blur( function () {
+		var n = parseInt( $(this).val() );
+		if( ! ( n > 0 && n < 1000 ) ){
+			$(this).val(1);
+		}
+	} );
 });
 
 document.attachEvent("onkeydown", function(){
