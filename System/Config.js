@@ -62,6 +62,10 @@ Config.prototype = {
 			// nm 動画のリクエスト禁止
 			'ForbidNMVideo.Flag': 0,
 			
+			// ミクノ度によるリクエスト制限
+			'RestrictPlayCount.Flag':0,
+			'RestrictPlayCount.Num':5,
+			
 			// リクエスト制限（タグ）
 			'RequestLimitation.Flag': 0,
 			'RequestLimitation.DefaultTags': {

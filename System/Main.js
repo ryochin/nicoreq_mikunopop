@@ -121,6 +121,50 @@ window.attachEvent("onload", function(){
 		}
 		config.save();
 	} );
+	
+	// restrict req by playcount
+	if( config.get("RestrictPlayCount.Flag") ){
+		// on
+		$('#restrictPlayCount').attr( { checked: 1 } );
+	}
+	else{
+		// off
+		$('#restrictPlayCount').attr( { checked: 0 } );
+		$('#restrictPlayCountNum').attr( { disabled: 1 } );
+	}
+	$('#restrictPlayCountNum').val( config.get("RestrictPlayCount.Num") );
+	
+	$('#restrictPlayCount').click( function () {
+		// 
+		if( $(this).attr('checked') ){
+			$('#restrictPlayCountNum').attr( { disabled: 0 } );
+			config.set( "RestrictPlayCount.Flag", 1 );
+		}
+		else{
+			$('#restrictPlayCountNum').attr( { disabled: 1 } );
+			config.set( "RestrictPlayCount.Flag", 0 );
+		}
+		config.save();
+	} );
+	
+	$('#restrictPlayCountNum').keyup( function () {
+		var n = parseInt( $(this).val() );
+		if( n > 0 && n < 1000 ){
+			// ok
+			config.set("RestrictPlayCount.Num", parseInt( $(this).val() ) );
+		}
+		else{
+			// invalid
+			config.set("RestrictPlayCount.Num", 1 );
+		}
+		config.save();
+	} );
+	$('#restrictPlayCountNum').blur( function () {
+		var n = parseInt( $(this).val() );
+		if( ! ( n > 0 && n < 1000 ) ){
+			$(this).val(1);
+		}
+	} );
 });
 
 document.attachEvent("onkeydown", function(){
@@ -283,6 +327,10 @@ function receiveComment_Request(Chat){
 			// １人による複数回リクのチェック
 			NicoLive.postComment(">>"+Chat.no+"さん、おひとり" + config.get("MultiRequestLimit.Num") +  "リクまでとさせてくださいませ m(_ _)m", "");
 		}
+		else if( config.get("RestrictPlayCount.Flag") && ! checkPlayCount( sms[0], config.get("RestrictPlayCount.Num") ) ){
+			// ミクノ度による制限チェック
+			NicoLive.postComment(">>"+Chat.no+"さん、ミクノ度が" + config.get("RestrictPlayCount.Num") +  "未満のリクは現在受け付けていません m(_ _)m", "");
+		}
 		else if(settings["CheckNew"]){
 			// 新着かどうか確認し、新着だった場合は運営コメで通達
 			NicoLive.getXML("http://ext.nicovideo.jp/api/getthumbinfo/" + sms[0], 'video', function(xmldom){
@@ -381,6 +429,20 @@ function checkReqIDs (live_id, user_id) {
 		? 1
 		: 0;
 }
+
+function checkPlayCount (video_id, minNum) {
+	var count = getMikunopopCount( video_id );
+	if( count == undefined )
+		return 0;
+	
+	if( count < minNum ){
+		return 0;
+	}
+	else{
+		return 1;
+	}
+}
+
 
 // 通常モードの再生
 var lastPlayVideoTime = 0;
