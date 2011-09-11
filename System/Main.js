@@ -87,7 +87,7 @@ window.attachEvent("onload", function(){
 		var n = parseInt( $(this).val() );
 		if( n > 0 && n < 100 ){
 			// ok
-			config.set("MultiRequestLimit.Num", $(this).val() );
+			config.set("MultiRequestLimit.Num", parseInt( $(this).val() ) );
 		}
 		else{
 			// invalid
