@@ -115,5 +115,7 @@ settings["exceptionPTagsVO"] = ["",
 	"solareca",
 	"sleepless",
 	"Zero",
+	"wind",
+	"ВѕВс",
 ""];
 
