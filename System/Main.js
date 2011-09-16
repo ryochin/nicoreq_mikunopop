@@ -151,7 +151,7 @@ window.attachEvent("onload", function(){
 		var n = parseInt( $(this).val() );
 		if( n > 0 && n < 1000 ){
 			// ok
-			config.set("RestrictPlayCount.Num", parseInt( $(this).val() ) );
+			config.set("RestrictPlayCount.Num", n );
 		}
 		else{
 			// invalid
