@@ -1,3 +1,74 @@
+commit 96a662f29b4b0209d83e9e60ee4c35e3aa23ad4c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 16 20:48:39 2011 +0900
+
+    tweaked System/Main.js.
+
+M	System/Main.js
+
+commit ae5d0080d8bab48248564d3dfd5b7544a6ca8aee
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 16 20:46:53 2011 +0900
+
+    tweaked jingles.json.
+
+M	jingles.json
+
+commit 12c69eaf78b0f4745740b29dc7b3ba863ba8dd84
+Merge: 2c1b6bc e72bf3f
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Sep 11 14:49:41 2011 +0900
+
+    Merge branch 'restrict-playcount'
+
+commit e72bf3f8b07b4ea1be61f720ab3a6441adc4fe3d
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Sep 11 14:45:32 2011 +0900
+
+    implemented restriction by play count feature.
+
+M	System/Main.js
+
+commit 2c1b6bcd399727141a6f2669e27d1890bb89433e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Sep 11 13:38:48 2011 +0900
+
+    tweaked for a config param related to parseInt().
+
+M	System/Main.js
+
+commit 90d0bc8f6dee7abe6a52ef4153d1896260898a8a
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Sep 11 13:34:47 2011 +0900
+
+    added RestrictPlayCount config param.
+
+M	NicoRequest.hta
+M	System/Config.js
+M	System/Main.js
+
+commit c550c2bc7145acdf5ca3d06daf020ce230c02a6b
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Sun Sep 11 13:14:40 2011 +0900
+
+    updated pnames.
+
+M	pnames.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+
+commit 7abc70df076a65211a42d9040cfc5147930d71e0
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Thu Aug 11 22:36:14 2011 +0900
+
+    released 1.55.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 57b99a2817d244e9a59cfe2ccf544521f8d7409a
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Thu Aug 11 22:24:57 2011 +0900
