@@ -1,3 +1,48 @@
+commit 0ebbb5d64f154f5268527b81e3dbf0b421da210e
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Sep 28 15:25:06 2011 +0900
+
+    fixed a problem around value change at input forms.
+
+M	System/Main.js
+
+commit c712d72d09eba4278e49b2177ae82996306f3f6c
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Sep 28 14:48:14 2011 +0900
+
+    updated NGIDList.txt.
+
+M	NGIDList.txt
+
+commit 9cb7dd64406c2a7c7370ca9be2462e98a2b0cd58
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Sep 28 14:41:23 2011 +0900
+
+    updated jingles.json.
+
+M	jingles.json
+
+commit 28d18482b2c3c348bf4306150b58967dd16a27c7
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Sep 28 14:02:29 2011 +0900
+
+    added showTimeLeft setting param to remove the untrusted time-left counter.
+
+M	System/Main.js
+M	settings.js
+
+commit 0a4895114a51c42ea525bff47fe3c59c56b8d9b0
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Fri Sep 16 21:00:22 2011 +0900
+
+    released 1.56.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 96a662f29b4b0209d83e9e60ee4c35e3aa23ad4c
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Fri Sep 16 20:48:39 2011 +0900
