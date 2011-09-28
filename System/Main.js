@@ -613,27 +613,33 @@ function calcTimeLeft () {
 //残り時間を計算
 function getTimeLeft(){
 	if(!SocketManager.connected) return;
-	var tagF = "", tagT = "";
-	//settings["LimitTime"][秒]-(-開始時間[秒]+現在時間[秒])
-	//開始時間は日本時間固定だが、現在時間は日本時間とは限らないのでそれぞれUTC標準時に変換
-	//ただし、サマータイムが導入されてる場合にはさらに補正が必要
-	var timeLeft = calcTimeLeft();
-
-	if(timeLeft < 60 * 5){
-		tagF="<font color=red>";
-		tagT="</font>";
+	
+	if( settings["showTimeLeft"] == true ){
+		var tagF = "", tagT = "";
+		//settings["LimitTime"][秒]-(-開始時間[秒]+現在時間[秒])
+		//開始時間は日本時間固定だが、現在時間は日本時間とは限らないのでそれぞれUTC標準時に変換
+		//ただし、サマータイムが導入されてる場合にはさらに補正が必要
+		var timeLeft = calcTimeLeft();
+		
+		if(timeLeft < 60 * 5){
+			tagF="<font color=red>";
+			tagT="</font>";
+		}
+		document.getElementById("timeleft").innerHTML = "残 " + tagF + convertTimeString(timeLeft) + tagT;
+		if(timeLeft<=0){
+			if(timeLeftTimer!=0){
+				clearInterval(timeLeftTimer);
+				timeLeftTimer = 0;
+			}
+			//30分強制ログオフ
+			if(document.getElementById("logoffCheck").checked){
+				disconnect();
+			}
+			$('#timeleft').html("放送終了");
+		}
 	}
-	document.getElementById("timeleft").innerHTML = "残 " + tagF + convertTimeString(timeLeft) + tagT;
-	if(timeLeft<=0){
-		if(timeLeftTimer!=0){
-			clearInterval(timeLeftTimer);
-			timeLeftTimer = 0;
-		}
-		//30分強制ログオフ
-		if(document.getElementById("logoffCheck").checked){
-			disconnect();
-		}
-		$('#timeleft').html("放送終了");
+	else{
+		$('#timeleft').html("残 --:--");
 	}
 }
 
@@ -678,11 +684,16 @@ function showPlayState(startTime, PlayTime, id){
 			}
 			
 			// 再生マージンをセット
-			var t = parseInt( calcTimeLeft() - residue );
-			var str = "空 " + convertTimeString( t );
-			if( last_t == 0 || Math.abs( last_t - t ) > 5 ){    // trying to suppress annoying flip-flop flickers :(
-				$('#timemargin').html( str );
-				last_t = t;
+			if( settings["showTimeLeft"] == true ){
+				var t = parseInt( calcTimeLeft() - residue );
+				var str = "空 " + convertTimeString( t );
+				if( last_t == 0 || Math.abs( last_t - t ) > 5 ){    // trying to suppress annoying flip-flop flickers :(
+					$('#timemargin').html( str );
+					last_t = t;
+				}
+			}
+			else{
+				$('#timemargin').html("空 --:--");
 			}
 		}
 		else{
@@ -720,7 +731,7 @@ function showPlayState(startTime, PlayTime, id){
 		// 自動再生がOFFなら再生終了して待機
 		}else{
 			$("#playState").html("再生終了");
-			$("#timemargin").html("再生終了");
+			$("#timemargin").html("空 --:--");
 		}
 	}
 }
