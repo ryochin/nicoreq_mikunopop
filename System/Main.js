@@ -92,14 +92,10 @@ window.attachEvent("onload", function(){
 		else{
 			// invalid
 			config.set("MultiRequestLimit.Num", 1 );
-		}
-		config.save();
-	} );
-	$('#multiReqNum').blur( function () {
-		var n = parseInt( $(this).val() );
-		if( ! ( n > 0 && n < 100 ) ){
+			
 			$(this).val(1);
 		}
+		config.save();
 	} );
 	
 	// ForbidNMVideo
@@ -156,14 +152,10 @@ window.attachEvent("onload", function(){
 		else{
 			// invalid
 			config.set("RestrictPlayCount.Num", 1 );
-		}
-		config.save();
-	} );
-	$('#restrictPlayCountNum').blur( function () {
-		var n = parseInt( $(this).val() );
-		if( ! ( n > 0 && n < 1000 ) ){
+			
 			$(this).val(1);
 		}
+		config.save();
 	} );
 });
 
