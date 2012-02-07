@@ -1,3 +1,36 @@
+commit 69f834b6f0ce7e99b745c8cd94fd46bdb351dcb6
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Feb 7 13:30:12 2012 +0900
+
+    updated pnames, jingles and tags.
+
+M	jingles.json
+M	pnames.js
+M	pnames/pnames.txt
+M	pnames/saihane.js
+M	tags.js
+
+commit 83685a2eba5107a3f51970477a9089dc20854570
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Tue Feb 7 13:10:15 2012 +0900
+
+    updated for a mylistgroup spec change.
+
+M	System/VideoInformation.js
+M	System/find.hta
+
+commit 411e9bb379e2c3000be14ba90f2d71a9ecf715e1
+Author: Ryo Okamoto <ryo@aquahill.net>
+Date:   Wed Jan 4 00:18:36 2012 +0900
+
+    released 1.57.1.
+
+M	Changes.txt
+M	HISTORY.txt
+M	NicoRequest.hta
+M	System/Mikunopop.js
+M	installer/nicoreq.iss
+
 commit 02f93d1c918adc2e823261fe61fe28b0f9e7aa73
 Author: Ryo Okamoto <ryo@aquahill.net>
 Date:   Wed Jan 4 00:06:20 2012 +0900
