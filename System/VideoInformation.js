@@ -17,7 +17,7 @@ function __VideoInformation__getMylistIDs(){
 				saveMylistCacheFile( file, content );
 				return $.evalJSON( content );
 			} catch (e) {
-				alert("マイリストの情報を正常に取得できませんでした orz\n（サーバが混雑していると起こりやすいようです）");
+				alert("マイリスト情報を取得できませんでした orz\n（ブラウザでログインしていないか、サーバが混雑しています）");
 				
 				// workaround として、ダミーを埋めておく
 				var f = new File;

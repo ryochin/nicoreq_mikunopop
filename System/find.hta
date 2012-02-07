@@ -5,6 +5,7 @@
 <title>マイリストから検索</title>
 <script type="text/javascript" src="./jquery.js"></script>
 <script type="text/javascript" src="./jquery.json.js"></script>
+<script type="text/javascript" src="./jquery.dump.js"></script>
 <script type="text/javascript" src="../settings.js"  charset="Shift_JIS"></script>
 <script type="text/javascript" src="./File.js"      charset="Shift_JIS"></script>
 <script type="text/javascript" src="./Utils.js"      charset="Shift_JIS"></script>
@@ -68,7 +69,7 @@ function getMylistGroup () {
 	
 	// マイページからマイリストのIDと名前を抽出
 	var xmlhttp = createXMLHttpRequest();
-	xmlhttp.open("GET", "http://www.nicovideo.jp/my/mylist", false);
+	xmlhttp.open("GET", "http://www.nicovideo.jp/api/mylistgroup/list", false);
 	try{
 		xmlhttp.send();
 	}catch(e){
@@ -89,7 +90,7 @@ function getMylistGroup () {
 	}
 	
 	// extract
-	var json = extractObjectByPreloadSection( xmlhttp.responseText );
+	var json = $.evalJSON( xmlhttp.responseText );
 	
 	// check
 	if( ! json ){
@@ -97,24 +98,22 @@ function getMylistGroup () {
 		return;
 	}
 	
-	var i = 0;
-	$.each( json, function () {
+	var result = [];
+	var id = 0;
+	$.each( json["mylistgroup"], function () {
 		// ブラックリストに載っている名前を弾く
 		if(Zen2Han(settings["MylistBlackList"].join(",")).indexOf(","+Zen2Han(this.name)+",") > -1)
 			return;
-		
+
 		// set
 		MyListNum += 1;
 		MyListName[MyListNum-1] = this.name;
 		MyListID[MyListNum-1] = this.id;
-		
-		stash.push( {
-			id : ++i,
-			title: this.name
-		} );
+
+		result.push( { id: ++id, title: this.name } );
 	} );
 	
-	return stash;
+	return result;
 }
 
 function MyListmanAdd(){
@@ -189,6 +188,23 @@ function length_sec2str (sec) {
 	return min + ":" + sec;
 }
 
+function getAPIToken () {
+	var xmlhttp = createXMLHttpRequest();
+	xmlhttp.open("GET", "http://www.nicovideo.jp/my/mylist", false);
+	try {
+		xmlhttp.send();
+	}
+	catch (e) {
+		return;
+	}
+
+	// extract
+	re = new RegExp('NicoAPI\.token = "([a-zA-Z0-9\-]+)"', "i");
+	if( xmlhttp.responseText.match( re ) ){
+		return RegExp.$1;
+	}
+}
+
 function findMyList(){
 	var xmlhttp = createXMLHttpRequest();
 
@@ -229,15 +245,16 @@ function findMyList(){
 			continue;
 		if(document.getElementById("MyList"+(i+1)).checked) {
 			j++;
-			xmlhttp.open("GET","http://www.nicovideo.jp/mylist/"+MyListID[i],false);
+			var url = "http://www.nicovideo.jp/api/mylist/list?group_id=" + MyListID[i] + "&token=" + getAPIToken();
+			xmlhttp.open("GET", url, false);
 			xmlhttp.send();
 
 			// extract
-			var json = extractObjectByPreloadSection( xmlhttp.responseText );
+			var json = $.evalJSON( xmlhttp.responseText );
 			if( ! json )
 				continue;
 
-			$.each( json, function () {
+			$.each( json.mylistitem, function () {
 				// status
 				if( this.item_data.deleted != 0 )
 					return;
